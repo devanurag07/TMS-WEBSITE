@@ -41,28 +41,38 @@ import { IoMapSharp } from "react-icons/io5"; //#12
 import { IoRocket } from "react-icons/io5"; //#13
 
 import { useState, useEffect } from 'react';
+import Footer from "@/components/layout/footer";
 
-const ScrollSpyDot = ({ active, onClick }: { active: boolean; onClick: () => void }) => (
+const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: () => void; color: string }) => (
   <button
     onClick={onClick}
-    className={`w-3 h-3 rounded-full transition-all duration-300 ${active ? 'bg-teal-400 scale-125' : 'bg-gray-400 hover:bg-teal-400'
+    className={`w-0 h-0 md:w-3 md:h-3 rounded-full transition-all duration-300 ${active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`
       }`}
   />
 );
-
+// 
+// const sections = [
+//   { id: 'hero', color: 'white' },
+//   { id: 'features', color: 'teal-950' },
+//   { id: 'comparison', color: 'white' },
+//   { id: 'benefits', color: 'teal-950' },
+//   { id: 'faq', color: 'white' },
+//   { id: 'contact', color: 'teal-950' },
+//   { id: 'cta', color: 'white' }
+// ];
 const sections = [
-  'hero',
-  'story',
-  'journey-1',
-  'journey-2',
-  'journey-3',
-  'team',
-  'blogs',
-  'cta'
+  { id: 'hero', color: 'white' },
+  { id: 'story', color: 'teal-950' },
+  { id: 'journey-1', color: 'white' },
+  { id: 'journey-2', color: 'teal-950' },
+  { id: 'journey-3', color: 'white' },
+  { id: 'team', color: 'teal-950' },
+  { id: 'blogs', color: 'white' },
+  { id: 'cta', color: 'teal-950' }
 ];
 
 export default function AboutUs() {
-  const [activeSection, setActiveSection] = useState(sections[0]);
+  const [activeSection, setActiveSection] = useState(sections[0].id);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -87,7 +97,7 @@ export default function AboutUs() {
     );
 
     sections.forEach((section) => {
-      const element = document.getElementById(section);
+      const element = document.getElementById(section.id);
       if (element) observer.observe(element);
     });
 
@@ -193,9 +203,10 @@ export default function AboutUs() {
       <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-[1000]">
         {sections.map((section) => (
           <ScrollSpyDot
-            key={section}
-            active={activeSection === section}
-            onClick={() => scrollToSection(section)}
+            key={section.id}
+            active={activeSection === section.id}
+            onClick={() => scrollToSection(section.id)}
+            color={section.color}
           />
         ))}
       </div>
@@ -525,72 +536,8 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* Final CTA Section */}
-      <div id="cta" className="wrapper flex justify-center items-center w-full py-10 md:py-20 bg-gradient-to-br from-[#001A1A] to-black px-4">
-        <div className="w-[95%] md:w-[90%] max-w-[1200px] bg-[#00A5A5]/10 backdrop-blur-lg rounded-3xl p-8 md:p-20 text-center relative overflow-hidden border border-[#00A5A5]/20">
-          {/* Background decorative elements */}
-          <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-          <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
 
-          <h2 className="text-5xl font-bold text-white mb-4 relative z-10">
-            Goodbye Guesswork
-          </h2>
-          <h3 className="text-4xl mb-12 text-white/90 relative z-10">
-            Hello <span className="text-[#00A5A5] font-semibold">Perfect Virtual Try-on</span> look!
-          </h3>
-          <button className="bg-[#00A5A5] text-white px-12 py-4 rounded-xl text-lg font-medium hover:bg-[#008585] transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105 relative z-10">
-            Book Demo
-          </button>
-        </div>
-      </div>
-
-      {/* Footer Section */}
-      <footer className="w-full bg-black text-white px-4 md:px-20 py-16">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Logo and Description Column */}
-          <div className="col-span-4">
-            <Image
-              src="/try-my-style-logo.svg"
-              alt="Try My Style"
-              width={150}
-              height={40}
-              className="mb-6"
-            />
-            <p className="text-gray-400 mb-6">
-              Upscaling the experience of a hairdo with a <span className="text-[#00A5A5]">try-on technology</span> that sits right at the center of Salon Consultations, Services and Aftercare.
-            </p>
-            <a href="/blog" className="text-gray-400 hover:text-white transition-colors">
-              Know our journey and what brought us here with blogs
-            </a>
-          </div>
-
-          {/* Company Links Column */}
-          <div className="col-span-4 ml-auto">
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><a href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="/help" className="text-gray-400 hover:text-white transition-colors">Help</a></li>
-              <li><a href="/affiliates" className="text-gray-400 hover:text-white transition-colors">Affiliates</a></li>
-              <li><a href="/professionals" className="text-gray-400 hover:text-white transition-colors">Professionals</a></li>
-            </ul>
-          </div>
-
-          {/* Legal Links Column */}
-          <div className="col-span-4">
-            <h4 className="text-white font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms-of-use" className="text-gray-400 hover:text-white transition-colors">Terms of Use</a></li>
-              <li><a href="/refund-policy" className="text-gray-400 hover:text-white transition-colors">Refund policy</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Copyright Notice */}
-        <div className="max-w-[1400px] mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          Try My Style™ is a venture of VtStyle Technologies Pvt. Ltd. (CIN: U72200UP2022PTC157545)
-        </div>
-      </footer>
+      <Footer />
 
     </div>
   );
