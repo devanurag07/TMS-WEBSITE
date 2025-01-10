@@ -43,29 +43,32 @@ const sections = [
   { id: "cta", color: "white" },
 ];
 
-
 const customer_behaviour_data = [
   {
     icon: robotIcon,
     title: "Innovative Technology",
-    description: "Adapting state-of-the-art technology that helps in providing realistic results"
+    description:
+      "Adapting state-of-the-art technology that helps in providing realistic results",
   },
   {
     icon: customerConfidenceIcon,
     title: "Customer Confidence",
-    description: "Reducing customer hesitance to try premium services and increasing business potential"
+    description:
+      "Reducing customer hesitance to try premium services and increasing business potential",
   },
   {
     icon: barIcon,
     title: "Smart Personalization",
-    description: "Leveraging data-driven inventory management to recommend products tailored to individual customer attributes"
+    description:
+      "Leveraging data-driven inventory management to recommend products tailored to individual customer attributes",
   },
   {
     icon: consultationIcon,
     title: "Expanding Services",
-    description: "Engaging in additional services such as product sales, online consultations, and targeted advertisements from the insights gained"
-  }
-]
+    description:
+      "Engaging in additional services such as product sales, online consultations, and targeted advertisements from the insights gained",
+  },
+];
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
@@ -123,7 +126,7 @@ export default function Home() {
 
       <div
         id="hero"
-        className="section-1 w-full flex justify-center items-center bg-black relative overflow-hidden px-4 md:px-0"
+        className="section-1 w-full flex justify-center items-center bg-black relative overflow-hidden px-4 md:px-20"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
@@ -146,7 +149,10 @@ export default function Home() {
                 <span className="text-white font-medium mb-4 block text-2xl md:text-3xl">
                   WELCOME TO TRY MY STYLE
                 </span>
-                <Typography variant="h1" className="text-white text-5xl md:text-6xl">
+                <Typography
+                  variant="h1"
+                  className="text-white text-5xl md:text-6xl"
+                >
                   See It. Try It. Own It.
                 </Typography>
                 {/* <h1 className="text-6xl md:text-7xl font-semibold mb-6 leading-tight text-white">
@@ -154,7 +160,10 @@ export default function Home() {
                   <span className="block text-white mt-2 font-semibold">All with our Smart Mirror</span>
                 </h1> */}
 
-                <Typography variant="h1" className="text-white text-5xl md:text-3xl">
+                <Typography
+                  variant="h1"
+                  className="text-white text-5xl md:text-3xl"
+                >
                   All with our Smart Mirror
                 </Typography>
 
@@ -183,7 +192,7 @@ export default function Home() {
 
       <div
         id="features"
-        className="section-1 2 w-full flex justify-center items-center bg-white flex-col min-h-screen relative overflow-hidden px-4 md:px-0"
+        className="section-1 2 w-full flex justify-center items-center bg-white flex-col min-h-screen relative overflow-hidden px-4 md:px-20"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
@@ -216,47 +225,72 @@ export default function Home() {
 
             {/* Mirror displays with enhanced shadows and effects */}
             {/* ... rest of your mirror display code ... */}
-            <div className="grid-cols-1 md:grid-cols-2 gap-8 hidden md:grid">
+            <div className="grid-cols-1 md:grid-cols-3 gap-8 hidden md:grid">
               {/* First Mirror */}
               <div className="relative z-[1]">
-                <div className="w-full h-[25.2rem] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-lg"></div>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[100]">
-                  <div className="w-2 h-2 rounded-full bg-white"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-500"></div>
-                </div>
+                <Image
+                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif"
+                  alt="Smart Mirror Demo 1"
+                  width={600}
+                  height={400}
+                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
+                />
+
               </div>
 
               {/* Second Mirror */}
               <div className="relative z-[1]">
-                <div className="w-full h-[25.2rem] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-lg"></div>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[100]">
-                  <div className="w-2 h-2 rounded-full bg-white"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-500"></div>
-                </div>
+                <Image
+                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_2.gif"
+                  alt="Smart Mirror Demo 2"
+                  width={600}
+                  height={400}
+                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
+                />
+              </div>
+
+              {/* Third Mirror */}
+              <div className="relative z-[1]">
+                <Image
+                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_3.gif"
+                  alt="Smart Mirror Demo 3"
+                  width={600}
+                  height={400}
+                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
+                />
               </div>
             </div>
 
             <HorizontalCarousel className="md:hidden" color="teal-950">
               {/* First Mirror */}
               <div className="z-[1]">
-                <div className="w-full h-[25.2rem] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-lg"></div>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[100]">
-                  <div className="w-2 h-2 rounded-full bg-white"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-500"></div>
-                </div>
+                <Image
+                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif"
+                  alt="Smart Mirror Demo 1"
+                  width={600}
+                  height={400}
+                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
+                />
               </div>
-
-              {/* Second Mirror */}
               <div className="z-[1]">
-                <div className="w-full h-[25.2rem] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-lg"></div>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-[100]">
-                  <div className="w-2 h-2 rounded-full bg-white"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-500"></div>
-                </div>
+                <Image
+                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_2.gif"
+                  alt="Smart Mirror Demo 2"
+                  width={600}
+                  height={400}
+                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
+                />
+              </div>
+              <div className="z-[1]">
+                <Image
+                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_3.gif"
+                  alt="Smart Mirror Demo 3"
+                  width={600}
+                  height={400}
+                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
+                />
               </div>
             </HorizontalCarousel>
-
-
           </div>
         </div>
       </div>
@@ -269,16 +303,45 @@ export default function Home() {
         {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
         {/* <div className="absolute bottom-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
         <section className="w-[90%] md:max-w-[1400px] w-full z-[1000]">
-          <Typography variant="h1" className="text-white text-center mb-20 pt-20">
+          <Typography
+            variant="h1"
+            className="text-white text-center mb-20 pt-20"
+          >
             Changing Customer Behavior
           </Typography>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:grid hidden">
             {/* Innovative Technology Card */}
-            {
-              customer_behaviour_data.map((item) => (
+            {customer_behaviour_data.map((item) => (
+              <>
+                <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-14 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1]">
+                  <div className="text-[#00A5A5] mb-4">
+                    <Image
+                      src={item.icon}
+                      alt="Innovative Technology"
+                      width={80}
+                      height={80}
+                      className="h-[80px]"
+                    />
+                  </div>
+                  <Typography variant="subheading" className="text-white mb-4">
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="content"
+                    className="text-[#4D7C7C] leading-relaxed"
+                  >
+                    {item.description}
+                  </Typography>
+                </div>
+              </>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <HorizontalCarousel className="h-[600px] md:hidden">
+              {/* Innovative Technology Card */}
+              {customer_behaviour_data.map((item) => (
                 <>
-
                   <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-14 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1]">
                     <div className="text-[#00A5A5] mb-4">
                       <Image
@@ -289,7 +352,10 @@ export default function Home() {
                         className="h-[80px]"
                       />
                     </div>
-                    <Typography variant="subheading" className="text-white mb-4">
+                    <Typography
+                      variant="subheading"
+                      className="text-white mb-4"
+                    >
                       {item.title}
                     </Typography>
                     <Typography
@@ -300,43 +366,7 @@ export default function Home() {
                     </Typography>
                   </div>
                 </>
-              ))
-            }
-
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <HorizontalCarousel className="h-[600px] md:hidden">
-              {/* Innovative Technology Card */}
-              {
-                customer_behaviour_data.map((item) => (
-                  <>
-
-                    <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-14 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1]">
-                      <div className="text-[#00A5A5] mb-4">
-                        <Image
-                          src={item.icon}
-                          alt="Innovative Technology"
-                          width={80}
-                          height={80}
-                          className="h-[80px]"
-                        />
-                      </div>
-                      <Typography variant="subheading" className="text-white mb-4">
-                        {
-                          item.title
-                        }
-                      </Typography>
-                      <Typography
-                        variant="content"
-                        className="text-[#4D7C7C] leading-relaxed"
-                      >
-                        {
-                          item.description
-                        }
-                      </Typography>
-                    </div></>
-                ))
-              }
+              ))}
               {/* Add other cards here */}
             </HorizontalCarousel>
           </div>
@@ -361,19 +391,28 @@ export default function Home() {
             {/* Row 1: Customer Experience */}
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
               <div className="text-right p-6 bg-teal-50/50 rounded-lg">
-                <Typography variant="h1" className="text-teal-950 text-2xl font-bold">
+                <Typography
+                  variant="h1"
+                  className="text-teal-950 text-2xl font-bold"
+                >
                   Before
                 </Typography>
               </div>
 
               <div className="flex flex-col items-center justify-center">
-                <Typography variant="h1" className="!mt-2 text-teal-950 text-2xl">
+                <Typography
+                  variant="h1"
+                  className="!mt-2 text-teal-950 text-2xl"
+                >
                   VS
                 </Typography>
               </div>
 
               <div className="p-6 bg-teal-50/50 rounded-lg">
-                <Typography variant="h1" className="text-teal-950 text-2xl font-bold">
+                <Typography
+                  variant="h1"
+                  className="text-teal-950 text-2xl font-bold"
+                >
                   After
                 </Typography>
               </div>
@@ -429,7 +468,10 @@ export default function Home() {
             {/* Row 2: Data Utilization */}
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
               <div className="text-right p-2 md:p-6 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   <span className="text-red-500 font-semibold">
                     No data & insights
                   </span>{" "}
@@ -447,13 +489,19 @@ export default function Home() {
                     className="h-[20px] md:h-[42px]"
                   />
                 </div>
-                <Typography variant="content" className="!mt-2 text-teal-950 text-sm md:text-xl text-center">
+                <Typography
+                  variant="content"
+                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
+                >
                   Data Utilization
                 </Typography>
               </div>
 
               <div className="p-2 md:p-6 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   Leveraging data gained to provide
                   <span className="text-teal-950 font-semibold">
                     {" "}
@@ -467,7 +515,10 @@ export default function Home() {
             {/* Row 3: Brand Visibility */}
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
               <div className="text-right p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   Losing out on social media
                   <span className="text-red-500 font-semibold">
                     {" "}
@@ -487,13 +538,19 @@ export default function Home() {
                     className="h-[20px] md:h-[42px]"
                   />
                 </div>
-                <Typography variant="content" className="!mt-2 text-teal-950 text-sm md:text-xl text-center">
+                <Typography
+                  variant="content"
+                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
+                >
                   Brand Visibility
                 </Typography>
               </div>
 
               <div className="p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   <span className="text-teal-950 font-semibold">
                     Gaining social media presence
                   </span>{" "}
@@ -505,7 +562,10 @@ export default function Home() {
             {/* Row 4: Business Growth */}
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
               <div className="text-right p-2 md:p-6 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   <span className="text-red-500 font-semibold">Low</span>{" "}
                   Average ticket size
                 </Typography>
@@ -521,13 +581,19 @@ export default function Home() {
                     className="h-[20px] md:h-[42px]"
                   />
                 </div>
-                <Typography variant="content" className="!mt-2 text-teal-950 text-sm md:text-xl text-center">
+                <Typography
+                  variant="content"
+                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
+                >
                   Business Growth
                 </Typography>
               </div>
 
               <div className="p-2 md:p-6 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   <span className="text-teal-950 font-semibold">Increased</span>{" "}
                   Average ticket size and footfall
                 </Typography>
@@ -537,7 +603,10 @@ export default function Home() {
             {/* Row 5: Market Position */}
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
               <div className="text-right p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   <span className="text-red-500 font-semibold">
                     No major differentiator
                   </span>{" "}
@@ -555,13 +624,19 @@ export default function Home() {
                     className="h-[20px] md:h-[42px]"
                   />
                 </div>
-                <Typography variant="content" className="!mt-2 text-teal-950 text-sm md:text-xl text-center">
+                <Typography
+                  variant="content"
+                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
+                >
                   Market Position
                 </Typography>
               </div>
 
               <div className="p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography variant="content" className="text-gray-600 text-sm md:text-xl">
+                <Typography
+                  variant="content"
+                  className="text-gray-600 text-sm md:text-xl"
+                >
                   Transformation into a{" "}
                   <span className="text-teal-950 font-semibold">
                     technology-first salon
@@ -715,7 +790,7 @@ export default function Home() {
 
               <button
                 type="submit"
-                className="bg-[#00A5A5] text-white px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-[#008585] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="bg-teal-950 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-[#008585] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
                 <span className="text-lg font-medium">Submit</span>
                 <svg
@@ -741,6 +816,6 @@ export default function Home() {
       </div>
 
       <Footer />
-    </div >
+    </div>
   );
 }
