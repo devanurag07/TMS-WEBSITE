@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Logo and Description Column */}
           <div className="col-span-4">
             <Typography variant="subheading" className="text-white mb-4">
-              Virtstyle Technologies
+              Try My Style
             </Typography>
             <p className="text-gray-400 mb-6">
               Upscaling the experience of a hairdo with a{" "}

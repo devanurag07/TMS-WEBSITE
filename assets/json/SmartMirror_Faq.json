@@ -1,0 +1,24 @@
+{
+    "faqs": [
+        {
+            "question": "Why doesn’t the tool display my exact look like the reference image?",
+            "answer": "The tool output is the AI suggested version of the look based on facial attributes, health of your hair and latest trends, while ensuring that it covers all the key characteristics of the chosen look. Thus the result may or may not exactly replicate the reference image. To get more suggestions in the same look, try generating multiple results using the retry prompt."
+        },
+        {
+            "question": "Can I add additional looks in this tool?",
+            "answer": "You can request adding various hair color shades, haircuts as well as other premium styling services at no additional charges. Contact us to know more."
+        },
+        {
+            "question": "Why is AI better than AR for virtual try-on for hair?",
+            "answer": "Artificial intelligence (AI) regenerates every single strand of a user's hair keeping in mind multiple attributes to ensure a hyper-realistic result, in comparison to Augmented Reality (AR) which simply pastes the predesigned filters onto your hair."
+        },
+        {
+            "question": "How do salons benefit from this tool?",
+            "answer": "Our tool can act as a great value addition to your customers apart from providing a differential from competitors. Moreover, it can be used to shoot up your revenue by increasing footfall, higher average purchases and third party advertising through smart mirrors."
+        },
+        {
+            "question": "Can this tool be integrated onto my website?",
+            "answer": "You can easily integrate it into the App/website through secured API calls. Contact us to get enterprise pricing and integration deadlines."
+        }
+    ]
+}

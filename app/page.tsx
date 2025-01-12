@@ -70,9 +70,42 @@ const customer_behaviour_data = [
   },
 ];
 
+type GifData = {
+  url: string;
+  alt: string;
+  text: string;
+};
+
 export default function Home() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
+  const [activeGifIndex, setActiveGifIndex] = useState(0);
+
+  const gifs: GifData[] = [
+    {
+      url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif",
+      alt: "Smart Mirror Demo 1",
+      text: "Sleek Design"
+    },
+    {
+      url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_2.gif",
+      alt: "Smart Mirror Demo 2",
+      text: "Dual-function"
+    },
+    {
+      url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_3.gif",
+      alt: "Smart Mirror Demo 3",
+      text: "New age consultation"
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveGifIndex((prev) => (prev + 1) % gifs.length);
+    }, 5000); // Adjust timing as needed (3000ms = 3s)
+
+    return () => clearTimeout(timer);
+  }, [activeGifIndex]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -171,7 +204,7 @@ export default function Home() {
                   variant="content"
                   className="text-gray-400 max-w-[600px] mb-8"
                 >
-                  Leveraging the strength of GenAI, providing personalized and
+                  Leveraging the strength of <span className="text-[#00A5A5] font-semibold">GenAI</span>, providing personalized and
                   highly realistic Virtual Try-On solutions, catering to Fashion
                   & Beauty Tech Industries.
                 </Typography>
@@ -225,79 +258,57 @@ export default function Home() {
 
             {/* Mirror displays with enhanced shadows and effects */}
             {/* ... rest of your mirror display code ... */}
-            <div className="grid-cols-1 md:grid-cols-3 gap-8 hidden md:grid">
-              {/* First Mirror */}
-              <div className="relative z-[1]">
-                <Image
-                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif"
-                  alt="Smart Mirror Demo 1"
-                  width={600}
-                  height={400}
-                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
-                />
+            <div className="gap-8 justify-center items-center hidden md:flex">
+              {gifs.map((gif, index) => (
+                <div
+                  key={index}
+                  className={`relative z-[1] transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-40"
+                    }`}
+                >
+                  <Image
+                    src={gif.url}
+                    alt={gif.alt}
+                    width={600}
+                    height={400}
+                    className={`${index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"} h-full rounded-3xl shadow-lg object-cover`}
+                  />
 
-              </div>
-
-              {/* Second Mirror */}
-              <div className="relative z-[1]">
-                <Image
-                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_2.gif"
-                  alt="Smart Mirror Demo 2"
-                  width={600}
-                  height={400}
-                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
-                />
-              </div>
-
-              {/* Third Mirror */}
-              <div className="relative z-[1]">
-                <Image
-                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_3.gif"
-                  alt="Smart Mirror Demo 3"
-                  width={600}
-                  height={400}
-                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
-                />
-              </div>
+                  <Typography variant="subheading" className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeGifIndex ? "opacity-100" : "opacity-0"}`} >
+                    {gif.text}
+                  </Typography>
+                  <div className="absolute inset-0 bg-green-800/20 rounded-3xl" />
+                </div>
+              ))}
             </div>
 
             <HorizontalCarousel className="md:hidden" color="teal-950">
-              {/* First Mirror */}
-              <div className="z-[1]">
-                <Image
-                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif"
-                  alt="Smart Mirror Demo 1"
-                  width={600}
-                  height={400}
-                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
-                />
-              </div>
-              <div className="z-[1]">
-                <Image
-                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_2.gif"
-                  alt="Smart Mirror Demo 2"
-                  width={600}
-                  height={400}
-                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
-                />
-              </div>
-              <div className="z-[1]">
-                <Image
-                  src="https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_3.gif"
-                  alt="Smart Mirror Demo 3"
-                  width={600}
-                  height={400}
-                  className="w-full h-[25.2rem] rounded-3xl shadow-lg object-cover"
-                />
-              </div>
+              {gifs.map((gif, index) => (
+                <div
+                  key={index}
+                  className={`flex items-center justify-center transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-40"
+                    }`}
+                >
+                  <div className="relative">
+                    <Image
+                      src={gif.url}
+                      alt={gif.alt}
+                      width={600}
+                      height={400}
+                      className="w-[18rem] h-full rounded-3xl shadow-lg object-cover"
+                    />
+                    <div className="absolute inset-0 bg-green-800/20 rounded-3xl" />
+                  </div>
+                </div>
+              ))}
             </HorizontalCarousel>
           </div>
         </div>
       </div>
 
+
       <div
         id="comparison"
-        className="section-2 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-screen relative overflow-hidden bg-gradient-to-br linear-gradient-to-br from-black to-teal-950"
+        className="section-2 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[70vh] relative overflow-hidden bg-gradient-to-br linear-gradient-to-br from-black to-teal-950"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
@@ -305,33 +316,32 @@ export default function Home() {
         <section className="w-[90%] md:max-w-[1400px] w-full z-[1000]">
           <Typography
             variant="h1"
-            className="text-white text-center mb-20 pt-20"
+            className="text-white text-center mb-20 pt-5"
           >
             Changing Customer Behavior
           </Typography>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:grid hidden">
+          <div className="  gap-8  hidden md:flex">
             {/* Innovative Technology Card */}
             {customer_behaviour_data.map((item) => (
               <>
-                <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-14 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1]">
-                  <div className="text-[#00A5A5] mb-4">
+                <div className="flex-1 bg-gradient-to-br from-[#001A1A] to-[#003333] p-6 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1] aspect-square">
+                  <div className="text-[#00A5A5] mb-2">
                     <Image
                       src={item.icon}
                       alt="Innovative Technology"
-                      width={80}
-                      height={80}
-                      className="h-[80px]"
+                      width={50}
+                      height={50}
+                      className="h-[50px]"
                     />
                   </div>
-                  <Typography variant="subheading" className="text-white mb-4">
+                  <Typography variant="subheading" className="text-white mb-2 text-sm max-w-[100px]">
                     {item.title}
                   </Typography>
                   <Typography
                     variant="content"
-                    className="text-[#4D7C7C] leading-relaxed"
+                    className="text-[#6c9797] leading-relaxed text-xs "
                   >
-                    {item.description}
+                    {item.description}.
                   </Typography>
                 </div>
               </>
@@ -650,7 +660,7 @@ export default function Home() {
 
       <div
         id="faq"
-        className="section-4 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-screen relative overflow-hidden mt-5"
+        className="section-4 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[70vh] relative overflow-hidden mt-5"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
@@ -679,23 +689,28 @@ export default function Home() {
               {Object.entries(faqData).map(([key, data]) => (
                 <div key={key} className="w-full">
                   <button
-                    className="w-full bg-[#1A1A1A] hover:bg-[#252525] p-3 rounded-lg flex justify-between items-center group transition-all duration-300"
+                    className="w-full bg-white hover:bg-gray-200  p-3 rounded-lg flex justify-between items-center group transition-all duration-300"
                     onClick={() => handleFaqClick(key)}
                   >
-                    <Typography
-                      variant="content"
-                      className="text-white text-left"
-                    >
-                      {data.Question}
-                    </Typography>
-                    <span
-                      className={`text-white text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""}`}
-                    >
-                      +
-                    </span>
+                    <div className="w-full h-full text-teal-950 hover:text-white flex justify-between">
+
+                      <Typography
+                        variant="content"
+                        className="text-left font-semibold"
+                      >
+                        {data.Question}
+                      </Typography>
+
+                      <span
+                        className={` text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""}`}
+                      >
+                        +
+                      </span>
+                    </div>
+
                   </button>
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${activeFaq === key
+                    className={`overflow-hidden transition-all bg-teal-950 rounded-md mt-2  duration-300 ${activeFaq === key
                       ? "max-h-[500px] opacity-100"
                       : "max-h-0 opacity-0"
                       }`}
@@ -724,7 +739,7 @@ export default function Home() {
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
         <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
 
-        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-screen z-[1000]">
+        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-[70vh] z-[1000]">
           {/* Left Column - Text and Map */}
           <div className="flex-1">
             <div className="heading flex-1">

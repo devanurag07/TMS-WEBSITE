@@ -42,6 +42,7 @@ import { IoRocket } from "react-icons/io5"; //#13
 
 import { useState, useEffect } from 'react';
 import Footer from "@/components/layout/footer";
+import AboutUsImage from "../../assets/about_us_hero.svg";
 
 const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: () => void; color: string }) => (
   <button
@@ -60,19 +61,8 @@ const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: ()
 //   { id: 'contact', color: 'teal-950' },
 //   { id: 'cta', color: 'white' }
 // ];
-const sections = [
-  { id: 'hero', color: 'white' },
-  { id: 'story', color: 'teal-950' },
-  { id: 'journey-1', color: 'white' },
-  { id: 'journey-2', color: 'teal-950' },
-  { id: 'journey-3', color: 'white' },
-  { id: 'team', color: 'teal-950' },
-  { id: 'blogs', color: 'white' },
-  { id: 'cta', color: 'teal-950' }
-];
 
 export default function AboutUs() {
-  const [activeSection, setActiveSection] = useState(sections[0].id);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -80,6 +70,21 @@ export default function AboutUs() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const [showJourney, setShowJourney] = useState(false);
+
+  const sections = [
+    { id: 'hero', color: 'white' },
+    { id: 'story', color: 'teal-950' },
+    { id: 'journey-1', color: 'white' },
+    ...(showJourney ? [
+      { id: 'journey-2', color: 'teal-950' },
+      { id: 'journey-3', color: 'white' },
+    ] : []),
+    { id: 'team', color: 'teal-950' },
+    { id: 'blogs', color: 'white' },
+  ];
+
+  const [activeSection, setActiveSection] = useState(sections[0].id);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,13 +101,17 @@ export default function AboutUs() {
       }
     );
 
+    // Disconnect existing observations
+    observer.disconnect();
+
+    // Observe all current sections
     sections.forEach((section) => {
       const element = document.getElementById(section.id);
       if (element) observer.observe(element);
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [showJourney]);
 
   const journeyContent = [
     {
@@ -206,7 +215,7 @@ export default function AboutUs() {
             key={section.id}
             active={activeSection === section.id}
             onClick={() => scrollToSection(section.id)}
-            color={section.color}
+            color={section.color === 'white' ? 'white' : 'teal-950'}
           />
         ))}
       </div>
@@ -214,9 +223,9 @@ export default function AboutUs() {
       <Navbar />
 
       <div id="hero" className="section-1 w-full flex justify-center items-center bg-black relative overflow-hidden">
-        <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full object-cover z-[100]" />
-        <div className="max-w-[1400px] w-full min-h-screen grid grid-cols-1 md:grid-cols-2 items-center z-[200] px-4 md:px-20">
-          <div className="py-20 md:py-0">
+        <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full md:object-cover z-[100]" />
+        <div className="max-w-[1400px]  w-full min-h-screen flex flex-col md:flex-row items-center z-[200] px-4 md:px-20 mt-20 md:mt-0">
+          <div className="py-10 md:py-0 md:flex-1">
             <Typography variant="h1" className="text-white mb-6 text-center md:text-left">
               Know us before your believe us
             </Typography>
@@ -224,20 +233,20 @@ export default function AboutUs() {
               Try My Style revolutionizes the hair styling industry by aligning hairstylists’ expertise with customers’ vision through cutting-edge technology, empowering salons to regain business and customers to explore confidently.
             </Typography>
           </div>
-          <div className="relative h-full flex items-center justify-center">
+          <div className="flex justify-center items-center md:flex-1">
             {/* Add your 3D model or image here */}
-            {/* <Image
-              src={BusinessPeople}
+            <Image
+              src={AboutUsImage}
               alt="Business People"
               width={300}
-              height={300}
-              className="object-contain"
-            /> */}
+              height={200}
+              className="object-contain h-full md:w-[90%]"
+            />
           </div>
         </div>
       </div>
 
-      <div id="story" className="section-2 w-full flex justify-center items-center bg-white relative overflow-hidden">
+      <div id="story" className="section-2 w-full flex justify-center items-center bg-white relative ">
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
         <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
 
@@ -281,70 +290,119 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+
       <div id="journey-1" className="sub-section-1 bg-black min-h-screen flex justify-center items-center relative w-full">
         <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full object-cover z-[100]" />
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-teal-400/20"
-          style={{
-            clipPath: "path('M 0,0 C 30,25 -30,75 0,100')", // Modified to create S-curve
-            animation: "flow 3s linear infinite",
-            transform: "translateX(-50%)"
-          }}></div>
-        <div className="max-w-[1400px] w-full py-16 px-4 md:px-20 min-h-screen relative z-[200]">
 
-          <Typography variant="h1" className="text-white mb-5 text-center md:text-left">
+        <div className="max-w-[1400px] w-full py-16 px-4 md:px-20 min-h-screen relative z-[200]">
+          <Typography variant="h1" className="text-white mb-12 text-center md:text-left">
             Development<br />Journey<br />So Far
           </Typography>
-          <div className="content relative mt-5">
+
+          <div className="content relative ">
             {journeyContent.slice(0, 3).map((milestone, index) => (
-              <JourneyCard key={index} title={milestone.title} desc={milestone.desc} date={milestone.date} index={index} icon={milestone.icon} />
+              <JourneyCard key={index} {...milestone} index={index} start={index == 0} />
             ))}
           </div>
         </div>
-      </div>
-      <div id="journey-2" className="sub-section-2 bg-white min-h-screen flex justify-center items-center relative overflow-hidden w-full">
 
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-teal-400/20"
-          style={{
-            clipPath: "path('M 0,0 C -30,25 30,75 0,100')", // Inverted S-curve
-            animation: "flow 3s linear infinite",
-            transform: "translateX(-50%)"
-          }}></div>
-        <div className="max-w-[1400px] w-full py-16  px-4 md:px-20 min-h-screen z-[200]">
-          <div className="content relative">
-            {journeyContent.slice(3, 8).map((milestone, index) => (
-              <JourneyCard key={index} title={milestone.title} desc={milestone.desc} date={milestone.date} index={index} icon={milestone.icon} darkTheme={true} />
-            ))}
+        {/* Show More Button */}
+        {!showJourney && (
+          <div className="w-full flex justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[150] left-1/2 -translate-x-1/2">
+            <button
+              onClick={() => setShowJourney(true)}
+              className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
+            >
+              <svg
+                className="w-8 h-8 md:w-12 md:h-12 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
           </div>
-        </div>
+        )}
       </div>
+      {/* Journey Sections */}
+      {showJourney && (
+        <>
 
-      <div id="journey-3" className="sub-section-3 bg-black min-h-screen flex justify-center items-center relative w-full">
-        <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full object-cover z-[100]" />
+          <div id="journey-2" className="sub-section-2 bg-white min-h-screen flex justify-center items-center relative overflow-hidden w-full">
 
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-teal-400/20"
-          style={{
-            clipPath: "path('M 0,0 C 30,25 -30,75 0,100')", // Back to original S-curve
-            animation: "flow 3s linear infinite",
-            transform: "translateX(-50%)"
-          }}></div>
-        <div className="max-w-[1400px] w-full py-16  px-4 md:px-20 min-h-screen z-[200]">
-          <div className="content relative">
-            {journeyContent.slice(8, 13).map((milestone, index) => (
-              <JourneyCard key={index} title={milestone.title} desc={milestone.desc} date={milestone.date} index={index} icon={milestone.icon} />
-            ))}
+            <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
+            <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-teal-400/20"
+              style={{
+                clipPath: "path('M 0,0 C -30,25 30,75 0,100')", // Inverted S-curve
+                animation: "flow 3s linear infinite",
+                transform: "translateX(-50%)"
+              }}></div>
+            <div className="max-w-[1400px] w-full py-16  px-4 md:px-20 min-h-screen z-[200]">
+              <div className="content relative">
+                {journeyContent.slice(3, 8).map((milestone, index) => (
+                  <JourneyCard key={index} {...milestone} index={index} lightTheme={true} start={index == 0} />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div id="team" className="section-4 w-full flex justify-center items-center bg-white">
+          <div id="journey-3" className="sub-section-3 bg-black min-h-screen flex justify-center items-center relative w-full">
+            <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full object-cover z-[100]" />
+
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-teal-400/20"
+              style={{
+                clipPath: "path('M 0,0 C 30,25 -30,75 0,100')", // Back to original S-curve
+                animation: "flow 3s linear infinite",
+                transform: "translateX(-50%)"
+              }}></div>
+            <div className="max-w-[1400px] w-full py-16  px-4 md:px-20 min-h-screen z-[200]">
+              <div className="content relative">
+                {journeyContent.slice(8, 13).map((milestone, index) => (
+                  <JourneyCard key={index} {...milestone} index={index} start={index == 0} />
+                ))}
+              </div>
+            </div>
+
+            {/* Show More Button */}
+            {showJourney && (
+              <div className="w-full flex justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[150] left-1/2 -translate-x-1/2">
+                <button
+                  onClick={() => setShowJourney(false)}
+                  className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
+                >
+                  <svg
+                    className="w-8 h-8 md:w-12 md:h-12 text-white rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      <div id="team" className="section-4 w-full flex justify-center items-center bg-white ">
         <div className="max-w-[1400px] w-full py-32 px-10 min-h-screen">
           <Typography variant="h1" className="text-black mb-0 text-center">
             Team
           </Typography>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
             {/* Team Member Cards */}
             <div className="flex items-center justify-start gap-5 bg-white rounded-lg p-4 shadow-lg">
               <div className="image-wrapper">
@@ -357,10 +415,10 @@ export default function AboutUs() {
                 />
               </div>
               <div className="content">
-                <Typography variant="content" className="text-gray-600 text-sm">Co-Founder | Technology</Typography>
-                <Typography variant="subheading" className="text-black mt-2">Amarpal Singh</Typography>
+                <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Technology</Typography>
+                <Typography variant="subheading" className="text-teal-950 mt-2">Amarpal Singh</Typography>
                 <div className="social-icons mt-2">
-                  <a href="https://linkedin.com" className="text-teal-600 hover:text-teal-800 transition-colors">
+                  <a href="https://linkedin.com" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                   </a>
                 </div>
@@ -377,10 +435,10 @@ export default function AboutUs() {
                 />
               </div>
               <div className="content">
-                <Typography variant="content" className="text-gray-600 text-sm">Co-Founder | Operations</Typography>
-                <Typography variant="subheading" className="text-black mt-2">Dhruv Gupta</Typography>
+                <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Operations</Typography>
+                <Typography variant="subheading" className="text-teal-950 mt-2">Dhruv Gupta</Typography>
                 <div className="social-icons mt-2">
-                  <a href="https://linkedin.com" className="text-teal-600 hover:text-teal-800 transition-colors">
+                  <a href="https://linkedin.com" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                   </a>
                 </div>
@@ -398,10 +456,10 @@ export default function AboutUs() {
                 />
               </div>
               <div className="content">
-                <Typography variant="content" className="text-gray-600 text-sm">Co-Founder | Strategy</Typography>
-                <Typography variant="subheading" className="text-black mt-2">Yuvraj Singh</Typography>
+                <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Strategy</Typography>
+                <Typography variant="subheading" className="text-teal-950 mt-2">Yuvraj Singh</Typography>
                 <div className="social-icons mt-2">
-                  <a href="https://linkedin.com" className="text-teal-600 hover:text-teal-800 transition-colors">
+                  <a href="https://linkedin.com" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                   </a>
                 </div>
@@ -442,6 +500,7 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+
       <div id="blogs" className="section-5 w-full flex justify-center items-center bg-black min-h-[100vh]">
         <div className="max-w-[1400px] w-full py-32 px-10 min-h-screen">
           <Typography variant="h1" className="text-white mb-10 text-start">
@@ -536,7 +595,6 @@ export default function AboutUs() {
         </div>
       </div>
 
-
       <Footer />
 
     </div>
@@ -544,32 +602,76 @@ export default function AboutUs() {
 }
 
 
-const JourneyCard = ({ title, desc, date, index, darkTheme, icon }: { title: string, desc: string, date: string, index: number, darkTheme?: boolean, icon: React.ReactNode }) => {
-  const offset = darkTheme ? 1 : 0;
+const JourneyCard = ({ title, desc, date, index, lightTheme, icon, start }: { title: string, desc: string, date: string, index: number, start?: boolean, lightTheme?: boolean, icon: React.ReactNode }) => {
+  const offset = lightTheme ? 1 : 0;
+  const isLeft = (index + offset) % 2 === 0;
   return (
-    <div
-      key={index}
-      className={`flex ${(index + offset) % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} justify-center mb-8`}
-      style={{
-        transform: `translateX(${(index + offset) % 2 === 0 ? '0' : '0'}) md:translateX(${(index + offset) % 2 === 0 ? '10%' : '-10%'})`,
-      }}
-    >
-      <div className="relative w-full md:w-[500px] px-4 md:px-0">
-        <div className={`${darkTheme ? 'bg-teal-950' : 'bg-gray-900/50'} backdrop-blur-lg p-4 md:p-6 rounded-xl border ${darkTheme ? 'border-white/10' : 'border-white/20'} hover:bg-gray-900/60 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-teal-500/10`}>
-          <div className="flex flex-col md:flex-row gap-2 md:gap-4">
-            <div className="icon flex justify-center md:justify-start">
-              {icon}
-            </div>
-            <div className="flex flex-col items-center md:items-start gap-2 md:gap-4 mb-2 md:mb-3">
-              <div className="text-center md:text-left">
-                <Typography variant="subheading" className={`${darkTheme ? 'text-white' : 'text-teal-400'} font-semibold`}>{title}</Typography>
-                <Typography variant="content" className={`${darkTheme ? 'text-white/80' : 'text-white/80'} !mt-1 md:!mt-2 font-semibold`}>{date}</Typography>
+    <div className="relative flex items-center w-full">
+      {/* Main vertical timeline line */}
+
+      <div className={`absolute left-1/2 w-[2px] ${lightTheme ? 'bg-teal-400' : 'bg-white'} -translate-x-1/2 ${start ? 'h-[50%]  translate-y-1/2' : 'h-full'}`} />
+
+      {/* Timeline node with horizontal connector */}
+      <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
+        {/* Left horizontal line */}
+        {/* {isLeft && (
+          <div className="w-[40px] h-px bg-teal-400/20 relative right-[40px]" />
+        )} */}
+
+        {/* Center node */}
+        <div className=" border-2 border-teal-200  relative w-[40px] h-[40px] rounded-full flex items-center justify-center">
+          <div className={`w-4 h-4 rounded-full ${lightTheme ? 'bg-teal-400' : 'bg-white'} border-2 ${lightTheme ? 'border-white' : 'border-teal-400'} z-10`} />
+        </div>
+      </div>
+
+      {/* Card container */}
+      <div className={`w-full flex ${isLeft ? 'justify-end pr-8 md:pr-12' : 'justify-start pl-8 md:pl-12'}`}>
+        <div className="w-full md:w-[500px] relative">
+          {/* Connecting line from horizontal connector to card */}
+          <div
+            className={`absolute top-1/2 ${isLeft ? 'right-full' : 'left-full'} 
+            w-[52px] h-[4px] ${lightTheme ? 'bg-teal-400' : 'bg-white/20'}`}
+          >
+            <div className={`z-10 w-5 h-5 ${lightTheme ? 'bg-teal-400' : 'bg-white'} rounded-full absolute top-1/2 -translate-y-1/2 ${isLeft ? 'right-[-10px]' : 'left-[-5px]'}`} />
+          </div>
+
+          <div className={`
+            ${lightTheme ? 'bg-teal-950' : 'bg-gray-900/50'} 
+            backdrop-blur-lg p-4 md:p-6 rounded-xl 
+            border ${lightTheme ? 'border-white/10' : 'border-white/20'} 
+            hover:bg-gray-900/60 transition-all duration-300 
+            hover:scale-105 hover:shadow-lg hover:shadow-teal-500/10
+          `}>
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+              <div className="icon flex justify-center md:justify-start">
+                {icon}
+              </div>
+              <div className="flex flex-col items-center md:items-start gap-2 md:gap-4 mb-2 md:mb-3">
+                <div className="text-center md:text-left">
+                  <Typography
+                    variant="subheading"
+                    className={`${lightTheme ? 'text-white' : 'text-teal-400'} font-semibold`}
+                  >
+                    {title}
+                  </Typography>
+                  <Typography
+                    variant="content"
+                    className={`${lightTheme ? 'text-white/80' : 'text-white/80'} !mt-1 md:!mt-2 font-semibold`}
+                  >
+                    {date}
+                  </Typography>
+                </div>
               </div>
             </div>
+            <Typography
+              variant="content"
+              className={`${lightTheme ? 'text-white/80' : 'text-white/80'} text-center md:text-left`}
+            >
+              {desc}
+            </Typography>
           </div>
-          <Typography variant="content" className={`${darkTheme ? 'text-white/80' : 'text-white/80'} text-center md:text-left`}>{desc}</Typography>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -5,13 +5,15 @@ interface HorizontalCarouselProps {
     className?: string;
     autoPlayInterval?: number; // Time in milliseconds between slides
     color?: string;
+    showDots?: boolean;
 }
 
 export const HorizontalCarousel: React.FC<HorizontalCarouselProps> = ({
     children,
     className = '',
     autoPlayInterval = 3000, // Default to 3 seconds
-    color = 'white'
+    color = 'white',
+    showDots = true
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
@@ -108,20 +110,24 @@ export const HorizontalCarousel: React.FC<HorizontalCarouselProps> = ({
                 </div>
             </div>
 
-            {/* Navigation Dots */}
-            <div className="flex justify-center gap-2 mt-5">
-                {children.map((_, index) => (
-                    <button
-                        key={index}
-                        className={`w-2 h-2 rounded-full transition-all ${currentIndex === index
-                            ? `bg-${color} w-4`
-                            : 'bg-gray-300'
-                            }`}
-                        onClick={() => handleDotClick(index)}
-                        aria-label={`Go to slide ${index + 1}`}
-                    />
-                ))}
-            </div>
+            {
+                showDots && (
+                    <div className="flex justify-center gap-2 mt-5">
+                        {children.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`w-2 h-2 rounded-full transition-all ${currentIndex === index
+                                    ? `bg-${color} w-4`
+                                    : 'bg-gray-300'
+                                    }`}
+                                onClick={() => handleDotClick(index)}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                )
+            }
+
         </div>
     );
 }; 
