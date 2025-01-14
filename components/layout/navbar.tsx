@@ -73,7 +73,7 @@ export const Navbar = () => {
                                 )}
                             </div>
                             <a
-                                href="#faqpos"
+                                href="#faq"
                                 className="text-white/80 hover:text-white transition-colors relative group"
                             >
                                 FAQ

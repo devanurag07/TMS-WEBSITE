@@ -550,7 +550,7 @@ export default function Home() {
                 </Typography>
               </div>
 
-              <div className="flex flex-col items-center justify-center" id="faqpos">
+              <div className="flex flex-col items-center justify-center">
                 <div className="rounded-full w-[35px] h-[35px] md:h-[70px] md:w-[70px] bg-teal-950 flex items-center justify-center">
                   <Image
                     src={Vector3Icon}
