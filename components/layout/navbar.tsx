@@ -5,6 +5,8 @@ import { useState } from "react"
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
+    const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false)
 
     return (
         <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[1400px] z-[2000]">
@@ -40,22 +42,38 @@ export const Navbar = () => {
                                 About us
                                 <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
                             </a>
+                            <div className="relative group">
+                                <button
+                                    className="text-white/80 hover:text-white transition-colors relative group flex items-center gap-1"
+                                    onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
+                                    onMouseEnter={() => setIsProductsDropdownOpen(true)}
+                                >
+                                    Products
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                    <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+                                </button>
+
+                                {isProductsDropdownOpen && (
+                                    <div
+                                        className="absolute top-full left-0 mt-2 w-48 bg-teal-950 rounded-lg border border-white/20 shadow-lg"
+                                        onMouseLeave={() => setIsProductsDropdownOpen(false)}
+                                    >
+                                        <a href="/smart-mirror" className="block px-4 py-2 text-white/80 hover:text-white hover:bg-teal-900 rounded-t-lg">
+                                            Smart Mirror
+                                        </a>
+                                        <a href="/jewellery" className="block px-4 py-2 text-white/80 hover:text-white hover:bg-teal-900">
+                                            Jewellery
+                                        </a>
+                                        <div className="block px-4 py-2 text-white/60 cursor-not-allowed rounded-b-lg">
+                                            Clothes (Coming Soon)
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                             <a
-                                href="/smart-mirror"
-                                className="text-white/80 hover:text-white transition-colors relative group"
-                            >
-                                Smart Mirror
-                                <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-                            </a>
-                            <a
-                                href="#partners"
-                                className="text-white/80 hover:text-white transition-colors relative group"
-                            >
-                                Partners
-                                <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-                            </a>
-                            <a
-                                href="#faq"
+                                href="#faqpos"
                                 className="text-white/80 hover:text-white transition-colors relative group"
                             >
                                 FAQ
@@ -76,11 +94,35 @@ export const Navbar = () => {
                             </a>
                         </div>
 
-                        <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:hidden absolute top-full left-0 right-0 mt-2 flex-col space-y-4 bg-teal-950  rounded-2xl border border-white/20 p-4`}>
+                        <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:hidden absolute top-full left-0 right-0 mt-2 flex-col space-y-4 bg-teal-950 rounded-2xl border border-white/20 p-4`}>
                             <a href="/aboutus" className="text-white/80 hover:text-white transition-colors">About us</a>
-                            <a href="/smart-mirror" className="text-white/80 hover:text-white transition-colors">Smart Mirror</a>
-                            <a href="#partners" className="text-white/80 hover:text-white transition-colors">Partners</a>
-                            <a href="#faq" className="text-white/80 hover:text-white transition-colors">FAQ</a>
+                            <div className="space-y-2">
+                                <button
+                                    onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
+                                    className="text-white/80 hover:text-white transition-colors w-full text-left flex items-center justify-between"
+                                >
+                                    Products
+                                    <svg className={`w-4 h-4 transform transition-transform ${isMobileProductsOpen ? 'rotate-180' : ''}`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div className={`${isMobileProductsOpen ? 'flex flex-col space-y-2 pl-4' : 'hidden'}`}>
+                                    <a href="/smart-mirror" className="text-white/80 hover:text-white transition-colors block">
+                                        Smart Mirror
+                                    </a>
+                                    <a href="/jewellery" className="text-white/80 hover:text-white transition-colors block">
+                                        Jewellery
+                                    </a>
+                                    <div className="text-white/60 cursor-not-allowed">
+                                        Clothes (Coming Soon)
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#faqpos" className="text-white/80 hover:text-white transition-colors">FAQ</a>
                             <a href="#contact" className="text-white/80 hover:text-white transition-colors">Contact Us</a>
                             <a href="#get-started" className="bg-white text-teal-950 px-6 py-2.5 rounded-full text-center hover:bg-teal-950 hover:text-white transition-all duration-300">
                                 Try On

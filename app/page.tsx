@@ -159,11 +159,18 @@ export default function Home() {
 
       <div
         id="hero"
-        className="section-1 w-full flex justify-center items-center bg-black relative overflow-hidden px-4 md:px-20"
+        className="section-1 w-full flex justify-center items-center bg-black relative px-4 md:px-20"
       >
+
+
+
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
+        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+
+        {/* create two circles of radial gradient and put them in the top left and bottom right */}
+        {/* <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950 z-[200]" ></div> */}
 
         {/* Hero Section with improved styling */}
         <section className="relative min-h-screen md:max-w-[1400px] w-full z-[1000]">
@@ -222,42 +229,35 @@ export default function Home() {
           </div>
         </section>
       </div>
-
       <div
         id="features"
-        className="section-1 2 w-full flex justify-center items-center bg-white flex-col min-h-screen relative overflow-hidden px-4 md:px-20"
+        className="section-1 2 w-full flex justify-center items-center bg-black flex-col min-h-screen relative  px-4 md:px-20"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
+        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
 
         {/* Rest of your existing hero content with improved styling */}
         <div className="w-[90%] md:max-w-[1400px] w-full mt-20 mb-20 z-[1000]">
           <div className="w-full">
             <div className="mb-20">
-              <Typography variant="subheading" className="text-gray-500">
+              <Typography variant="subheading" className="text-gray-400">
                 SMARTER SALONS
               </Typography>
-              {/* <div className="heading text-gray-500 text-3xl font-semibold">SMARTER SALONS</div> */}
-              <Typography variant="h1" className="text-primary">
+              <Typography variant="h1" className="text-white">
                 Style Made Simple.
               </Typography>
 
               <Typography
                 variant="content"
-                className="text-black max-w-[600px]"
+                className="text-gray-400 max-w-[600px]"
               >
                 Transform the way you explore and perfect your look. With
                 intuitive features designed to make styling effortless.
               </Typography>
-              {/* <p className="text-lg text-black max-w-[600px]">
-                Transform the way you explore and perfect your look.
-                With intuitive features designed to make styling effortless.
-              </p> */}
             </div>
 
             {/* Mirror displays with enhanced shadows and effects */}
-            {/* ... rest of your mirror display code ... */}
             <div className="gap-8 justify-center items-center hidden md:flex">
               {gifs.map((gif, index) => (
                 <div
@@ -276,16 +276,16 @@ export default function Home() {
                   <Typography variant="subheading" className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeGifIndex ? "opacity-100" : "opacity-0"}`} >
                     {gif.text}
                   </Typography>
-                  <div className="absolute inset-0 bg-green-800/20 rounded-3xl" />
+                  <div className="absolute inset-0 bg-[#00A5A5]/20 rounded-3xl" />
                 </div>
               ))}
             </div>
 
-            <HorizontalCarousel className="md:hidden" color="teal-950">
+            <HorizontalCarousel className="md:hidden" color="white">
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-center transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-40"
+                  className={`flex items-center justify-center transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-100"
                     }`}
                 >
                   <div className="relative">
@@ -296,7 +296,10 @@ export default function Home() {
                       height={400}
                       className="w-[18rem] h-full rounded-3xl shadow-lg object-cover"
                     />
-                    <div className="absolute inset-0 bg-green-800/20 rounded-3xl" />
+                    <div className="absolute inset-0 bg-[#00A5A5]/20 rounded-3xl" />
+                    <Typography variant="subheading" className="text-white font-semibold absolute bottom-5 left-1/2 -translate-x-1/2">
+                      {gif.text}
+                    </Typography>
                   </div>
                 </div>
               ))}
@@ -305,83 +308,6 @@ export default function Home() {
         </div>
       </div>
 
-
-      <div
-        id="comparison"
-        className="section-2 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[70vh] relative overflow-hidden bg-gradient-to-br linear-gradient-to-br from-black to-teal-950"
-      >
-        {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
-        {/* <div className="absolute bottom-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
-        <section className="w-[90%] md:max-w-[1400px] w-full z-[1000]">
-          <Typography
-            variant="h1"
-            className="text-white text-center mb-20 pt-5"
-          >
-            Changing Customer Behavior
-          </Typography>
-          <div className="  gap-8  hidden md:flex">
-            {/* Innovative Technology Card */}
-            {customer_behaviour_data.map((item) => (
-              <>
-                <div className="flex-1 bg-gradient-to-br from-[#001A1A] to-[#003333] p-6 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1] aspect-square">
-                  <div className="text-[#00A5A5] mb-2">
-                    <Image
-                      src={item.icon}
-                      alt="Innovative Technology"
-                      width={50}
-                      height={50}
-                      className="h-[50px]"
-                    />
-                  </div>
-                  <Typography variant="subheading" className="text-white mb-2 text-sm max-w-[100px]">
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    variant="content"
-                    className="text-[#6c9797] leading-relaxed text-xs "
-                  >
-                    {item.description}.
-                  </Typography>
-                </div>
-              </>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <HorizontalCarousel className="h-[600px] md:hidden">
-              {/* Innovative Technology Card */}
-              {customer_behaviour_data.map((item) => (
-                <>
-                  <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-14 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1]">
-                    <div className="text-[#00A5A5] mb-4">
-                      <Image
-                        src={item.icon}
-                        alt="Innovative Technology"
-                        width={80}
-                        height={80}
-                        className="h-[80px]"
-                      />
-                    </div>
-                    <Typography
-                      variant="subheading"
-                      className="text-white mb-4"
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="content"
-                      className="text-[#4D7C7C] leading-relaxed"
-                    >
-                      {item.description}
-                    </Typography>
-                  </div>
-                </>
-              ))}
-              {/* Add other cards here */}
-            </HorizontalCarousel>
-          </div>
-        </section>
-      </div>
 
       <div
         id="benefits"
@@ -624,7 +550,7 @@ export default function Home() {
                 </Typography>
               </div>
 
-              <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center" id="faqpos">
                 <div className="rounded-full w-[35px] h-[35px] md:h-[70px] md:w-[70px] bg-teal-950 flex items-center justify-center">
                   <Image
                     src={Vector3Icon}
@@ -659,14 +585,122 @@ export default function Home() {
       </div>
 
       <div
-        id="faq"
-        className="section-4 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[70vh] relative overflow-hidden mt-5"
+        id="comparison"
+        className="section-2 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[100vh] relative overflow-hidden "
       >
-        {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
 
+        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+
+        {/* create two circles of radial gradient and put them in the top left and bottom right */}
+        {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
+        {/* <div className="absolute bottom-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
         <section className="w-[90%] md:max-w-[1400px] w-full z-[1000]">
+          <Typography
+            variant="h1"
+            className="text-white text-center mb-20 pt-5"
+          >
+            Changing Customer Behavior
+          </Typography>
+          <div className="hidden md:grid md:grid-cols-2 gap-8">
+            {/* Innovative Technology Card */}
+            {customer_behaviour_data.map((item) => (
+              <>
+                <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-12 rounded-lg hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1] ">
+                  <div className="text-[#00A5A5] mb-2">
+                    <Image
+                      src={item.icon}
+                      alt="Innovative Technology"
+                      width={50}
+                      height={50}
+                      className="h-[50px]"
+                    />
+                  </div>
+                  <Typography variant="subheading" className="text-white mb-2 text-sm">
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="content"
+                    className="text-[#6c9797] leading-relaxed text-xs"
+                  >
+                    {item.description}.
+                  </Typography>
+                </div>
+              </>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:hidden">
+            {customer_behaviour_data.map((item) => (
+              <>
+                <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-4 rounded-lg hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1] ">
+                  <div className="text-[#00A5A5] mb-2">
+                    <Image
+                      src={item.icon}
+                      alt="Innovative Technology"
+                      width={40}
+                      height={40}
+                      className="h-[40px]"
+                    />
+                  </div>
+                  <Typography variant="subheading" className="text-white mb-1 text-sm">
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="content"
+                    className="text-[#6c9797] leading-relaxed text-xs"
+                  >
+                    {item.description}.
+                  </Typography>
+                </div>
+              </>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <HorizontalCarousel className="h-[600px] hidden">
+              {/* Innovative Technology Card */}
+              {customer_behaviour_data.map((item) => (
+                <>
+                  <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-14 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1]">
+                    <div className="text-[#00A5A5] mb-4">
+                      <Image
+                        src={item.icon}
+                        alt="Innovative Technology"
+                        width={80}
+                        height={80}
+                        className="h-[80px]"
+                      />
+                    </div>
+                    <Typography
+                      variant="subheading"
+                      className="text-white mb-4"
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="content"
+                      className="text-[#4D7C7C] leading-relaxed"
+                    >
+                      {item.description}
+                    </Typography>
+                  </div>
+                </>
+              ))}
+              {/* Add other cards here */}
+            </HorizontalCarousel>
+          </div>
+        </section>
+      </div>
+
+
+      <div
+        id="faq"
+        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[100vh] relative "
+      >
+        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/40 rounded-full blur-[100px] z-[200]"></div>
+
+        <section className="md:max-w-[1400px] w-full z-[1000]">
           <div className="mb-16 flex flex-col md:flex-row md:gap-[250px]">
             <div className="heading flex-1">
               <Typography
@@ -676,7 +710,7 @@ export default function Home() {
                 FAQ
               </Typography>
 
-              <Typography variant="h1" className="text-white mt-2 mb-12">
+              <Typography variant="h1" className="text-teal-950 mt-2 mb-12">
                 Frequently
                 <br />
                 asked
@@ -685,15 +719,14 @@ export default function Home() {
               </Typography>
             </div>
 
-            <div className="space-y-3 flex-3 w-full flex flex-col gap-4">
+            <div className="space-y-3 flex-3 w-full flex flex-col">
               {Object.entries(faqData).map(([key, data]) => (
                 <div key={key} className="w-full">
                   <button
-                    className="w-full bg-white hover:bg-gray-200  p-3 rounded-lg flex justify-between items-center group transition-all duration-300"
+                    className="w-full bg-white hover:bg-gray-200 p-3 shadow-2xl rounded-lg flex justify-between items-center group transition-all duration-300"
                     onClick={() => handleFaqClick(key)}
                   >
                     <div className="w-full h-full text-teal-950 hover:text-white flex justify-between">
-
                       <Typography
                         variant="content"
                         className="text-left font-semibold"
@@ -701,24 +734,25 @@ export default function Home() {
                         {data.Question}
                       </Typography>
 
+                      <div className="w-[10px]"></div>
+
                       <span
-                        className={` text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""}`}
+                        className={`text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""}`}
                       >
                         +
                       </span>
                     </div>
-
                   </button>
                   <div
-                    className={`overflow-hidden transition-all bg-teal-950 rounded-md mt-2  duration-300 ${activeFaq === key
+                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${activeFaq === key
                       ? "max-h-[500px] opacity-100"
                       : "max-h-0 opacity-0"
                       }`}
                   >
-                    <div className="p-5 text-white/80 bg-[#1A1A1A]/50 rounded-b-lg">
+                    <div className="p-5 text-white bg-teal-950 rounded-b-lg">
                       <Typography
                         variant="content"
-                        className="text-white text-left"
+                        className="text-left text-white"
                       >
                         {data.Answer}
                       </Typography>
@@ -733,13 +767,13 @@ export default function Home() {
 
       <div
         id="contact"
-        className="section-5 w-full flex justify-center items-center bg-white p-4 pt-20 md:p-20 relative"
+        className="section-5 w-full flex justify-center items-start bg-white p-4 pt-20 md:p-20 relative"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
         <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
 
-        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-[70vh] z-[1000]">
+        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16 min-h-[100vh] z-[1000]">
           {/* Left Column - Text and Map */}
           <div className="flex-1">
             <div className="heading flex-1">

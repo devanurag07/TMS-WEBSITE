@@ -2,8 +2,14 @@ import React from "react";
 import { Typography } from "../typography/typography";
 import FooterCtaImage from "@/assets/footer-cta-bg.png";
 import Image from "next/image";
+import { FaLinkedin, FaInstagram, FaXTwitter, FaFacebookF } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
-const Footer = () => {
+type FooterProps = {
+  openCalendly?: () => void;
+};
+
+const Footer = ({ openCalendly }: FooterProps) => {
   return (
     <>
       <div
@@ -26,7 +32,7 @@ const Footer = () => {
           </Typography>
           <Typography
             variant="subheading"
-            className="text-white/90 relative z-10"
+            className="text-white/90 relative z-10 text-3xl"
           >
             Hello{" "}
             <span className="text-white font-semibold text-3xl">
@@ -43,18 +49,55 @@ const Footer = () => {
 
       {/* Footer Section */}
       <footer className="w-full bg-black text-white px-4 md:px-20 py-8 md:py-16">
-        <div className="w-[90%] md:max-w-[1400px] flex justify-between gap-10 flex-col md:flex-row">
+        <div className="w-[90%] mx-auto md:max-w-[1400px] flex justify-between gap-10 flex-col md:flex-row">
           {/* Logo and Description Column */}
-          <div className="col-span-4">
+          <div className="md:max-w-[400px]">
             <Typography variant="subheading" className="text-white mb-4">
               Try My Style
             </Typography>
             <p className="text-gray-400 mb-6">
-              Upscaling the experience of a hairdo with a{" "}
-              <span className="text-[#00A5A5]">try-on technology</span> that
-              sits right at the center of Salon Consultations, Services and
-              Aftercare.
+              Try My Style™ is a venture of Virtstyle Technologies Pvt. Ltd. (CIN: U72200UP2022PTC157545)
             </p>
+            <div className="flex gap-4 mb-6">
+              <a
+                href="https://www.linkedin.com/company/trymystyle/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#00A5A5] transition-colors"
+              >
+                <FaLinkedin size={24} />
+              </a>
+              <a
+                href="https://x.com/StylTry?mx=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#00A5A5] transition-colors"
+              >
+                <FaXTwitter size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/try_my_style_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#00A5A5] transition-colors"
+              >
+                <FaInstagram size={24} />
+              </a>
+              <a
+                href="https://www.facebook.com/Trymistyl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#00A5A5] transition-colors"
+              >
+                <FaFacebookF size={24} />
+              </a>
+              <a
+                href="mailto:contact@trymystyle.com"
+                className="text-gray-400 hover:text-[#00A5A5] transition-colors"
+              >
+                <MdEmail size={24} />
+              </a>
+            </div>
             <a
               href="/blog"
               className="text-gray-400 hover:text-white transition-colors"
@@ -63,7 +106,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="flex justify-center w-full gap-10">
+          <div className="flex justify-start md:justify-end w-full gap-10 md:gap-20">
             <div className="col-span-4 md:ml-auto">
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2">
@@ -136,7 +179,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright Notice */}
-        <div className="max-w-[1400px] mx-auto mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <div className="w-[90%] mx-auto md:max-w-[1400px] mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
           Try My Style™ is a venture of Virtstyle Technologies Pvt. Ltd. (CIN: U72200UP2022PTC157545)
         </div>
 

@@ -213,20 +213,67 @@ export default function SmartMirror() {
           </div>
         </div>
       </div>
-      <div className="bg-white" id="how-it-works">
-        <div className="flex max-w-[1400px] flex-col pt-20 ">
 
-          <div className="how-it-works z-[100] mb-20 md:mt-0 bg-white min-h-screen h-full items-center justify-center flex flex-col p-6 md:p-0 text-center">
+      <div id="benefits" className="section-2 min-h-screen w-full bg-white relative overflow-hidden flex items-center justify-center">
+
+        <div className="absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>
+        <div className="absolute bottom-[-120px] right-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>
+
+        <div className="store-benefits p-4 pt-20  z-[100] relative max-w-[1400px] w-full">
+          <Typography
+            className="store-benefits-title text-start text-teal-950"
+            variant={"h1"}
+          >
+            What&apos;s in store for Salons?
+          </Typography>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 mt-4  md:mt-20 md:grid ">
+            {store_benefits.slice(0, 6).map((item) => (
+              <>
+                <div className="md:p-10 p-5 w-full rounded-3xl bg-white relative border shadow-lg">
+                  <div className="flex flex-row md:flex-row items-center justify-start gap-4">
+                    <div className="icon">
+                      <Image src={item.icon} alt="Icon" width={60} height={60} className="text-teal-950 h-10 w-10 md:h-14 md:w-14" />
+                    </div>
+                    <Typography
+                      className="benefit-card-title mt-4 poppins font-medium text-teal-950 text-start"
+                      variant={"subheading"}
+                    >
+                      {item.title}
+                    </Typography>
+                  </div>
+
+                  <Typography
+                    className="description poppins !mt-2 text-teal-900"
+                    variant={"content"}
+                  >
+                    {item.description}
+                  </Typography>
+                </div>
+              </>
+            ))}
+          </div>
+
+        </div>
+      </div>
+      <div className=" bg-black w-full flex items-center justify-center relative" id="how-it-works">
+
+        {/* create two circles of radial gradient and put them in the top left and bottom right */}
+        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+
+        <div className="flex max-w-[1400px] flex-col pt-20 items-start justify-start w-full p-4">
+
+          <div className="how-it-works z-[100] mb-20 md:mt-0  min-h-screen h-full items-start justify-start flex flex-col md:p-0 text-center">
             <Typography
-              className="how-it-works-title text-black"
+              className="how-it-works-title text-white text-start"
               variant={"h1"}
             >
               Know how it works?
             </Typography>
 
-            <Typography className="how-it-works-subtitle text-black !mt-4 max-w-4xl text-center" variant={"content"}>
-              A simple 4-step process to get you started.
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, vitae ratione assumenda repudiandae neque incidunt eum veniam necessitatibus consectetur similique odio nulla hic eos nisi soluta, officiis eveniet, adipisci magni?
+            <Typography className="how-it-works-subtitle text-gray-300 !mt-4 max-w-4xl text-start" variant={"content"}>
+              A simple 4-step process to get you started. The simple and user-friendly interface will help the hair stylist and client communicate effectively and take the salon consultation experience to a whole new level.
             </Typography>
 
             <div className="video-clips justify-between gap-4 mt-20 md:flex hidden">
@@ -244,8 +291,7 @@ export default function SmartMirror() {
                       height={400}
                       className={` ${index === activeVideoIndex ? "w-[24rem]" : "w-[18rem]"}`}
                     />
-                    <div className="absolute inset-0 bg-green-800/20 rounded-3xl" />
-
+                    <div className="absolute inset-0 bg-teal-950/20 rounded-3xl" />
 
                     <Typography variant="subheading" className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeVideoIndex ? "opacity-100" : "opacity-0"}`} >
                       {clip.title}
@@ -255,10 +301,8 @@ export default function SmartMirror() {
               </div>
             </div>
 
-
-            <HorizontalCarousel className="md:hidden mt-10" color="teal-950" showDots={true}>
+            <HorizontalCarousel className="md:hidden mt-10" color="teal-400" showDots={true}>
               {videoClips.map((clip, index) => (
-
                 <div key={index} className="flex flex-col items-center justify-center">
                   <div
                     key={index}
@@ -271,115 +315,25 @@ export default function SmartMirror() {
                       height={400}
                       className="w-[18rem]"
                     />
-                    <div className="absolute inset-0 bg-green-800/20 rounded-3xl" />
+                    <div className="absolute inset-0 bg-teal-950/20 rounded-3xl" />
 
-
-                    <Typography variant="subheading" className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeVideoIndex ? "opacity-100" : "opacity-0"}`} >
+                    <Typography variant="subheading" className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeVideoIndex ? "opacity-100" : "opacity-100"}`} >
                       {clip.title}
                     </Typography>
                   </div>
-
                 </div>
-
               ))}
-
             </HorizontalCarousel>
           </div>
         </div>
       </div>
-      <div id="benefits" className="section-2 min-h-screen w-full bg-black relative overflow-hidden">
-
-        <div className="absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-950 rounded-full blur-[100px] z-[0]"></div>
-        <div className="absolute bottom-[-120px] right-[-150px] w-[600px] h-[600px] bg-teal-950 rounded-full blur-[100px] z-[0]"></div>
-
-        <div className="store-benefits p-4 pt-20 lg:p-32 z-[100] relative">
-          <Typography
-            className="store-benefits-title text-start text-white"
-            variant={"h1"}
-          >
-            What&apos;s in store for Salons?
-          </Typography>
-
-          <div className="grid-cols-3 gap-20 mt-20 hidden md:grid">
-            {store_benefits.map((item) => (
-              <>
-                <div className="p-10 w-full rounded-3xl bg-gradient-to-br from-teal-950 to-teal-900 h-[350px] max-w-lg relative min-w-[330px]">
-                  <div className="icon">
-                    <Image src={item.icon} alt="Icon" width={60} height={60} className="text-white" />
-                  </div>
-                  <Typography
-                    className="benefit-card-title mt-4 poppins font-medium text-white"
-                    variant={"subheading"}
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    className="description poppins !mt-2 text-white"
-                    variant={"content"}
-                  >
-                    {item.description}
-                  </Typography>
-                </div>
-              </>
-            ))}
-          </div>
-          <HorizontalCarousel className="md:hidden mt-10" color="teal-950" showDots={false}>
-            {store_benefits.slice(0, Math.ceil(store_benefits.length / 2)).map((item) => (
-              <>
-                <div className="p-10 w-full rounded-3xl bg-white h-[350px] max-w-lg relative min-w-[330px]">
-                  <div className="icon">
-                    <Image src={item.icon} alt="Icon" width={60} height={60} />
-                  </div>
-                  <Typography
-                    className="benefit-card-title mt-4 poppins font-medium"
-                    variant={"subheading"}
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    className="description poppins !mt-2"
-                    variant={"content"}
-                  >
-                    {item.description}
-                  </Typography>
-                </div>
-              </>
-            ))}
-          </HorizontalCarousel>
-
-          <HorizontalCarousel className="md:hidden mt-10" color="teal-950">
-            {store_benefits.slice(Math.ceil(store_benefits.length / 2)).map((item) => (
-              <>
-                <div className="p-10 w-full rounded-3xl bg-white h-[350px] max-w-lg relative min-w-[330px]">
-                  <div className="icon">
-                    <Image src={item.icon} alt="Icon" width={60} height={60} />
-                  </div>
-                  <Typography
-                    className="benefit-card-title mt-4 poppins font-medium"
-                    variant={"subheading"}
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    className="description poppins !mt-2"
-                    variant={"content"}
-                  >
-                    {item.description}
-                  </Typography>
-                </div>
-              </>
-            ))}
-          </HorizontalCarousel>
-
-        </div>
-      </div>
       <div
         id="faq"
-        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[70vh] relative overflow-hidden mt-5"
+        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[100vh] relative overflow-hidden mt-5"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
 
-        <section className="w-[90%] md:max-w-[1400px] w-full z-[1000]">
+        <section className="md:max-w-[1400px] w-full z-[1000]">
           <div className="mb-16 flex flex-col md:flex-row md:gap-[250px]">
             <div className="heading flex-1">
               <Typography

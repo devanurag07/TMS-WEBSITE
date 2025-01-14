@@ -51,7 +51,7 @@ const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: ()
       }`}
   />
 );
-// 
+
 // const sections = [
 //   { id: 'hero', color: 'white' },
 //   { id: 'features', color: 'teal-950' },
@@ -61,6 +61,88 @@ const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: ()
 //   { id: 'contact', color: 'teal-950' },
 //   { id: 'cta', color: 'white' }
 // ];
+
+// Add this new component for the timeline visualization
+const TimelineVisualization = () => {
+  return (
+    <div className="relative w-full py-20 bg-black/80">
+      <div className="max-w-[1200px] mx-auto px-4">
+        <Typography variant="h2" className="text-center text-teal-400 mb-16">
+          Development Journey So Far
+        </Typography>
+
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-0 right-0 h-0.5 top-1/2 transform -translate-y-1/2 bg-teal-400/20" />
+
+          {/* Years */}
+          <div className="flex justify-between mb-8">
+            <span className="text-white/80">2022</span>
+            <span className="text-white/80">2023</span>
+            <span className="text-white/80">2024</span>
+          </div>
+
+          {/* Timeline Points */}
+          <div className="flex justify-between relative">
+            {/* Point 1 */}
+            <div className="flex flex-col items-center">
+              <div className="w-8 h-8 rounded-full bg-teal-400 mb-4 relative">
+                <div className="absolute inset-1 bg-black rounded-full" />
+                <div className="absolute inset-2 bg-teal-400 rounded-full animate-pulse" />
+              </div>
+              <div className="w-48 text-center">
+                <p className="text-teal-400 font-medium mb-2">Inspiration for the Virtual Try-on</p>
+                <p className="text-white/60 text-sm">Started with smart mirror concept</p>
+              </div>
+            </div>
+
+            {/* Point 2 */}
+            <div className="flex flex-col items-center">
+              <div className="w-8 h-8 rounded-full bg-teal-400 mb-4 relative">
+                <div className="absolute inset-1 bg-black rounded-full" />
+                <div className="absolute inset-2 bg-teal-400 rounded-full animate-pulse" />
+              </div>
+              <div className="w-48 text-center">
+                <p className="text-teal-400 font-medium mb-2">Beginning User Testing</p>
+                <p className="text-white/60 text-sm">Initial software models development</p>
+              </div>
+            </div>
+
+            {/* Point 3 */}
+            <div className="flex flex-col items-center">
+              <div className="w-8 h-8 rounded-full bg-teal-400 mb-4 relative">
+                <div className="absolute inset-1 bg-black rounded-full" />
+                <div className="absolute inset-2 bg-teal-400 rounded-full animate-pulse" />
+              </div>
+              <div className="w-48 text-center">
+                <p className="text-teal-400 font-medium mb-2">Patent Granted</p>
+                <p className="text-white/60 text-sm">Smart mirror patent in India</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Down Arrow Button */}
+          <button className="absolute left-1/2 -bottom-16 transform -translate-x-1/2 w-12 h-12 rounded-full bg-teal-400 flex items-center justify-center hover:bg-teal-500 transition-colors">
+            <svg
+              className="w-6 h-6 text-black"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function AboutUs() {
 
@@ -224,9 +306,9 @@ export default function AboutUs() {
 
       <div id="hero" className="section-1 w-full flex justify-center items-center bg-black relative overflow-hidden">
         <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full md:object-cover z-[100]" />
-        <div className="max-w-[1400px]  w-full min-h-screen flex flex-col md:flex-row items-center z-[200] px-4 md:px-20 mt-20 md:mt-0">
+        <div className="max-w-[1400px]  w-full min-h-screen flex flex-col md:flex-row items-center justify-start z-[200] px-4 mt-20 md:mt-0">
           <div className="py-10 md:py-0 md:flex-1">
-            <Typography variant="h1" className="text-white mb-6 text-center md:text-left">
+            <Typography variant="h1" className="text-white mb-6 text-start md:text-left">
               Know us before your believe us
             </Typography>
             <Typography variant="content" className="text-gray-400 mb-8 text-center md:text-left">
@@ -308,7 +390,7 @@ export default function AboutUs() {
 
         {/* Show More Button */}
         {!showJourney && (
-          <div className="w-full flex justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[150] left-1/2 -translate-x-1/2">
+          <div className="w-full flex cursor-pointer  justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[200] left-1/2 -translate-x-1/2">
             <button
               onClick={() => setShowJourney(true)}
               className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
@@ -418,7 +500,7 @@ export default function AboutUs() {
                 <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Technology</Typography>
                 <Typography variant="subheading" className="text-teal-950 mt-2">Amarpal Singh</Typography>
                 <div className="social-icons mt-2">
-                  <a href="https://linkedin.com" className="text-teal-950 hover:text-teal-700 transition-colors">
+                  <a href="https://www.linkedin.com/in/amarpal-singh-2501/" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                   </a>
                 </div>
@@ -438,7 +520,7 @@ export default function AboutUs() {
                 <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Operations</Typography>
                 <Typography variant="subheading" className="text-teal-950 mt-2">Dhruv Gupta</Typography>
                 <div className="social-icons mt-2">
-                  <a href="https://linkedin.com" className="text-teal-950 hover:text-teal-700 transition-colors">
+                  <a href="https://www.linkedin.com/in/dhruv-gupta-008568188/" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                   </a>
                 </div>
@@ -459,7 +541,7 @@ export default function AboutUs() {
                 <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Strategy</Typography>
                 <Typography variant="subheading" className="text-teal-950 mt-2">Yuvraj Singh</Typography>
                 <div className="social-icons mt-2">
-                  <a href="https://linkedin.com" className="text-teal-950 hover:text-teal-700 transition-colors">
+                  <a href="https://www.linkedin.com/in/yuvraj-singh-sekhon-a0548a1b1/" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                   </a>
                 </div>
@@ -467,19 +549,30 @@ export default function AboutUs() {
             </div>
 
           </div>
-
           <div className="mt-24 supported-by">
             <Typography variant="h1" className="text-black mb-0 text-center">
               Backed by
             </Typography>
 
             <div className="mt-5 flex flex-wrap justify-center md:justify-between items-center gap-5 shadow-lg rounded-3xl p-5">
-              <Image src={BITSImage} alt="BITS" width={100} height={100} className="md:w-[150px]" />
-              <Image src={PIEDSImage} alt="PIEDS" width={100} height={100} className="md:w-[150px]" />
-              <Image src={SPTBiImage} alt="SPTBi" width={100} height={100} className="md:w-[150px]" />
-              <Image src={IIMKImage} alt="IIMK" width={100} height={100} className="md:w-[150px]" />
-              <Image src={CIIFImage} alt="CIIF" width={100} height={100} className="md:w-[150px]" />
-              <Image src={GLBCRIIMAGE} alt="GLBCRI" width={100} height={100} className="md:w-[150px]" />
+              <a href="https://www.bits-pilani.ac.in/" target="_blank" rel="noopener noreferrer">
+                <Image src={BITSImage} alt="BITS" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://www.linkedin.com/company/pilani-innovation-entrepreneurship-development-society-pieds-bits-pilani/" target="_blank" rel="noopener noreferrer">
+                <Image src={PIEDSImage} alt="PIEDS" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://www.linkedin.com/company/sp-tbi/" target="_blank" rel="noopener noreferrer">
+                <Image src={SPTBiImage} alt="SPTBi" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://www.linkedin.com/company/iimklive/" target="_blank" rel="noopener noreferrer">
+                <Image src={IIMKImage} alt="IIMK" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://www.chitkara.edu.in/ciif/" target="_blank" rel="noopener noreferrer">
+                <Image src={CIIFImage} alt="CIIF" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://glbcri.org/" target="_blank" rel="noopener noreferrer">
+                <Image src={GLBCRIIMAGE} alt="GLBCRI" width={100} height={100} className="md:w-[150px]" />
+              </a>
             </div>
           </div>
 
@@ -489,12 +582,24 @@ export default function AboutUs() {
             </Typography> */}
 
             <div className="mt-2 flex flex-wrap justify-center md:justify-between items-center gap-5 shadow-lg rounded-3xl p-5">
-              <Image src={StartupIndiaImage} alt="Startup India" width={100} height={100} className="md:w-[150px]" />
-              <Image src={StartUpIndiaSeedImage} alt="Startup India Seed" width={100} height={100} className="md:w-[150px]" />
-              <Image src={NidhiPrayasImage} alt="Nidhi Prayas" width={100} height={100} className="md:w-[150px]" />
-              <Image src={MEITYImage} alt="MEITY" width={100} height={100} className="md:w-[150px]" />
-              <Image src={StartInUPImage} alt="Start In UP" width={100} height={100} className="md:w-[150px]" />
-              <Image src={MSMEImage} alt="MSME" width={100} height={100} className="md:w-[150px]" />
+              <a href="https://seedfund.startupindia.gov.in/" target="_blank" rel="noopener noreferrer">
+                <Image src={StartupIndiaImage} alt="Startup India" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://seedfund.startupindia.gov.in/" target="_blank" rel="noopener noreferrer">
+                <Image src={StartUpIndiaSeedImage} alt="Startup India Seed" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://www.nidhi-prayas.org/#parentVerticalTab11" target="_blank" rel="noopener noreferrer">
+                <Image src={NidhiPrayasImage} alt="Nidhi Prayas" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://msh.meity.gov.in/" target="_blank" rel="noopener noreferrer">
+                <Image src={MEITYImage} alt="MEITY" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://startinup.up.gov.in/" target="_blank" rel="noopener noreferrer">
+                <Image src={StartInUPImage} alt="Start In UP" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://msme.gov.in/" target="_blank" rel="noopener noreferrer">
+                <Image src={MSMEImage} alt="MSME" width={100} height={100} className="md:w-[150px]" />
+              </a>
             </div>
 
           </div>
@@ -601,36 +706,28 @@ export default function AboutUs() {
   );
 }
 
-
 const JourneyCard = ({ title, desc, date, index, lightTheme, icon, start }: { title: string, desc: string, date: string, index: number, start?: boolean, lightTheme?: boolean, icon: React.ReactNode }) => {
   const offset = lightTheme ? 1 : 0;
   const isLeft = (index + offset) % 2 === 0;
   return (
     <div className="relative flex items-center w-full">
-      {/* Main vertical timeline line */}
+      {/* Main vertical timeline line - hidden on mobile */}
+      <div className={`absolute left-1/2 w-[2px] ${lightTheme ? 'bg-teal-400' : 'bg-white'} -translate-x-1/2 ${start ? 'h-[50%] translate-y-1/2' : 'h-full'} hidden md:block`} />
 
-      <div className={`absolute left-1/2 w-[2px] ${lightTheme ? 'bg-teal-400' : 'bg-white'} -translate-x-1/2 ${start ? 'h-[50%]  translate-y-1/2' : 'h-full'}`} />
-
-      {/* Timeline node with horizontal connector */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
-        {/* Left horizontal line */}
-        {/* {isLeft && (
-          <div className="w-[40px] h-px bg-teal-400/20 relative right-[40px]" />
-        )} */}
-
-        {/* Center node */}
-        <div className=" border-2 border-teal-200  relative w-[40px] h-[40px] rounded-full flex items-center justify-center">
+      {/* Timeline node with horizontal connector - hidden on mobile */}
+      <div className="absolute left-1/2 -translate-x-1/2 items-center hidden md:flex">
+        <div className="border-2 border-teal-200 relative w-[40px] h-[40px] rounded-full flex items-center justify-center">
           <div className={`w-4 h-4 rounded-full ${lightTheme ? 'bg-teal-400' : 'bg-white'} border-2 ${lightTheme ? 'border-white' : 'border-teal-400'} z-10`} />
         </div>
       </div>
 
       {/* Card container */}
-      <div className={`w-full flex ${isLeft ? 'justify-end pr-8 md:pr-12' : 'justify-start pl-8 md:pl-12'}`}>
+      <div className={`w-full flex ${isLeft ? 'md:justify-end md:pr-12' : 'md:justify-start md:pl-12'} px-4`}>
         <div className="w-full md:w-[500px] relative">
-          {/* Connecting line from horizontal connector to card */}
+          {/* Connecting line from horizontal connector to card - hidden on mobile */}
           <div
             className={`absolute top-1/2 ${isLeft ? 'right-full' : 'left-full'} 
-            w-[52px] h-[4px] ${lightTheme ? 'bg-teal-400' : 'bg-white/20'}`}
+            w-[52px] h-[4px] ${lightTheme ? 'bg-teal-400' : 'bg-white/20'} hidden md:block`}
           >
             <div className={`z-10 w-5 h-5 ${lightTheme ? 'bg-teal-400' : 'bg-white'} rounded-full absolute top-1/2 -translate-y-1/2 ${isLeft ? 'right-[-10px]' : 'left-[-5px]'}`} />
           </div>
@@ -641,13 +738,14 @@ const JourneyCard = ({ title, desc, date, index, lightTheme, icon, start }: { ti
             border ${lightTheme ? 'border-white/10' : 'border-white/20'} 
             hover:bg-gray-900/60 transition-all duration-300 
             hover:scale-105 hover:shadow-lg hover:shadow-teal-500/10
+            mb-6 md:mb-0
           `}>
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
-              <div className="icon flex justify-center md:justify-start">
+            <div className="flex flex-col gap-2 md:gap-4">
+              <div className="icon flex justify-center">
                 {icon}
               </div>
-              <div className="flex flex-col items-center md:items-start gap-2 md:gap-4 mb-2 md:mb-3">
-                <div className="text-center md:text-left">
+              <div className="flex flex-col items-center gap-2 md:gap-4 mb-2 md:mb-3">
+                <div className="text-center">
                   <Typography
                     variant="subheading"
                     className={`${lightTheme ? 'text-white' : 'text-teal-400'} font-semibold`}
@@ -665,7 +763,7 @@ const JourneyCard = ({ title, desc, date, index, lightTheme, icon, start }: { ti
             </div>
             <Typography
               variant="content"
-              className={`${lightTheme ? 'text-white/80' : 'text-white/80'} text-center md:text-left`}
+              className={`${lightTheme ? 'text-white/80' : 'text-white/80'} text-center`}
             >
               {desc}
             </Typography>
