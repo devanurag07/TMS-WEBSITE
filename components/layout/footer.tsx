@@ -4,6 +4,8 @@ import FooterCtaImage from "@/assets/footer-cta-bg.png";
 import Image from "next/image";
 import { FaLinkedin, FaInstagram, FaXTwitter, FaFacebookF } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { Calendly } from "../calendly/calendly";
+import TryMyStyleLogo from "@/assets/trymystyle_logo_white_long.png"
 
 type FooterProps = {
   openCalendly?: () => void;
@@ -40,8 +42,13 @@ const Footer = ({ openCalendly }: FooterProps) => {
             </span>{" "}
             look!
           </Typography>
+          max
+          <button className="mt-4 bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-lg font-medium hover:bg-[#008585] transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105 relative z-10"
 
-          <button className="mt-4 bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-lg font-medium hover:bg-[#008585] transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105 relative z-10">
+            onClick={
+              () => openCalendly?.()
+            }
+          >
             Book Demo
           </button>
         </div>
@@ -49,13 +56,11 @@ const Footer = ({ openCalendly }: FooterProps) => {
 
       {/* Footer Section */}
       <footer className="w-full bg-black text-white px-4 md:px-20 py-8 md:py-16">
-        <div className="w-[90%] mx-auto md:max-w-[1400px] flex justify-between gap-10 flex-col md:flex-row">
+        <div className="w-[90%] mx-auto md:max-w-[1200px] flex justify-between gap-10 flex-col md:flex-row">
           {/* Logo and Description Column */}
           <div className="md:max-w-[400px]">
-            <Typography variant="subheading" className="text-white mb-4">
-              Try My Style
-            </Typography>
-            <p className="text-gray-400 mb-6">
+            <Image src={TryMyStyleLogo} alt="Try My Style Logo" width={200} height={100} />
+            <p className="text-gray-400 mb-6 mt-4">
               Try My Style™ is a venture of Virtstyle Technologies Pvt. Ltd. (CIN: U72200UP2022PTC157545)
             </p>
             <div className="flex gap-4 mb-6">
@@ -178,8 +183,10 @@ const Footer = ({ openCalendly }: FooterProps) => {
           </div>
         </div>
 
+
+
         {/* Copyright Notice */}
-        <div className="w-[90%] mx-auto md:max-w-[1400px] mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <div className="w-[90%] mx-auto md:max-w-[1200px] mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
           Try My Style™ is a venture of Virtstyle Technologies Pvt. Ltd. (CIN: U72200UP2022PTC157545)
         </div>
 

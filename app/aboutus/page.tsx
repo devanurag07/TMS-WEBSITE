@@ -63,86 +63,79 @@ const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: ()
 // ];
 
 // Add this new component for the timeline visualization
-const TimelineVisualization = () => {
+const DevelopmentTimeline = () => {
   return (
-    <div className="relative w-full py-20 bg-black/80">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <Typography variant="h2" className="text-center text-teal-400 mb-16">
-          Development Journey So Far
-        </Typography>
+    <div className="bg-black p-4 md:p-8 lg:p-16 rounded-lg w-full">
+      <Typography className="text-white text-2xl md:text-3xl mb-10 md:mb-20" variant={"h1"}>Development Journey So Far</Typography>
 
-        {/* Timeline Container */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-0 right-0 h-0.5 top-1/2 transform -translate-y-1/2 bg-teal-400/20" />
-
-          {/* Years */}
-          <div className="flex justify-between mb-8">
-            <span className="text-white/80">2022</span>
-            <span className="text-white/80">2023</span>
-            <span className="text-white/80">2024</span>
-          </div>
-
-          {/* Timeline Points */}
-          <div className="flex justify-between relative">
-            {/* Point 1 */}
-            <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-teal-400 mb-4 relative">
-                <div className="absolute inset-1 bg-black rounded-full" />
-                <div className="absolute inset-2 bg-teal-400 rounded-full animate-pulse" />
+      <div className="relative pb-24 md:pb-48">
+        {/* Dashed timeline line */}
+        <div
+          className="absolute top-[80px] md:top-[104px] left-0 right-0 border-t border-dashed border-gray-600"
+          style={{ borderWidth: '4px' }}
+        />
+        {/* Timeline points */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          {[
+            {
+              month: "Dec",
+              year: "2022",
+              title: "Inspiration for the Virtual Try-on",
+              description: "Started with the concept\nLaunch of MVP 2023"
+            },
+            {
+              month: "May",
+              year: "2023",
+              title: "Beginning User Testing",
+              description: "Building the model and optimizing the\nprocessing time from 20 minutes to 2 minutes"
+            },
+            {
+              month: "June",
+              year: "2024",
+              title: "Patent Granted",
+              description: "Patented the smart mirror in India"
+            }
+          ].map((point, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div className="flex flex-col items-center gap-1 md:gap-2">
+                <Typography className="text-white text-xl md:text-xl font-normal" variant="content">
+                  {point.month}
+                </Typography>
+                <Typography className="text-white text-2xl md:text-xl font-normal" variant="subheading">
+                  {point.year}
+                </Typography>
               </div>
-              <div className="w-48 text-center">
-                <p className="text-teal-400 font-medium mb-2">Inspiration for the Virtual Try-on</p>
-                <p className="text-white/60 text-sm">Started with smart mirror concept</p>
+
+              {/* Timeline line with circle */}
+              <div className="flex flex-col items-center my-4 md:my-8 md:-translate-y-5">
+                <div className="h-16 md:h-24 w-[2px] bg-gray-600 relative">
+                  <div className="w-2 h-2 rounded-full bg-white translate-x-[-3px] " />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="flex md:flex-row-reverse flex-col items-center  md:items-start md:-translate-x-1/2 -translate-y-10 md:-translate-y-14">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#7FE0CB] mb-4 md:mb-8 md:translate-x-1/2" />
+                <div className="flex flex-col items-center text-center max-w-[200px] md:max-w-[250px]">
+                  <Typography variant="subheading" className="text-white mb-2 font-medium">
+                    {point.title}
+                  </Typography>
+                  <Typography variant="content" className="text-white text-base  mb-2 font-normal whitespace-pre-line !mt-0">
+                    {point.description}
+                  </Typography>
+                </div>
               </div>
             </div>
-
-            {/* Point 2 */}
-            <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-teal-400 mb-4 relative">
-                <div className="absolute inset-1 bg-black rounded-full" />
-                <div className="absolute inset-2 bg-teal-400 rounded-full animate-pulse" />
-              </div>
-              <div className="w-48 text-center">
-                <p className="text-teal-400 font-medium mb-2">Beginning User Testing</p>
-                <p className="text-white/60 text-sm">Initial software models development</p>
-              </div>
-            </div>
-
-            {/* Point 3 */}
-            <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-teal-400 mb-4 relative">
-                <div className="absolute inset-1 bg-black rounded-full" />
-                <div className="absolute inset-2 bg-teal-400 rounded-full animate-pulse" />
-              </div>
-              <div className="w-48 text-center">
-                <p className="text-teal-400 font-medium mb-2">Patent Granted</p>
-                <p className="text-white/60 text-sm">Smart mirror patent in India</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Down Arrow Button */}
-          <button className="absolute left-1/2 -bottom-16 transform -translate-x-1/2 w-12 h-12 rounded-full bg-teal-400 flex items-center justify-center hover:bg-teal-500 transition-colors">
-            <svg
-              className="w-6 h-6 text-black"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
+          ))}
         </div>
+
+
+
       </div>
     </div>
-  );
-};
+  )
+}
+
 
 export default function AboutUs() {
 
@@ -306,9 +299,9 @@ export default function AboutUs() {
 
       <div id="hero" className="section-1 w-full flex justify-center items-center bg-black relative overflow-hidden">
         <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full md:object-cover z-[100]" />
-        <div className="max-w-[1400px]  w-full min-h-screen flex flex-col md:flex-row items-center justify-start z-[200] px-4 mt-20 md:mt-0">
+        <div className="max-w-[1400px] p-4  lg:p-8 2xl:p-0  w-full min-h-screen flex flex-col md:flex-row items-center justify-start z-[200] px-4 mt-20 md:mt-0">
           <div className="py-10 md:py-0 md:flex-1">
-            <Typography variant="h1" className="text-white mb-6 text-start md:text-left">
+            <Typography variant="h1" className="text-white mb-6 text-center md:text-left">
               Know us before your believe us
             </Typography>
             <Typography variant="content" className="text-gray-400 mb-8 text-center md:text-left">
@@ -373,7 +366,36 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <div id="journey-1" className="sub-section-1 bg-black min-h-screen flex justify-center items-center relative w-full">
+      <div className="jounery-1-laptop-view w-full bg-black items-center justify-center min-h-screen hidden md:flex relative">
+        <div className="max-w-[1400px] w-full pt-16 md:pt-0">
+          <DevelopmentTimeline />
+        </div>
+        {/* Show More Button */}
+        {!showJourney && (
+          <div className="w-full flex cursor-pointer  justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[200] left-1/2 -translate-x-1/2">
+            <button
+              onClick={() => setShowJourney(true)}
+              className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
+            >
+              <svg
+                className="w-8 h-8 md:w-12 md:h-12 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div id="journey-1" className="sub-section-1 bg-black min-h-screen justify-center items-center relative flex w-full md:hidden">
         <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full object-cover z-[100]" />
 
         <div className="max-w-[1400px] w-full py-16 px-4 md:px-20 min-h-screen relative z-[200]">
@@ -454,7 +476,7 @@ export default function AboutUs() {
 
             {/* Show More Button */}
             {showJourney && (
-              <div className="w-full flex justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[150] left-1/2 -translate-x-1/2">
+              <div className=" w-full flex justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[250] left-1/2 -translate-x-1/2">
                 <button
                   onClick={() => setShowJourney(false)}
                   className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
@@ -478,7 +500,6 @@ export default function AboutUs() {
           </div>
         </>
       )}
-
       <div id="team" className="section-4 w-full flex justify-center items-center bg-white ">
         <div className="max-w-[1400px] w-full py-32 px-10 min-h-screen">
           <Typography variant="h1" className="text-black mb-0 text-center">
@@ -499,9 +520,12 @@ export default function AboutUs() {
               <div className="content">
                 <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Technology</Typography>
                 <Typography variant="subheading" className="text-teal-950 mt-2">Amarpal Singh</Typography>
-                <div className="social-icons mt-2">
+                <div className="social-icons mt-2 flex gap-2">
                   <a href="https://www.linkedin.com/in/amarpal-singh-2501/" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                  </a>
+                  <a href="mailto:amarpal@trymystyle.co.in" className="text-teal-950 hover:text-teal-700 transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
                   </a>
                 </div>
               </div>
@@ -519,9 +543,12 @@ export default function AboutUs() {
               <div className="content">
                 <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Operations</Typography>
                 <Typography variant="subheading" className="text-teal-950 mt-2">Dhruv Gupta</Typography>
-                <div className="social-icons mt-2">
+                <div className="social-icons mt-2 flex gap-2">
                   <a href="https://www.linkedin.com/in/dhruv-gupta-008568188/" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                  </a>
+                  <a href="mailto:dhruvguptaa26@gmail.com" className="text-teal-950 hover:text-teal-700 transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
                   </a>
                 </div>
               </div>
@@ -540,9 +567,12 @@ export default function AboutUs() {
               <div className="content">
                 <Typography variant="content" className="text-teal-950 text-sm">Co-Founder | Strategy</Typography>
                 <Typography variant="subheading" className="text-teal-950 mt-2">Yuvraj Singh</Typography>
-                <div className="social-icons mt-2">
+                <div className="social-icons mt-2 flex gap-2">
                   <a href="https://www.linkedin.com/in/yuvraj-singh-sekhon-a0548a1b1/" className="text-teal-950 hover:text-teal-700 transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                  </a>
+                  <a href="mailto:ysekhon02@gmail.com" className="text-teal-950 hover:text-teal-700 transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
                   </a>
                 </div>
               </div>

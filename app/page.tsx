@@ -18,7 +18,7 @@ import { Typography } from "@/components/typography/typography";
 import { Navbar } from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { HorizontalCarousel } from "@/components/HorizontalCarousel";
-
+import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 const ScrollSpyDot = ({
   active,
   onClick,
@@ -35,10 +35,10 @@ const ScrollSpyDot = ({
 );
 const sections = [
   { id: "hero", color: "white" },
-  { id: "features", color: "teal-950" },
-  { id: "comparison", color: "white" },
-  { id: "benefits", color: "teal-950" },
-  { id: "faq", color: "white" },
+  { id: "features", color: "white" },
+  { id: "comparison", color: "teal-950" },
+  { id: "benefits", color: "white" },
+  { id: "faq", color: "teal-950" },
   { id: "contact", color: "teal-950" },
   { id: "cta", color: "white" },
 ];
@@ -80,6 +80,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
   const [activeGifIndex, setActiveGifIndex] = useState(0);
+  const { openCalendly } = useCalendly();
 
   const gifs: GifData[] = [
     {
@@ -166,7 +167,7 @@ export default function Home() {
 
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px] z-[200]"></div>
 
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         {/* <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
@@ -221,7 +222,8 @@ export default function Home() {
                   realistic Virtual Try-On solutions, catering to Fashion & Beauty Tech
                   Industries.
                 </p> */}
-                <button className="bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-3xl font-semibold hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105">
+                <button className="bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-3xl font-semibold hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105"
+                  onClick={() => openCalendly?.()}>
                   Try Now
                 </button>
               </div>
@@ -310,7 +312,7 @@ export default function Home() {
 
 
       <div
-        id="benefits"
+        id="comparison"
         className="section-3 w-full flex justify-center items-center bg-white min-h-screen relative overflow-hidden md:px-0"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
@@ -585,7 +587,7 @@ export default function Home() {
       </div>
 
       <div
-        id="comparison"
+        id="benefits"
         className="section-2 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[100vh] relative overflow-hidden "
       >
 
@@ -864,7 +866,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+      <Footer openCalendly={openCalendly} />
     </div>
   );
 }
