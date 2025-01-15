@@ -14,6 +14,8 @@ import WebsiteSmartMirrorPng from "@/assets/webiste-smart-mirror.png";
 // import { faqData } from "@/data/faq";
 import faqData from "../../assets/json/SmartMirror_Faq.json";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
+import increaseRevenueIcon from "../../assets/icons/increase_revenue.svg";
+import upscalingBusinessIcon from "../../assets/icons/upscale_business.svg";
 
 
 type VideoClip = {
@@ -60,35 +62,35 @@ const store_benefits = [
     icon: handstar_icon,
     title: "Premium Pay Monetization",
     description:
-      "Offer premium services and consultations with personalized follow-ups and promotions",
+      "Offer premium services and consultations with personalized follow-ups and promotions.",
   },
   {
     id: 3,
     icon: marketing_icon,
     title: "Affiliate Marketing",
     description:
-      "Upsell partner brand product recommendations based on customer characteristics & insights gained from the smart-mirror",
+      "Upsell partner brand product recommendations based on customer characteristics & insights gained from the smart-mirror.",
   },
   {
     id: 4,
     icon: speaker_icon,
     title: "Advertising",
     description:
-      "Retarget the customer-base on social media and build a retaining trust for your Salon",
+      "Retarget the customer-base on social media and build a retaining trust for your Salon.",
   },
   {
     id: 5,
-    icon: handstar_icon,
-    title: "Premium Pay Monetization",
+    icon: increaseRevenueIcon,
+    title: "Increased revenue",
     description:
-      "Offer premium services and consultations with personalized follow-ups and promotions",
+      "Go from alow average ticket size to Increased ROI with additional monthly profits with TryMyStyle’s smart mirror.",
   },
   {
     id: 6,
-    icon: marketing_icon,
-    title: "Affilate Marketing",
+    icon: upscalingBusinessIcon,
+    title: "Upscaling Business",
     description:
-      "Upsell partner brand product recommendations based on customer characteristics & insights gained from the smart-mirror",
+      "Categorize yourself as medium to high end salon providing premium services to your customers.",
   },
 ];
 
@@ -217,12 +219,12 @@ export default function SmartMirror() {
         </div>
       </div>
 
-      <div id="benefits" className="section-2 min-h-screen w-full bg-white relative overflow-hidden flex items-center justify-center">
+      <div id="benefits" className="section-2 min-h-screen w-full bg-white pb-10 relative overflow-hidden flex items-center justify-center">
 
         <div className="absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>
         <div className="absolute bottom-[-120px] right-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>
 
-        <div className="store-benefits p-4 pt-20  z-[100] relative max-w-[1400px] w-full">
+        <div className="store-benefits p-4 pt-20  z-[100] relative max-w-[1400px] w-full flex flex-col items-center justify-center">
           <Typography
             className="store-benefits-title text-start text-teal-950"
             variant={"h1"}
@@ -230,7 +232,7 @@ export default function SmartMirror() {
             What&apos;s in store for Salons?
           </Typography>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 mt-4  md:mt-20 md:grid ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-10 mt-4  md:mt-20 md:grid max-w-[1300px] ">
             {store_benefits.slice(0, 6).map((item) => (
               <>
                 <div className="md:p-10 p-5 w-full rounded-3xl bg-white relative border shadow-lg">

@@ -44,6 +44,8 @@ import { useState, useEffect } from 'react';
 import Footer from "@/components/layout/footer";
 import AboutUsImage from "../../assets/about_us_hero.svg";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
+import DarkGradientCircles from "@/components/DarkGradientCircles";
+
 
 const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: () => void; color: string }) => (
 
@@ -68,12 +70,12 @@ const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: ()
 const DevelopmentTimeline = () => {
   return (
     <div className="bg-black p-4 md:p-8 lg:p-16 rounded-lg w-full">
-      <Typography className="text-white text-2xl md:text-3xl mb-10 md:mb-20" variant={"h1"}>Development Journey So Far</Typography>
+      <Typography className="text-white text-2xl md:text-3xl mb-10 md:mb-20 text-center" variant={"h1"}>Development Journey So Far</Typography>
 
-      <div className="relative pb-24 md:pb-48">
+      <div className="relative pb-24 md:pb-48 flex flex-col items-center justify-center">
         {/* Dashed timeline line */}
         <div
-          className="absolute top-[80px] md:top-[104px] left-0 right-0 border-t border-dashed border-gray-600"
+          className="absolute top-[80px] md:top-[104px] left-0 right-0 border-t border-dashed border-gray-600 "
           style={{ borderWidth: '4px' }}
         />
         {/* Timeline points */}
@@ -100,10 +102,8 @@ const DevelopmentTimeline = () => {
           ].map((point, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="flex flex-col items-center gap-1 md:gap-2">
-                <Typography className="text-white text-xl md:text-xl font-normal" variant="content">
-                  {point.month}
-                </Typography>
-                <Typography className="text-white text-2xl md:text-xl font-normal" variant="subheading">
+
+                <Typography className="text-white text-2xl md:text-4xl font-normal" variant="subheading">
                   {point.year}
                 </Typography>
               </div>
@@ -639,7 +639,8 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <div id="blogs" className="section-5 w-full flex justify-center items-center bg-black min-h-[100vh]">
+      <div id="blogs" className="section-5 w-full flex justify-center items-center bg-black min-h-[100vh] relative">
+        {/* <DarkGradientCircles overflowHidden={true} /> */}
         <div className="max-w-[1400px] w-full py-32 px-10 min-h-screen">
           <Typography variant="h1" className="text-white mb-10 text-start">
             Blogs

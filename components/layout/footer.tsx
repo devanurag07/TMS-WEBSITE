@@ -6,6 +6,7 @@ import { FaLinkedin, FaInstagram, FaXTwitter, FaFacebookF } from "react-icons/fa
 import { MdEmail } from "react-icons/md";
 import { Calendly } from "../calendly/calendly";
 import TryMyStyleLogo from "@/assets/trymystyle_logo_white_long.png"
+import FooterCtaPhoneImage from "@/assets/footer-cta-phone-bg.png"
 
 type FooterProps = {
   openCalendly?: () => void;
@@ -22,13 +23,20 @@ const Footer = ({ openCalendly }: FooterProps) => {
           {/* Background decorative elements */}
           {/* <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
           {/* <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
-          <Image
+          {/* <Image
             src={FooterCtaImage}
             alt="Footer Background Image"
             width={300}
             height={300}
-            className="absolute top-0 left-0 w-full h-full"
-          />
+            className="absolute top-0 left-0 w-full h-full hidden md:block"
+          /> */}
+          {/* <Image
+            src={FooterCtaPhoneImage}
+            alt="Footer Background Image"
+            width={300}
+            height={300}
+            className="absolute top-0 left-0 w-full h-full block md:hidden"
+          /> */}
           <Typography variant="h1" className="text-white mb-4 relative z-10">
             Goodbye Guesswork
           </Typography>
@@ -61,8 +69,7 @@ const Footer = ({ openCalendly }: FooterProps) => {
           <div className="md:max-w-[400px]">
             <Image src={TryMyStyleLogo} alt="Try My Style Logo" width={200} height={100} />
             <p className="text-gray-400 mb-6 mt-4">
-              Try My Style™ is a venture of Virtstyle Technologies Pvt. Ltd. (CIN: U72200UP2022PTC157545)
-            </p>
+              Revolutionizing experiences with virtual try-on technology, seamlessly blending consultations, services, and aftercare across industries.            </p>
             <div className="flex gap-4 mb-6">
               <a
                 href="https://www.linkedin.com/company/trymystyle/"
@@ -103,12 +110,6 @@ const Footer = ({ openCalendly }: FooterProps) => {
                 <MdEmail size={24} />
               </a>
             </div>
-            <a
-              href="/blog"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              Know our journey and what brought us here with blogs
-            </a>
           </div>
 
           <div className="flex justify-start md:justify-end w-full gap-10 md:gap-20">
@@ -117,41 +118,35 @@ const Footer = ({ openCalendly }: FooterProps) => {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="/blog"
+                    href="/aboutus"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Blog
+                    About Us
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="/help"
+                    href="/smart-mirror"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Smart Mirror
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#faq"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     Help
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/affiliates"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Affiliates
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/professionals"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Professionals
                   </a>
                 </li>
               </ul>
             </div>
 
             {/* Legal Links Column */}
-            <div className="col-span-4 w-full">
+            <div className="col-span-4">
               <h4 className="text-white font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
@@ -168,14 +163,6 @@ const Footer = ({ openCalendly }: FooterProps) => {
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     Terms of Use
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/refund-policy"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Refund policy
                   </a>
                 </li>
               </ul>

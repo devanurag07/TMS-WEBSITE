@@ -5,6 +5,8 @@ import Link from "next/link"
 import { useState } from "react"
 import TryMyStyleLogo from "@/assets/trymystyle_logo_white_long.png"
 import Image from "next/image"
+import TryMyStyleLogoWhite from "@/assets/tms.png";
+import TryMyStyleOldLogoWhite from "@/assets/tms-white-old-logo.png";
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -63,17 +65,28 @@ export const Navbar = () => {
 
                                 {isProductsDropdownOpen && (
                                     <div
-                                        className="absolute top-full left-0 mt-2 w-72 bg-teal-950 rounded-lg border border-white/20 shadow-lg"
+                                        className="absolute top-full left-0 mt-2 w-96 bg-teal-950 rounded-lg border border-white/20 shadow-lg"
                                         onMouseLeave={() => setIsProductsDropdownOpen(false)}
                                     >
                                         <a href="/smart-mirror" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-t-lg">
-                                            Smart Mirror
+                                            <div className="flex gap-2">
+
+                                                <div className="link flex items-center justify-center">
+                                                    Smart Mirror For Hair Salons
+                                                </div>
+                                                <div className="flex items-center justify-center">
+                                                    <Image src={TryMyStyleOldLogoWhite} alt="Try My Style Logo" width={32} height={32}
+                                                        className="w-[32px] md:w-[32px]"
+                                                    />
+                                                </div>
+                                            </div>
+
                                         </a>
                                         <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900">
-                                            Jewellery <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                            Try-on for Jewellery Stores <span className="text-white/60 text-sm">(Coming Soon)</span>
                                         </a>
                                         <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-b-lg">
-                                            Clothes <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                            Apparel Try-on <span className="text-white/60 text-sm">(Coming Soon)</span>
                                         </a>
                                     </div>
                                 )}
@@ -121,13 +134,13 @@ export const Navbar = () => {
                                 </button>
                                 <div className={`${isMobileProductsOpen ? 'flex flex-col space-y-2 pl-4' : 'hidden'}`}>
                                     <a href="/smart-mirror" className="text-white/80 hover:text-white transition-colors block">
-                                        Smart Mirror
+                                        Smart Mirror for Hair Salons
                                     </a>
                                     <a href="/jewellery" className="text-white/80 hover:text-white transition-colors block">
-                                        Jewellery <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                        Try-on for Jewellery Stores <span className="text-white/60 text-sm">(Coming Soon)</span>
                                     </a>
                                     <a href="/clothes" className="text-white/80 hover:text-white transition-colors block">
-                                        Clothes <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                        Apparel Try-on <span className="text-white/60 text-sm">(Coming Soon)</span>
                                     </a>
                                 </div>
                             </div>

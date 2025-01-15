@@ -19,6 +19,7 @@ import { Navbar } from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { HorizontalCarousel } from "@/components/HorizontalCarousel";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
+import DarkGradientCircles from "@/components/DarkGradientCircles";
 const ScrollSpyDot = ({
   active,
   onClick,
@@ -163,16 +164,7 @@ export default function Home() {
         className="section-1 w-full flex justify-center items-center bg-black relative px-4 md:px-20"
       >
 
-
-
-        {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px] z-[200]"></div>
-
-        {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        {/* <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950 z-[200]" ></div> */}
-
+        <DarkGradientCircles overflowHidden={false} />
         {/* Hero Section with improved styling */}
         <section className="relative min-h-screen md:max-w-[1400px] w-full z-[1000]">
           {/* Gradient Overlay */}
@@ -235,9 +227,7 @@ export default function Home() {
         id="features"
         className="section-1 2 w-full flex justify-center items-center bg-black flex-col min-h-screen relative  px-4 md:px-20"
       >
-        {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <DarkGradientCircles overflowHidden={true} isStraight={false} />
 
         {/* Rest of your existing hero content with improved styling */}
         <div className="w-[90%] md:max-w-[1400px] w-full mt-20 mb-20 z-[1000]">
@@ -590,21 +580,18 @@ export default function Home() {
         id="benefits"
         className="section-2 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[100vh] relative overflow-hidden "
       >
-
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-
+        <DarkGradientCircles overflowHidden={true} isStraight={false} />
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
         {/* <div className="absolute bottom-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
-        <section className="w-[90%] md:max-w-[1400px] w-full z-[1000]">
+        <section className="w-[90%] md:max-w-[1400px] w-full z-[1000] flex flex-col items-center justify-center">
           <Typography
             variant="h1"
             className="text-white text-center mb-20 pt-5"
           >
             Changing Customer Behavior
           </Typography>
-          <div className="hidden md:grid md:grid-cols-2 gap-8">
+          <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-[1000px]">
             {/* Innovative Technology Card */}
             {customer_behaviour_data.map((item) => (
               <>
@@ -697,10 +684,8 @@ export default function Home() {
 
       <div
         id="faq"
-        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[100vh] relative "
+        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[50vh] relative "
       >
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/40 rounded-full blur-[100px] z-[200]"></div>
 
         <section className="md:max-w-[1400px] w-full z-[1000]">
           <div className="mb-16 flex flex-col md:flex-row md:gap-[250px]">
@@ -775,7 +760,7 @@ export default function Home() {
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
         <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
 
-        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-[100vh] z-[1000]">
+        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-[50vh] z-[1000]">
           <div className="flex gap-10 flex-col md:flex-row">
             {/* Left Column - Text and Map */}
             <div className="flex-1">
