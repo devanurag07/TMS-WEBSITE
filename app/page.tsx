@@ -776,7 +776,7 @@ export default function Home() {
         <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
 
         <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-[100vh] z-[1000]">
-          <div className="flex gap-10">
+          <div className="flex gap-10 flex-col md:flex-row">
             {/* Left Column - Text and Map */}
             <div className="flex-1">
               <div className="heading flex-1">
