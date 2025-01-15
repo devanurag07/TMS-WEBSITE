@@ -13,6 +13,7 @@ import { HorizontalCarousel } from "@/components/HorizontalCarousel";
 import WebsiteSmartMirrorPng from "@/assets/webiste-smart-mirror.png";
 // import { faqData } from "@/data/faq";
 import faqData from "../../assets/json/SmartMirror_Faq.json";
+import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 
 
 type VideoClip = {
@@ -94,6 +95,8 @@ const store_benefits = [
 export default function SmartMirror() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+  const { openCalendly } = useCalendly();
+
   const [activeFaq, setActiveFaq] = useState("");
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -399,7 +402,7 @@ export default function SmartMirror() {
           </div>
         </section>
       </div>
-      <Footer />
+      <Footer openCalendly={openCalendly} />
     </div>
   );
 }

@@ -43,8 +43,10 @@ import { IoRocket } from "react-icons/io5"; //#13
 import { useState, useEffect } from 'react';
 import Footer from "@/components/layout/footer";
 import AboutUsImage from "../../assets/about_us_hero.svg";
+import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 
 const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: () => void; color: string }) => (
+
   <button
     onClick={onClick}
     className={`w-0 h-0 md:w-3 md:h-3 rounded-full transition-all duration-300 ${active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`
@@ -138,6 +140,7 @@ const DevelopmentTimeline = () => {
 
 
 export default function AboutUs() {
+  const { openCalendly } = useCalendly();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -730,7 +733,7 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <Footer />
+      <Footer openCalendly={openCalendly} />
 
     </div>
   );
