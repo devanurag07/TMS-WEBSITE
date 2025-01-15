@@ -89,6 +89,7 @@ export const Navbar = () => {
                                 href="#contact"
                                 className="text-white/80 hover:text-white transition-colors relative group"
                             >
+
                                 Contact Us
                                 <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
                             </a>
@@ -132,7 +133,7 @@ export const Navbar = () => {
                             </div>
                             <a href="#faqpos" className="text-white/80 hover:text-white transition-colors">FAQ</a>
                             <a href="#contact" className="text-white/80 hover:text-white transition-colors">Contact Us</a>
-                            <a href="#get-started" className="bg-white text-teal-950 px-6 py-2.5 rounded-full text-center hover:bg-teal-950 hover:text-white transition-all duration-300">
+                            <a onClick={() => openCalendly?.()} href="#get-started" className="bg-white text-teal-950 px-6 py-2.5 rounded-full text-center hover:bg-teal-950 hover:text-white transition-all duration-300">
                                 Try On
                             </a>
                         </div>
