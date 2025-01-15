@@ -20,7 +20,9 @@ export const Navbar = () => {
                         <div className="flex items-center">
                             <Link href="/">
                                 <div className="text-2xl font-bold text-white">
-                                    <Image src={TryMyStyleLogo} alt="Try My Style Logo" width={200} height={100} />
+                                    <Image src={TryMyStyleLogo} alt="Try My Style Logo" width={200} height={100}
+                                        className="w-[140px] md:w-[200px]"
+                                    />
                                 </div>
                             </Link>
                         </div>
