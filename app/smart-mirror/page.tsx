@@ -40,8 +40,8 @@ const ScrollSpyDot = ({
 
 const sections = [
   { id: "hero", color: "white" },
-  { id: "how-it-works", color: "teal-950" },
-  { id: "benefits", color: "white" },
+  { id: "benefits", color: "teal-950" },
+  { id: "how-it-works", color: "white" },
   { id: "faq", color: "teal-950" },
   { id: "cta", color: "white" },
 

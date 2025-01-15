@@ -97,7 +97,7 @@ const Footer = ({ openCalendly }: FooterProps) => {
                 <FaFacebookF size={24} />
               </a>
               <a
-                href="mailto:contact@trymystyle.com"
+                href="mailto:trymistyl@gmail.com"
                 className="text-gray-400 hover:text-[#00A5A5] transition-colors"
               >
                 <MdEmail size={24} />

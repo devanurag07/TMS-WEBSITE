@@ -775,94 +775,98 @@ export default function Home() {
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
         <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
 
-        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16 min-h-[100vh] z-[1000]">
-          {/* Left Column - Text and Map */}
-          <div className="flex-1">
-            <div className="heading flex-1">
-              <Typography
-                variant="subheading"
-                className="text-gray-500 text-xl md:text-3xl uppercase font-semibold"
-              >
-                Contact Us
-              </Typography>
-            </div>
-            <Typography variant="h1" className="text-teal-950 mb-4">
-              Take the first step towards upscaling your business
-            </Typography>
-            {/* Map Container */}
-          </div>
-
-          {/* Right Column - Contact Form */}
-          <div className="flex-1 w-full">
-            <form className="space-y-4 md:space-y-8  flex flex-col ">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder=" "
-                  className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
-                />
-                <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
-                  Name
-                </label>
-              </div>
-
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder=" "
-                  className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
-                />
-                <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
-                  Email Address
-                </label>
-              </div>
-
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder=" "
-                  className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
-                />
-                <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
-                  Reason for contacting
-                </label>
-              </div>
-
-              <div className="relative">
-                <textarea
-                  placeholder=" "
-                  rows={4}
-                  className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300 resize-none"
-                />
-                <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
-                  Message
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="bg-teal-950 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-[#008585] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
-              >
-                <span className="text-lg font-medium">Submit</span>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="transition-transform group-hover:translate-x-1"
+        <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-[100vh] z-[1000]">
+          <div className="flex gap-10">
+            {/* Left Column - Text and Map */}
+            <div className="flex-1">
+              <div className="heading flex-1">
+                <Typography
+                  variant="subheading"
+                  className="text-gray-500 text-xl md:text-3xl uppercase font-semibold"
                 >
-                  <path
-                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  Contact Us
+                </Typography>
+              </div>
+              <Typography variant="h1" className="text-teal-950 mb-4 mt4">
+                Take the first step towards upscaling your business
+              </Typography>
+              {/* Map Container */}
+            </div>
+
+            {/* Right Column - Contact Form */}
+            <div className="flex-1 w-full">
+              <form className="space-y-4 md:space-y-8  flex flex-col ">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder=" "
+                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
                   />
-                </svg>
-              </button>
-            </form>
+                  <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                    Name
+                  </label>
+                </div>
+
+                <div className="relative">
+                  <input
+                    type="email"
+                    placeholder=" "
+                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                  />
+                  <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                    Email Address
+                  </label>
+                </div>
+
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder=" "
+                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                  />
+                  <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                    Reason for contacting
+                  </label>
+                </div>
+
+                <div className="relative">
+                  <textarea
+                    placeholder=" "
+                    rows={4}
+                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300 resize-none"
+                  />
+                  <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                    Message
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-teal-950 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-[#008585] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                >
+                  <span className="text-lg font-medium">Submit</span>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="transition-transform group-hover:translate-x-1"
+                  >
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
           </div>
+
+
         </div>
       </div>
 
