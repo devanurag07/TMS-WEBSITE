@@ -47,6 +47,28 @@ import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 
 
+const developmentTimeline = [
+  {
+    month: "Dec",
+    year: "2022",
+    title: "Ideation Stage",
+    description: "Started with the concept\nCustomer Surveys\nFunded by PIEDS & CIIF"
+  },
+  {
+    month: "May",
+    year: "2023",
+    title: "Product Development",
+    description: "Improved accuracy & speed\nSoftware Alpha Testing\nBuilt Gen 1 Smart Mirror"
+  },
+  {
+    month: "Jan",
+    year: "2024",
+    title: "Product Market Launch",
+    description: "Smart Mirror Patent Granted\nMVP Launch & Beta Testing\nPilot at Page3 & Looks Salon"
+  }
+]
+
+
 const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: () => void; color: string }) => (
 
   <button
@@ -80,26 +102,7 @@ const DevelopmentTimeline = () => {
         />
         {/* Timeline points */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {[
-            {
-              month: "Dec",
-              year: "2022",
-              title: "Inspiration for the Virtual Try-on",
-              description: "Started with the concept\nLaunch of MVP 2023"
-            },
-            {
-              month: "May",
-              year: "2023",
-              title: "Beginning User Testing",
-              description: "Building the model and optimizing the\nprocessing time from 20 minutes to 2 minutes"
-            },
-            {
-              month: "June",
-              year: "2024",
-              title: "Patent Granted",
-              description: "Patented the smart mirror in India"
-            }
-          ].map((point, index) => (
+          {developmentTimeline.map((point, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="flex flex-col items-center gap-1 md:gap-2">
 
@@ -275,13 +278,6 @@ export default function AboutUs() {
       desc: "Started Pilot Testing with LOOKS Salon in New Delhi",
       date: "December 2024",
       icon: <IoMapSharp className="text-white w-16 h-16 md:w-24 md:h-24" />
-    },
-    {
-      num: 13,
-      title: "Hardware Upgrades Upcoming!",
-      desc: "Continuing to develop new technologies to transform salon and retail services.",
-      date: "January 2025",
-      icon: <IoRocket className="text-white w-16 h-16 md:w-24 md:h-24" />
     }
   ]
 
@@ -453,7 +449,7 @@ export default function AboutUs() {
               }}></div>
             <div className="max-w-[1400px] w-full py-16  px-4 md:px-20 min-h-screen z-[200]">
               <div className="content relative">
-                {journeyContent.slice(3, 8).map((milestone, index) => (
+                {journeyContent.slice(0, 6).map((milestone, index) => (
                   <JourneyCard key={index} {...milestone} index={index} lightTheme={true} start={index == 0} />
                 ))}
               </div>
@@ -471,8 +467,8 @@ export default function AboutUs() {
               }}></div>
             <div className="max-w-[1400px] w-full py-16  px-4 md:px-20 min-h-screen z-[200]">
               <div className="content relative">
-                {journeyContent.slice(8, 13).map((milestone, index) => (
-                  <JourneyCard key={index} {...milestone} index={index} start={index == 0} />
+                {journeyContent.slice(6, 12).map((milestone, index) => (
+                  <JourneyCard key={index} {...milestone} index={index} start={index == 0} offset={0} />
                 ))}
               </div>
             </div>
@@ -740,8 +736,7 @@ export default function AboutUs() {
   );
 }
 
-const JourneyCard = ({ title, desc, date, index, lightTheme, icon, start }: { title: string, desc: string, date: string, index: number, start?: boolean, lightTheme?: boolean, icon: React.ReactNode }) => {
-  const offset = lightTheme ? 1 : 0;
+const JourneyCard = ({ title, desc, date, index, lightTheme, icon, start, offset = 0 }: { title: string, desc: string, date: string, index: number, start?: boolean, lightTheme?: boolean, icon: React.ReactNode, offset?: number }) => {
   const isLeft = (index + offset) % 2 === 0;
   return (
     <div className="relative flex items-center w-full">

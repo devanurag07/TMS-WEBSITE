@@ -23,20 +23,20 @@ const Footer = ({ openCalendly }: FooterProps) => {
           {/* Background decorative elements */}
           {/* <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
           {/* <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
-          {/* <Image
+          <Image
             src={FooterCtaImage}
             alt="Footer Background Image"
             width={300}
             height={300}
             className="absolute top-0 left-0 w-full h-full hidden md:block"
-          /> */}
-          {/* <Image
+          />
+          <Image
             src={FooterCtaPhoneImage}
             alt="Footer Background Image"
             width={300}
             height={300}
             className="absolute top-0 left-0 w-full h-full block md:hidden"
-          /> */}
+          />
           <Typography variant="h1" className="text-white mb-4 relative z-10">
             Goodbye Guesswork
           </Typography>
