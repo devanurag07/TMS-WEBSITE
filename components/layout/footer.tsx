@@ -50,15 +50,16 @@ const Footer = ({ openCalendly }: FooterProps) => {
             </span>{" "}
             look!
           </Typography>
-          max
-          <button className="mt-4 bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-lg font-medium hover:bg-[#008585] transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105 relative z-10"
+          <div className="flex items-center justify-center w-full" >
+            <button className="mt-4 bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-lg font-medium hover:bg-[#008585] transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105 relative z-10"
 
-            onClick={
-              () => openCalendly?.()
-            }
-          >
-            Book Demo
-          </button>
+              onClick={
+                () => openCalendly?.()
+              }
+            >
+              Book Demo
+            </button>
+          </div>
         </div>
       </div>
 
