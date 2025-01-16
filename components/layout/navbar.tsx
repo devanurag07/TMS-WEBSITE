@@ -136,10 +136,10 @@ export const Navbar = () => {
                                     <a href="/smart-mirror" className="text-white/80 hover:text-white transition-colors block">
                                         Smart Mirror for Hair Salons
                                     </a>
-                                    <a href="/jewellery" className="text-white/80 hover:text-white transition-colors block">
+                                    <a href="#" className="text-white/80 hover:text-white transition-colors block">
                                         Try-on for Jewellery Stores <span className="text-white/60 text-sm">(Coming Soon)</span>
                                     </a>
-                                    <a href="/clothes" className="text-white/80 hover:text-white transition-colors block">
+                                    <a href="#" className="text-white/80 hover:text-white transition-colors block">
                                         Apparel Try-on <span className="text-white/60 text-sm">(Coming Soon)</span>
                                     </a>
                                 </div>
