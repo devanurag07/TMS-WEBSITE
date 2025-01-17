@@ -88,21 +88,21 @@ export const Navbar = () => {
                                         </a>
                                         <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900">
                                             <div className="flex gap-2">
-                                                <div>
+                                                <div className="flex items-center justify-center">
                                                     <BsQuestionCircle size={32} />
                                                 </div>
-                                                <div className="flex items-center justify-center">
-                                                    Try-on for Jewellery Stores <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                                <div className="flex items-start justify-center flex-col">
+                                                    Try-on for Jewellery Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
                                                 </div>
                                             </div>
                                         </a>
                                         <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-b-lg">
                                             <div className="flex gap-2">
-                                                <div>
+                                                <div className="flex items-center justify-center">
                                                     <BsQuestionCircle size={32} />
                                                 </div>
-                                                <div className="flex items-center justify-center">
-                                                    Apparel Try-on <span className="text-white/60 text-sm">&nbsp; (Coming Soon)</span>
+                                                <div className="flex items-start justify-center flex-col">
+                                                    Apparel Try-on <div className="text-white/60 text-sm">(Coming Soon)</div>
                                                 </div>
                                             </div>
                                         </a>
@@ -152,13 +152,36 @@ export const Navbar = () => {
                                 </button>
                                 <div className={`${isMobileProductsOpen ? 'flex flex-col space-y-2 pl-4' : 'hidden'}`}>
                                     <a href="/smart-mirror" className="text-white/80 hover:text-white transition-colors block">
-                                        Smart Mirror for Hair Salons
+                                        <div className="flex gap-2">
+                                            <div className="flex items-center justify-center">
+                                                <Image src={WhiteTMSLogo} alt="Try My Style Logo" width={32} height={32}
+                                                    className="w-[32px] md:w-[32px]"
+                                                />
+                                            </div>
+                                            <div className="link flex items-center justify-center">
+                                                Smart Mirror for Hair Salons
+                                            </div>
+                                        </div>
                                     </a>
                                     <a href="#" className="text-white/80 hover:text-white transition-colors block">
-                                        Try-on for Jewellery Stores <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                        <div className="flex gap-2">
+                                            <div className="flex items-center justify-center">
+                                                <BsQuestionCircle size={32} />
+                                            </div>
+                                            <div className="flex items-start justify-center flex-col">
+                                                Try-on for Jewellery Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
+                                            </div>
+                                        </div>
                                     </a>
                                     <a href="#" className="text-white/80 hover:text-white transition-colors block">
-                                        Apparel Try-on <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                        <div className="flex gap-2">
+                                            <div className="flex items-center justify-center">
+                                                <BsQuestionCircle size={32} />
+                                            </div>
+                                            <div className="flex items-start justify-center flex-col">
+                                                Apparel Try-on <div className="text-white/60 text-sm">(Coming Soon)</div>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
                             </div>
