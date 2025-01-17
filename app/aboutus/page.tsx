@@ -45,7 +45,8 @@ import Footer from "@/components/layout/footer";
 import AboutUsImage from "../../assets/about_us_hero.svg";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
-
+import blog1Image from "../../assets/blog/blog_1.png";
+import blog2Image from "../../assets/blog/blog_2.jpg";
 
 const developmentTimeline = [
   {
@@ -63,6 +64,12 @@ const developmentTimeline = [
   {
     month: "Jan",
     year: "2024",
+    title: "Product Market Launch",
+    description: "Smart Mirror Patent Granted\nMVP Launch & Beta Testing\nPilot at Page3 & Looks Salon"
+  },
+  {
+    month: "Jan",
+    year: "2025",
     title: "Product Market Launch",
     description: "Smart Mirror Patent Granted\nMVP Launch & Beta Testing\nPilot at Page3 & Looks Salon"
   }
@@ -101,7 +108,7 @@ const DevelopmentTimeline = () => {
           style={{ borderWidth: '4px' }}
         />
         {/* Timeline points */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {developmentTimeline.map((point, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="flex flex-col items-center gap-1 md:gap-2">
@@ -111,25 +118,30 @@ const DevelopmentTimeline = () => {
                 </Typography>
               </div>
 
-              {/* Timeline line with circle */}
-              <div className="flex flex-col items-center my-4 md:my-8 md:-translate-y-5">
-                <div className="h-16 md:h-24 w-[2px] bg-gray-600 relative">
-                  <div className="w-2 h-2 rounded-full bg-white translate-x-[-3px] " />
+              <div className="vector -translate-y-2">
+                {/* Timeline line with circle */}
+                <div className="flex flex-col items-center my-4 md:my-8 md:-translate-y-5">
+                  <div className="h-16 md:h-12 w-[2px] bg-gray-600 relative">
+                    <div className="w-2 h-2 rounded-full bg-white translate-x-[-3px] " />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex  flex-col items-center md:items-start -translate-y-14">
+                  <div className="flex items-center justify-center w-full">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#7FE0CB] mb-4 md:mb-8 " />
+                  </div>
+                  <div className="flex flex-col items-center text-center max-w-[200px] md:max-w-[250px] bg-gradient-to-br from-[#001A1A] to-[#003333] backdrop-blur-sm rounded-xl p-6 shadow-lg shadow-black/20 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 h-[30vh]">
+                    <Typography variant="subheading" className="text-white mb-4 font-medium bg-clip-text">
+                      {point.title}
+                    </Typography>
+                    <Typography variant="content" className="text-white/90 !mt-0 leading-tight text-start">
+                      {point.description}
+                    </Typography>
+                  </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="flex md:flex-row-reverse flex-col items-center  md:items-start md:-translate-x-1/2 -translate-y-10 md:-translate-y-14">
-                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#7FE0CB] mb-4 md:mb-8 md:translate-x-1/2" />
-                <div className="flex flex-col items-center text-center max-w-[200px] md:max-w-[250px]">
-                  <Typography variant="subheading" className="text-white mb-2 font-medium">
-                    {point.title}
-                  </Typography>
-                  <Typography variant="content" className="text-white text-base  mb-2 font-normal whitespace-pre-line !mt-0">
-                    {point.description}
-                  </Typography>
-                </div>
-              </div>
             </div>
           ))}
         </div>
@@ -641,12 +653,12 @@ export default function AboutUs() {
           <Typography variant="h1" className="text-white mb-10 text-start">
             Blogs
           </Typography>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {/* Blog Card 1 */}
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
-              <div className="h-56 bg-zinc-800 relative overflow-hidden">
+              <div className="h-80 bg-zinc-800 relative overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1626544827763-d516dce335e2"
+                  src={blog1Image}
                   alt="AI Technology"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -655,10 +667,10 @@ export default function AboutUs() {
               </div>
               <div className="p-8">
                 <Typography variant="subheading" className="text-white mb-3 group-hover:text-teal-400 transition-colors">
-                  The Future of Virtual Try-On Technology
+                  How Try My Style’s Software Evolved Through Continuous Iterations
                 </Typography>
                 <Typography variant="content" className="text-zinc-400 mb-6 line-clamp-3">
-                  Explore how AI and AR are revolutionizing the beauty industry through virtual try-on solutions.
+                  Try My Style ® set out to revolutionize hair salons with a virtual try-on feature but faced significant challenges due to augmented reality&apos;s limitations in precision and accuracy for hairstyling.
                 </Typography>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-zinc-500">5 min read</span>
@@ -672,9 +684,9 @@ export default function AboutUs() {
 
             {/* Blog Card 2 */}
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
-              <div className="h-56 bg-zinc-800 relative overflow-hidden">
+              <div className="h-80 bg-zinc-800 relative overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1562322140-8baeececf3df"
+                  src={blog2Image}
                   alt="Salon Consultation"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -683,42 +695,13 @@ export default function AboutUs() {
               </div>
               <div className="p-8">
                 <Typography variant="subheading" className="text-white mb-3 group-hover:text-teal-400 transition-colors">
-                  Transforming Salon Consultations
+                  Journey of Try My Style’s Patented Smart Mirror
                 </Typography>
                 <Typography variant="content" className="text-zinc-400 mb-6 line-clamp-3">
-                  How digital tools are enhancing the salon consultation experience and boosting customer satisfaction.
-                </Typography>
+                  With our current partnership with Looks Salon & PAGE3  Salons by Naturals Salon & Spa, we have deployed our first set of Smart Mirrors in Delhi and Hyderabad for consumer testing. We introduced features such as virtual styling, interactive consultations, and customizable lighting,                </Typography>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-zinc-500">4 min read</span>
                   <a href="/blog/transforming-salon-consultations" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
-                    Read More
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Blog Card 3 */}
-            <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
-              <div className="h-56 bg-zinc-800 relative overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7"
-                  alt="Innovation Journey"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
-              </div>
-              <div className="p-8">
-                <Typography variant="subheading" className="text-white mb-3 group-hover:text-teal-400 transition-colors">
-                  Our Journey: From Idea to Innovation
-                </Typography>
-                <Typography variant="content" className="text-zinc-400 mb-6 line-clamp-3">
-                  The story behind Try My Style and our mission to revolutionize the hair styling industry.
-                </Typography>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-zinc-500">6 min read</span>
-                  <a href="/blog/our-journey" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
                     Read More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>

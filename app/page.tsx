@@ -6,6 +6,7 @@ import consultationIcon from "../assets/icons/consultation.svg";
 import robotIcon from "../assets/icons/robot.svg";
 import customerConfidenceIcon from "../assets/icons/customer_confidence.svg";
 
+
 // before vs after section icons
 import Vector1Icon from "../assets/icons/Vector-1.svg";
 import Vector2Icon from "../assets/icons/Vector-2.svg";

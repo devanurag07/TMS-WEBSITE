@@ -7,6 +7,9 @@ import TryMyStyleLogo from "@/assets/trymystyle_logo_white_long.png"
 import Image from "next/image"
 import TryMyStyleLogoWhite from "@/assets/tms.png";
 import TryMyStyleOldLogoWhite from "@/assets/tms-white-old-logo.png";
+import WhiteTMSLogo from "@/assets/whitelogo.png";
+import { BiQuestionMark } from "react-icons/bi"
+import { BsQuestionCircle } from "react-icons/bs"
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -71,22 +74,37 @@ export const Navbar = () => {
                                         <a href="/smart-mirror" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-t-lg">
                                             <div className="flex gap-2">
 
-                                                <div className="link flex items-center justify-center">
-                                                    Smart Mirror For Hair Salons
-                                                </div>
                                                 <div className="flex items-center justify-center">
-                                                    <Image src={TryMyStyleOldLogoWhite} alt="Try My Style Logo" width={32} height={32}
+                                                    <Image src={WhiteTMSLogo} alt="Try My Style Logo" width={32} height={32}
                                                         className="w-[32px] md:w-[32px]"
                                                     />
                                                 </div>
+                                                <div className="link flex items-center justify-center">
+                                                    Smart Mirror For Hair Salons
+                                                </div>
+
                                             </div>
 
                                         </a>
                                         <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900">
-                                            Try-on for Jewellery Stores <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                            <div className="flex gap-2">
+                                                <div>
+                                                    <BsQuestionCircle size={32} />
+                                                </div>
+                                                <div className="flex items-center justify-center">
+                                                    Try-on for Jewellery Stores <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                                </div>
+                                            </div>
                                         </a>
                                         <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-b-lg">
-                                            Apparel Try-on <span className="text-white/60 text-sm">(Coming Soon)</span>
+                                            <div className="flex gap-2">
+                                                <div>
+                                                    <BsQuestionCircle size={32} />
+                                                </div>
+                                                <div className="flex items-center justify-center">
+                                                    Apparel Try-on <span className="text-white/60 text-sm">&nbsp; (Coming Soon)</span>
+                                                </div>
+                                            </div>
                                         </a>
                                     </div>
                                 )}
