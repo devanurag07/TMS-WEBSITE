@@ -26,7 +26,7 @@ import StartupIndiaImage from "../../assets/images/supported_by/StartupIndia.png
 import StartUpIndiaSeedImage from "../../assets/images/supported_by/startupindia_seed.jpg";
 
 // icons for journey
-import { MdFaceRetouchingNatural } from "react-icons/md"; //#1
+import { MdDeveloperBoard, MdFaceRetouchingNatural } from "react-icons/md"; //#1
 import { FaUserCheck } from "react-icons/fa"; //#2
 import { GiJumpAcross } from "react-icons/gi"; //#3
 import { MdPrecisionManufacturing } from "react-icons/md"; //#4
@@ -47,31 +47,57 @@ import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import blog1Image from "../../assets/blog/blog_1.png";
 import blog2Image from "../../assets/blog/blog_2.jpg";
+import { RocketIcon } from "lucide-react";
+import { color } from "three/tsl";
 
 const developmentTimeline = [
   {
     month: "Dec",
     year: "2022",
-    title: "Ideation Stage",
-    description: "Started with the concept\nCustomer Surveys\nFunded by PIEDS & CIIF"
+    icon: <MdFaceRetouchingNatural className="text-teal-950 w-16 h-16 md:w-24 md:h-24" />,
+    iconWhite: <MdFaceRetouchingNatural className="text-white w-16 h-16 md:w-24 md:h-24" />,
+    title: "Conceptualization Stage",
+    points: [
+      "Started with the concept",
+      "Customer Surveys",
+      "Funded by PIEDS & CIIF"
+    ]
   },
   {
     month: "May",
     year: "2023",
+    icon: <MdDeveloperBoard className="text-teal-950 w-16 h-16 md:w-24 md:h-24" />,
+    iconWhite: <MdDeveloperBoard className="text-white w-16 h-16 md:w-24 md:h-24" />,
     title: "Product Development",
-    description: "Improved accuracy & speed\nSoftware Alpha Testing\nBuilt Gen 1 Smart Mirror"
+    points: [
+      "Improved accuracy & speed",
+      "Software Alpha Testing",
+      "Built Gen 1 Smart Mirror"
+    ]
   },
   {
     month: "Jan",
     year: "2024",
+    icon: <GiJumpAcross className="text-teal-950 w-16 h-16 md:w-24 md:h-24" />,
+    iconWhite: <GiJumpAcross className="text-white w-16 h-16 md:w-24 md:h-24" />,
     title: "Product Market Launch",
-    description: "Smart Mirror Patent Granted\nMVP Launch & Beta Testing\nPilot at Page3 & Looks Salon"
+    points: [
+      "Smart Mirror Patent Granted",
+      "MVP Launch & Beta Testing",
+      "Pilot at Page3 & LOOKS Salon"
+    ]
   },
   {
     month: "Jan",
     year: "2025",
-    title: "Product Market Launch",
-    description: "Smart Mirror Patent Granted\nMVP Launch & Beta Testing\nPilot at Page3 & Looks Salon"
+    icon: <RocketIcon className="text-teal-950 w-16 h-16 md:w-24 md:h-24" />,
+    iconWhite: <RocketIcon className="text-white w-16 h-16 md:w-24 md:h-24" />,
+    title: "Expand Service Offerings",
+    points: [
+      "Develop New Hardware",
+      "Virtual Try-on For New Industries",
+
+    ]
   }
 ]
 
@@ -98,55 +124,65 @@ const ScrollSpyDot = ({ active, onClick, color }: { active: boolean; onClick: ()
 // Add this new component for the timeline visualization
 const DevelopmentTimeline = () => {
   return (
-    <div className="bg-black p-4 md:p-8 lg:p-16 rounded-lg w-full">
-      <Typography className="text-white text-2xl md:text-3xl mb-10 md:mb-20 text-center" variant={"h1"}>Development Journey So Far</Typography>
+    <div className="bg-black pt-40 rounded-lg w-full lg:px-0 px-12">
+      <div className="z-[200] relative">
+        <Typography className="text-white text-2xl md:text-3xl mb-10 md:mb-20 text-center z-[200] " variant={"h1"}>Our Journey So Far</Typography>
+      </div>
 
       <div className="relative pb-24 md:pb-48 flex flex-col items-center justify-center">
         {/* Dashed timeline line */}
         <div
-          className="absolute top-[80px] md:top-[104px] left-0 right-0 border-t border-dashed border-gray-600 "
+          className="absolute top-[80px] md:top-[259px] left-0 right-0 border-t border-dashed border-gray-600 "
           style={{ borderWidth: '4px' }}
         />
         {/* Timeline points */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          {developmentTimeline.map((point, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <div className="flex flex-col items-center gap-1 md:gap-2">
-                <Typography className="text-white text-2xl md:text-4xl font-normal" variant="subheading">
-                  {point.year}
-                </Typography>
-              </div>
 
-              <div className="vector -translate-y-2">
-                {/* Timeline line with circle */}
-                <div className="flex flex-col items-center my-4 md:my-8 md:-translate-y-5">
-                  <div className="h-16 md:h-12 w-[2px] bg-gray-600 relative">
-                    <div className="w-2 h-2 rounded-full bg-white translate-x-[-3px] " />
+        <div className="max-w-[1400px] w-full">
+          <div className="grid grid-cols-1 md:grid-cols-4 md:gap-8">
+            {developmentTimeline.map((point, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="flex flex-col items-center gap-1 md:gap-2">
+                  <Typography className="text-white font-medium !text-5xl" variant="subheading">
+                    {point.year}
+                  </Typography>
+                </div>
+
+                <div className="vector -translate-y-2 z-[100]">
+                  {/* Timeline line with circle */}
+                  <div className="flex flex-col items-center my-4 md:my-8">
+                    <div className="h-16 md:h-32 w-[2px] bg-gray-600 relative">
+                      <div className="w-2 h-2 rounded-full bg-white translate-x-[-3px]" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex  flex-col items-center md:items-start -translate-y-10 z-[100]">
+                    <div className="flex items-center justify-center w-full">
+                      <div className="w-10 h-10 md:w-32 md:h-32 rounded-full bg-white mb-4 md:mb-8 flex items-center justify-center">
+                        {point.icon}
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center text-center bg-gradient-to-br from-[#001A1A] to-[#003333] backdrop-blur-sm rounded-xl p-6 shadow-lg shadow-black/20 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 h-[24vh]">
+                      <Typography variant="subheading" className="text-white mb-4 font-medium bg-clip-text">
+                        {point.title}
+                      </Typography>
+                      <ul className="text-white/90 !mt-0 leading-tight text-start list-disc pl-4">
+                        {point.points.map((point, i) => (
+                          <li key={i} className="mb-1">
+                            <Typography variant="content" className="text-white/90 !mt-0 leading-tight text-start">
+                              {point}
+                            </Typography>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="flex  flex-col items-center md:items-start -translate-y-14">
-                  <div className="flex items-center justify-center w-full">
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#7FE0CB] mb-4 md:mb-8 " />
-                  </div>
-                  <div className="flex flex-col items-center text-center max-w-[200px] md:max-w-[250px] bg-gradient-to-br from-[#001A1A] to-[#003333] backdrop-blur-sm rounded-xl p-6 shadow-lg shadow-black/20 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 h-[30vh]">
-                    <Typography variant="subheading" className="text-white mb-4 font-medium bg-clip-text">
-                      {point.title}
-                    </Typography>
-                    <Typography variant="content" className="text-white/90 !mt-0 leading-tight text-start">
-                      {point.description}
-                    </Typography>
-                  </div>
-                </div>
               </div>
-
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-
-
       </div>
     </div>
   )
@@ -167,13 +203,10 @@ export default function AboutUs() {
   const sections = [
     { id: 'hero', color: 'white' },
     { id: 'story', color: 'teal-950' },
-    { id: 'journey-1', color: 'white' },
-    ...(showJourney ? [
-      { id: 'journey-2', color: 'teal-950' },
-      { id: 'journey-3', color: 'white' },
-    ] : []),
+    { id: 'timeline', color: 'white' },
     { id: 'team', color: 'teal-950' },
     { id: 'blogs', color: 'white' },
+    { id: 'cta', color: 'white' }
   ];
 
   const [activeSection, setActiveSection] = useState(sections[0].id);
@@ -312,7 +345,7 @@ export default function AboutUs() {
         <div className="max-w-[1400px] p-4  lg:p-8 2xl:p-0  w-full min-h-screen flex flex-col md:flex-row items-center justify-start z-[200] px-4 mt-20 md:mt-0">
           <div className="py-10 md:py-0 md:flex-1">
             <Typography variant="h1" className="text-white mb-6 text-center md:text-left">
-              Know us before your believe us
+              Know us before you believe us
             </Typography>
             <Typography variant="content" className="text-gray-400 mb-8 text-center md:text-left">
               Try My Style revolutionizes the hair styling industry by aligning hairstylists’ expertise with customers’ vision through cutting-edge technology, empowering salons to regain business and customers to explore confidently.
@@ -331,7 +364,7 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <div id="story" className="section-2 w-full flex justify-center items-center bg-white relative ">
+      <div id="story" className="section-2 w-full flex justify-center items-center bg-white relative z-[100] ">
         <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
         <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
 
@@ -376,15 +409,16 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <div className="jounery-1-laptop-view w-full bg-black items-center justify-center min-h-screen hidden md:flex relative">
-        <div className="max-w-[1400px] w-full pt-16 md:pt-0">
+      <div className="jounery-1-laptop-view w-full bg-black items-center justify-center min-h-screen hidden lg:flex relative " id="timeline">
+        <DarkGradientCircles overflowHidden={true} isStraight={false} />
+        <div className="max-w-[] w-full pt-16 md:pt-0">
           <DevelopmentTimeline />
         </div>
         {/* Show More Button */}
         {!showJourney && (
           <div className="w-full flex cursor-pointer  justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[200] left-1/2 -translate-x-1/2">
             <button
-              onClick={() => setShowJourney(true)}
+              onClick={() => { }}
               className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
             >
               <svg
@@ -405,17 +439,46 @@ export default function AboutUs() {
         )}
       </div>
 
-      <div id="journey-1" className="sub-section-1 bg-black min-h-screen justify-center items-center relative flex w-full md:hidden">
+      <div id="timeline" className="sub-section-1 bg-black min-h-screen justify-center items-center relative flex w-full lg:hidden">
         <Image src={backgroundImg} alt="background" className="absolute top-0 left-0 w-full h-full object-cover z-[100]" />
 
         <div className="max-w-[1400px] w-full py-16 px-4 md:px-20 min-h-screen relative z-[200]">
           <Typography variant="h1" className="text-white mb-12 text-center md:text-left">
-            Development<br />Journey<br />So Far
+            Our Journey<br />So Far
           </Typography>
 
-          <div className="content relative ">
-            {journeyContent.slice(0, 3).map((milestone, index) => (
-              <JourneyCard key={index} {...milestone} index={index} start={index == 0} />
+          <div className="content relative flex flex-col gap-4 ">
+            {developmentTimeline.map((item, index) => (
+              <div className="md:p-10 p-5 w-full r bg-gradient-to-br from-[#001A1A] to-[#003333] backdrop-blur-sm rounded-xl p-6 shadow-lg shadow-black/20 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30" key={index}>
+                <div className="flex flex-row md:flex-row items-center justify-start gap-4">
+                  <div className="icon">
+                    {item.iconWhite}
+                  </div>
+                  <div className="content">
+                    <Typography variant="subheading" className="text-white font-bold">
+                      {item.year}
+                    </Typography>
+                    <Typography
+                      className="benefit-card-title mt-2 poppins font-medium text-white text-start"
+                      variant={"subheading"}
+                    >
+                      {item.title}
+                    </Typography>
+                    <ul className="text-white/90 !mt-0  text-start  !list-disc pl-5">
+                      {item.points.map((point, i) => (
+                        <li key={i}>
+                          <Typography variant="content" className="text-white/90 !mt-0 leading-tight text-start">
+                            {point}
+                          </Typography>
+                        </li>
+                      ))}
+                    </ul>
+
+                  </div>
+
+                </div>
+
+              </div>
             ))}
           </div>
         </div>
@@ -445,10 +508,10 @@ export default function AboutUs() {
         )}
       </div>
       {/* Journey Sections */}
-      {showJourney && (
+      {false && (
         <>
 
-          <div id="journey-2" className="sub-section-2 bg-white min-h-screen flex justify-center items-center relative overflow-hidden w-full">
+          <div id="journey-2" className="sub-section-2 bg-white min-h-screen flex justify-center items-center relative overflow-hidden w-full z-[100]">
 
             <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
             <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100 z-[100]"></div>
@@ -510,7 +573,7 @@ export default function AboutUs() {
           </div>
         </>
       )}
-      <div id="team" className="section-4 w-full flex justify-center items-center bg-white ">
+      <div id="team" className="section-4 w-full flex justify-center items-center bg-white z-[100] ">
         <div className="max-w-[1400px] w-full py-32 px-10 min-h-screen">
           <Typography variant="h1" className="text-black mb-0 text-center">
             Team
@@ -647,12 +710,15 @@ export default function AboutUs() {
       </div>
 
       <div id="blogs" className="section-5 w-full flex justify-center items-center bg-black min-h-[100vh] relative">
-        {/* <DarkGradientCircles overflowHidden={true} /> */}
+        <DarkGradientCircles overflowHidden={false} />
         <div className="max-w-[1400px] w-full py-32 px-10 min-h-screen">
-          <Typography variant="h1" className="text-white mb-10 text-start">
-            Blogs
-          </Typography>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+
+          <div className="relative z-[150]">
+            <Typography variant="h1" className="text-white mb-10 text-start">
+              Blogs
+            </Typography>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 z-[250] relative">
             {/* Blog Card 1 */}
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
               <div className="h-80 bg-zinc-800 relative overflow-hidden">

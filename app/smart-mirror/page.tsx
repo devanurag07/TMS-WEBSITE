@@ -16,6 +16,7 @@ import faqData from "../../assets/json/SmartMirror_Faq.json";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import increaseRevenueIcon from "../../assets/icons/increase_revenue.svg";
 import upscalingBusinessIcon from "../../assets/icons/upscale_business.svg";
+import DarkGradientCircles from "@/components/DarkGradientCircles";
 
 
 type VideoClip = {
@@ -261,12 +262,12 @@ export default function SmartMirror() {
 
         </div>
       </div>
-      <div className=" bg-black w-full flex items-center justify-center relative" id="how-it-works">
+      <div className=" bg-black w-full flex items-center justify-center relative overflow-hidden" id="how-it-works">
 
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
-
+        {/* <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
+        <DarkGradientCircles overflowHidden={true} />
         <div className="flex max-w-[1400px] flex-col pt-20 items-start justify-start w-full p-4">
 
           <div className="how-it-works z-[100] mb-20 md:mt-0  min-h-screen h-full items-start justify-start flex flex-col md:p-0 text-center">
@@ -334,7 +335,7 @@ export default function SmartMirror() {
       </div>
       <div
         id="faq"
-        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[100vh] relative overflow-hidden mt-5"
+        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[100vh] relative overflow-hidden  z-[150]"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
 

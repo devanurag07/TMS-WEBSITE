@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "../typography/typography";
 import FooterCtaImage from "@/assets/footer-cta-bg.png";
 import Image from "next/image";
-import { FaLinkedin, FaInstagram, FaXTwitter, FaFacebookF } from "react-icons/fa6";
+import { FaLinkedin, FaInstagram, FaXTwitter, FaFacebookF, FaYoutube } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { Calendly } from "../calendly/calendly";
 import TryMyStyleLogo from "@/assets/trymystyle_logo_white_long.png"
@@ -17,12 +17,13 @@ const Footer = ({ openCalendly }: FooterProps) => {
     <>
       <div
         id="cta"
-        className="wrapper flex justify-center items-center w-full py-10 md:py-20 bg-gradient-to-br from-[#001A1A] to-black px-4 md:px-0"
+        className="wrapper flex justify-center items-center w-full py-10 md:py-20 bg-black px-4 md:px-0 "
       >
-        <div className="w-[90%] md:max-w-[1200px] backdrop-blur-lg rounded-3xl p-8 md:p-20 text-center relative overflow-hidden border border-[#00A5A5]/20">
+        <div className="z-[250] w-[90%] md:max-w-[1200px] backdrop-blur-lg rounded-3xl p-8 md:p-20 text-center relative overflow-hidden border border-[#00A5A5]/20 bg-transparent">
           {/* Background decorative elements */}
           {/* <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
           {/* <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
+
           <Image
             src={FooterCtaImage}
             alt="Footer Background Image"
@@ -96,6 +97,16 @@ const Footer = ({ openCalendly }: FooterProps) => {
               >
                 <FaInstagram size={24} />
               </a>
+
+              {/* youtube link */}
+              <a
+                href="https://www.youtube.com/@Trymystylemirror"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#00A5A5] transition-colors"
+              >
+                <FaYoutube size={24} />
+              </a>
               <a
                 href="https://www.facebook.com/Trymistyl/"
                 target="_blank"
@@ -113,7 +124,7 @@ const Footer = ({ openCalendly }: FooterProps) => {
             </div>
           </div>
 
-          <div className="flex justify-start md:justify-end w-full gap-10 md:gap-20">
+          <div className="flex justify-between md:justify-end w-full gap-10 md:gap-20 max-w-[300px] md:max-w-full">
             <div className="col-span-4 md:ml-auto">
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2">

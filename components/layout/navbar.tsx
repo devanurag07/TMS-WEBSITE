@@ -10,12 +10,14 @@ import TryMyStyleOldLogoWhite from "@/assets/tms-white-old-logo.png";
 import WhiteTMSLogo from "@/assets/whitelogo.png";
 import { BiQuestionMark } from "react-icons/bi"
 import { BsQuestionCircle } from "react-icons/bs"
+import { useRouter } from "next/navigation"
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
     const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false)
     const { openCalendly } = useCalendly();
+    const router = useRouter();
 
     return (
         <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[1400px] z-[2000]">
@@ -68,7 +70,7 @@ export const Navbar = () => {
 
                                 {isProductsDropdownOpen && (
                                     <div
-                                        className="absolute top-full left-0 mt-2 w-96 bg-teal-950 rounded-lg border border-white/20 shadow-lg"
+                                        className="absolute top-full left-0 mt-2 w-64 bg-teal-950 rounded-lg border border-white/20 shadow-lg"
                                         onMouseLeave={() => setIsProductsDropdownOpen(false)}
                                     >
                                         <a href="/smart-mirror" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-t-lg">
@@ -80,7 +82,7 @@ export const Navbar = () => {
                                                     />
                                                 </div>
                                                 <div className="link flex items-center justify-center">
-                                                    Smart Mirror For Hair Salons
+                                                    Smart Mirror <br /> (Hair Salons)
                                                 </div>
 
                                             </div>
@@ -92,7 +94,7 @@ export const Navbar = () => {
                                                     <BsQuestionCircle size={32} />
                                                 </div>
                                                 <div className="flex items-start justify-center flex-col">
-                                                    Try-on for Jewellery Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
+                                                    Jewellery Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
                                                 </div>
                                             </div>
                                         </a>
@@ -102,22 +104,23 @@ export const Navbar = () => {
                                                     <BsQuestionCircle size={32} />
                                                 </div>
                                                 <div className="flex items-start justify-center flex-col">
-                                                    Apparel Try-on <div className="text-white/60 text-sm">(Coming Soon)</div>
+                                                    Apparel Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                 )}
                             </div>
+
                             <a
-                                href="#faq"
+                                href="/#faq"
                                 className="text-white/80 hover:text-white transition-colors relative group"
                             >
                                 FAQ
                                 <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
                             </a>
                             <a
-                                href="#contact"
+                                href="/#contact"
                                 className="text-white/80 hover:text-white transition-colors relative group"
                             >
 
@@ -185,9 +188,8 @@ export const Navbar = () => {
                                     </a>
                                 </div>
                             </div>
-                            <a href="#faqpos" className="text-white/80 hover:text-white transition-colors">FAQ</a>
-                            <a href="#contact" className="text-white/80 hover:text-white transition-colors">Contact Us</a>
-
+                            <a href="/#faq" className="text-white/80 hover:text-white transition-colors">FAQ</a>
+                            <a href="/#contact" className="text-white/80 hover:text-white transition-colors">Contact Us</a>
                             <a onClick={() => openCalendly?.()} href="#get-started" className="bg-white text-teal-950 px-6 py-2.5 rounded-full text-center hover:bg-teal-950 hover:text-white transition-all duration-300">
                                 Try On
                             </a>

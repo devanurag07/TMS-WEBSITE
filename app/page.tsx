@@ -304,7 +304,7 @@ export default function Home() {
 
       <div
         id="comparison"
-        className="section-3 w-full flex justify-center items-center bg-white min-h-screen relative overflow-hidden md:px-0"
+        className="section-3 w-full flex justify-center items-center bg-white min-h-screen relative overflow-hidden md:px-0 z-[150]"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
@@ -685,7 +685,7 @@ export default function Home() {
 
       <div
         id="faq"
-        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[50vh] relative "
+        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-36 min-h-[50vh] relative "
       >
 
         <section className="md:max-w-[1400px] w-full z-[1000]">
@@ -755,11 +755,11 @@ export default function Home() {
 
       <div
         id="contact"
-        className="section-5 w-full flex justify-center items-start bg-white p-4 pt-20 md:p-20 relative"
+        className="section-5 w-full flex justify-center items-start bg-white p-4 pt-20 md:p-36 relative"
       >
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
+        {/* <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div> */}
+        {/* <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div> */}
 
         <div className="md:max-w-[1400px] w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 min-h-[50vh] z-[1000]">
           <div className="flex gap-10 flex-col md:flex-row">

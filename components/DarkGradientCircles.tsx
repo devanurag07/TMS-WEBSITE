@@ -4,7 +4,7 @@ const DarkGradientCircles = ({ overflowHidden = true, isStraight }: { overflowHi
     return (
         <>
             <div className={`absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-950 rounded-full blur-[100px] z-[0]`}></div>
-            <div className={`absolute bottom-[-120px] ${isStraight ? "left-[-150px] " : "right-[-150px]"} w-[600px] h-[600px] bg-teal-950 rounded-full blur-[100px] z-[0] ${overflowHidden ? "" : "z-[200]"}`} ></div >
+            <div className={`absolute bottom-[-120px] ${isStraight ? "left-[-150px] " : "right-[-150px]"} w-[600px] h-[600px] bg-teal-950 rounded-full blur-[100px] z-[0] ${overflowHidden ? "z-[50]" : "z-[200]"}`} ></div >
         </>
 
     )
