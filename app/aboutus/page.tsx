@@ -112,7 +112,6 @@ const DevelopmentTimeline = () => {
           {developmentTimeline.map((point, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="flex flex-col items-center gap-1 md:gap-2">
-
                 <Typography className="text-white text-2xl md:text-4xl font-normal" variant="subheading">
                   {point.year}
                 </Typography>

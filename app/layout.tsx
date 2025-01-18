@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Try My Style",
-  description: "Virtual Try-On solutions for Fashion & Beauty Tech Industries",
+  title: "Try My Style - GenAI Smart Mirror for Fashion & Beauty",
+  description: "Leveraging GenAI to provide personalized and highly realistic Virtual Try-on solutions with our Smart Mirror for experiential brands in Fashion & Beauty.",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

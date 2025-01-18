@@ -187,6 +187,7 @@ export const Navbar = () => {
                             </div>
                             <a href="#faqpos" className="text-white/80 hover:text-white transition-colors">FAQ</a>
                             <a href="#contact" className="text-white/80 hover:text-white transition-colors">Contact Us</a>
+
                             <a onClick={() => openCalendly?.()} href="#get-started" className="bg-white text-teal-950 px-6 py-2.5 rounded-full text-center hover:bg-teal-950 hover:text-white transition-all duration-300">
                                 Try On
                             </a>
