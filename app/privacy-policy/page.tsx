@@ -6,15 +6,17 @@ import { Typography } from '@/components/typography/typography';
 import Footer from '@/components/layout/footer';
 import privacyImage from '@/assets/privacy_policy.svg';
 import Image from 'next/image';
+import { useCalendly } from '@/lib/features/calendly/context/CalendlyContext';
 
 const Page = () => {
+    const { openCalendly } = useCalendly();
     return (
         <div>
             <Navbar />
 
             <div className='bg-black hero min-h-screen flex justify-center items-center'>
-                <div className="flex max-w-[1400px] mx-auto gap-20 md:flex-row flex-col-reverse">
-                    <div className='px-4'>
+                <div className="flex max-w-[1400px] mx-auto gap-20 md:flex-row flex-col-reverse justify-center items-center">
+                    <div className='px-8 md:px-0 pb-12 md:pb-0 flex-1'>
                         <Typography variant='h1' className='text-white'>Privacy Policy</Typography>
 
                         <Typography variant='content' className='text-white !mt-2'>At Try My Style, accessible from trymystyle.co.in, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Try My Style and how we use it.</Typography>
@@ -34,14 +36,14 @@ const Page = () => {
 
 
                     </div>
-                    <div className="image">
-                        <div className="w-[500px] h-[500px]">
-                            <Image src={privacyImage} alt='privacy' width={500} height={500} className='w-full h-full md:pt-0 pt-24 object-contain' />
+                    <div className="image flex-1">
+                        <div className="flex justify-center items-center">
+                            <Image src={privacyImage} alt='privacy' width={500} height={500} className='w-[80%] md:w-full h-full md:pt-0 pt-24 object-contain' />
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="min-h-screen bg-white p-20">
+            <div className="min-h-screen bg-white p-8 md:p-20">
                 <div className="max-w-[1400px] mx-auto px-4">
                     <Typography variant={"subheading"} className='text-black'>
                         How we use your information
@@ -99,7 +101,7 @@ const Page = () => {
 
 
 
-            <div className="p-20 bg-black">
+            <div className="p-8 md:p-20 bg-black">
                 <div className="max-w-[1400px] mx-auto ">
                     <Typography variant={"subheading"} className='text-white mt-2'>
                         Third Party Privacy Policies
@@ -114,22 +116,23 @@ const Page = () => {
                     </Typography>
                     <Typography variant='content' className='text-white !mt-2'>
                         We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
-                        <ul className="list-disc pl-12">
-                            <li>The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</li>
+                    </Typography>
 
-                            <li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</li>
+                    <ul className="list-disc pl-12">
+                        <li>The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</li>
 
-                            <li>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</li>
+                        <li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</li>
 
-                            <li>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+                        <li>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</li>
 
-                            <li>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</li>
+                        <li>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
 
-                            <li>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
-                        </ul>
+                        <li>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</li>
 
+                        <li>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+                    </ul>
+                    <Typography variant='content' className='text-white !mt-2'>
                         If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
-
                     </Typography>
 
                     <Typography variant={"subheading"} className='text-white mt-12'>
@@ -151,7 +154,7 @@ const Page = () => {
 
             </div>
 
-            <Footer key={new Date().getTime()} openCalendly={() => { }} />
+            <Footer openCalendly={openCalendly} />
         </div>
     )
 }

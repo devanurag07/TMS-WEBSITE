@@ -171,10 +171,10 @@ const Footer = ({ openCalendly }: FooterProps) => {
                 </li>
                 <li>
                   <a
-                    href="/terms-of-use"
+                    href="/terms-conditions"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Terms of Use
+                    Terms & Conditions
                   </a>
                 </li>
               </ul>
