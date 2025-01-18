@@ -30,13 +30,13 @@ const Page = () => {
                     </div>
                     <div className="image flex-1">
                         <div className="flex justify-center items-center">
-                            <Image src={termsImage} alt='privacy' width={500} height={500} className='w-[80%] md:w-full h-full object-contain' />
+                            <Image src={termsImage} alt='privacy' width={500} height={500} className='w-[80%] md:w-full h-full object-contain  mt-36 md:mt-0' />
                         </div>
                     </div>
                 </div>
             </div>
             <div className="min-h-screen bg-white flex items-center justify-center py-10">
-                <div className="max-w-[1400px] mx-auto px-4">
+                <div className="max-w-[1400px] mx-auto px-8">
                     <Typography variant={"subheading"} className='text-black'>
                         Definitions
                     </Typography>
@@ -86,7 +86,7 @@ const Page = () => {
             </div>
 
             <div className="py-20 bg-black">
-                <div className="max-w-[1400px] mx-auto px-4">
+                <div className="max-w-[1400px] mx-auto px-8">
                     <Typography variant={"subheading"} className='text-white'>
                         Hyperlinking to our Content
                     </Typography>
@@ -180,7 +180,7 @@ const Page = () => {
             </div>
 
             <div className="py-20 bg-white">
-                <div className="max-w-[1400px] mx-auto px-4">
+                <div className="max-w-[1400px] mx-auto px-8">
                     <Typography variant={"subheading"} className='text-black'>
                         iFrames
                     </Typography>
