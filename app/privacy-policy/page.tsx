@@ -118,7 +118,7 @@ const Page = () => {
                         We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
                     </Typography>
 
-                    <ul className="list-disc pl-12">
+                    <ul className="list-disc pl-12 text-white">
                         <li>The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</li>
 
                         <li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</li>

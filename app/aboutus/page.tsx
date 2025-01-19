@@ -487,7 +487,7 @@ export default function AboutUs() {
         {!showJourney && (
           <div className="w-full flex cursor-pointer  justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[200] left-1/2 -translate-x-1/2">
             <button
-              onClick={() => setShowJourney(true)}
+              onClick={() => { }}
               className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
             >
               <svg
@@ -551,7 +551,7 @@ export default function AboutUs() {
             {showJourney && (
               <div className=" w-full flex justify-center items-center absolute bottom-[-20px] md:bottom-[-40px] z-[250] left-1/2 -translate-x-1/2">
                 <button
-                  onClick={() => setShowJourney(false)}
+                  onClick={() => { }}
                   className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-teal-950 border-4 border-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-gray-900"
                 >
                   <svg
@@ -718,7 +718,7 @@ export default function AboutUs() {
               Blogs
             </Typography>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 z-[250] relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20 z-[250] relative ">
             {/* Blog Card 1 */}
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
               <div className="h-80 bg-zinc-800 relative overflow-hidden">
@@ -726,7 +726,7 @@ export default function AboutUs() {
                   src={blog1Image}
                   alt="AI Technology"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="object-contain group-hover:scale-110 transition-transform duration-300 rounded-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
               </div>
@@ -754,7 +754,7 @@ export default function AboutUs() {
                   src={blog2Image}
                   alt="Salon Consultation"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="object-contain group-hover:scale-110 transition-transform duration-300 rounded-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
               </div>

@@ -162,7 +162,7 @@ export const Navbar = () => {
                                                 />
                                             </div>
                                             <div className="link flex items-center justify-center">
-                                                Smart Mirror for Hair Salons
+                                                Smart Mirror <br /> (Hair Salons)
                                             </div>
                                         </div>
                                     </a>
@@ -172,7 +172,7 @@ export const Navbar = () => {
                                                 <BsQuestionCircle size={32} />
                                             </div>
                                             <div className="flex items-start justify-center flex-col">
-                                                Try-on for Jewellery Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
+                                                Jewellery Try-on <div className="text-white/60 text-sm">(Coming Soon)</div>
                                             </div>
                                         </div>
                                     </a>
