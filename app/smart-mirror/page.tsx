@@ -10,7 +10,8 @@ import speaker_icon from "../../assets/icons/speaker.svg";
 import marketing_icon from "../../assets/icons/marketing.svg";
 import magnet_icon from "../../assets/icons/magnet.svg";
 import { HorizontalCarousel } from "@/components/HorizontalCarousel";
-import WebsiteSmartMirrorPng from "@/assets/webiste-smart-mirror.png";
+import WebsiteSmartMirrorPng from "@/assets/mirror_smartmirrorpage.png";
+import MirrorImage from "@/assets/mirror_homepage.png";
 // import { faqData } from "@/data/faq";
 import faqData from "../../assets/json/SmartMirror_Faq.json";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
@@ -213,7 +214,7 @@ export default function SmartMirror() {
                 width={400}
                 height={400}
                 alt=""
-                className="w-[300px] md:w-[600px] h-full  z-[200]"
+                className="w-[300px] md:w-[500px] h-full  z-[200]"
               />
             </div>
           </div>

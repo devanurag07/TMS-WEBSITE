@@ -162,7 +162,7 @@ const DevelopmentTimeline = () => {
                         {point.icon}
                       </div>
                     </div>
-                    <div className="flex flex-col items-center text-center bg-gradient-to-br from-[#001A1A] to-[#003333] backdrop-blur-sm rounded-xl p-6 shadow-lg shadow-black/20 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 h-[24vh]">
+                    <div className="flex flex-col items-center text-center bg-gradient-to-br from-[#001A1A] to-[#003333] backdrop-blur-sm rounded-xl p-6 shadow-lg shadow-black/20 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 h-[30vh]">
                       <Typography variant="subheading" className="text-white mb-4 font-medium bg-clip-text">
                         {point.title}
                       </Typography>
@@ -721,12 +721,12 @@ export default function AboutUs() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20 z-[250] relative ">
             {/* Blog Card 1 */}
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
-              <div className="h-80 bg-zinc-800 relative overflow-hidden">
+              <div className="h-[11rem] md:h-[20rem] bg-zinc-800 relative overflow-hidden">
                 <Image
                   src={blog1Image}
                   alt="AI Technology"
                   fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-300 rounded-2xl"
+                  className="object-cover group-hover:scale-110 transition-transform duration-300 rounded-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
               </div>
@@ -749,12 +749,12 @@ export default function AboutUs() {
 
             {/* Blog Card 2 */}
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
-              <div className="h-80 bg-zinc-800 relative overflow-hidden">
+              <div className="h-[11rem] md:h-[20rem] bg-zinc-800 relative overflow-hidden">
                 <Image
                   src={blog2Image}
                   alt="Salon Consultation"
                   fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-300 rounded-2xl"
+                  className="object-cover group-hover:scale-110 transition-transform duration-300 rounded-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
               </div>

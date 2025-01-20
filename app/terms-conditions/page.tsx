@@ -185,6 +185,7 @@ const Page = () => {
                         iFrames
                     </Typography>
 
+
                     <Typography variant='content' className='text-black !mt-2'>
                         Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.
                     </Typography>

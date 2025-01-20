@@ -21,6 +21,8 @@ import Footer from "@/components/layout/footer";
 import { HorizontalCarousel } from "@/components/HorizontalCarousel";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
+import MirrorImage from "@/assets/mirror_homepage.png";
+
 const ScrollSpyDot = ({
   active,
   onClick,
@@ -179,46 +181,59 @@ export default function Home() {
               {/* Decorative element */}
               <div className="absolute top-[-100px] right-[-100px] w-[200px] h-[200px] rounded-full blur-[100px]"></div>
 
-              <div className="mt-20 md:mt-40 relative ">
-                <span className="text-white font-medium mb-4 block text-2xl md:text-3xl">
-                  WELCOME TO TRY MY STYLE
-                </span>
-                <Typography
-                  variant="h1"
-                  className="text-white text-5xl md:text-6xl"
-                >
-                  See It. Try It. Own It.
-                </Typography>
-                {/* <h1 className="text-6xl md:text-7xl font-semibold mb-6 leading-tight text-white">
+              <div className="relative flex gap-20 md:flex-row flex-col">
+
+                <div className="content flex-1 flex flex-col justify-center">
+
+                  <span className="text-white font-medium mb-4 block text-2xl md:text-3xl">
+                    WELCOME TO TRY MY STYLE
+                  </span>
+                  <Typography
+                    variant="h1"
+                    className="text-white text-5xl md:text-6xl"
+                  >
+                    See It. Try It. Own It.
+                  </Typography>
+                  {/* <h1 className="text-6xl md:text-7xl font-semibold mb-6 leading-tight text-white">
                   See It. Try It. Own It.
                   <span className="block text-white mt-2 font-semibold">All with our Smart Mirror</span>
                 </h1> */}
 
-                <Typography
-                  variant="h1"
-                  className="text-white text-5xl md:text-3xl"
-                >
-                  All with our Smart Mirror
-                </Typography>
+                  <Typography
+                    variant="h1"
+                    className="text-white text-5xl md:text-3xl"
+                  >
+                    All with our Smart Mirror
+                  </Typography>
 
-                <Typography
-                  variant="content"
-                  className="text-gray-400 max-w-[600px] mb-8"
-                >
-                  Leveraging the strength of <span className="text-[#00A5A5] font-semibold">GenAI</span>, providing personalized and
-                  highly realistic Virtual Try-On solutions, catering to Fashion
-                  & Beauty Tech Industries.
-                </Typography>
+                  <Typography
+                    variant="content"
+                    className="text-gray-400 max-w-[600px] mb-8"
+                  >
+                    Leveraging the strength of <span className="text-[#00A5A5] font-semibold">GenAI</span>, providing personalized and
+                    highly realistic Virtual Try-On solutions, catering to Fashion
+                    & Beauty Tech Industries.
+                  </Typography>
 
-                {/* <p className="text-xl text-gray-400 max-w-[600px] mb-8 leading-relaxed">
+                  {/* <p className="text-xl text-gray-400 max-w-[600px] mb-8 leading-relaxed">
                   Leveraging the strength of GenAI, providing personalized and highly
                   realistic Virtual Try-On solutions, catering to Fashion & Beauty Tech
                   Industries.
                 </p> */}
-                <button className="bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-3xl font-semibold hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105"
-                  onClick={() => openCalendly?.()}>
-                  Try Now
-                </button>
+                  <div className="button">
+
+                    <button className="bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-3xl font-semibold hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105"
+                      onClick={() => openCalendly?.()}>
+                      Try Now
+                    </button>
+                  </div>
+
+                </div>
+
+                <div className="image  flex-1 flex justify-center items-center">
+                  <Image src={MirrorImage} alt="Mirror Image" width={600} height={400} className="md:w-[400px] w-[200px] h-full object-cover" />
+                </div>
+
               </div>
             </div>
           </div>
