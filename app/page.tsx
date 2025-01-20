@@ -7,6 +7,7 @@ import robotIcon from "../assets/icons/robot.svg";
 import customerConfidenceIcon from "../assets/icons/customer_confidence.svg";
 
 
+
 // before vs after section icons
 import Vector1Icon from "../assets/icons/Vector-1.svg";
 import Vector2Icon from "../assets/icons/Vector-2.svg";
@@ -183,7 +184,7 @@ export default function Home() {
 
               <div className="relative flex gap-20 md:flex-row flex-col">
 
-                <div className="content flex-1 flex flex-col justify-center">
+                <div className="content flex-2 flex flex-col justify-center">
 
                   <span className="text-white font-medium mb-4 block text-2xl md:text-3xl">
                     WELCOME TO TRY MY STYLE
@@ -230,8 +231,8 @@ export default function Home() {
 
                 </div>
 
-                <div className="image  flex-1 flex justify-center items-center">
-                  <Image src={MirrorImage} alt="Mirror Image" width={600} height={400} className="md:w-[400px] w-[200px] h-full object-cover" />
+                <div className="image  flex-1 flex justify-center items-center mt-20">
+                  <Image src={MirrorImage} alt="Mirror Image" width={600} height={400} className="md:w-[300px] w-[200px] h-full object-cover " />
                 </div>
 
               </div>
