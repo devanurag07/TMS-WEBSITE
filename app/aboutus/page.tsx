@@ -49,6 +49,7 @@ import blog1Image from "../../assets/blog/blog_1.png";
 import blog2Image from "../../assets/blog/blog_2.jpg";
 import { RocketIcon } from "lucide-react";
 import { color } from "three/tsl";
+import Link from "next/link";
 
 const developmentTimeline = [
   {
@@ -720,6 +721,37 @@ export default function AboutUs() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20 z-[250] relative ">
             {/* Blog Card 1 */}
+
+
+
+            {/* Blog Card 2 */}
+
+            <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
+              <div className="h-[11rem] md:h-[20rem] bg-zinc-800 relative overflow-hidden">
+                <Image
+                  src={blog2Image}
+                  alt="Salon Consultation"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300 rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
+              </div>
+              <div className="p-8">
+                <Typography variant="subheading" className="text-white mb-3 group-hover:text-teal-400 transition-colors">
+                  Journey of Try My Style’s Patented Smart Mirror
+                </Typography>
+                <Typography variant="content" className="text-zinc-400 mb-6 line-clamp-3">
+                  With our current partnership with Looks Salon & PAGE3  Salons by Naturals Salon & Spa, we have deployed our first set of Smart Mirrors in Delhi and Hyderabad for consumer testing. We introduced features such as virtual styling, interactive consultations, and customizable lighting,                </Typography>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-zinc-500">4 min read</span>
+                  <a href="https://www.linkedin.com/pulse/journey-try-my-styles-patented-smart-mirror-trymystyle-fbu3c/?trackingId=mwwyAxWsRLyIeLoC00SQXg%3D%3D" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
+                    Read More
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
               <div className="h-[11rem] md:h-[20rem] bg-zinc-800 relative overflow-hidden">
                 <Image
@@ -739,34 +771,7 @@ export default function AboutUs() {
                 </Typography>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-zinc-500">5 min read</span>
-                  <a href="/blog/future-of-virtual-try-on" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
-                    Read More
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Blog Card 2 */}
-            <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
-              <div className="h-[11rem] md:h-[20rem] bg-zinc-800 relative overflow-hidden">
-                <Image
-                  src={blog2Image}
-                  alt="Salon Consultation"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300 rounded-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
-              </div>
-              <div className="p-8">
-                <Typography variant="subheading" className="text-white mb-3 group-hover:text-teal-400 transition-colors">
-                  Journey of Try My Style’s Patented Smart Mirror
-                </Typography>
-                <Typography variant="content" className="text-zinc-400 mb-6 line-clamp-3">
-                  With our current partnership with Looks Salon & PAGE3  Salons by Naturals Salon & Spa, we have deployed our first set of Smart Mirrors in Delhi and Hyderabad for consumer testing. We introduced features such as virtual styling, interactive consultations, and customizable lighting,                </Typography>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-zinc-500">4 min read</span>
-                  <a href="/blog/transforming-salon-consultations" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
+                  <a href="https://www.linkedin.com/pulse/how-try-my-styles-software-evolved-through-continuous-iterations-irllf" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
                     Read More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>
