@@ -23,7 +23,7 @@ import { HorizontalCarousel } from "@/components/HorizontalCarousel";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import MirrorImage from "@/assets/mirror_homepage.png";
-
+import axios from "axios";
 const ScrollSpyDot = ({
   active,
   onClick,
@@ -86,6 +86,10 @@ export default function Home() {
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
   const [activeGifIndex, setActiveGifIndex] = useState(0);
   const { openCalendly } = useCalendly();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [reason, setReason] = useState("");
 
   const gifs: GifData[] = [
     {
@@ -104,6 +108,26 @@ export default function Home() {
       text: "New age consultation"
     },
   ];
+
+
+  const sendContactUsEmail = async (name: string, email: string, message: string, reason: string) => {
+    if (!email || !name || !message || !reason) {
+      alert("Please fill all the fields")
+      return;
+    }
+
+    const response = await axios.post("https://jlcv386zfc.execute-api.us-east-1.amazonaws.com/contact_us", {
+      body: {
+        name, email, message, reason
+      }
+    })
+
+    if (response.status === 200) {
+      alert("We will connect with you on the same email soon.")
+    } else {
+      alert("Failed to send email")
+    }
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -803,6 +827,8 @@ export default function Home() {
                     type="text"
                     placeholder=" "
                     className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Name
@@ -814,6 +840,8 @@ export default function Home() {
                     type="email"
                     placeholder=" "
                     className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Email Address
@@ -825,6 +853,8 @@ export default function Home() {
                     type="text"
                     placeholder=" "
                     className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    value={reason}
+                    onChange={(e) => setReason(e.target.value)}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Reason for contacting
@@ -836,6 +866,8 @@ export default function Home() {
                     placeholder=" "
                     rows={4}
                     className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300 resize-none"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Message
@@ -844,6 +876,10 @@ export default function Home() {
 
                 <button
                   type="submit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    sendContactUsEmail(name, email, message, reason);
+                  }}
                   className="bg-teal-950 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-[#008585] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
                 >
                   <span className="text-lg font-medium">Submit</span>
