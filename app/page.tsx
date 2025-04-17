@@ -90,7 +90,7 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [reason, setReason] = useState("");
-
+  const [phone_number, setPhone_number] = useState("");
   const gifs: GifData[] = [
     {
       url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif",
@@ -118,7 +118,7 @@ export default function Home() {
 
     const response = await axios.post("https://jlcv386zfc.execute-api.us-east-1.amazonaws.com/contact_us", {
       body: {
-        name, email, message, reason
+        name, email,phone_number ,  message, reason
       }
     })
 
@@ -848,6 +848,18 @@ export default function Home() {
                   </label>
                 </div>
 
+                <div className="relative">
+                  <input
+                    type="number"
+                    placeholder=" "
+                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    value={phone_number}
+                    onChange={(e) => setPhone_number(e.target.value)}
+                  />
+                  <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                    Phone Number
+                  </label>
+                </div>
                 <div className="relative">
                   <input
                     type="text"
