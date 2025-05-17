@@ -35,7 +35,7 @@ const ScrollSpyDot = ({
 }) => (
   <button
     onClick={onClick}
-    className={`w-0 h-0 md:w-3 md:h-3 rounded-full transition-all duration-300 z-[9999] ${active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`}`}
+    className={`w-0 h-0 - md:w-3 md:h-3 rounded-full transition-all duration-300 z-[9999] ${active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`}`}
   />
 );
 const sections = [
