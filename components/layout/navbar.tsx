@@ -88,26 +88,7 @@ export const Navbar = () => {
                                             </div>
 
                                         </a>
-                                        <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900">
-                                            <div className="flex gap-2">
-                                                <div className="flex items-center justify-center">
-                                                    <BsQuestionCircle size={32} />
-                                                </div>
-                                                <div className="flex items-start justify-center flex-col">
-                                                    Jewellery Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="/#" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-b-lg">
-                                            <div className="flex gap-2">
-                                                <div className="flex items-center justify-center">
-                                                    <BsQuestionCircle size={32} />
-                                                </div>
-                                                <div className="flex items-start justify-center flex-col">
-                                                    Apparel Stores <div className="text-white/60 text-sm">(Coming Soon)</div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                    
                                     </div>
                                 )}
                             </div>
@@ -166,26 +147,7 @@ export const Navbar = () => {
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="#" className="text-white/80 hover:text-white transition-colors block">
-                                        <div className="flex gap-2">
-                                            <div className="flex items-center justify-center">
-                                                <BsQuestionCircle size={32} />
-                                            </div>
-                                            <div className="flex items-start justify-center flex-col">
-                                                Jewellery Try-on <div className="text-white/60 text-sm">(Coming Soon)</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" className="text-white/80 hover:text-white transition-colors block">
-                                        <div className="flex gap-2">
-                                            <div className="flex items-center justify-center">
-                                                <BsQuestionCircle size={32} />
-                                            </div>
-                                            <div className="flex items-start justify-center flex-col">
-                                                Apparel Try-on <div className="text-white/60 text-sm">(Coming Soon)</div>
-                                            </div>
-                                        </div>
-                                    </a>
+                                  
                                 </div>
                             </div>
                             <a href="/#faq" className="text-white/80 hover:text-white transition-colors">FAQ</a>

@@ -91,6 +91,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [reason, setReason] = useState("");
   const [phone_number, setPhone_number] = useState("");
+
   const gifs: GifData[] = [
     {
       url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif",
