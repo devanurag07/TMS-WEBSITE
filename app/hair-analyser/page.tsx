@@ -49,6 +49,7 @@ const sections = [
   { id: "parameters", color: "teal-950" },
   { id: "insights", color: "white" },
   { id: "faq", color: "teal-950" },
+  { id: "cta", color: "white" },
 ];
 
 const coreParameters = [
@@ -351,7 +352,7 @@ export default function HairAnalyser() {
               detecting indicators like dandruff, scalp redness, & other customisable hair parameters.
             </Typography>
 
-            <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-24 mt-16 max-w-4xl">
+            <div className="grid md:grid-cols-4 grid-cols-2 gap-24 mt-16 max-w-4xl">
               {headPartsSvgs.map((item) => (
                 <div key={item.id} className="w-full h-[250px]">
                   <Image src={item.image} alt="Head Part" width={100} height={100} className="w-full h-full" />

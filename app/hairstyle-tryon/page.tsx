@@ -44,9 +44,10 @@ const ScrollSpyDot = ({
 
 const sections = [
   { id: "hero", color: "white" },
-  { id: "benefits", color: "teal-950" },
+  { id: "key-features", color: "teal-950" },
+  { id: "try-styles", color: "white" },
+  { id: "what-in-store", color: "teal-950" },
   { id: "how-it-works", color: "white" },
-
   { id: "faq", color: "teal-950" },
   { id: "cta", color: "white" },
 
@@ -120,7 +121,7 @@ const key_features = [
   {
     id: 3,
     icon: marketing_icon,
-    title: "Personalized Suggestions",
+    title: <>Personalized <br /> Suggestions</>,
     bulletPoints: [
       "Our AI suggests hairstyles/colours based on your face structure, age group, and hair profile",
       "Save multiple looks, compare, and share for feedback before making a choice"
@@ -250,7 +251,7 @@ export default function SmartMirror() {
         </div>
       </div>
 
-      <div id="benefits" className="section-2 min-h-screen w-full bg-white pb-10 relative overflow-hidden flex items-center justify-center">
+      <div id="key-features" className="section-2 min-h-screen w-full bg-white pb-10 relative overflow-hidden flex items-center justify-center">
 
         <div className="absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>
         <div className="absolute bottom-[-120px] right-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>
@@ -298,7 +299,7 @@ export default function SmartMirror() {
         </div>
       </div>
 
-      <div className=" bg-black w-full flex items-center justify-center relative overflow-hidden marquee-container mt-10 ">
+      <div className=" bg-black w-full flex items-center justify-center relative overflow-hidden marquee-container mt-10 " id="try-styles">
         <DarkGradientCircles overflowHidden={true} />
 
         <div className="max-w-[1400px] w-full z-[100]">
@@ -315,7 +316,7 @@ export default function SmartMirror() {
         </div>
       </div>
 
-      <div id="benefits" className="section-2 min-h-screen w-full bg-white pb-10 relative overflow-hidden flex items-center justify-center">
+      <div id="what-in-store" className="section-2 min-h-screen w-full bg-white pb-10 relative overflow-hidden flex items-center justify-center">
 
         <div className="absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>
         <div className="absolute bottom-[-120px] right-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]"></div>

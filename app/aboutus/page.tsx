@@ -42,6 +42,7 @@ import { IoRocket } from "react-icons/io5"; //#13
 
 import { useState, useEffect } from 'react';
 import Footer from "@/components/layout/footer";
+import faqData from "../../assets/json/TryMyStyle_FAQ.json";
 import AboutUsImage from "../../assets/about_us_hero.svg";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
@@ -311,6 +312,7 @@ export default function AboutUs() {
     }
   };
   const [showJourney, setShowJourney] = useState(false);
+  const [activeFaq, setActiveFaq] = useState<string | null>(null);
 
   const sections = [
     { id: 'hero', color: 'white' },
@@ -318,7 +320,7 @@ export default function AboutUs() {
     { id: 'timeline', color: 'white' },
     { id: 'team', color: 'teal-950' },
     { id: 'blogs', color: 'white' },
-    { id: 'maps', color: 'teal-950' },
+    { id: 'faq', color: 'teal-950' },
     { id: 'cta', color: 'white' }
   ];
 
@@ -350,6 +352,10 @@ export default function AboutUs() {
 
     return () => observer.disconnect();
   }, [showJourney]);
+
+  const handleFaqClick = (key: string) => {
+    setActiveFaq(activeFaq === key ? null : key);
+  };
 
   const journeyContent = [
     {
@@ -841,7 +847,7 @@ export default function AboutUs() {
       </div>
 
       <div id="blogs" className="section-5 w-full flex justify-center items-center bg-black min-h-[100vh] relative">
-        <DarkGradientCircles overflowHidden={false} />
+        <DarkGradientCircles overflowHidden={true} />
         <div className="max-w-[1400px] w-full py-32 px-10 min-h-screen">
 
           <div className="relative z-[150]">
@@ -912,7 +918,7 @@ export default function AboutUs() {
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
               <div className="h-[11rem] md:h-[20rem] bg-zinc-800 relative overflow-hidden">
                 <Image
-                  src={blog2Image}
+                  src={blog1Image}
                   alt="Salon Consultation"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300 rounded-2xl"
@@ -938,7 +944,7 @@ export default function AboutUs() {
             <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
               <div className="h-[11rem] md:h-[20rem] bg-zinc-800 relative overflow-hidden">
                 <Image
-                  src={blog1Image}
+                  src={blog2Image}
                   alt="AI Technology"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300 rounded-2xl"
@@ -966,6 +972,75 @@ export default function AboutUs() {
         </div>
       </div>
 
+      <div
+        id="faq"
+        className="section-6 w-full flex justify-center items-center bg-white p-4 md:p-36 min-h-[50vh] relative z-[100] "
+      >
+
+        <section className="md:max-w-[1400px] w-full z-[1000]">
+          <div className="mb-16 flex flex-col md:flex-row md:gap-[250px]">
+            <div className="heading flex-1">
+              <Typography
+                variant="subheading"
+                className="text-gray-500 text-xl md:text-3xl uppercase font-semibold"
+              >
+                FAQ
+              </Typography>
+
+              <Typography variant="h1" className="text-teal-950 mt-2 mb-12">
+                Frequently
+                <br />
+                asked
+                <br />
+                questions.
+              </Typography>
+            </div>
+
+            <div className="space-y-3 flex-3 w-full flex flex-col">
+              {Object.entries(faqData).map(([key, data]) => (
+                <div key={key} className="w-full">
+                  <button
+                    className="w-full bg-white hover:bg-gray-200 p-3 shadow-2xl rounded-lg flex justify-between items-center group transition-all duration-300"
+                    onClick={() => handleFaqClick(key)}
+                  >
+                    <div className="w-full h-full text-teal-950 hover:text-white flex justify-between">
+                      <Typography
+                        variant="content"
+                        className="text-left font-semibold"
+                      >
+                        {data.Question}
+                      </Typography>
+
+                      <div className="w-[10px]"></div>
+
+                      <span
+                        className={`text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""}`}
+                      >
+                        +
+                      </span>
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${activeFaq === key
+                      ? "max-h-[500px] opacity-100"
+                      : "max-h-0 opacity-0"
+                      }`}
+                  >
+                    <div className="p-5 text-white bg-teal-950 rounded-b-lg">
+                      <Typography
+                        variant="content"
+                        className="text-left text-white"
+                      >
+                        {data.Answer}
+                      </Typography>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       <Footer openCalendly={openCalendly} />
 

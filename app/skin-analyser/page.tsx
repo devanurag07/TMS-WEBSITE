@@ -60,6 +60,8 @@ const sections = [
   { id: "parameters", color: "teal-950" },
   { id: "insights", color: "white" },
   { id: "faq", color: "teal-950" },
+  { id: "cta", color: "white" },
+
 ];
 
 const coreParameters = [
@@ -251,7 +253,7 @@ export default function Page() {
 
         <div className="core-parameters p-4 pt-20 z-[100] relative max-w-[1400px] w-full flex flex-col items-center justify-center">
 
-          <Typography className=" !mt-16 max-w-2xl text-center text-teal-950" variant={"h1"}>
+          <Typography className=" max-w-2xl text-center text-teal-950" variant={"h1"}>
             Core Features
           </Typography>
 
@@ -262,9 +264,9 @@ export default function Page() {
               color="teal-600"
               showDots={true}
             >
-              {Array.from({ length: Math.ceil(coreParameters.length / 3) }, (_, slideIndex) => (
+              {Array.from({ length: Math.ceil(coreParameters.length / 4) }, (_, slideIndex) => (
                 <div key={slideIndex} className="flex flex-col gap-4 px-2">
-                  {coreParameters.slice(slideIndex * 3, slideIndex * 3 + 3).map((item) => (
+                  {coreParameters.slice(slideIndex * 4, slideIndex * 4 + 4).map((item) => (
                     <div key={item.id} className="p-4 w-full rounded-3xl bg-white relative border shadow-lg">
                       <div className="flex flex-col items-center justify-center text-center">
                         <div className="flex items-center gap-4 w-full">

@@ -139,15 +139,15 @@ const HairstyleCard = ({
     return (
         <figure
             className={cn(
-                "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 bg-white shadow-lg",
+                "relative h-full w-48 cursor-pointer overflow-hidden rounded-xl border p-3 bg-white shadow-lg",
                 // hover effects
                 "hover:shadow-xl transition-shadow duration-300",
                 // border styling
                 "border-gray-200 hover:border-teal-300"
             )}
         >
-            <div className="flex flex-col items-center gap-3">
-                <div className="relative w-full h-48 rounded-lg overflow-hidden bg-gray-50">
+            <div className="flex flex-col items-center gap-2">
+                <div className="relative w-full h-36 rounded-lg overflow-hidden bg-gray-50">
                     <Image
                         src={image}
                         alt={name}
@@ -157,7 +157,7 @@ const HairstyleCard = ({
                     />
                 </div>
                 <div className="flex flex-col items-center text-center">
-                    <Typography variant="content" className="text-xl font-semibold text-teal-950">
+                    <Typography variant="content" className="text-lg font-semibold text-teal-950">
                         {name}
                     </Typography>
                     {/* <Typography variant="content" className="text-xs text-gray-600">{description}</Typography> */}
