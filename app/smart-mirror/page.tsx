@@ -287,7 +287,7 @@ export default function SmartMirror() {
             className="store-benefits-title text-start text-teal-950"
             variant={"h1"}
           >
-            What&apos;s in store for Salons?
+            What&apos;s in store?
           </Typography>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-10 mt-4  md:mt-20 md:grid max-w-[1300px] ">

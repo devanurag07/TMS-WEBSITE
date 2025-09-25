@@ -254,14 +254,14 @@ export default function Page() {
         <div className="core-parameters p-4 pt-20 z-[100] relative max-w-[1400px] w-full flex flex-col items-center justify-center">
 
           <Typography className=" max-w-2xl text-center text-teal-950" variant={"h1"}>
-            Core Features
+            Core Parameters
           </Typography>
 
           {/* Mobile Carousel View */}
           <div className="block md:hidden w-full max-w-[350px] mt-8">
             <HorizontalCarousel
               autoPlayInterval={5000}
-              color="teal-600"
+              color="teal-950"
               showDots={true}
             >
               {Array.from({ length: Math.ceil(coreParameters.length / 4) }, (_, slideIndex) => (
@@ -327,8 +327,8 @@ export default function Page() {
       {/* Section 3 - Personalized Skincare Recommendations (Dark Background) */}
       <div className="bg-black w-full flex items-center justify-center relative overflow-hidden" id="insights">
         <DarkGradientCircles overflowHidden={true} />
-        <div className="flex max-w-[1400px] flex-col pt-20 pb-20 items-center justify-center w-full p-4">
-          <div className="recommendations z-[100] mb-20 md:mt-0 min-h-screen h-full items-center justify-center flex flex-col md:p-0">
+        <div className="flex max-w-[1400px] flex-col pt-20 items-center justify-center w-full p-4">
+          <div className="recommendations z-[100]  md:mt-0  h-full items-center justify-center flex flex-col md:p-0">
             <Typography
               className="recommendations-title text-white text-center"
               variant={"h1"}

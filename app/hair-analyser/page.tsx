@@ -271,12 +271,12 @@ export default function HairAnalyser() {
           <div className="block md:hidden w-full max-w-[350px] mt-8">
             <HorizontalCarousel
               autoPlayInterval={5000}
-              color="teal-600"
+              color="teal-950"
               showDots={true}
             >
-              {Array.from({ length: Math.ceil(coreParameters.length / 3) }, (_, slideIndex) => (
+              {Array.from({ length: Math.ceil(coreParameters.length / 4) }, (_, slideIndex) => (
                 <div key={slideIndex} className="flex flex-col gap-4 px-2">
-                  {coreParameters.slice(slideIndex * 3, slideIndex * 3 + 3).map((item) => (
+                  {coreParameters.slice(slideIndex * 4, slideIndex * 4 + 4).map((item) => (
                     <div key={item.id} className="p-4 w-full rounded-3xl bg-white relative border shadow-lg">
                       <div className="flex flex-col items-center justify-center text-center">
                         <div className="flex items-center gap-4 w-full">
@@ -354,7 +354,7 @@ export default function HairAnalyser() {
 
             <div className="grid md:grid-cols-4 grid-cols-2 gap-24 mt-16 max-w-4xl">
               {headPartsSvgs.map((item) => (
-                <div key={item.id} className="w-full h-[250px]">
+                <div key={item.id} className="w-full h-[150px] md:h-[250px]">
                   <Image src={item.image} alt="Head Part" width={100} height={100} className="w-full h-full" />
 
                   <Typography variant="subheading" className="text-white uppercase font-bold mt-4 ">{item.label}</Typography>
