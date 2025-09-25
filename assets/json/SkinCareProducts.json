@@ -1,0 +1,67 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Moisturizer",
+            "tagline": "Great for Dry Skin & Wrinkles",
+            "description": "Advanced hydrating formula for deep moisture and anti-aging",
+            "price": "Rs. 799.00",
+            "category": [
+                "wrinkle",
+                "dryness"
+            ],
+            "image": "/api/placeholder/300/200"
+        },
+        {
+            "id": 2,
+            "name": "Face Wash",
+            "tagline": "Great for Pigmentation and Dark Spots",
+            "description": "Gentle cleansing with brightening agents for even skin tone",
+            "price": "Rs. 549.00",
+            "category": [
+                "pigmentation",
+                "dark-spots"
+            ],
+            "image": "/api/placeholder/300/200"
+        },
+        {
+            "id": 3,
+            "name": "Face Serum",
+            "tagline": "Great for Dark Spots and Acne Marks",
+            "description": "Concentrated treatment for targeted spot reduction",
+            "price": "Rs. 1,299.00",
+            "category": [
+                "dark-spots",
+                "acne"
+            ],
+            "image": "/api/placeholder/300/200"
+        }
+    ],
+    "categories": [
+        {
+            "id": "all",
+            "label": "All",
+            "active": true
+        },
+        {
+            "id": "acne",
+            "label": "Acne",
+            "active": false
+        },
+        {
+            "id": "redness",
+            "label": "Redness",
+            "active": false
+        },
+        {
+            "id": "wrinkle",
+            "label": "Wrinkle",
+            "active": false
+        },
+        {
+            "id": "oiliness",
+            "label": "Oiliness",
+            "active": false
+        }
+    ]
+}

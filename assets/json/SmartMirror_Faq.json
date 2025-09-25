@@ -1,24 +1,32 @@
 {
     "faqs": [
         {
-            "question": "Why doesn’t the tool display my exact look like the reference image?",
-            "answer": "The tool output is the AI suggested version of the look based on facial attributes, health of your hair and latest trends, while ensuring that it covers all the key characteristics of the chosen look. Thus the result may or may not exactly replicate the reference image. To get more suggestions in the same look, try generating multiple results using the retry prompt."
+            "question": "What is the Smart Mirror?",
+            "answer": "The Smart Mirror is a device that combines a mirror with a touchscreen display, camera, and sensors to provide virtual try-ons, skin/hair analysis, and other retail experiences."
         },
         {
-            "question": "Can I add additional looks in this tool?",
-            "answer": "You can request adding various hair color shades, haircuts as well as other premium styling services at no additional charges. Contact us to know more."
+            "question": "Can the Smart Mirror hardware be customized?",
+            "answer": "Yes, we offer customizable specifications including display size, resolution, camera quality, sensors, and software integrations to fit industry-specific needs."
         },
         {
-            "question": "Why is AI better than AR for virtual try-on for hair?",
-            "answer": "Artificial intelligence (AI) regenerates every single strand of a user's hair keeping in mind multiple attributes to ensure a hyper-realistic result, in comparison to Augmented Reality (AR) which simply pastes the predesigned filters onto your hair."
+            "question": "What industries can use the Smart Mirror?",
+            "answer": "While salons and beauty clinics are primary adopters, our hardware can also be used in retail apparel, jewelry, footwear, and wellness industries."
         },
         {
-            "question": "How do salons benefit from this tool?",
-            "answer": "Our tool can act as a great value addition to your customers apart from providing a differential from competitors. Moreover, it can be used to shoot up your revenue by increasing footfall, higher average purchases and third party advertising through smart mirrors."
+            "question": "Does the Smart Mirror require special installation?",
+            "answer": "No. The mirror is wall-mounted and comes with a plug-and-play setup. Our team provides installation support if required."
         },
         {
-            "question": "Can this tool be integrated onto my website?",
-            "answer": "You can easily integrate it into the App/website through secured API calls. Contact us to get enterprise pricing and integration deadlines."
+            "question": "What are the maintenance requirements?",
+            "answer": "The Smart Mirror is designed for durability and requires minimal maintenance. We provide remote diagnostics, software updates, and hardware support."
+        },
+        {
+            "question": "Can third-party software or APIs be integrated?",
+            "answer": "Yes. The Smart Mirror is compatible with API integrations, allowing brands to use their own apps, tools, or partner services."
+        },
+        {
+            "question": "What is the typical delivery time?",
+            "answer": "Depending on customization, orders are delivered within 6–10 weeks after confirmation."
         }
     ]
 }

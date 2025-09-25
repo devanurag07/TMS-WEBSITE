@@ -47,10 +47,121 @@ import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import blog1Image from "../../assets/blog/blog_1.png";
 import blog2Image from "../../assets/blog/blog_2.jpg";
+import blog3Image from "../../assets/blog/blog_3.jpeg";
+import blog4Image from "../../assets/blog/blog_4.jpeg";
 import { RocketIcon } from "lucide-react";
 import { color } from "three/tsl";
 import Link from "next/link";
 
+
+// featured by 
+import featuredBy1Image from "../../assets/featured/featured_1.jpeg";
+import featuredBy2Image from "../../assets/featured/featured_2.jpeg";
+import featuredBy3Image from "../../assets/featured/featured_3.jpeg";
+import featuredBy4Image from "../../assets/featured/featured_4.jpeg";
+
+// Location markers data
+const locations = [
+  {
+    name: "Delhi",
+    coordinates: [77.2090, 28.6139] as [number, number],
+    description: "National Capital Region"
+  },
+  {
+    name: "Bhopal",
+    coordinates: [77.4126, 23.2599] as [number, number],
+    description: "Madhya Pradesh"
+  },
+  {
+    name: "Hyderabad",
+    coordinates: [78.4867, 17.3850] as [number, number],
+    description: "Telangana"
+  }
+];
+
+
+// IndiaMap Component with fallback
+const IndiaMap = () => {
+  return (
+    <div className="w-full max-w-4xl mx-auto">
+      {/* Fallback to SVG-based India map for better reliability */}
+      <div className="relative bg-white rounded-2xl p-8 shadow-lg">
+        <svg
+          viewBox="0 0 800 600"
+          className="w-full h-auto"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Detailed India Map Outline */}
+          <path
+            d="M158 102c12-8 28-12 45-8 15 3 28 8 42 15l35 18c18 10 35 22 48 38 8 10 14 22 16 35 2 15-2 30-8 43-8 18-20 34-28 52-5 12-8 25-6 38 2 10 8 18 16 24 12 8 26 12 40 18 20 8 38 20 52 36 8 10 14 22 12 35-2 15-12 28-24 38-15 12-33 20-52 25-25 6-51 8-76 4-22-4-43-12-60-25-12-8-22-18-28-30-8-15-10-32-8-48 2-20 8-39 18-56 8-14 18-27 24-42 4-10 6-21 4-32-2-8-8-15-16-18-12-5-25-5-37-2-18 4-35 12-48 24-10 8-18 18-22 30-5 15-4 31 2 45 8 18 22 33 38 44 20 14 43 22 66 26 28 5 57 4 85-2 24-5 47-14 66-28 12-8 22-18 28-30 8-15 10-32 6-48-5-20-16-38-30-53-18-18-40-32-64-40-15-5-31-8-46-6-12 2-23 8-30 18-5 8-6 18-4 27 2 8 8 15 16 18 12 5 25 2 36-4 8-5 14-12 16-21 2-8 0-17-5-24-8-10-20-15-32-15z"
+            fill="#e5f3f2"
+            stroke="#0f766e"
+            strokeWidth="3"
+            className="hover:fill-teal-100 transition-colors duration-300"
+          />
+
+          {/* More detailed India boundary */}
+          <path
+            d="M300 80c25 0 50 5 73 15 20 8 38 20 53 35 12 12 22 26 28 42 5 15 6 31 4 47-2 18-8 35-18 50-12 18-28 33-46 45-22 15-47 25-73 30-30 6-61 6-91 0-26-5-51-15-72-30-18-12-34-27-46-45-10-15-16-32-18-50-2-16-1-32 4-47 6-16 16-30 28-42 15-15 33-27 53-35 23-10 48-15 73-15z"
+            fill="none"
+            stroke="#0f766e"
+            strokeWidth="2"
+            opacity="0.3"
+          />
+
+          {/* Delhi Marker */}
+          <g>
+            <circle cx="350" cy="200" r="10" fill="#dc2626" className="animate-pulse">
+              <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="350" cy="200" r="20" fill="#dc2626" opacity="0.3" className="animate-ping" />
+            <text x="368" y="205" className="text-base font-bold fill-teal-950" style={{ fontSize: '16px' }}>Delhi</text>
+          </g>
+
+          {/* Bhopal Marker */}
+          <g>
+            <circle cx="380" cy="320" r="10" fill="#dc2626" className="animate-pulse">
+              <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="0.7s" />
+            </circle>
+            <circle cx="380" cy="320" r="20" fill="#dc2626" opacity="0.3" className="animate-ping" />
+            <text x="398" y="325" className="text-base font-bold fill-teal-950" style={{ fontSize: '16px' }}>Bhopal</text>
+          </g>
+
+          {/* Hyderabad Marker */}
+          <g>
+            <circle cx="420" cy="420" r="10" fill="#dc2626" className="animate-pulse">
+              <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="1.4s" />
+            </circle>
+            <circle cx="420" cy="420" r="20" fill="#dc2626" opacity="0.3" className="animate-ping" />
+            <text x="438" y="425" className="text-base font-bold fill-teal-950" style={{ fontSize: '16px' }}>Hyderabad</text>
+          </g>
+
+          {/* Decorative elements */}
+          <circle cx="200" cy="150" r="2" fill="#0f766e" opacity="0.4" />
+          <circle cx="600" cy="200" r="2" fill="#0f766e" opacity="0.4" />
+          <circle cx="550" cy="400" r="2" fill="#0f766e" opacity="0.4" />
+          <circle cx="250" cy="450" r="2" fill="#0f766e" opacity="0.4" />
+        </svg>
+
+        {/* Connection lines between cities */}
+        <svg
+          viewBox="0 0 800 600"
+          className="w-full h-auto absolute inset-0"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Delhi to Bhopal */}
+          <line x1="350" y1="200" x2="380" y2="320" stroke="#0f766e" strokeWidth="2" opacity="0.3" strokeDasharray="5,5">
+            <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite" />
+          </line>
+          {/* Bhopal to Hyderabad */}
+          <line x1="380" y1="320" x2="420" y2="420" stroke="#0f766e" strokeWidth="2" opacity="0.3" strokeDasharray="5,5">
+            <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite" begin="1s" />
+          </line>
+        </svg>
+      </div>
+    </div>
+  );
+};
 const developmentTimeline = [
   {
     month: "Dec",
@@ -207,6 +318,7 @@ export default function AboutUs() {
     { id: 'timeline', color: 'white' },
     { id: 'team', color: 'teal-950' },
     { id: 'blogs', color: 'white' },
+    { id: 'maps', color: 'teal-950' },
     { id: 'cta', color: 'white' }
   ];
 
@@ -389,8 +501,7 @@ export default function AboutUs() {
               </div>
               <Typography variant="subheading" className="text-black mb-4">Mission</Typography>
               <Typography variant="content" className="text-gray-600 leading-relaxed">
-                Providing convenience and inspiration to empower users to make informed choices about their style, while helping salon owners upscale their businesses.
-              </Typography>
+                To deliver AI-powered, Smart Mirror solutions that provide personalised hairstyle, skin, and hair analysis, along with product recommendations, while enabling salons and retailers to enhance engagement and revenue.              </Typography>
             </div>
             <div className="text-center  p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <div className=" h-40 w-40 bg-teal-950 rounded-2xl flex items-center justify-center mx-auto mb-8">
@@ -403,7 +514,7 @@ export default function AboutUs() {
               </div>
               <Typography variant="subheading" className="text-black mb-4">Vision</Typography>
               <Typography variant="content" className="text-gray-600 leading-relaxed">
-                Revolutionizing the salon industry with AI-powered try-on tools.
+                To transform beauty and fashion retail into immersive, data-driven digital experiential hubs enabling personalised style discovery across hair, skin, beauty, nails, fashion, and jewellery globally.
               </Typography>
             </div>
           </div>
@@ -679,7 +790,6 @@ export default function AboutUs() {
               </a>
             </div>
           </div>
-
           <div className="mt-5 incubated-by">
             {/* <Typography variant="h1" className="text-black mb-0 text-center">
               Incubated by
@@ -707,6 +817,26 @@ export default function AboutUs() {
             </div>
 
           </div>
+          <div className="mt-24 featured-by">
+            <Typography variant="h1" className="text-black mb-0 text-center">
+              Featured by
+            </Typography>
+
+            <div className="mt-5 flex flex-wrap justify-center md:justify-between items-center gap-5 shadow-lg rounded-3xl p-5">
+              <a href="https://share.google/y9dMgBUG86JqOAnQo" target="_blank" rel="noopener noreferrer">
+                <Image src={featuredBy1Image} alt="HBS" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://share.google/y9dMgBUG86JqOAnQo" target="_blank" rel="noopener noreferrer">
+                <Image src={featuredBy2Image} alt="StyleSpeak" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://share.google/flJkgwx1vNDUYrjmN" target="_blank" rel="noopener noreferrer">
+                <Image src={featuredBy3Image} alt="ET Startup Awards" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://share.google/flJkgwx1vNDUYrjmN" target="_blank" rel="noopener noreferrer">
+                <Image src={featuredBy4Image} alt="The Economic Times" width={100} height={100} className="md:w-[150px]" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -716,13 +846,66 @@ export default function AboutUs() {
 
           <div className="relative z-[150]">
             <Typography variant="h1" className="text-white mb-10 text-start">
-              Blogs
+              Read About Us
             </Typography>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20 z-[250] relative ">
+
+            <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
+              <div className="h-[11rem] md:h-[20rem] bg-white relative overflow-hidden">
+                <Image
+                  src={blog3Image}
+                  alt="Salon Consultation"
+                  fill
+                  className="object-contain group-hover:scale-110 transition-transform duration-300 rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
+              </div>
+              <div className="p-8">
+                <Typography variant="subheading" className="text-white mb-3 group-hover:text-teal-400 transition-colors">
+                  Economic Times Startup Awards 2025
+                </Typography>
+                <Typography variant="content" className="text-zinc-400 mb-6 line-clamp-3">
+                  Try My Style has been featured in The Economic Times as part of The Economic Times Startup Awards 2025 coverage.
+                </Typography>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-zinc-500">4 min read</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7365643141229539328" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
+                    Read More
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="group bg-zinc-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-zinc-800 hover:border-zinc-700">
+              <div className="h-[11rem] md:h-[20rem] bg-white relative overflow-hidden">
+                <Image
+                  src={blog4Image}
+                  alt="AI Technology"
+                  fill
+                  className="object-contain group-hover:scale-110 transition-transform duration-300 rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
+              </div>
+              <div className="p-8">
+                <Typography variant="subheading" className="text-white mb-3 group-hover:text-teal-400 transition-colors">
+                  StyleSpeak Beauty Conference 2025
+
+                </Typography>
+                <Typography variant="content" className="text-zinc-400 mb-6 line-clamp-3">
+                  It was a truly enriching experience to share the stage with industry pioneers like Vikram Bhatt, Sahil Gupta, and Sachin Kamat, as we explored how AI and personalisation are redefining the beauty and salon industry
+                </Typography>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-zinc-500">5 min read</span>
+                  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7317880220013735938" className="flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
+                    Read More
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
             {/* Blog Card 1 */}
-
-
 
             {/* Blog Card 2 */}
 
@@ -782,6 +965,7 @@ export default function AboutUs() {
 
         </div>
       </div>
+
 
       <Footer openCalendly={openCalendly} />
 

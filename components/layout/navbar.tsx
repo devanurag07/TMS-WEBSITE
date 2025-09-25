@@ -12,6 +12,11 @@ import { BiQuestionMark } from "react-icons/bi"
 import { BsQuestionCircle } from "react-icons/bs"
 import { useRouter } from "next/navigation"
 
+import { GiMirrorMirror } from "react-icons/gi";
+import { HiMiniScissors } from "react-icons/hi2";
+import { MdFaceRetouchingNatural } from "react-icons/md";
+import { LuMicroscope } from "react-icons/lu";
+
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
@@ -75,20 +80,44 @@ export const Navbar = () => {
                                     >
                                         <a href="/smart-mirror" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-t-lg">
                                             <div className="flex gap-2">
-
                                                 <div className="flex items-center justify-center">
-                                                    <Image src={WhiteTMSLogo} alt="Try My Style Logo" width={32} height={32}
-                                                        className="w-[32px] md:w-[32px]"
-                                                    />
+                                                    <GiMirrorMirror size={32} />
                                                 </div>
                                                 <div className="link flex items-center justify-center">
-                                                    Smart Mirror <br /> (Hair Salons)
+                                                    Smart Mirror <br /> (Hardware)
                                                 </div>
-
                                             </div>
-
                                         </a>
-                                    
+                                        <a href="/hairstyle-tryon" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900">
+                                            <div className="flex gap-2">
+                                                <div className="flex items-center justify-center">
+                                                    <HiMiniScissors size={32} />
+                                                </div>
+                                                <div className="link flex items-center justify-center">
+                                                    Hairstyle & Colour Try-On
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="/skin-analyser" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900">
+                                            <div className="flex gap-2">
+                                                <div className="flex items-center justify-center">
+                                                    <MdFaceRetouchingNatural size={32} />
+                                                </div>
+                                                <div className="link flex items-center justify-center">
+                                                    Skin Analyser
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="/hair-analyser" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-b-lg">
+                                            <div className="flex gap-2">
+                                                <div className="flex items-center justify-center">
+                                                    <LuMicroscope size={32} />
+                                                </div>
+                                                <div className="link flex items-center justify-center">
+                                                    Hair Analyser
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 )}
                             </div>
@@ -138,16 +167,43 @@ export const Navbar = () => {
                                     <a href="/smart-mirror" className="text-white/80 hover:text-white transition-colors block">
                                         <div className="flex gap-2">
                                             <div className="flex items-center justify-center">
-                                                <Image src={WhiteTMSLogo} alt="Try My Style Logo" width={32} height={32}
-                                                    className="w-[32px] md:w-[32px]"
-                                                />
+                                                <GiMirrorMirror size={32} />
                                             </div>
                                             <div className="link flex items-center justify-center">
-                                                Smart Mirror <br /> (Hair Salons)
+                                                Smart Mirror <br /> (Hardware)
                                             </div>
                                         </div>
                                     </a>
-                                  
+                                    <a href="/hairstyle-tryon" className="text-white/80 hover:text-white transition-colors block">
+                                        <div className="flex gap-2">
+                                            <div className="flex items-center justify-center">
+                                                <HiMiniScissors size={32} />
+                                            </div>
+                                            <div className="link flex items-center justify-center">
+                                                Hairstyle & Colour Try-On
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/skin-analyser" className="text-white/80 hover:text-white transition-colors block">
+                                        <div className="flex gap-2">
+                                            <div className="flex items-center justify-center">
+                                                <MdFaceRetouchingNatural size={32} />
+                                            </div>
+                                            <div className="link flex items-center justify-center">
+                                                Skin Analyser
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/hair-analyser" className="text-white/80 hover:text-white transition-colors block">
+                                        <div className="flex gap-2">
+                                            <div className="flex items-center justify-center">
+                                                <LuMicroscope size={32} />
+                                            </div>
+                                            <div className="link flex items-center justify-center">
+                                                Hair Analyser
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <a href="/#faq" className="text-white/80 hover:text-white transition-colors">FAQ</a>

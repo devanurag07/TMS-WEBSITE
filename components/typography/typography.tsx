@@ -25,7 +25,7 @@ const typographyVariants = cva("text-foreground", {
 
 interface TypographyProps
   extends HTMLAttributes<HTMLParagraphElement>,
-    VariantProps<typeof typographyVariants> {
+  VariantProps<typeof typographyVariants> {
   as?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
 }
 

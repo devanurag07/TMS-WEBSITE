@@ -19,6 +19,20 @@ import increaseRevenueIcon from "../../assets/icons/increase_revenue.svg";
 import upscalingBusinessIcon from "../../assets/icons/upscale_business.svg";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 
+// display and smart mirror images
+import displayImage from "../../assets/display.png";
+import smartMirrorImage from "../../assets/smart-mirror.png";
+
+
+import skinAnalyserHW from "@/assets/skin_analyser_hw.jpeg";
+import hairAnalyserHW from "@/assets/hair_analyser_hw.jpeg";
+// icons for specifications
+import { BsDisplay } from "react-icons/bs";
+import { FaCamera } from "react-icons/fa6";
+import { MdOutlineTouchApp } from "react-icons/md";
+import { MdFilterFrames } from "react-icons/md";
+import { IoLogoAndroid } from "react-icons/io";
+import { LuListTodo } from "react-icons/lu";
 
 type VideoClip = {
   url: string;
@@ -45,10 +59,53 @@ const ScrollSpyDot = ({
 const sections = [
   { id: "hero", color: "white" },
   { id: "benefits", color: "teal-950" },
+  { id: "technical-specifications", color: "white" },
+  { id: "optional-upgrades", color: "teal-950" },
   { id: "how-it-works", color: "white" },
   { id: "faq", color: "teal-950" },
   { id: "cta", color: "white" },
 
+];
+
+const specifications = [
+  {
+    id: 1,
+    icon: BsDisplay,
+    title: "Display",
+    description: "23\" Full HD with 1920×1080 resolution for crystal clear visuals",
+  },
+  {
+    id: 2,
+    icon: FaCamera,
+    title: "Camera",
+    description: "Standard: 8 MP integrated, Upgrade: 16 MP high-resolution for detailed analysis"
+  },
+  {
+    id: 3,
+    icon: MdOutlineTouchApp,
+    title: "Touchscreen",
+    description: "10-point capacitive touch for smooth and responsive user interactions"
+  },
+  {
+    id: 4,
+    icon: MdFilterFrames,
+    title: "Mirror Frame",
+    description: "Size: 60 cm × 80 cm, Aluminum alloy, wall-mounted, IP65 water & dust-proof with Display Lights in 3 Tones"
+  },
+
+  {
+    id: 5,
+    icon: IoLogoAndroid,
+    title: "Operating System",
+    description: "Android-based system for reliable performance and easy integration"
+  },
+
+  {
+    id: 6,
+    icon: LuListTodo,
+    title: "Additional Features",
+    description: "DC 12V input, Wi-Fi Enabled (5G support), Bluetooth 5.0, Dual Speakers, Multiple USB ports for peripherals"
+  }
 ];
 
 const store_benefits = [
@@ -196,13 +253,12 @@ export default function SmartMirror() {
 
             <div className="hero-content flex-1 z-[100] w-full">
               <Typography className="hero-title text-white" variant={"h1"}>
-                Smart Mirror For Hair Salons
+                The Future of Interactive Experiences
+
               </Typography>
               <Typography className="hero-subtitle text-white max-w-2xl">
-                Change the way your customer feel about themselves. A new-age
-                salon consultation tool that allows your customers to choose and
-                visualize themselves in their desired Hair-style/Hair-color
-                before the hairdo.
+                Next-generation AI-powered mirror that blends traditional reflection with digital intelligence. Designed for beauty, wellness, fashion, retail, it enables immersive try-ons, advanced analysis, and engaging customer experiences, all in one sleek device.
+
               </Typography>
             </div>
 
@@ -243,7 +299,7 @@ export default function SmartMirror() {
                       <Image src={item.icon} alt="Icon" width={60} height={60} className="text-teal-950 h-10 w-10 md:h-14 md:w-14" />
                     </div>
                     <Typography
-                      className="benefit-card-title mt-4 poppins font-medium text-teal-950 text-start"
+                      className="benefit-card-title poppins font-medium text-teal-950 text-start"
                       variant={"subheading"}
                     >
                       {item.title}
@@ -261,9 +317,139 @@ export default function SmartMirror() {
             ))}
           </div>
 
+
         </div>
       </div>
-      <div className=" bg-black w-full flex items-center justify-center relative overflow-hidden" id="how-it-works">
+      <div className=" bg-black w-full flex items-center justify-center relative overflow-hidden" id="technical-specifications">
+
+        {/* create two circles of radial gradient and put them in the top left and bottom right */}
+        {/* <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div> */}
+
+        <DarkGradientCircles overflowHidden={true} />
+        <div className="flex max-w-[1400px] flex-col pt-20 items-start justify-start w-full p-4">
+
+          <div className="how-it-works z-[100] mb-20 md:mt-0  min-h-screen h-full items-start justify-start flex flex-col md:p-0 text-center">
+            <Typography
+              className="how-it-works-title text-white text-start"
+              variant={"h1"}
+            >
+              Technical Specifications
+            </Typography>
+
+            <Typography className="how-it-works-subtitle text-gray-300 !mt-4 max-w-4xl text-start" variant={"content"}>
+              Our devices comply with CE, FCC, and BIS standards for safety and reliability.
+            </Typography>
+
+            {/* Technical Specifications Cards - Same design as Section 2 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-10 mt-4 md:mt-20 md:grid max-w-[1300px] z-[100]">
+              {specifications.map((item) => (
+                <div key={item.id} className="md:p-10 p-5 w-full rounded-3xl bg-white relative border shadow-lg">
+                  <div className="flex flex-row md:flex-row items-center justify-start gap-4">
+                    <div className="icon">
+                      <item.icon className="text-teal-950 h-10 w-10 md:h-14 md:w-14" />
+                    </div>
+                    <Typography
+                      className="benefit-card-title poppins font-medium text-teal-950 text-start"
+                      variant={"subheading"}
+                    >
+                      {item.title}
+                    </Typography>
+                  </div>
+
+                  <Typography
+                    className="description poppins !mt-2 text-teal-900 text-start"
+                    variant={"content"}
+                  >
+                    {item.description}
+                  </Typography>
+                </div>
+              ))}
+            </div>
+
+            <div className="cta-content poppins text-white text-4xl font-medium mt-20 text-start ">
+              Looking for a customized solution?
+              <br />
+              <span className="text-2xl">
+                Talk to our team to configure a Smart Mirror that matches your business requirements.
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="optional-upgrades px-4 py-10 md:p-20 mb-10 relative overflow-hidden w-full bg-white flex flex-col items-center justify-center"
+        id="optional-upgrades"
+      >
+        <div className="heading z-[100] mb-8">
+          <Typography
+            variant="h1"
+            className="font-bold poppins text-center text-teal-950"
+          >
+            Optional Upgrades
+          </Typography>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-[1400px] w-full p-0 md:p-4 z-[100]">
+          <div className="hw-card flex flex-col items-center justify-center p-4">
+            <div className="image-container w-full max-w-[400px] h-[250px] md:h-[400px] mx-auto mb-4">
+              <Image
+                src={hairAnalyserHW}
+                alt="Skin AnalyserHW"
+                width={500}
+                height={500}
+                className="w-full h-full object-contain z-[100]"
+                style={{ maxWidth: "100%", height: "100%" }}
+              />
+            </div>
+            <div className="content">
+              <Typography
+                variant="subheading"
+                className="font-medium poppins text-center"
+              >
+                Microscopic Skin & Hair Analysis
+              </Typography>
+              <Typography
+                variant="content"
+                className="text-center max-w-xl mx-auto"
+              >
+                High-precision diagnosis of pores, pigmentation, and fine lines.
+                Scalp imaging for early thinning, dandruff, and density checks.
+              </Typography>
+            </div>
+          </div>
+          <div className="hw-card flex flex-col items-center justify-center p-4">
+            <div className="image-container w-full max-w-[400px] h-[250px] md:h-[400px] mx-auto mb-4">
+              <Image
+                src={skinAnalyserHW}
+                alt="Hair Analyser HW"
+                width={500}
+                height={500}
+                className="w-full h-full object-contain"
+                style={{ maxWidth: "100%", height: "100%" }}
+              />
+            </div>
+            <div className="content">
+              <Typography
+                variant="subheading"
+                className="font-medium poppins text-center"
+              >
+                Skin Hydration Sensor
+              </Typography>
+              <Typography
+                variant="content"
+                className="text-center max-w-xl mx-auto"
+              >
+                Seamlessly connects with the Smart Mirror to measure skin moisture levels in real time.
+                Provides insights for skincare recommendations and progress tracking.
+              </Typography>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-black w-full flex items-center justify-center relative overflow-hidden" id="how-it-works">
 
         {/* create two circles of radial gradient and put them in the top left and bottom right */}
         {/* <div className="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-[#00A5A5]/10 rounded-full blur-[100px]"></div>
@@ -276,11 +462,11 @@ export default function SmartMirror() {
               className="how-it-works-title text-white text-start"
               variant={"h1"}
             >
-              Know how it works?
+              How it works for salons?
             </Typography>
 
             <Typography className="how-it-works-subtitle text-gray-300 !mt-4 max-w-4xl text-start" variant={"content"}>
-              A simple 4-step process to get you started. The simple and user-friendly interface will help the hair stylist and client communicate effectively and take the salon consultation experience to a whole new level.
+              The simple and user-friendly interface will help the hair stylist and client communicate effectively and take the salon consultation experience to a whole new level.
             </Typography>
 
             <div className="video-clips justify-between gap-4 mt-20 md:flex hidden">
@@ -333,7 +519,8 @@ export default function SmartMirror() {
             </HorizontalCarousel>
           </div>
         </div>
-      </div>
+      </div >
+
       <div
         id="faq"
         className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-20 min-h-[100vh] relative overflow-hidden  z-[150]"
@@ -351,11 +538,11 @@ export default function SmartMirror() {
               </Typography>
 
               <Typography variant="h1" className="text-teal-950 mt-2 mb-12">
-                Frequently
+                Smart Mirror
                 <br />
-                asked
+                Hardware
                 <br />
-                questions.
+                FAQs.
               </Typography>
             </div>
 
@@ -407,6 +594,6 @@ export default function SmartMirror() {
         </section>
       </div>
       <Footer openCalendly={openCalendly} />
-    </div>
+    </div >
   );
 }

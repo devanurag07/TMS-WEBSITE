@@ -1,0 +1,32 @@
+{
+    "faqs": [
+        {
+            "question": "What does the Skin Analyser do?",
+            "answer": "It uses AI to capture high-resolution facial images and provides insights into hydration, oiliness, pigmentation, wrinkles, pores, and skin texture."
+        },
+        {
+            "question": "How accurate is the analysis?",
+            "answer": "Our model is benchmarked against leading skin analysers worldwide and trained on diverse datasets for high accuracy across multiple skin types."
+        },
+        {
+            "question": "Do customers need special lighting for accurate results?",
+            "answer": "The analyser is designed to work in normal salon/clinic lighting, but results are optimal under consistent white light."
+        },
+        {
+            "question": "Can results help in recommending skincare products?",
+            "answer": "Yes, it provides personalized product recommendations based on detected concerns (e.g., hydration creams, anti-acne solutions, serums)."
+        },
+        {
+            "question": "How quickly are results available?",
+            "answer": "AI reports are generated in less than 15 seconds after scanning."
+        },
+        {
+            "question": "Is it suitable for all skin types and tones?",
+            "answer": "Yes, it's trained on a wide dataset covering different ethnicities, skin tones, and conditions."
+        },
+        {
+            "question": "Can results be saved for tracking progress?",
+            "answer": "Yes, progress reports can be stored and compared over time, enabling before-and-after treatment validation."
+        }
+    ]
+}
