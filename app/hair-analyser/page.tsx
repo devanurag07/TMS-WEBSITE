@@ -22,11 +22,11 @@ import hairTextureIcon from "../../assets/hairicons/Hair Texture.svg";
 import consultationIcon from "../../assets/icons/consultation.svg";
 import MicroscopicHairAnalyserImage from "../../assets/microscopic_analyser.png";
 // Import hair analyser image
-import HairAnalyserImage from "@/assets/hair_analyser_hw.jpeg";
 import FrontalImage from "@/assets/head-parts/Frontal.svg"
 import OcciptalImage from "@/assets/head-parts/Occipital.svg"
 import ParietalImage from "@/assets/head-parts/Parietal.svg"
 import TemporalImage from "@/assets/head-parts/Temporal.svg"
+import HairAnalyserImage from "../../assets/hero/hair-analyser.png";
 
 const ScrollSpyDot = ({
   active,
@@ -237,13 +237,16 @@ export default function HairAnalyser() {
             </div>
 
             <div className="hero-image flex-1 items-centers justify-center flex ">
+
+              <div className="rounded-full border border-dashed p-4 z-[100]">
               <Image
-                src={MicroscopicHairAnalyserImage}
+                src={HairAnalyserImage}
                 width={400}
                 height={400}
                 alt="Microscopic Hair Analyser"
                 className="w-[300px] md:w-[500px] h-full object-contain z-[200]"
               />
+              </div>
             </div>
           </div>
         </div>

@@ -19,6 +19,7 @@ import upscalingBusinessIcon from "../../assets/icons/upscale_business.svg";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import { ClientOnlyMarquee } from "@/components/ClientOnlyMarquee";
 import faqData from "../../assets/json/HairstyleTryon_Faq.json";
+import HairstyleTryonImage from "../../assets/hero/hair-tryon.png";
 
 type VideoClip = {
   url: string;
@@ -239,13 +240,17 @@ export default function SmartMirror() {
             {/* underline */}
 
             <div className="hero-image flex-1 items-centers justify-center flex ">
+              <div className="rounded-full border border-dashed p-4 z-[100]">
+
               <Image
-                src={WebsiteSmartMirrorPng}
+                src={HairstyleTryonImage}
                 width={400}
                 height={400}
                 alt=""
-                className="w-[300px] md:w-[500px] h-full  z-[200]"
+                className="w-[300px] md:w-[500px] h-full  z-[200] rounded-full"
               />
+
+              </div>
             </div>
           </div>
         </div>

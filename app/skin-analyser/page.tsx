@@ -31,7 +31,7 @@ import skinCareProductsData from "../../assets/json/SkinCareProducts.json";
 import facewashImg from "@/assets/products/facewash.jpg"
 import serumImg from "@/assets/products/face-serum.jpg"
 import moisturizerImg from "@/assets/products/moisturizer.jpg"
-
+import SkinAnalyserImg from "@/assets/hero/skin-analyser.png";
 // Image mapping for products
 const productImages: { [key: number]: any } = {
   1: moisturizerImg,  // Moisturizer
@@ -234,13 +234,16 @@ export default function Page() {
             </div>
 
             <div className="hero-image flex-1 items-centers justify-center flex ">
+
+              <div className="rounded-full border border-dashed p-4 z-[100]">
               <Image
-                src={SkinSkeleton}
+                src={SkinAnalyserImg}
                 width={400}
                 height={400}
                 alt="Microscopic Hair Analyser"
                 className="w-[300px] md:w-[500px] h-full object-contain z-[200]"
               />
+              </div>
             </div>
           </div>
         </div>
