@@ -6,8 +6,6 @@ import consultationIcon from "../assets/icons/consultation.svg";
 import robotIcon from "../assets/icons/robot.svg";
 import customerConfidenceIcon from "../assets/icons/customer_confidence.svg";
 
-
-
 // before vs after section icons
 import Vector1Icon from "../assets/icons/Vector-1.svg";
 import Vector2Icon from "../assets/icons/Vector-2.svg";
@@ -24,6 +22,16 @@ import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import MirrorImage from "@/assets/mirror_homepage.png";
 import axios from "axios";
+import indiaGeoJson from "@/assets/geojson/in.json";
+import { IndiaMap } from "@vishalvoid/react-india-map";
+import type { StateData } from "@vishalvoid/react-india-map";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+} from "react-simple-maps";
+
 const ScrollSpyDot = ({
   active,
   onClick,
@@ -35,7 +43,9 @@ const ScrollSpyDot = ({
 }) => (
   <button
     onClick={onClick}
-    className={`w-0 h-0 - md:w-3 md:h-3 rounded-full transition-all duration-300 z-[9999] ${active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`}`}
+    className={`w-0 h-0 - md:w-3 md:h-3 rounded-full transition-all duration-300 z-[9999] ${
+      active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`
+    }`}
   />
 );
 const sections = [
@@ -92,43 +102,129 @@ export default function Home() {
   const [reason, setReason] = useState("");
   const [phone_number, setPhone_number] = useState("");
 
+  const geoUrl =
+    "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@8d907bc/topojson/india.json";
+
+  // Markers for Indian states (coordinates: [longitude, latitude])
+  const markers = [
+    {
+      markerOffset: 15,
+      name: "Jammu and Kashmir",
+      coordinates: [74.7974, 34.0837],
+    },
+    {
+      markerOffset: 15,
+      name: "Himachal Pradesh",
+      coordinates: [77.1734, 31.1048],
+    },
+    { markerOffset: 15, name: "Punjab", coordinates: [75.3412, 31.1471] },
+    { markerOffset: 15, name: "Uttarakhand", coordinates: [79.0193, 30.0668] },
+    { markerOffset: 15, name: "Haryana", coordinates: [76.0856, 29.0588] },
+    { markerOffset: 15, name: "Rajasthan", coordinates: [73.0479, 26.8467] },
+    {
+      markerOffset: 15,
+      name: "Uttar Pradesh",
+      coordinates: [80.9462, 26.8467],
+    },
+    { markerOffset: 15, name: "Bihar", coordinates: [85.1376, 25.5941] },
+    { markerOffset: 15, name: "Sikkim", coordinates: [88.5122, 27.533] },
+    {
+      markerOffset: 15,
+      name: "Arunachal Pradesh",
+      coordinates: [93.6167, 27.1004],
+    },
+    { markerOffset: 15, name: "Nagaland", coordinates: [94.5624, 25.6751] },
+    { markerOffset: 15, name: "Manipur", coordinates: [93.9063, 24.6637] },
+    { markerOffset: 15, name: "Mizoram", coordinates: [92.9376, 23.1645] },
+    { markerOffset: 15, name: "Tripura", coordinates: [91.9882, 23.9408] },
+    { markerOffset: 15, name: "Meghalaya", coordinates: [91.3662, 25.467] },
+    { markerOffset: 15, name: "Assam", coordinates: [91.7539, 26.2006] },
+    { markerOffset: 15, name: "West Bengal", coordinates: [88.3639, 22.5726] },
+    { markerOffset: 15, name: "Jharkhand", coordinates: [85.2799, 23.6102] },
+    { markerOffset: 15, name: "Odisha", coordinates: [85.8245, 20.2961] },
+    { markerOffset: 15, name: "Chhattisgarh", coordinates: [81.8661, 21.2514] },
+    {
+      markerOffset: 15,
+      name: "Madhya Pradesh",
+      coordinates: [77.4126, 23.2599],
+    },
+    { markerOffset: 15, name: "Gujarat", coordinates: [72.5714, 23.0225] },
+    { markerOffset: 15, name: "Maharashtra", coordinates: [72.8777, 19.076] },
+    { markerOffset: 15, name: "Goa", coordinates: [74.124, 15.2993] },
+    { markerOffset: 15, name: "Karnataka", coordinates: [77.5946, 12.9716] },
+    {
+      markerOffset: 15,
+      name: "Andhra Pradesh",
+      coordinates: [78.4867, 17.385],
+    },
+    { markerOffset: 15, name: "Telangana", coordinates: [78.4867, 17.385] },
+    { markerOffset: 15, name: "Tamil Nadu", coordinates: [80.2707, 13.0827] },
+    { markerOffset: 15, name: "Kerala", coordinates: [76.2711, 9.9312] },
+    { markerOffset: 15, name: "Delhi", coordinates: [77.209, 28.6139] },
+    { markerOffset: 15, name: "Puducherry", coordinates: [79.8083, 11.9416] },
+    {
+      markerOffset: 15,
+      name: "Andaman and Nicobar Islands",
+      coordinates: [92.8898, 11.7401],
+    },
+    { markerOffset: 15, name: "Lakshadweep", coordinates: [72.6147, 10.5667] },
+    {
+      markerOffset: 15,
+      name: "Dadra and Nagar Haveli and Daman and Diu",
+      coordinates: [73.0169, 20.1809],
+    },
+    { markerOffset: 15, name: "Ladakh", coordinates: [77.577, 34.1526] },
+    { markerOffset: 15, name: "Chandigarh", coordinates: [76.7794, 30.7333] },
+  ];
+
   const gifs: GifData[] = [
     {
       url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif",
       alt: "Smart Mirror Demo 1",
-      text: "Sleek Design"
+      text: "Sleek Design",
     },
     {
       url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_2.gif",
       alt: "Smart Mirror Demo 2",
-      text: "Dual-function"
+      text: "Dual-function",
     },
     {
       url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_3.gif",
       alt: "Smart Mirror Demo 3",
-      text: "New age consultation"
+      text: "New age consultation",
     },
   ];
 
-
-  const sendContactUsEmail = async (name: string, email: string, message: string, reason: string) => {
+  const sendContactUsEmail = async (
+    name: string,
+    email: string,
+    message: string,
+    reason: string
+  ) => {
     if (!email || !name || !message || !reason) {
-      alert("Please fill all the fields")
+      alert("Please fill all the fields");
       return;
     }
 
-    const response = await axios.post("https://jlcv386zfc.execute-api.us-east-1.amazonaws.com/contact_us", {
-      body: {
-        name, email,phone_number ,  message, reason
+    const response = await axios.post(
+      "https://jlcv386zfc.execute-api.us-east-1.amazonaws.com/contact_us",
+      {
+        body: {
+          name,
+          email,
+          phone_number,
+          message,
+          reason,
+        },
       }
-    })
+    );
 
     if (response.status === 200) {
-      alert("We will connect with you on the same email soon.")
+      alert("We will connect with you on the same email soon.");
     } else {
-      alert("Failed to send email")
+      alert("Failed to send email");
     }
-  }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -157,7 +253,7 @@ export default function Home() {
       {
         threshold: [0.2],
         rootMargin: "-10% 0px -10% 0px",
-      },
+      }
     );
 
     sections.forEach((section) => {
@@ -192,7 +288,6 @@ export default function Home() {
         id="hero"
         className="section-1 w-full flex justify-center items-center bg-black relative px-4 md:px-20"
       >
-
         <DarkGradientCircles overflowHidden={false} />
         {/* Hero Section with improved styling */}
         <section className="relative min-h-screen md:max-w-[1400px] w-full z-[1000]">
@@ -208,9 +303,7 @@ export default function Home() {
               <div className="absolute top-[-100px] right-[-100px] w-[200px] h-[200px] rounded-full blur-[100px]"></div>
 
               <div className="relative flex gap-20 md:flex-row flex-col">
-
                 <div className="content flex-2 flex flex-col justify-center">
-
                   <span className="text-white font-medium mb-4 block text-2xl md:text-3xl">
                     WELCOME TO TRY MY STYLE
                   </span>
@@ -236,9 +329,10 @@ export default function Home() {
                     variant="content"
                     className="text-gray-400 max-w-[600px] mb-8"
                   >
-                    Leveraging the strength of <span className="text-[#00A5A5] font-semibold">GenAI</span>, providing personalized and
-                    highly realistic Virtual Try-On solutions, catering to Fashion
-                    & Beauty Tech Industries.
+                    Leveraging the strength of{" "}
+                    <span className="text-[#00A5A5] font-semibold">GenAI</span>,
+                    providing personalized and highly realistic Virtual Try-On
+                    solutions, catering to Fashion & Beauty Tech Industries.
                   </Typography>
 
                   {/* <p className="text-xl text-gray-400 max-w-[600px] mb-8 leading-relaxed">
@@ -247,19 +341,24 @@ export default function Home() {
                   Industries.
                 </p> */}
                   <div className="button">
-
-                    <button className="bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-3xl font-semibold hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105"
-                      onClick={() => openCalendly?.()}>
+                    <button
+                      className="bg-white border-2 border-teal-950 text-teal-950 px-12 py-4 rounded-xl text-3xl font-semibold hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105"
+                      onClick={() => openCalendly?.()}
+                    >
                       Try Now
                     </button>
                   </div>
-
                 </div>
 
                 <div className="image  flex-1 flex justify-center items-center mt-20">
-                  <Image src={MirrorImage} alt="Mirror Image" width={600} height={400} className="md:w-[300px] w-[200px] h-full object-cover " />
+                  <Image
+                    src={MirrorImage}
+                    alt="Mirror Image"
+                    width={600}
+                    height={400}
+                    className="md:w-[300px] w-[200px] h-full object-cover "
+                  />
                 </div>
-
               </div>
             </div>
           </div>
@@ -296,18 +395,26 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`relative z-[1] transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-40"
-                    }`}
+                  className={`relative z-[1] transition-opacity duration-500 ${
+                    index === activeGifIndex ? "opacity-100" : "opacity-40"
+                  }`}
                 >
                   <Image
                     src={gif.url}
                     alt={gif.alt}
                     width={600}
                     height={400}
-                    className={`${index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"} h-full rounded-3xl shadow-lg object-cover`}
+                    className={`${
+                      index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"
+                    } h-full rounded-3xl shadow-lg object-cover`}
                   />
 
-                  <Typography variant="subheading" className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeGifIndex ? "opacity-100" : "opacity-0"}`} >
+                  <Typography
+                    variant="subheading"
+                    className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${
+                      index === activeGifIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
                     {gif.text}
                   </Typography>
                   <div className="absolute inset-0 bg-[#00A5A5]/20 rounded-3xl" />
@@ -319,8 +426,9 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-center transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-100"
-                    }`}
+                  className={`flex items-center justify-center transition-opacity duration-500 ${
+                    index === activeGifIndex ? "opacity-100" : "opacity-100"
+                  }`}
                 >
                   <div className="relative">
                     <Image
@@ -331,7 +439,10 @@ export default function Home() {
                       className="w-[18rem] h-full rounded-3xl shadow-lg object-cover"
                     />
                     <div className="absolute inset-0 bg-[#00A5A5]/20 rounded-3xl" />
-                    <Typography variant="subheading" className="text-white font-semibold absolute bottom-5 left-1/2 -translate-x-1/2">
+                    <Typography
+                      variant="subheading"
+                      className="text-white font-semibold absolute bottom-5 left-1/2 -translate-x-1/2"
+                    >
                       {gif.text}
                     </Typography>
                   </div>
@@ -341,7 +452,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
 
       <div
         id="comparison"
@@ -647,7 +757,10 @@ export default function Home() {
                       className="h-[50px]"
                     />
                   </div>
-                  <Typography variant="subheading" className="text-white mb-2 text-sm">
+                  <Typography
+                    variant="subheading"
+                    className="text-white mb-2 text-sm"
+                  >
                     {item.title}
                   </Typography>
                   <Typography
@@ -674,7 +787,10 @@ export default function Home() {
                       className="h-[40px]"
                     />
                   </div>
-                  <Typography variant="subheading" className="text-white mb-1 text-sm">
+                  <Typography
+                    variant="subheading"
+                    className="text-white mb-1 text-sm"
+                  >
                     {item.title}
                   </Typography>
                   <Typography
@@ -723,12 +839,10 @@ export default function Home() {
         </section>
       </div>
 
-
       <div
         id="faq"
         className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-36 min-h-[50vh] relative "
       >
-
         <section className="md:max-w-[1400px] w-full z-[1000]">
           <div className="mb-16 flex flex-col md:flex-row md:gap-[250px]">
             <div className="heading flex-1">
@@ -766,17 +880,20 @@ export default function Home() {
                       <div className="w-[10px]"></div>
 
                       <span
-                        className={`text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""}`}
+                        className={`text-2xl transition-transform duration-300 ${
+                          activeFaq === key ? "rotate-45 !text-red-500" : ""
+                        }`}
                       >
                         +
                       </span>
                     </div>
                   </button>
                   <div
-                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${activeFaq === key
-                      ? "max-h-[500px] opacity-100"
-                      : "max-h-0 opacity-0"
-                      }`}
+                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${
+                      activeFaq === key
+                        ? "max-h-[500px] opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
                   >
                     <div className="p-5 text-white bg-teal-950 rounded-b-lg">
                       <Typography
@@ -792,6 +909,149 @@ export default function Home() {
             </div>
           </div>
         </section>
+      </div>
+
+      <div
+        id="our-presence"
+        className="section-4 w-full bg-gradient-to-b from-teal-950 to-black  md:min-h-screen relative flex flex-col items-center justify-start md:justify-center overflow-hidden py-10 md:py-0"
+      >
+        {/* Background decorative elements */}
+        <div className="absolute top-10 left-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-teal-500/10 rounded-full blur-[80px] md:blur-[120px]"></div>
+        <div className="absolute bottom-10 right-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-cyan-500/10 rounded-full blur-[80px] md:blur-[120px]"></div>
+
+        {/* Section Header */}
+        <div className="text-center mb-4 md:mb-8 z-10 px-4 pt-6 md:pt-10">
+          <Typography
+            variant="subheading"
+            className="text-teal-400 uppercase tracking-widest mb-1 md:mb-2"
+          >
+            Our Presence
+          </Typography>
+          <Typography variant="h1" className="text-white">
+            Across India
+          </Typography>
+          <Typography
+            variant="content"
+            className="text-gray-400 max-w-xl mx-auto text-sm md:text-base"
+          >
+            Empowering salons and beauty businesses nationwide with our
+            innovative Smart Mirror technology
+          </Typography>
+        </div>
+
+        {/* Map Container */}
+        <div className="w-full max-w-[1000px] h-[400px] md:h-[700px] lg:h-[900px] relative z-10 px-2 md:px-0">
+          <ComposableMap
+            projection="geoMercator"
+            projectionConfig={{
+              scale: 1200,
+              center: [82.8, 22],
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <Geographies geography={indiaGeoJson}>
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill="#1a3a3a"
+                    stroke="#0d4d4d"
+                    strokeWidth={0.5}
+                    style={{
+                      default: { outline: "none" },
+                      hover: {
+                        fill: "#2a5a5a",
+                        outline: "none",
+                        cursor: "pointer",
+                      },
+                      pressed: { outline: "none" },
+                    }}
+                  />
+                ))
+              }
+            </Geographies>
+
+            {/* Markers for key cities */}
+            {[
+              {
+                name: "Noida",
+                coordinates: [77.45, 28.53],
+                labelOffset: { x: 12, y: 4 },
+                anchor: "start",
+              },
+              {
+                name: "Delhi",
+                coordinates: [77.1, 28.7],
+                labelOffset: { x: -12, y: 4 },
+                anchor: "end",
+              },
+              {
+                name: "Ahmedabad",
+                coordinates: [72.5714, 23.0225],
+                labelOffset: { x: 0, y: -12 },
+                anchor: "middle",
+              },
+              {
+                name: "Bhopal",
+                coordinates: [77.4126, 23.2599],
+                labelOffset: { x: 0, y: -12 },
+                anchor: "middle",
+              },
+              {
+                name: "Kolkata",
+                coordinates: [88.3639, 22.5726],
+                labelOffset: { x: 0, y: -12 },
+                anchor: "middle",
+              },
+              {
+                name: "Bangalore",
+                coordinates: [77.5946, 12.9716],
+                labelOffset: { x: 0, y: -12 },
+                anchor: "middle",
+              },
+            ].map(({ name, coordinates, labelOffset, anchor }) => (
+              <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
+                {/* Pulsing ring for main locations */}
+                <circle
+                  r={8}
+                  fill="none"
+                  stroke="#00A5A5"
+                  strokeWidth={1.5}
+                  opacity={0.4}
+                  className="animate-ping"
+                />
+                {/* Main marker dot */}
+                <circle
+                  r={4}
+                  fill="#00ffff"
+                  stroke="#ffffff"
+                  strokeWidth={1.5}
+                  style={{
+                    filter: "drop-shadow(0 0 6px #00ffff)",
+                  }}
+                />
+                {/* Label */}
+                <text
+                  textAnchor={anchor as "start" | "middle" | "end"}
+                  x={labelOffset.x}
+                  y={labelOffset.y}
+                  style={{
+                    fontFamily: "system-ui",
+                    fill: "#ffffff",
+                    fontWeight: "600",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.8)",
+                  }}
+                >
+                  {name}
+                </text>
+              </Marker>
+            ))}
+          </ComposableMap>
+        </div>
       </div>
 
       <div
@@ -916,8 +1176,6 @@ export default function Home() {
               </form>
             </div>
           </div>
-
-
         </div>
       </div>
 
