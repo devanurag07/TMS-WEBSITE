@@ -54,6 +54,7 @@ const sections = [
   { id: "comparison", color: "teal-950" },
   { id: "benefits", color: "white" },
   { id: "faq", color: "teal-950" },
+  { id: "our-presence", color: "white" },
   { id: "contact", color: "teal-950" },
   { id: "cta", color: "white" },
 ];
