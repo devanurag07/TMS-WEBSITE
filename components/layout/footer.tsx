@@ -124,8 +124,8 @@ const Footer = ({ openCalendly }: FooterProps) => {
             </div>
           </div>
 
-          <div className="flex justify-between md:justify-end w-full gap-10 md:gap-20 max-w-[300px] md:max-w-full">
-            <div className="col-span-4 md:ml-auto">
+          <div className="flex justify-between md:justify-end w-full gap-10 flex-wrap md:gap-20 max-w-[300px] md:max-w-full">
+            <div className="col-span-8 md:col-span-4 md:ml-auto">
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2">
                 <li>
@@ -136,7 +136,29 @@ const Footer = ({ openCalendly }: FooterProps) => {
                     About Us
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/#faq"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/#contact"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
 
+            </div>
+
+            <div className="col-span-4">
+              <h4 className="text-white font-semibold mb-4">Products</h4>
+              <ul className="space-y-2">
                 <li>
                   <a
                     href="/smart-mirror"
@@ -145,13 +167,36 @@ const Footer = ({ openCalendly }: FooterProps) => {
                     Smart Mirror
                   </a>
                 </li>
-
                 <li>
                   <a
-                    href="#faq"
+                    href="/hairstyle-tryon"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Help
+                    Hairstyle &amp; Colour Try-On
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/skin-analyser"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Skin Analyser
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/hair-analyser"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Hair Analyser
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/colour-harmony"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Colour Harmony Tool
                   </a>
                 </li>
               </ul>

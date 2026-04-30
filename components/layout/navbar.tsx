@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation"
 
 import { GiMirrorMirror } from "react-icons/gi";
 import { HiMiniScissors } from "react-icons/hi2";
-import { MdFaceRetouchingNatural } from "react-icons/md";
+import { MdFaceRetouchingNatural, MdPalette } from "react-icons/md";
 import { LuMicroscope } from "react-icons/lu";
 
 export const Navbar = () => {
@@ -108,13 +108,23 @@ export const Navbar = () => {
                                                 </div>
                                             </div>
                                         </a>
-                                        <a href="/hair-analyser" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-b-lg">
+                                        <a href="/hair-analyser" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900">
                                             <div className="flex gap-2">
                                                 <div className="flex items-center justify-center">
                                                     <LuMicroscope size={32} />
                                                 </div>
                                                 <div className="link flex items-center justify-center">
                                                     Hair Analyser
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="/colour-harmony" className="block px-6 py-3.5 text-white/80 hover:text-white hover:bg-teal-900 rounded-b-lg">
+                                            <div className="flex gap-2">
+                                                <div className="flex items-center justify-center">
+                                                    <MdPalette size={32} />
+                                                </div>
+                                                <div className="link flex items-center justify-center">
+                                                    Colour Harmony Tool
                                                 </div>
                                             </div>
                                         </a>
@@ -201,6 +211,16 @@ export const Navbar = () => {
                                             </div>
                                             <div className="link flex items-center justify-center">
                                                 Hair Analyser
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/colour-harmony" className="text-white/80 hover:text-white transition-colors block">
+                                        <div className="flex gap-2">
+                                            <div className="flex items-center justify-center">
+                                                <MdPalette size={32} />
+                                            </div>
+                                            <div className="link flex items-center justify-center">
+                                                Colour Harmony Tool
                                             </div>
                                         </div>
                                     </a>

@@ -22,6 +22,20 @@ import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import MirrorImage from "@/assets/mirror_homepage.png";
 import axios from "axios";
+
+// Brand logos - Row 1
+import brandA from "@/assets/logos/A.png";
+import brandB from "@/assets/logos/B.png";
+import brandC from "@/assets/logos/C.png";
+import brandD from "@/assets/logos/D.webp";
+import brandE from "@/assets/logos/E.png";
+
+// Brand logos - Row 2
+import brand1 from "@/assets/logos/1.png";
+import brand2 from "@/assets/logos/2.png";
+import brand3 from "@/assets/logos/3.png";
+import brand4 from "@/assets/logos/4.png";
+import brand5 from "@/assets/logos/5.png";
 import indiaGeoJson from "@/assets/geojson/in.json";
 import { IndiaMap } from "@vishalvoid/react-india-map";
 import type { StateData } from "@vishalvoid/react-india-map";
@@ -43,13 +57,29 @@ const ScrollSpyDot = ({
 }) => (
   <button
     onClick={onClick}
-    className={`w-0 h-0 - md:w-3 md:h-3 rounded-full transition-all duration-300 z-[9999] ${
-      active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`
-    }`}
+    className={`w-0 h-0 - md:w-3 md:h-3 rounded-full transition-all duration-300 z-[9999] ${active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`
+      }`}
   />
 );
+const row1Brands = [
+  { name: "Maletti", logo: brandA },
+  { name: "Florian Hurel", logo: brandB },
+  { name: "Cut&Style", logo: brandC },
+  { name: "LOOKS", logo: brandD },
+  { name: "Page 3", logo: brandE },
+];
+
+const row2Brands = [
+  { name: "Manish Verma", logo: brand1 },
+  { name: "CLNZ", logo: brand2 },
+  { name: "Diona", logo: brand3 },
+  { name: "OQ Derm", logo: brand4 },
+  { name: "RC Studios", logo: brand5 },
+];
+
 const sections = [
   { id: "hero", color: "white" },
+  { id: "brands", color: "teal-950" },
   { id: "features", color: "white" },
   { id: "comparison", color: "teal-950" },
   { id: "benefits", color: "white" },
@@ -180,17 +210,17 @@ export default function Home() {
 
   const gifs: GifData[] = [
     {
-      url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_1.gif",
+      url: "/gifs/first1.mp4",
       alt: "Smart Mirror Demo 1",
       text: "Sleek Design",
     },
     {
-      url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_2.gif",
+      url: "/gifs/first2.mp4",
       alt: "Smart Mirror Demo 2",
       text: "Dual-function",
     },
     {
-      url: "https://tms-website.s3.us-east-1.amazonaws.com/home-page-gif/Home+page+section+2_3.gif",
+      url: "/gifs/first3.mp4",
       alt: "Smart Mirror Demo 3",
       text: "New age consultation",
     },
@@ -287,7 +317,7 @@ export default function Home() {
 
       <div
         id="hero"
-        className="section-1 w-full flex justify-center items-center bg-black relative px-4 md:px-20"
+        className="section-1 w-full overflow-hidden  flex justify-center items-center bg-black relative px-4 md:px-20"
       >
         <DarkGradientCircles overflowHidden={false} />
         {/* Hero Section with improved styling */}
@@ -365,9 +395,62 @@ export default function Home() {
           </div>
         </section>
       </div>
+
+      {/* Brands Section - Section 2 */}
+      <div
+        id="brands"
+        className="w-full z-100 overflow-hidden flex justify-center items-center bg-white py-16 md:py-24 px-4 md:px-20"
+      >
+        <section className="md:max-w-[1400px] w-full">
+          <Typography
+            variant="h1"
+            className="text-teal-950 text-center mb-12 md:mb-16"
+          >
+            Brands we have worked with
+          </Typography>
+
+          {/* Row 1 */}
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 mb-10 md:mb-14">
+            {row1Brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="flex flex-col items-center gap-3 group"
+              >
+                <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Row 2 */}
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+            {row2Brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="flex flex-col items-center gap-3 group"
+              >
+                <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
       <div
         id="features"
-        className="section-1 2 w-full flex justify-center items-center bg-black flex-col min-h-screen relative  px-4 md:px-20"
+        className="section-1 overflow-hidden 2 w-full flex justify-center items-center bg-black flex-col min-h-screen relative  px-4 md:px-20"
       >
         <DarkGradientCircles overflowHidden={true} isStraight={false} />
 
@@ -396,25 +479,23 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`relative z-[1] transition-opacity duration-500 ${
-                    index === activeGifIndex ? "opacity-100" : "opacity-40"
-                  }`}
+                  className={`relative z-[1] transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-40"
+                    }`}
                 >
-                  <Image
+                  <video
                     src={gif.url}
-                    alt={gif.alt}
-                    width={600}
-                    height={400}
-                    className={`${
-                      index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"
-                    } h-full rounded-3xl shadow-lg object-cover`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={`${index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"
+                      } h-full rounded-3xl shadow-lg object-cover`}
                   />
 
                   <Typography
                     variant="subheading"
-                    className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${
-                      index === activeGifIndex ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeGifIndex ? "opacity-100" : "opacity-0"
+                      }`}
                   >
                     {gif.text}
                   </Typography>
@@ -427,16 +508,16 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-center transition-opacity duration-500 ${
-                    index === activeGifIndex ? "opacity-100" : "opacity-100"
-                  }`}
+                  className={`flex items-center justify-center transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-100"
+                    }`}
                 >
                   <div className="relative">
-                    <Image
+                    <video
                       src={gif.url}
-                      alt={gif.alt}
-                      width={600}
-                      height={400}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-[18rem] h-full rounded-3xl shadow-lg object-cover"
                     />
                     <div className="absolute inset-0 bg-[#00A5A5]/20 rounded-3xl" />
@@ -881,20 +962,18 @@ export default function Home() {
                       <div className="w-[10px]"></div>
 
                       <span
-                        className={`text-2xl transition-transform duration-300 ${
-                          activeFaq === key ? "rotate-45 !text-red-500" : ""
-                        }`}
+                        className={`text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""
+                          }`}
                       >
                         +
                       </span>
                     </div>
                   </button>
                   <div
-                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${
-                      activeFaq === key
-                        ? "max-h-[500px] opacity-100"
-                        : "max-h-0 opacity-0"
-                    }`}
+                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${activeFaq === key
+                      ? "max-h-[500px] opacity-100"
+                      : "max-h-0 opacity-0"
+                      }`}
                   >
                     <div className="p-5 text-white bg-teal-950 rounded-b-lg">
                       <Typography
@@ -1013,6 +1092,24 @@ export default function Home() {
                 coordinates: [77.5946, 12.9716],
                 labelOffset: { x: 0, y: -12 },
                 anchor: "middle",
+              },
+              {
+                name: "Mumbai",
+                coordinates: [72.8777, 19.076],
+                labelOffset: { x: -12, y: 4 },
+                anchor: "end",
+              },
+              {
+                name: "Pune",
+                coordinates: [73.8567, 18.5204],
+                labelOffset: { x: 12, y: 4 },
+                anchor: "start",
+              },
+              {
+                name: "Hyderabad",
+                coordinates: [78.4867, 17.385],
+                labelOffset: { x: 12, y: 4 },
+                anchor: "start",
               },
             ].map(({ name, coordinates, labelOffset, anchor }) => (
               <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
