@@ -36,6 +36,8 @@ import brand2 from "@/assets/logos/2.png";
 import brand3 from "@/assets/logos/3.png";
 import brand4 from "@/assets/logos/4.png";
 import brand5 from "@/assets/logos/5.png";
+import brand6 from "@/assets/logos/6.png";
+
 import indiaGeoJson from "@/assets/geojson/in.json";
 import { IndiaMap } from "@vishalvoid/react-india-map";
 import type { StateData } from "@vishalvoid/react-india-map";
@@ -75,6 +77,7 @@ const row2Brands = [
   { name: "Diona", logo: brand3 },
   { name: "OQ Derm", logo: brand4 },
   { name: "RC Studios", logo: brand5 },
+  { name: "Luca Piattelli", logo: brand6 },
 ];
 
 const sections = [

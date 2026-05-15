@@ -60,6 +60,7 @@ import featuredBy1Image from "../../assets/featured/featured_1.jpeg";
 import featuredBy2Image from "../../assets/featured/featured_2.jpeg";
 import featuredBy3Image from "../../assets/featured/featured_3.jpeg";
 import featuredBy4Image from "../../assets/featured/featured_4.jpeg";
+import featuredBy5Image from "../../assets/featured/featured_5.png";
 
 // Location markers data
 const locations = [
@@ -840,6 +841,9 @@ export default function AboutUs() {
               </a>
               <a href="https://share.google/flJkgwx1vNDUYrjmN" target="_blank" rel="noopener noreferrer">
                 <Image src={featuredBy4Image} alt="The Economic Times" width={100} height={100} className="md:w-[150px]" />
+              </a>
+              <a href="https://share.google/flJkgwx1vNDUYrjmN" target="_blank" rel="noopener noreferrer">
+                <Image src={featuredBy5Image} alt="Estetica" width={100} height={100} className="md:w-[150px]" />
               </a>
             </div>
           </div>

@@ -42,6 +42,7 @@ import ops9 from "@/assets/current-operations/9.jpg";
 import ops10 from "@/assets/current-operations/10.jpg";
 import ops11 from "@/assets/current-operations/11.jpg";
 import ops12 from "@/assets/current-operations/12.jpeg";
+import ops13 from "@/assets/current-operations/13.png";
 // icons for specifications
 import { BsDisplay } from "react-icons/bs";
 import { FaCamera } from "react-icons/fa6";
@@ -181,8 +182,9 @@ const currentOperations = [
   { id: 11, image: ops11, name: "Maletti S.P.A.", location: "Fellegara, Scandiano, Reggio Emilia, Italy" },
   { id: 10, image: ops10, name: "Diona Artisan Salon", location: "Sector 18, Noida, Uttar Pradesh" },
   { id: 7, image: ops7, name: "CLNZ Salon", location: "Mahipalpur, New Delhi" },
-  { id: 8, image: ops8, name: "Cut & Style Salon", location: "RT Nagar, Bengaluru, Karnataka" },
   { id: 9, image: ops9, name: "OQ Derm", location: "Kolkata, West Bengal" },
+  { id: 8, image: ops8, name: "Cut & Style Salon", location: "RT Nagar, Bengaluru, Karnataka" },
+  { id: 13, image: ops13, name: "Luca Piattelli", location: "Safdarjung Enclave, New Delhi" },
   { id: 6, image: ops6, name: "RC Studios", location: "Bairagarh, Bhopal, Madhya Pradesh" },
   {
     id: 12,
