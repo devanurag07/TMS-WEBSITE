@@ -21,7 +21,6 @@ import { HorizontalCarousel } from "@/components/HorizontalCarousel";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import MirrorImage from "@/assets/mirror_homepage.png";
-import axios from "axios";
 
 // Brand logos - Row 1
 import brandA from "@/assets/logos/A.png";
@@ -135,6 +134,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [reason, setReason] = useState("");
   const [phone_number, setPhone_number] = useState("");
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
 
   const geoUrl =
     "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@8d907bc/topojson/india.json";
@@ -240,21 +240,31 @@ export default function Home() {
       return;
     }
 
-    const response = await axios.post(
-      "https://jlcv386zfc.execute-api.us-east-1.amazonaws.com/contact_us",
-      {
-        body: {
-          name,
-          email,
-          phone_number,
-          message,
-          reason,
-        },
-      }
-    );
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "c4f731a6-f7a9-4636-886d-bdd7b5ba7aef",
+        name,
+        email,
+        phone_number,
+        message,
+        reason,
+      }),
+    });
 
-    if (response.status === 200) {
-      alert("We will connect with you on the same email soon.");
+    const result = await response.json();
+
+    if (result.success) {
+      setShowSuccessDialog(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+      setReason("");
+      setPhone_number("");
     } else {
       alert("Failed to send email");
     }
@@ -1281,6 +1291,43 @@ export default function Home() {
       </div>
 
       <Footer openCalendly={openCalendly} />
+
+      {/* Success Dialog */}
+      {showSuccessDialog && (
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl p-8 md:p-12 max-w-md w-[90%] text-center shadow-2xl animate-in">
+            <div className="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 13l4 4L19 7"
+                  stroke="#0f766e"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-teal-950 mb-3">
+              Thank You!
+            </h3>
+            <p className="text-gray-600 text-lg mb-8">
+              We have received your message. Our team will connect with you soon!
+            </p>
+            <button
+              onClick={() => setShowSuccessDialog(false)}
+              className="bg-teal-950 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-[#008585] transition-all duration-300"
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
