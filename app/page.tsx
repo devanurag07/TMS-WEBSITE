@@ -72,6 +72,11 @@ const row1Brands = [
   { name: "Cut&Style", logo: brandC },
   { name: "LOOKS", logo: brandD },
   { name: "Page 3", logo: brandE },
+  { name: "Hair Masters", logo: hairMastersLogo },
+  { name: "Play Salon", logo: playSalonLogo },
+  { name: "Hipster Salon", logo: hipsterSalonLogo },
+  { name: "Shivanjali Wellness", logo: shivanjaliLogo },
+
 ];
 
 const row2Brands = [
@@ -83,12 +88,7 @@ const row2Brands = [
   { name: "Luca Piattelli", logo: brand6 },
 ];
 
-const row3Brands = [
-  { name: "Hair Masters", logo: hairMastersLogo },
-  { name: "Hipster Salon", logo: hipsterSalonLogo },
-  { name: "Play Salon", logo: playSalonLogo },
-  { name: "Shivanjali Wellness", logo: shivanjaliLogo },
-];
+
 
 const sections = [
   { id: "hero", color: "white" },
@@ -469,24 +469,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          {/* Row 3 */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
-            {row3Brands.map((brand) => (
-              <div
-                key={brand.name}
-                className="flex flex-col items-center gap-3 group"
-              >
-                <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+
         </section>
       </div>
 

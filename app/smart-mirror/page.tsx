@@ -191,7 +191,7 @@ const currentOperations = [
     image: ops12,
     name: "La Nova Salon",
     location: "Ahmedabad, Gujarat",
-    // isUpcoming: true
+    isUpcoming: true
   },
   { id: 14, image: ops12, name: "Hipster Salon", location: "Thane, Maharashtra", isUpcoming: true },
   { id: 15, image: ops12, name: "Play Salon", location: "Indiranagar, Bengaluru, Karnataka", isUpcoming: true },
@@ -199,6 +199,7 @@ const currentOperations = [
   { id: 17, image: ops12, name: "Hair Masters Salon", location: "Chandigarh", isUpcoming: true },
   { id: 18, image: ops12, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
+  { id: 20, image: ops12, name: "The Little Hair Salon", location: "Viman Nagar, Pune", isUpcoming: true },
 ];
 
 
