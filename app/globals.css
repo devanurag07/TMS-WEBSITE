@@ -99,4 +99,47 @@ body {
       transform: translateY(calc(-100% - var(--gap)));
     }
   }
+
+  /* Hammer swings down and bounces back */
+  @keyframes hammer-swing {
+    0%   { transform: rotate(-40deg); }
+    38%  { transform: rotate(-40deg); }
+    55%  { transform: rotate(20deg); }
+    65%  { transform: rotate(14deg); }
+    72%  { transform: rotate(20deg); }
+    85%  { transform: rotate(-10deg); }
+    100% { transform: rotate(-40deg); }
+  }
+
+  /* Sparks fire at impact (~55% of 0.8s = 440ms) */
+  @keyframes spark-c {
+    0%, 54%  { transform: translateX(-50%) translateY(0) scale(0); opacity: 0; }
+    56%      { transform: translateX(-50%) translateY(0) scale(1.2); opacity: 1; }
+    80%      { transform: translateX(-50%) translateY(-10px) scale(0.6); opacity: 0.6; }
+    100%     { transform: translateX(-50%) translateY(-16px) scale(0); opacity: 0; }
+  }
+  @keyframes spark-l {
+    0%, 54%  { transform: translateX(-50%) translate(0, 0) scale(0); opacity: 0; }
+    56%      { transform: translateX(-50%) translate(-2px, 0) scale(1.1); opacity: 1; }
+    80%      { transform: translateX(-50%) translate(-9px, -8px) scale(0.5); opacity: 0.5; }
+    100%     { transform: translateX(-50%) translate(-13px, -14px) scale(0); opacity: 0; }
+  }
+  @keyframes spark-r {
+    0%, 54%  { transform: translateX(-50%) translate(0, 0) scale(0); opacity: 0; }
+    56%      { transform: translateX(-50%) translate(2px, 0) scale(1.1); opacity: 1; }
+    80%      { transform: translateX(-50%) translate(9px, -8px) scale(0.5); opacity: 0.5; }
+    100%     { transform: translateX(-50%) translate(13px, -14px) scale(0); opacity: 0; }
+  }
+  @keyframes spark-tl {
+    0%, 54%  { transform: translateX(-50%) translate(0, 0) scale(0); opacity: 0; }
+    56%      { transform: translateX(-50%) translate(-1px, 0) scale(1); opacity: 1; }
+    80%      { transform: translateX(-50%) translate(-7px, -13px) scale(0.4); opacity: 0.4; }
+    100%     { transform: translateX(-50%) translate(-10px, -20px) scale(0); opacity: 0; }
+  }
+  @keyframes spark-tr {
+    0%, 54%  { transform: translateX(-50%) translate(0, 0) scale(0); opacity: 0; }
+    56%      { transform: translateX(-50%) translate(1px, 0) scale(1); opacity: 1; }
+    80%      { transform: translateX(-50%) translate(7px, -13px) scale(0.4); opacity: 0.4; }
+    100%     { transform: translateX(-50%) translate(10px, -20px) scale(0); opacity: 0; }
+  }
 }

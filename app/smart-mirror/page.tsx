@@ -189,9 +189,16 @@ const currentOperations = [
   {
     id: 12,
     image: ops12,
-    name: "La Nova Salon (Upcoming)",
-    location: "Ahmedabad, Gujarat"
-  }
+    name: "La Nova Salon",
+    location: "Ahmedabad, Gujarat",
+    // isUpcoming: true
+  },
+  { id: 14, image: ops12, name: "Hipster Salon", location: "Thane, Maharashtra", isUpcoming: true },
+  { id: 15, image: ops12, name: "Play Salon", location: "Indiranagar, Bengaluru, Karnataka", isUpcoming: true },
+  { id: 16, image: ops12, name: "Upcoming", location: "Vuyyuru, Andhra Pradesh", isUpcoming: true },
+  { id: 17, image: ops12, name: "Hair Masters Salon", location: "Chandigarh", isUpcoming: true },
+  { id: 18, image: ops12, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", isUpcoming: true },
+  { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
 ];
 
 
@@ -200,6 +207,7 @@ type DeploymentItem = {
   image: (typeof pilotDeployments)[0]["image"];
   name: string;
   location: string;
+  isUpcoming?: boolean;
 };
 
 export default function SmartMirror() {
@@ -474,16 +482,33 @@ export default function SmartMirror() {
                       fill
                       className="object-cover h-[300px] transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-[#008080]/40" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {
+                      item.isUpcoming && (
 
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                        </svg>
-                      </div>
-                    </div>
+                        <>
+
+                          <div className="absolute inset-0 bg-yellow-300/20" />
+                          <div className="absolute inset-0 flex items-center justify-center z-10">
+                            <span className="bg-yellow-300 text-yellow-900 px-6 py-3 rounded-full font-bold text-lg shadow-xl border-2 border-yellow-400 drop-shadow-lg animate-pulse flex items-center gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <rect x="5" y="2" width="14" height="18" rx="3" />
+                                <path d="M9 21h6" strokeLinecap="round" />
+                                <path d="M12 6v6" strokeLinecap="round" />
+                                <circle cx="12" cy="15" r="1" fill="currentColor" />
+                              </svg>
+                              Coming Soon
+                            </span>
+                          </div>
+
+                        </>
+                      )
+                    }
+                    {
+                      !item.isUpcoming && (
+                        <div className="absolute inset-0 bg-[#008080]/40" />
+                      )
+                    }
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
                       <p className="text-white font-semibold text-base leading-tight">
                         {item.name}
@@ -498,6 +523,7 @@ export default function SmartMirror() {
             </div>
 
           </div>
+
 
           {/* ── Pilot Deployments ── */}
           <div className="mt-14">

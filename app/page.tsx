@@ -28,6 +28,8 @@ import brandB from "@/assets/logos/B.png";
 import brandC from "@/assets/logos/C.png";
 import brandD from "@/assets/logos/D.webp";
 import brandE from "@/assets/logos/E.png";
+import hairMastersLogo from "@/assets/upcoming_salons/Hair Masters Logo.jpg";
+import hipsterSalonLogo from "@/assets/upcoming_salons/Hipster Salon.webp";
 
 // Brand logos - Row 2
 import brand1 from "@/assets/logos/1.png";
@@ -36,6 +38,8 @@ import brand3 from "@/assets/logos/3.png";
 import brand4 from "@/assets/logos/4.png";
 import brand5 from "@/assets/logos/5.png";
 import brand6 from "@/assets/logos/6.png";
+import playSalonLogo from "@/assets/upcoming_salons/Play Salon.png";
+import shivanjaliLogo from "@/assets/upcoming_salons/Shivanjali Wellness.png";
 
 import indiaGeoJson from "@/assets/geojson/in.json";
 import { IndiaMap } from "@vishalvoid/react-india-map";
@@ -77,6 +81,13 @@ const row2Brands = [
   { name: "OQ Derm", logo: brand4 },
   { name: "RC Studios", logo: brand5 },
   { name: "Luca Piattelli", logo: brand6 },
+];
+
+const row3Brands = [
+  { name: "Hair Masters", logo: hairMastersLogo },
+  { name: "Hipster Salon", logo: hipsterSalonLogo },
+  { name: "Play Salon", logo: playSalonLogo },
+  { name: "Shivanjali Wellness", logo: shivanjaliLogo },
 ];
 
 const sections = [
@@ -441,8 +452,26 @@ export default function Home() {
             ))}
           </div>
           {/* Row 2 */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 mb-10 md:mb-14">
             {row2Brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="flex flex-col items-center gap-3 group"
+              >
+                <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Row 3 */}
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+            {row3Brands.map((brand) => (
               <div
                 key={brand.name}
                 className="flex flex-col items-center gap-3 group"
@@ -1121,6 +1150,30 @@ export default function Home() {
               {
                 name: "Hyderabad",
                 coordinates: [78.4867, 17.385],
+                labelOffset: { x: 12, y: 4 },
+                anchor: "start",
+              },
+              {
+                name: "Thane",
+                coordinates: [72.9781, 19.2183],
+                labelOffset: { x: 12, y: 4 },
+                anchor: "start",
+              },
+              {
+                name: "Bhavnagar",
+                coordinates: [72.1519, 21.7645],
+                labelOffset: { x: 0, y: -12 },
+                anchor: "middle",
+              },
+              {
+                name: "Darbhanga",
+                coordinates: [85.8918, 26.1542],
+                labelOffset: { x: 12, y: 4 },
+                anchor: "start",
+              },
+              {
+                name: "Vuyyuru",
+                coordinates: [80.8444, 16.3618],
                 labelOffset: { x: 12, y: 4 },
                 anchor: "start",
               },
