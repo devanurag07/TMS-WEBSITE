@@ -145,22 +145,22 @@ export default function SmartMirror() {
 
   const videoClips: VideoClip[] = [
     {
-      url: "https://tms-website.s3.us-east-1.amazonaws.com/smart-mirror-page-gif/Step+1+Image+click.gif",
+      url: "/gifs/second1.mp4",
       alt: "Smart mirror demo",
       title: "Click"
     },
     {
-      url: "https://tms-website.s3.us-east-1.amazonaws.com/smart-mirror-page-gif/Step+2+Select+Hair+style.gif",
+      url: "/gifs/second2.mp4",
       alt: "Select Hair Style",
       title: "Choose"
     },
     {
-      url: "https://tms-website.s3.us-east-1.amazonaws.com/smart-mirror-page-gif/Visualise+Result.gif",
+      url: "/gifs/second3.mp4",
       alt: "Visualise It",
       title: "Visualize"
     },
     {
-      url: "https://tms-website.s3.us-east-1.amazonaws.com/smart-mirror-page-gif/Share+with+friends.gif",
+      url: "/gifs/second4.mp4",
       alt: "Share with friends",
       title: "Share"
     }
@@ -336,8 +336,7 @@ export default function SmartMirror() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-10 mt-4  md:mt-20 md:grid max-w-[1300px] ">
             {store_benefits.slice(0, 6).map((item) => (
-              <>
-                <div className="md:p-10 p-5 w-full rounded-3xl bg-white relative border shadow-lg">
+              <div key={item.id} className="md:p-10 p-5 w-full rounded-3xl bg-white relative border shadow-lg">
                   <div className="flex flex-row md:flex-row items-center justify-start gap-4">
                     <div className="icon">
                       <Image src={item.icon} alt="Icon" width={60} height={60} className="text-teal-950 h-10 w-10 md:h-14 md:w-14" />
@@ -356,8 +355,7 @@ export default function SmartMirror() {
                   >
                     {item.description}
                   </Typography>
-                </div>
-              </>
+              </div>
             ))}
           </div>
 
@@ -393,12 +391,13 @@ export default function SmartMirror() {
                     className={`video-1 rounded-3xl overflow-hidden relative group transition-opacity duration-500 ${index === activeVideoIndex ? "opacity-100" : "opacity-40"
                       }`}
                   >
-                    <Image
+                    <video
                       src={clip.url}
-                      alt={clip.alt}
-                      width={400}
-                      height={400}
-                      className={` ${index === activeVideoIndex ? "w-[24rem]" : "w-[18rem]"}`}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className={`${index === activeVideoIndex ? "w-[24rem]" : "w-[18rem]"}`}
                     />
                     <div className="absolute inset-0 bg-teal-950/20 rounded-3xl" />
 
@@ -414,14 +413,14 @@ export default function SmartMirror() {
               {videoClips.map((clip, index) => (
                 <div key={index} className="flex flex-col items-center justify-center">
                   <div
-                    key={index}
                     className="video-1 rounded-3xl overflow-hidden relative group transition-opacity duration-500"
                   >
-                    <Image
+                    <video
                       src={clip.url}
-                      alt={clip.alt}
-                      width={400}
-                      height={400}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-[18rem]"
                     />
                     <div className="absolute inset-0 bg-teal-950/20 rounded-3xl" />
