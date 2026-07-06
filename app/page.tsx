@@ -28,6 +28,8 @@ import brandB from "@/assets/logos/B.png";
 import brandC from "@/assets/logos/C.png";
 import brandD from "@/assets/logos/D.webp";
 import brandE from "@/assets/logos/E.png";
+import brandF from "@/assets/logos/F.png";
+
 import hairMastersLogo from "@/assets/upcoming_salons/Hair Masters Logo.jpg";
 import hipsterSalonLogo from "@/assets/upcoming_salons/Hipster Salon.webp";
 
@@ -72,10 +74,11 @@ const row1Brands = [
   { name: "Cut&Style", logo: brandC },
   { name: "LOOKS", logo: brandD },
   { name: "Page 3", logo: brandE },
-  { name: "Hair Masters", logo: hairMastersLogo },
+  { name: "Naturals", logo: brandF },
   { name: "Play Salon", logo: playSalonLogo },
   { name: "Hipster Salon", logo: hipsterSalonLogo },
   { name: "Shivanjali Wellness", logo: shivanjaliLogo },
+  { name: "Hair Masters", logo: hairMastersLogo },
 
 ];
 
@@ -88,7 +91,126 @@ const row2Brands = [
   { name: "Luca Piattelli", logo: brand6 },
 ];
 
+type MapMarker = {
+  name: string;
+  coordinates: [number, number];
+  labelOffset: { x: number; y: number };
+  anchor: "start" | "middle" | "end";
+};
 
+const presenceMapMarkers: MapMarker[] = [
+  {
+    name: "Noida",
+    coordinates: [77.45, 28.53],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Delhi",
+    coordinates: [77.1, 28.7],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+  },
+  {
+    name: "Bhopal",
+    coordinates: [77.4126, 23.2599],
+    labelOffset: { x: 0, y: -12 },
+    anchor: "middle",
+  },
+  {
+    name: "Kolkata",
+    coordinates: [88.3639, 22.5726],
+    labelOffset: { x: 0, y: -12 },
+    anchor: "middle",
+  },
+  {
+    name: "Bangalore",
+    coordinates: [77.5946, 12.9716],
+    labelOffset: { x: 0, y: -12 },
+    anchor: "middle",
+  },
+  {
+    name: "Mumbai",
+    coordinates: [72.8777, 19.076],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+  },
+];
+
+const upcomingMapMarkers: MapMarker[] = [
+  {
+    name: "Chennai",
+    coordinates: [80.2707, 13.0827],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Chandigarh",
+    coordinates: [76.7794, 30.7333],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+  },
+  {
+    name: "Kochi",
+    coordinates: [76.2673, 9.9312],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+  },
+  {
+    name: "Kozhikode",
+    coordinates: [75.7804, 11.2588],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+  },
+  {
+    name: "Coimbatore",
+    coordinates: [76.9558, 11.0168],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Ahmedabad",
+    coordinates: [72.5714, 23.0225],
+    labelOffset: { x: 0, y: -12 },
+    anchor: "middle",
+  },
+  {
+    name: "Darbhanga",
+    coordinates: [85.8918, 26.1542],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Bhavnagar",
+    coordinates: [72.1519, 21.7645],
+    labelOffset: { x: 0, y: -12 },
+    anchor: "middle",
+  },
+  {
+    name: "Hyderabad",
+    coordinates: [78.4867, 17.385],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Thane",
+    coordinates: [72.9781, 19.2183],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Pune",
+    coordinates: [73.8567, 18.5204],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Vuyyuru",
+    coordinates: [80.8444, 16.3618],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+];
 
 const sections = [
   { id: "hero", color: "white" },
@@ -1080,89 +1202,9 @@ export default function Home() {
               }
             </Geographies>
 
-            {/* Markers for key cities */}
-            {[
-              {
-                name: "Noida",
-                coordinates: [77.45, 28.53],
-                labelOffset: { x: 12, y: 4 },
-                anchor: "start",
-              },
-              {
-                name: "Delhi",
-                coordinates: [77.1, 28.7],
-                labelOffset: { x: -12, y: 4 },
-                anchor: "end",
-              },
-              {
-                name: "Ahmedabad",
-                coordinates: [72.5714, 23.0225],
-                labelOffset: { x: 0, y: -12 },
-                anchor: "middle",
-              },
-              {
-                name: "Bhopal",
-                coordinates: [77.4126, 23.2599],
-                labelOffset: { x: 0, y: -12 },
-                anchor: "middle",
-              },
-              {
-                name: "Kolkata",
-                coordinates: [88.3639, 22.5726],
-                labelOffset: { x: 0, y: -12 },
-                anchor: "middle",
-              },
-              {
-                name: "Bangalore",
-                coordinates: [77.5946, 12.9716],
-                labelOffset: { x: 0, y: -12 },
-                anchor: "middle",
-              },
-              {
-                name: "Mumbai",
-                coordinates: [72.8777, 19.076],
-                labelOffset: { x: -12, y: 4 },
-                anchor: "end",
-              },
-              {
-                name: "Pune",
-                coordinates: [73.8567, 18.5204],
-                labelOffset: { x: 12, y: 4 },
-                anchor: "start",
-              },
-              {
-                name: "Hyderabad",
-                coordinates: [78.4867, 17.385],
-                labelOffset: { x: 12, y: 4 },
-                anchor: "start",
-              },
-              {
-                name: "Thane",
-                coordinates: [72.9781, 19.2183],
-                labelOffset: { x: 12, y: 4 },
-                anchor: "start",
-              },
-              {
-                name: "Bhavnagar",
-                coordinates: [72.1519, 21.7645],
-                labelOffset: { x: 0, y: -12 },
-                anchor: "middle",
-              },
-              {
-                name: "Darbhanga",
-                coordinates: [85.8918, 26.1542],
-                labelOffset: { x: 12, y: 4 },
-                anchor: "start",
-              },
-              {
-                name: "Vuyyuru",
-                coordinates: [80.8444, 16.3618],
-                labelOffset: { x: 12, y: 4 },
-                anchor: "start",
-              },
-            ].map(({ name, coordinates, labelOffset, anchor }) => (
+            {/* Existing presence markers */}
+            {presenceMapMarkers.map(({ name, coordinates, labelOffset, anchor }) => (
               <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
-                {/* Pulsing ring for main locations */}
                 <circle
                   r={8}
                   fill="none"
@@ -1171,7 +1213,6 @@ export default function Home() {
                   opacity={0.4}
                   className="animate-ping"
                 />
-                {/* Main marker dot */}
                 <circle
                   r={4}
                   fill="#00ffff"
@@ -1181,9 +1222,8 @@ export default function Home() {
                     filter: "drop-shadow(0 0 6px #00ffff)",
                   }}
                 />
-                {/* Label */}
                 <text
-                  textAnchor={anchor as "start" | "middle" | "end"}
+                  textAnchor={anchor}
                   x={labelOffset.x}
                   y={labelOffset.y}
                   style={{
@@ -1197,7 +1237,69 @@ export default function Home() {
                 </text>
               </Marker>
             ))}
+
+            {/* Upcoming / expansion markers */}
+            {upcomingMapMarkers.map(({ name, coordinates, labelOffset, anchor }) => (
+              <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
+                <circle
+                  r={8}
+                  fill="none"
+                  stroke="#EAB308"
+                  strokeWidth={1.5}
+                  opacity={0.5}
+                  className="animate-ping"
+                />
+                <circle
+                  r={4}
+                  fill="#FACC15"
+                  stroke="#ffffff"
+                  strokeWidth={1.5}
+                  style={{
+                    filter: "drop-shadow(0 0 6px #FACC15)",
+                  }}
+                />
+                <text
+                  textAnchor={anchor}
+                  x={labelOffset.x}
+                  y={labelOffset.y}
+                  style={{
+                    fontFamily: "system-ui",
+                    fill: "#FDE047",
+                    fontWeight: "600",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.8)",
+                  }}
+                >
+                  {name}
+                </text>
+              </Marker>
+            ))}
           </ComposableMap>
+        </div>
+
+        {/* Map Legend */}
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-6 md:mt-8 mb-8 md:mb-10 z-10 px-4">
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-4 w-4 items-center justify-center">
+              <span className="absolute h-4 w-4 rounded-full border border-[#00A5A5]/60" />
+              <span
+                className="h-2.5 w-2.5 rounded-full bg-[#00ffff] border border-white"
+                style={{ boxShadow: "0 0 6px #00ffff" }}
+              />
+            </span>
+            <span className="text-white text-sm md:text-base font-medium">Operational</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-4 w-4 items-center justify-center">
+              <span className="absolute h-4 w-4 rounded-full border border-[#EAB308]/60" />
+              <span
+                className="h-2.5 w-2.5 rounded-full bg-[#FACC15] border border-white"
+                style={{ boxShadow: "0 0 6px #FACC15" }}
+              />
+            </span>
+            <span className="text-[#FDE047] text-sm md:text-base font-medium">
+              Coming Soon (in 30 days)
+            </span>
+          </div>
         </div>
       </div>
 
