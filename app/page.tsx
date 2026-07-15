@@ -22,26 +22,34 @@ import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
 import MirrorImage from "@/assets/mirror_homepage.png";
 
-// Brand logos - Row 1
-import brandA from "@/assets/logos/A.png";
-import brandB from "@/assets/logos/B.png";
-import brandC from "@/assets/logos/C.png";
-import brandD from "@/assets/logos/D.webp";
-import brandE from "@/assets/logos/E.png";
-import brandF from "@/assets/logos/F.png";
+// Client logos - International
+import logoMaletti from "@/assets/clients-logos/international/MALETTI.png";
+import logoDivaLounge from "@/assets/clients-logos/international/DIVA LOUNGE.png";
 
-import hairMastersLogo from "@/assets/upcoming_salons/Hair Masters Logo.jpg";
-import hipsterSalonLogo from "@/assets/upcoming_salons/Hipster Salon.webp";
+// Client logos - Salon Chains India
+import logoFlorianHurel from "@/assets/clients-logos/salon-chains-india/FLORIAN HUREL SALON.png";
+import logoCutAndStyle from "@/assets/clients-logos/salon-chains-india/CUT & STYLE SALON.png";
+import logoLooks from "@/assets/clients-logos/salon-chains-india/LOOKS SALON.png";
+import logoPage3 from "@/assets/clients-logos/salon-chains-india/PAGE 3 SALON.png";
+import logoNaturals from "@/assets/clients-logos/salon-chains-india/NATURALS.png";
+import logoNaturalsSignature from "@/assets/clients-logos/salon-chains-india/NATURALS SIGNATURE.png";
+import logoLucaPiattelli from "@/assets/clients-logos/salon-chains-india/LUCA PIATTELLI.png";
+import logoHairMasters from "@/assets/clients-logos/salon-chains-india/HAIR MASTERS.jpg";
+import logoPlaySalon from "@/assets/clients-logos/salon-chains-india/PLAY SALON.png";
+import logoTheArtistSalon from "@/assets/clients-logos/salon-chains-india/THE ARTIST SALON.png";
 
-// Brand logos - Row 2
-import brand1 from "@/assets/logos/1.png";
-import brand2 from "@/assets/logos/2.png";
-import brand3 from "@/assets/logos/3.png";
-import brand4 from "@/assets/logos/4.png";
-import brand5 from "@/assets/logos/5.png";
-import brand6 from "@/assets/logos/6.png";
-import playSalonLogo from "@/assets/upcoming_salons/Play Salon.png";
-import shivanjaliLogo from "@/assets/upcoming_salons/Shivanjali Wellness.png";
+// Client logos - Standalone Salons India
+import logoClnz from "@/assets/clients-logos/standalone-salons-india/CLNZ.png";
+import logoDiona from "@/assets/clients-logos/standalone-salons-india/DIONA.png";
+import logoOqDerm from "@/assets/clients-logos/standalone-salons-india/OQ DERM.png";
+import logoRcStudios from "@/assets/clients-logos/standalone-salons-india/RC STUDIOS.png";
+import logoHipster from "@/assets/clients-logos/standalone-salons-india/HIPSTER.png";
+import logoShivanjali from "@/assets/clients-logos/standalone-salons-india/SHIVANJALI WELLNESS.png";
+import logoTheLittleHairSalon from "@/assets/clients-logos/standalone-salons-india/THE LITTLE HAIR SALON.png";
+import logoAndhamSalon from "@/assets/clients-logos/standalone-salons-india/ANDHAM SALON.png";
+import logoAkshGlamStudio from "@/assets/clients-logos/standalone-salons-india/AKSH GLAM STUDIO.png";
+import logoLaNova from "@/assets/clients-logos/standalone-salons-india/LA NOVA.png";
+import logoAureSalon from "@/assets/clients-logos/standalone-salons-india/AURE SALON.png";
 
 import indiaGeoJson from "@/assets/geojson/in.json";
 import { IndiaMap } from "@vishalvoid/react-india-map";
@@ -68,27 +76,45 @@ const ScrollSpyDot = ({
       }`}
   />
 );
-const row1Brands = [
-  { name: "Maletti", logo: brandA },
-  { name: "Florian Hurel", logo: brandB },
-  { name: "Cut&Style", logo: brandC },
-  { name: "LOOKS", logo: brandD },
-  { name: "Page 3", logo: brandE },
-  { name: "Naturals", logo: brandF },
-  { name: "Play Salon", logo: playSalonLogo },
-  { name: "Hipster Salon", logo: hipsterSalonLogo },
-  { name: "Shivanjali Wellness", logo: shivanjaliLogo },
-  { name: "Hair Masters", logo: hairMastersLogo },
 
+type BrandLogo = { name: string; logo: typeof logoMaletti };
+
+const internationalBrands: BrandLogo[] = [
+  { name: "Maletti", logo: logoMaletti },
+  { name: "Diva Lounge", logo: logoDivaLounge },
 ];
 
-const row2Brands = [
-  { name: "Manish Verma", logo: brand1 },
-  { name: "CLNZ", logo: brand2 },
-  { name: "Diona", logo: brand3 },
-  { name: "OQ Derm", logo: brand4 },
-  { name: "RC Studios", logo: brand5 },
-  { name: "Luca Piattelli", logo: brand6 },
+const salonChainsIndiaBrands: BrandLogo[] = [
+  { name: "Florian Hurel", logo: logoFlorianHurel },
+  { name: "Cut & Style", logo: logoCutAndStyle },
+  { name: "LOOKS", logo: logoLooks },
+  { name: "Page 3", logo: logoPage3 },
+  { name: "Naturals", logo: logoNaturals },
+  { name: "Naturals Signature", logo: logoNaturalsSignature },
+  { name: "Luca Piattelli", logo: logoLucaPiattelli },
+  { name: "Hair Masters", logo: logoHairMasters },
+  { name: "Play Salon", logo: logoPlaySalon },
+  { name: "The Artist Salon", logo: logoTheArtistSalon },
+];
+
+const standaloneSalonsIndiaBrands: BrandLogo[] = [
+  { name: "CLNZ", logo: logoClnz },
+  { name: "Diona", logo: logoDiona },
+  { name: "OQ Derm", logo: logoOqDerm },
+  { name: "RC Studios", logo: logoRcStudios },
+  { name: "Hipster Salon", logo: logoHipster },
+  { name: "Shivanjali Wellness", logo: logoShivanjali },
+  { name: "The Little Hair Salon", logo: logoTheLittleHairSalon },
+  { name: "Andham Salon", logo: logoAndhamSalon },
+  { name: "Aksh Glam Studio", logo: logoAkshGlamStudio },
+  { name: "La Nova", logo: logoLaNova },
+  { name: "Aure Salon", logo: logoAureSalon },
+];
+
+const brandCategories = [
+  { title: "International", brands: internationalBrands },
+  { title: "Salon Chains · India", brands: salonChainsIndiaBrands },
+  { title: "Standalone Salons · India", brands: standaloneSalonsIndiaBrands },
 ];
 
 type MapMarker = {
@@ -137,6 +163,21 @@ const presenceMapMarkers: MapMarker[] = [
   },
 ];
 
+const whiteMapMarkers: MapMarker[] = [
+  {
+    name: "Kochi",
+    coordinates: [76.2673, 9.9312],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+  },
+  {
+    name: "Vuyyuru",
+    coordinates: [80.8444, 16.3618],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+];
+
 const upcomingMapMarkers: MapMarker[] = [
   {
     name: "Chennai",
@@ -151,10 +192,10 @@ const upcomingMapMarkers: MapMarker[] = [
     anchor: "end",
   },
   {
-    name: "Kochi",
-    coordinates: [76.2673, 9.9312],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
+    name: "Zirakpur",
+    coordinates: [76.8173, 30.6425],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
   },
   {
     name: "Kozhikode",
@@ -201,12 +242,6 @@ const upcomingMapMarkers: MapMarker[] = [
   {
     name: "Pune",
     coordinates: [73.8567, 18.5204],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-  {
-    name: "Vuyyuru",
-    coordinates: [80.8444, 16.3618],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
@@ -555,42 +590,38 @@ export default function Home() {
             Brands we have worked with
           </Typography>
 
-          {/* Row 1 */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 mb-10 md:mb-14">
-            {row1Brands.map((brand) => (
-              <div
-                key={brand.name}
-                className="flex flex-col items-center gap-3 group"
-              >
-                <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+          {brandCategories.map((category) => (
+            <div key={category.title} className="mb-12 md:mb-16 last:mb-0">
+              <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div className="h-px flex-1 bg-teal-950/10" />
+                <Typography
+                  as="h3"
+                  variant="h4"
+                  className="text-black text-center shrink-0 !text-2xl sm:!text-2xl md:!text-3xl !font-bold tracking-wide"
+                >
+                  {category.title}
+                </Typography>
+                <div className="h-px flex-1 bg-teal-950/10" />
               </div>
-            ))}
-          </div>
-          {/* Row 2 */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 mb-10 md:mb-14">
-            {row2Brands.map((brand) => (
-              <div
-                key={brand.name}
-                className="flex flex-col items-center gap-3 group"
-              >
-                <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+              <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+                {category.brands.map((brand) => (
+                  <div
+                    key={brand.name}
+                    className="flex flex-col items-center gap-3 group"
+                  >
+                    <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
+                      <Image
+                        src={brand.logo}
+                        alt={brand.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
 
         </section>
       </div>
@@ -1265,6 +1296,42 @@ export default function Home() {
                   style={{
                     fontFamily: "system-ui",
                     fill: "#FDE047",
+                    fontWeight: "600",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.8)",
+                  }}
+                >
+                  {name}
+                </text>
+              </Marker>
+            ))}
+
+            {/* White label + green dot markers */}
+            {whiteMapMarkers.map(({ name, coordinates, labelOffset, anchor }) => (
+              <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
+                <circle
+                  r={8}
+                  fill="none"
+                  stroke="#22C55E"
+                  strokeWidth={1.5}
+                  opacity={0.5}
+                  className="animate-ping"
+                />
+                <circle
+                  r={4}
+                  fill="#22C55E"
+                  stroke="#ffffff"
+                  strokeWidth={1.5}
+                  style={{
+                    filter: "drop-shadow(0 0 6px #22C55E)",
+                  }}
+                />
+                <text
+                  textAnchor={anchor}
+                  x={labelOffset.x}
+                  y={labelOffset.y}
+                  style={{
+                    fontFamily: "system-ui",
+                    fill: "#ffffff",
                     fontWeight: "600",
                     textShadow: "0 2px 4px rgba(0,0,0,0.8)",
                   }}

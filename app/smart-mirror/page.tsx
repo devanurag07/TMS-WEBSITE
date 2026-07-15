@@ -44,6 +44,7 @@ import ops11 from "@/assets/current-operations/11.jpg";
 import ops12 from "@/assets/current-operations/12.jpeg";
 import ops13 from "@/assets/current-operations/13.png";
 import luca_piattelli from "@/assets/current-operations/luca-piattelli.jpeg";
+import andham_salon from "@/assets/current-operations/andham-salon.jpg";
 // icons for specifications
 import { BsDisplay } from "react-icons/bs";
 import { FaCamera } from "react-icons/fa6";
@@ -200,6 +201,7 @@ const domesticOperations: DeploymentItem[] = [
   { id: 13, image: ops13, name: "Luca Piattelli", location: "Safdarjung Enclave, New Delhi" },
   { id: 6, image: ops6, name: "RC Studios", location: "Bairagarh, Bhopal, Madhya Pradesh" },
   { id: 21, image: luca_piattelli, name: "Luca Piattelli", location: "Bandra West, Mumbai" },
+  { id: 21, image: andham_salon, name: "Andham Salon", location: "Vuyyuru, Andhra Pradesh" },
   {
     id: 12,
     image: ops12,
@@ -215,6 +217,7 @@ const domesticOperations: DeploymentItem[] = [
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
   { id: 20, image: ops12, name: "The Little Hair Salon", location: "Viman Nagar, Pune", isUpcoming: true },
   { id: 21, image: ops12, name: "Aure Salon", location: "Kochi, Kerala", isUpcoming: true },
+  { id: 22, image: ops12, name: "Artist Salon", location: "Zirakpur", isUpcoming: true },
 ];
 
 export default function SmartMirror() {
