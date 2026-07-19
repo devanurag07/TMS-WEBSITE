@@ -43,6 +43,7 @@ import ops10 from "@/assets/current-operations/10.jpg";
 import ops11 from "@/assets/current-operations/11.jpg";
 import ops12 from "@/assets/current-operations/12.jpeg";
 import ops13 from "@/assets/current-operations/13.png";
+import aure_salon from "@/assets/current-operations/aure-salon.jpeg";
 import luca_piattelli from "@/assets/current-operations/luca-piattelli.jpeg";
 import andham_salon from "@/assets/current-operations/andham-salon.jpg";
 // icons for specifications
@@ -202,6 +203,7 @@ const domesticOperations: DeploymentItem[] = [
   { id: 6, image: ops6, name: "RC Studios", location: "Bairagarh, Bhopal, Madhya Pradesh" },
   { id: 21, image: luca_piattelli, name: "Luca Piattelli", location: "Bandra West, Mumbai" },
   { id: 21, image: andham_salon, name: "Andham Salon", location: "Vuyyuru, Andhra Pradesh" },
+  { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi, Kerala" },
   {
     id: 12,
     image: ops12,
@@ -216,7 +218,6 @@ const domesticOperations: DeploymentItem[] = [
   { id: 18, image: ops12, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
   { id: 20, image: ops12, name: "The Little Hair Salon", location: "Viman Nagar, Pune", isUpcoming: true },
-  { id: 21, image: ops12, name: "Aure Salon", location: "Kochi, Kerala", isUpcoming: true },
   { id: 22, image: ops12, name: "Artist Salon", location: "Zirakpur", isUpcoming: true },
 ];
 
