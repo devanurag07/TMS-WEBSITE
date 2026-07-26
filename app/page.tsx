@@ -260,6 +260,12 @@ const upcomingMapMarkers: MapMarker[] = [
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
+  {
+    name: "Gurgaon",
+    coordinates: [77.0266, 28.4595],
+    labelOffset: { x: 12, y: 14 },
+    anchor: "start",
+  },
 
 ];
 
