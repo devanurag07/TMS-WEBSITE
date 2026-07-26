@@ -26,6 +26,7 @@ import smartMirrorImage from "../../assets/smart-mirror.png";
 
 import skinAnalyserHW from "@/assets/skin_analyser_hw.jpeg";
 import hairAnalyserHW from "@/assets/hair_analyser_hw.jpeg";
+import microscopicHW from "@/assets/microscopic-hw.jpeg";
 
 // Pilot deployment images
 import pilot1 from "@/assets/pilot-deployments/1.jpg";
@@ -44,6 +45,7 @@ import ops11 from "@/assets/current-operations/11.jpg";
 import ops12 from "@/assets/current-operations/12.jpeg";
 import ops13 from "@/assets/current-operations/13.png";
 import aure_salon from "@/assets/current-operations/aure-salon.jpeg";
+import hairMasterSalon from "@/assets//current-operations/hairmaster-salon.jpeg";
 import luca_piattelli from "@/assets/current-operations/luca-piattelli.jpeg";
 import andham_salon from "@/assets/current-operations/andham-salon.jpg";
 // icons for specifications
@@ -191,6 +193,7 @@ type DeploymentItem = {
 
 const internationalOperations: DeploymentItem[] = [
   { id: 11, image: ops11, name: "Maletti S.P.A.", location: "Fellegara, Scandiano, Reggio Emilia, Italy", featured: true },
+  { id: 28, image: ops12, name: 'Francis Beauty', location: "Kuwait", isUpcoming: true },
   { id: 14, image: ops12, name: "Diva Lounge Spa", location: "Doha, Qatar", featured: false, isUpcoming: true },
 ];
 
@@ -204,6 +207,7 @@ const domesticOperations: DeploymentItem[] = [
   { id: 21, image: luca_piattelli, name: "Luca Piattelli", location: "Bandra West, Mumbai" },
   { id: 21, image: andham_salon, name: "Andham Salon", location: "Vuyyuru, Andhra Pradesh" },
   { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi, Kerala" },
+  { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
   {
     id: 12,
     image: ops12,
@@ -213,12 +217,13 @@ const domesticOperations: DeploymentItem[] = [
   },
   { id: 14, image: ops12, name: "Hipster Salon", location: "Thane, Maharashtra", isUpcoming: true },
   { id: 15, image: ops12, name: "Play Salon", location: "Indiranagar, Bengaluru, Karnataka", isUpcoming: true },
-  { id: 16, image: ops12, name: "Andham Salon", location: "Vuyyuru, Andhra Pradesh", isUpcoming: true },
-  { id: 17, image: ops12, name: "Hair Masters Salon", location: "Chandigarh", isUpcoming: true },
   { id: 18, image: ops12, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
   { id: 20, image: ops12, name: "The Little Hair Salon", location: "Viman Nagar, Pune", isUpcoming: true },
   { id: 22, image: ops12, name: "Artist Salon", location: "Zirakpur", isUpcoming: true },
+  { id: 29, image: ops12, name: 'Portfolio Salon', location: "New Delhi", isUpcoming: true },
+  { id: 30, image: ops12, name: 'Artist Salon', location: "Gurgaon", isUpcoming: true },
+  { id: 31, image: ops12, name: 'Rajul’s Belleza', location: "Nashik", isUpcoming: true },
 ];
 
 export default function SmartMirror() {
@@ -636,18 +641,22 @@ export default function SmartMirror() {
             Optional Upgrades
           </Typography>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-[1400px] w-full p-0 md:p-4 z-[100]">
-          <div className="hw-card flex flex-col items-center justify-center p-4">
-            <div className="image-container w-full max-w-[400px] h-[250px] md:h-[400px] mx-auto mb-4">
+        <div className="hw-card flex flex-col md:flex-row items-center justify-center p-4">
+          <div className="image-container w-full max-w-[600px] h-[600px] mx-auto mb-4 flex items-center justify-center">
+            <div className="rounded-full overflow-hidden shadow-lg w-[480px] h-[480px] flex items-center justify-center bg-white mx-auto">
               <Image
-                src={hairAnalyserHW}
+                src={microscopicHW}
                 alt="Skin AnalyserHW"
                 width={500}
                 height={500}
-                className="w-full h-full object-contain z-[100]"
-                style={{ maxWidth: "100%", height: "100%" }}
+                className="object-cover w-full h-full z-[100]"
+                style={{ maxWidth: "100%", maxHeight: "100%" }}
               />
             </div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center w-full">
+
             <div className="content">
               <Typography
                 variant="subheading"
@@ -663,33 +672,7 @@ export default function SmartMirror() {
                 Scalp imaging for early thinning, dandruff, and density checks.
               </Typography>
             </div>
-          </div>
-          <div className="hw-card flex flex-col items-center justify-center p-4">
-            <div className="image-container w-full max-w-[400px] h-[250px] md:h-[400px] mx-auto mb-4">
-              <Image
-                src={skinAnalyserHW}
-                alt="Hair Analyser HW"
-                width={500}
-                height={500}
-                className="w-full h-full object-contain"
-                style={{ maxWidth: "100%", height: "100%" }}
-              />
-            </div>
-            <div className="content">
-              <Typography
-                variant="subheading"
-                className="font-medium poppins text-center"
-              >
-                Skin Hydration Sensor
-              </Typography>
-              <Typography
-                variant="content"
-                className="text-center max-w-xl mx-auto"
-              >
-                Seamlessly connects with the Smart Mirror to measure skin moisture levels in real time.
-                Provides insights for skincare recommendations and progress tracking.
-              </Typography>
-            </div>
+
           </div>
         </div>
       </div>

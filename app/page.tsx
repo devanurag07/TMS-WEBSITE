@@ -37,7 +37,8 @@ import logoLucaPiattelli from "@/assets/clients-logos/salon-chains-india/LUCA PI
 import logoHairMasters from "@/assets/clients-logos/salon-chains-india/HAIR MASTERS.jpg";
 import logoPlaySalon from "@/assets/clients-logos/salon-chains-india/PLAY SALON.png";
 import logoTheArtistSalon from "@/assets/clients-logos/salon-chains-india/THE ARTIST SALON.png";
-
+import logoFrancisBeauty from "@/assets/clients-logos/international/FRANCIS SALON.jpeg";
+import logoPortfolioSalon from "@/assets/clients-logos/salon-chains-india/PORTFOLIO SALON.jpeg";
 // Client logos - Standalone Salons India
 import logoClnz from "@/assets/clients-logos/standalone-salons-india/CLNZ.png";
 import logoDiona from "@/assets/clients-logos/standalone-salons-india/DIONA.png";
@@ -82,6 +83,7 @@ type BrandLogo = { name: string; logo: typeof logoMaletti };
 const internationalBrands: BrandLogo[] = [
   { name: "Maletti", logo: logoMaletti },
   { name: "Diva Lounge", logo: logoDivaLounge },
+  { name: "Francis Beauty", logo: logoFrancisBeauty },
 ];
 
 const salonChainsIndiaBrands: BrandLogo[] = [
@@ -95,6 +97,7 @@ const salonChainsIndiaBrands: BrandLogo[] = [
   { name: "Hair Masters", logo: logoHairMasters },
   { name: "Play Salon", logo: logoPlaySalon },
   { name: "The Artist Salon", logo: logoTheArtistSalon },
+  { name: "Portfolio Salon", logo: logoPortfolioSalon },
 ];
 
 const standaloneSalonsIndiaBrands: BrandLogo[] = [
@@ -161,9 +164,6 @@ const presenceMapMarkers: MapMarker[] = [
     labelOffset: { x: -12, y: 4 },
     anchor: "end",
   },
-];
-
-const whiteMapMarkers: MapMarker[] = [
   {
     name: "Kochi",
     coordinates: [76.2673, 9.9312],
@@ -176,6 +176,37 @@ const whiteMapMarkers: MapMarker[] = [
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
+  {
+    name: "Chandigarh",
+    coordinates: [76.65, 30.85],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+  },
+  {
+    name: "Thane",
+    coordinates: [72.9781, 19.2183],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+  {
+    name: "Pune",
+    coordinates: [73.8567, 18.5204],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
+
+  {
+    name: "Ahmedabad",
+    coordinates: [72.5714, 23.0225],
+    labelOffset: { x: 0, y: -12 },
+    anchor: "middle",
+  },
+  {
+    name: "Bhavnagar",
+    coordinates: [72.1519, 21.7645],
+    labelOffset: { x: 0, y: -12 },
+    anchor: "middle",
+  },
 ];
 
 const upcomingMapMarkers: MapMarker[] = [
@@ -186,14 +217,8 @@ const upcomingMapMarkers: MapMarker[] = [
     anchor: "start",
   },
   {
-    name: "Chandigarh",
-    coordinates: [76.7794, 30.7333],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
-  },
-  {
     name: "Zirakpur",
-    coordinates: [76.8173, 30.6425],
+    coordinates: [76.95, 30.5],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
@@ -209,24 +234,14 @@ const upcomingMapMarkers: MapMarker[] = [
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
-  {
-    name: "Ahmedabad",
-    coordinates: [72.5714, 23.0225],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-  },
+
   {
     name: "Darbhanga",
     coordinates: [85.8918, 26.1542],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
-  {
-    name: "Bhavnagar",
-    coordinates: [72.1519, 21.7645],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-  },
+
   {
     name: "Hyderabad",
     coordinates: [78.4867, 17.385],
@@ -234,17 +249,18 @@ const upcomingMapMarkers: MapMarker[] = [
     anchor: "start",
   },
   {
-    name: "Thane",
-    coordinates: [72.9781, 19.2183],
-    labelOffset: { x: 12, y: 4 },
+    name: "Nashik",
+    coordinates: [73.7898, 19.9975],
+    labelOffset: { x: 12, y: -8 },
     anchor: "start",
   },
   {
-    name: "Pune",
-    coordinates: [73.8567, 18.5204],
+    name: "Itanagar",
+    coordinates: [93.6053, 27.0844],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
+
 ];
 
 const sections = [
@@ -1233,24 +1249,24 @@ export default function Home() {
               }
             </Geographies>
 
-            {/* Existing presence markers */}
+            {/* Operational markers (white) */}
             {presenceMapMarkers.map(({ name, coordinates, labelOffset, anchor }) => (
               <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
                 <circle
                   r={8}
                   fill="none"
-                  stroke="#00A5A5"
+                  stroke="#ffffff"
                   strokeWidth={1.5}
-                  opacity={0.4}
+                  opacity={0.5}
                   className="animate-ping"
                 />
                 <circle
                   r={4}
-                  fill="#00ffff"
-                  stroke="#ffffff"
+                  fill="#ffffff"
+                  stroke="#e5e5e5"
                   strokeWidth={1.5}
                   style={{
-                    filter: "drop-shadow(0 0 6px #00ffff)",
+                    filter: "drop-shadow(0 0 6px #ffffff)",
                   }}
                 />
                 <text
@@ -1304,42 +1320,6 @@ export default function Home() {
                 </text>
               </Marker>
             ))}
-
-            {/* White label + green dot markers */}
-            {whiteMapMarkers.map(({ name, coordinates, labelOffset, anchor }) => (
-              <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
-                <circle
-                  r={8}
-                  fill="none"
-                  stroke="#22C55E"
-                  strokeWidth={1.5}
-                  opacity={0.5}
-                  className="animate-ping"
-                />
-                <circle
-                  r={4}
-                  fill="#22C55E"
-                  stroke="#ffffff"
-                  strokeWidth={1.5}
-                  style={{
-                    filter: "drop-shadow(0 0 6px #22C55E)",
-                  }}
-                />
-                <text
-                  textAnchor={anchor}
-                  x={labelOffset.x}
-                  y={labelOffset.y}
-                  style={{
-                    fontFamily: "system-ui",
-                    fill: "#ffffff",
-                    fontWeight: "600",
-                    textShadow: "0 2px 4px rgba(0,0,0,0.8)",
-                  }}
-                >
-                  {name}
-                </text>
-              </Marker>
-            ))}
           </ComposableMap>
         </div>
 
@@ -1347,10 +1327,10 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-6 md:mt-8 mb-8 md:mb-10 z-10 px-4">
           <div className="flex items-center gap-3">
             <span className="relative flex h-4 w-4 items-center justify-center">
-              <span className="absolute h-4 w-4 rounded-full border border-[#00A5A5]/60" />
+              <span className="absolute h-4 w-4 rounded-full border border-white/60" />
               <span
-                className="h-2.5 w-2.5 rounded-full bg-[#00ffff] border border-white"
-                style={{ boxShadow: "0 0 6px #00ffff" }}
+                className="h-2.5 w-2.5 rounded-full bg-white border border-white"
+                style={{ boxShadow: "0 0 6px #ffffff" }}
               />
             </span>
             <span className="text-white text-sm md:text-base font-medium">Operational</span>
