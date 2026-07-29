@@ -51,6 +51,7 @@ import logoAndhamSalon from "@/assets/clients-logos/standalone-salons-india/ANDH
 import logoAkshGlamStudio from "@/assets/clients-logos/standalone-salons-india/AKSH GLAM STUDIO.png";
 import logoLaNova from "@/assets/clients-logos/standalone-salons-india/LA NOVA.png";
 import logoAureSalon from "@/assets/clients-logos/standalone-salons-india/AURE SALON.png";
+import logoRajuls from "@/assets/clients-logos/standalone-salons-india/RAJULS.jpeg";
 
 import indiaGeoJson from "@/assets/geojson/in.json";
 import { IndiaMap } from "@vishalvoid/react-india-map";
@@ -112,6 +113,7 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Aksh Glam Studio", logo: logoAkshGlamStudio },
   { name: "La Nova", logo: logoLaNova },
   { name: "Aure Salon", logo: logoAureSalon },
+  { name: "Rajuls", logo: logoRajuls },
 ];
 
 const brandCategories = [

@@ -47,7 +47,7 @@ import ops13 from "@/assets/current-operations/13.png";
 import aure_salon from "@/assets/current-operations/aure-salon.jpeg";
 import hairMasterSalon from "@/assets//current-operations/hairmaster-salon.jpeg";
 import luca_piattelli from "@/assets/current-operations/luca-piattelli.jpeg";
-import andham_salon from "@/assets/current-operations/andham-salon.jpg";
+import andham_salon from "@/assets/current-operations/ANDHAM-SALON.jpeg";
 // icons for specifications
 import { BsDisplay } from "react-icons/bs";
 import { FaCamera } from "react-icons/fa6";
@@ -633,7 +633,7 @@ export default function SmartMirror() {
         className="optional-upgrades px-4 py-10 md:p-20 mb-10 relative overflow-hidden w-full bg-white flex flex-col items-center justify-center"
         id="optional-upgrades"
       >
-        <div className="heading z-[100] mb-8">
+        <div className="heading z-[100] mb-8 w-full max-w-[1400px]">
           <Typography
             variant="h1"
             className="font-bold poppins text-center text-teal-950"
@@ -641,38 +641,35 @@ export default function SmartMirror() {
             Optional Upgrades
           </Typography>
         </div>
-        <div className="hw-card flex flex-col md:flex-row items-center justify-center p-4">
-          <div className="image-container w-full max-w-[600px] h-[600px] mx-auto mb-4 flex items-center justify-center">
-            <div className="rounded-full overflow-hidden shadow-lg w-[480px] h-[480px] flex items-center justify-center bg-white mx-auto">
+        <div className="hw-card flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 w-full max-w-[1400px] px-2 md:px-4">
+          <div className="image-container w-full max-w-[480px] aspect-square mx-auto flex items-center justify-center shrink-0">
+            <div className="rounded-full overflow-hidden shadow-lg w-[min(100%,320px)] md:w-[480px] aspect-square flex items-center justify-center bg-white mx-auto">
               <Image
                 src={microscopicHW}
                 alt="Skin AnalyserHW"
                 width={500}
                 height={500}
                 className="object-cover w-full h-full z-[100]"
-                style={{ maxWidth: "100%", maxHeight: "100%" }}
               />
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center w-full">
-
-            <div className="content">
+          <div className="flex flex-col items-center justify-center w-full min-w-0 px-2">
+            <div className="content w-full max-w-xl mx-auto">
               <Typography
                 variant="subheading"
-                className="font-medium poppins text-center"
+                className="font-medium poppins text-center text-teal-950"
               >
                 Microscopic Skin & Hair Analysis
               </Typography>
               <Typography
                 variant="content"
-                className="text-center max-w-xl mx-auto"
+                className="text-center text-teal-900 !mt-4"
               >
                 High-precision diagnosis of pores, pigmentation, and fine lines.
                 Scalp imaging for early thinning, dandruff, and density checks.
               </Typography>
             </div>
-
           </div>
         </div>
       </div>
