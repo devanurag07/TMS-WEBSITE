@@ -25,6 +25,8 @@ import MirrorImage from "@/assets/mirror_homepage.png";
 // Client logos - International
 import logoMaletti from "@/assets/clients-logos/international/MALETTI.png";
 import logoDivaLounge from "@/assets/clients-logos/international/DIVA LOUNGE.png";
+import logoFrancisBeauty from "@/assets/clients-logos/international/FRANCIS SALON.jpeg";
+import logoKteis from "@/assets/clients-logos/international/keit-logo.png";
 
 // Client logos - Salon Chains India
 import logoFlorianHurel from "@/assets/clients-logos/salon-chains-india/FLORIAN HUREL SALON.png";
@@ -37,8 +39,13 @@ import logoLucaPiattelli from "@/assets/clients-logos/salon-chains-india/LUCA PI
 import logoHairMasters from "@/assets/clients-logos/salon-chains-india/HAIR MASTERS.jpg";
 import logoPlaySalon from "@/assets/clients-logos/salon-chains-india/PLAY SALON.png";
 import logoTheArtistSalon from "@/assets/clients-logos/salon-chains-india/THE ARTIST SALON.png";
-import logoFrancisBeauty from "@/assets/clients-logos/international/FRANCIS SALON.jpeg";
 import logoPortfolioSalon from "@/assets/clients-logos/salon-chains-india/PORTFOLIO SALON.jpeg";
+import logoMarcSalon from "@/assets/clients-logos/standalone-salons-india/marc.png";
+
+// Client logos - Partners
+import logoMarc from "@/assets/clients-logos/partners/marc.png";
+import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
+
 // Client logos - Standalone Salons India
 import logoClnz from "@/assets/clients-logos/standalone-salons-india/CLNZ.png";
 import logoDiona from "@/assets/clients-logos/standalone-salons-india/DIONA.png";
@@ -52,6 +59,7 @@ import logoAkshGlamStudio from "@/assets/clients-logos/standalone-salons-india/A
 import logoLaNova from "@/assets/clients-logos/standalone-salons-india/LA NOVA.png";
 import logoAureSalon from "@/assets/clients-logos/standalone-salons-india/AURE SALON.png";
 import logoRajuls from "@/assets/clients-logos/standalone-salons-india/RAJULS.jpeg";
+import logoOrum from "@/assets/clients-logos/salon-chains-india/orum.png";
 
 import indiaGeoJson from "@/assets/geojson/in.json";
 import { IndiaMap } from "@vishalvoid/react-india-map";
@@ -85,6 +93,7 @@ const internationalBrands: BrandLogo[] = [
   { name: "Maletti", logo: logoMaletti },
   { name: "Diva Lounge", logo: logoDivaLounge },
   { name: "Francis Beauty", logo: logoFrancisBeauty },
+  { name: "KTEIS", logo: logoKteis },
 ];
 
 const salonChainsIndiaBrands: BrandLogo[] = [
@@ -99,6 +108,12 @@ const salonChainsIndiaBrands: BrandLogo[] = [
   { name: "Play Salon", logo: logoPlaySalon },
   { name: "The Artist Salon", logo: logoTheArtistSalon },
   { name: "Portfolio Salon", logo: logoPortfolioSalon },
+  { name: "MARC", logo: logoMarcSalon },
+];
+
+const partnerBrands: BrandLogo[] = [
+  { name: "MARC", logo: logoMarc },
+  { name: "MIRRAR", logo: logoMirrar },
 ];
 
 const standaloneSalonsIndiaBrands: BrandLogo[] = [
@@ -114,11 +129,13 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "La Nova", logo: logoLaNova },
   { name: "Aure Salon", logo: logoAureSalon },
   { name: "Rajuls", logo: logoRajuls },
+  { name: "ORUM", logo: logoOrum },
 ];
 
 const brandCategories = [
   { title: "International", brands: internationalBrands },
   { title: "Salon Chains · India", brands: salonChainsIndiaBrands },
+  { title: "Partners", brands: partnerBrands },
   { title: "Standalone Salons · India", brands: standaloneSalonsIndiaBrands },
 ];
 
@@ -238,8 +255,8 @@ const upcomingMapMarkers: MapMarker[] = [
   },
 
   {
-    name: "Darbhanga",
-    coordinates: [85.8918, 26.1542],
+    name: "Saharsa",
+    coordinates: [86.595, 25.8838],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
@@ -257,10 +274,10 @@ const upcomingMapMarkers: MapMarker[] = [
     anchor: "start",
   },
   {
-    name: "Itanagar",
-    coordinates: [93.6053, 27.0844],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
+    name: "Lohit",
+    coordinates: [96.162, 27.913],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
   },
   {
     name: "Gurgaon",
@@ -627,13 +644,13 @@ export default function Home() {
                 </Typography>
                 <div className="h-px flex-1 bg-teal-950/10" />
               </div>
-              <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+              <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-14">
                 {category.brands.map((brand) => (
                   <div
                     key={brand.name}
                     className="flex flex-col items-center gap-3 group"
                   >
-                    <div className="w-[120px] md:w-[160px] h-[70px] md:h-[90px] relative flex items-center justify-center">
+                    <div className="w-full max-w-[100px] sm:max-w-[120px] md:max-w-none md:w-[160px] h-[56px] sm:h-[70px] md:h-[90px] relative flex items-center justify-center mx-auto">
                       <Image
                         src={brand.logo}
                         alt={brand.name}

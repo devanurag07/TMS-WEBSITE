@@ -48,6 +48,8 @@ import aure_salon from "@/assets/current-operations/aure-salon.jpeg";
 import hairMasterSalon from "@/assets//current-operations/hairmaster-salon.jpeg";
 import luca_piattelli from "@/assets/current-operations/luca-piattelli.jpeg";
 import andham_salon from "@/assets/current-operations/ANDHAM-SALON.jpeg";
+import qatarSalon from "@/assets/current-operations/qatar.jpeg";
+import puneSalon from "@/assets/current-operations/pune.jpeg";
 // icons for specifications
 import { BsDisplay } from "react-icons/bs";
 import { FaCamera } from "react-icons/fa6";
@@ -193,8 +195,9 @@ type DeploymentItem = {
 
 const internationalOperations: DeploymentItem[] = [
   { id: 11, image: ops11, name: "Maletti S.P.A.", location: "Fellegara, Scandiano, Reggio Emilia, Italy", featured: true },
-  { id: 28, image: ops12, name: 'Francis Beauty', location: "Kuwait", isUpcoming: true },
-  { id: 14, image: ops12, name: "Diva Lounge Spa", location: "Doha, Qatar", featured: false, isUpcoming: true },
+  { id: 14, image: qatarSalon, name: "Diva Lounge Spa", location: "Doha, Qatar", featured: false },
+  { id: 28, image: ops12, name: "Francis Beauty", location: "Kuwait", isUpcoming: true },
+  { id: 32, image: ops12, name: "Kteis Hair IKE", location: "Thessaloniki, Greece", isUpcoming: true },
 ];
 
 const domesticOperations: DeploymentItem[] = [
@@ -208,6 +211,7 @@ const domesticOperations: DeploymentItem[] = [
   { id: 21, image: andham_salon, name: "Andham Salon", location: "Vuyyuru, Andhra Pradesh" },
   { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi, Kerala" },
   { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
+  { id: 20, image: puneSalon, name: "The Little Hair Salon", location: "Viman Nagar, Pune" },
   {
     id: 12,
     image: ops12,
@@ -219,11 +223,10 @@ const domesticOperations: DeploymentItem[] = [
   { id: 15, image: ops12, name: "Play Salon", location: "Indiranagar, Bengaluru, Karnataka", isUpcoming: true },
   { id: 18, image: ops12, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
-  { id: 20, image: ops12, name: "The Little Hair Salon", location: "Viman Nagar, Pune", isUpcoming: true },
   { id: 22, image: ops12, name: "Artist Salon", location: "Zirakpur", isUpcoming: true },
-  { id: 29, image: ops12, name: 'Portfolio Salon', location: "New Delhi", isUpcoming: true },
-  { id: 30, image: ops12, name: 'Artist Salon', location: "Gurgaon", isUpcoming: true },
-  { id: 31, image: ops12, name: 'Rajul’s Belleza', location: "Nashik", isUpcoming: true },
+  { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
+  { id: 30, image: ops12, name: "Artist Salon", location: "Gurgaon", isUpcoming: true },
+  { id: 31, image: ops12, name: "Rajul’s Belleza", location: "Nashik", isUpcoming: true },
 ];
 
 export default function SmartMirror() {
