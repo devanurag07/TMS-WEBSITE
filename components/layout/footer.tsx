@@ -138,6 +138,14 @@ const Footer = ({ openCalendly }: FooterProps) => {
                 </li>
                 <li>
                   <a
+                    href="/on-the-ground"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    On the Ground
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="/#faq"
                     className="text-gray-400 hover:text-white transition-colors"
                   >

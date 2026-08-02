@@ -1,10 +1,6 @@
 "use client";
 import Image from "next/image";
 import "./index.css";
-import barIcon from "../assets/icons/bars.svg";
-import consultationIcon from "../assets/icons/consultation.svg";
-import robotIcon from "../assets/icons/robot.svg";
-import customerConfidenceIcon from "../assets/icons/customer_confidence.svg";
 
 // before vs after section icons
 import Vector1Icon from "../assets/icons/Vector-1.svg";
@@ -20,13 +16,17 @@ import Footer from "@/components/layout/footer";
 import { HorizontalCarousel } from "@/components/HorizontalCarousel";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
+import DeploymentsSection from "@/components/DeploymentsSection";
+import CustomerBehaviourSection from "@/components/CustomerBehaviourSection";
 import MirrorImage from "@/assets/mirror_homepage.png";
+import { partnerVisits } from "@/data/partner-visits";
+import { MapPin, Calendar } from "lucide-react";
 
 // Client logos - International
 import logoMaletti from "@/assets/clients-logos/international/MALETTI.png";
 import logoDivaLounge from "@/assets/clients-logos/international/DIVA LOUNGE.png";
 import logoFrancisBeauty from "@/assets/clients-logos/international/FRANCIS SALON.jpeg";
-import logoKteis from "@/assets/clients-logos/international/keit-logo.png";
+import logoKteis from "@/assets/clients-logos/international/kteis-logo.png";
 
 // Client logos - Salon Chains India
 import logoFlorianHurel from "@/assets/clients-logos/salon-chains-india/FLORIAN HUREL SALON.png";
@@ -61,15 +61,7 @@ import logoAureSalon from "@/assets/clients-logos/standalone-salons-india/AURE S
 import logoRajuls from "@/assets/clients-logos/standalone-salons-india/RAJULS.jpeg";
 import logoOrum from "@/assets/clients-logos/salon-chains-india/orum.png";
 
-import indiaGeoJson from "@/assets/geojson/in.json";
-import { IndiaMap } from "@vishalvoid/react-india-map";
-import type { StateData } from "@vishalvoid/react-india-map";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-} from "react-simple-maps";
+import PresenceMapSection from "@/components/PresenceMapSection";
 
 const ScrollSpyDot = ({
   active,
@@ -108,7 +100,6 @@ const salonChainsIndiaBrands: BrandLogo[] = [
   { name: "Play Salon", logo: logoPlaySalon },
   { name: "The Artist Salon", logo: logoTheArtistSalon },
   { name: "Portfolio Salon", logo: logoPortfolioSalon },
-  { name: "MARC", logo: logoMarcSalon },
 ];
 
 const partnerBrands: BrandLogo[] = [
@@ -139,192 +130,18 @@ const brandCategories = [
   { title: "Standalone Salons · India", brands: standaloneSalonsIndiaBrands },
 ];
 
-type MapMarker = {
-  name: string;
-  coordinates: [number, number];
-  labelOffset: { x: number; y: number };
-  anchor: "start" | "middle" | "end";
-};
-
-const presenceMapMarkers: MapMarker[] = [
-  {
-    name: "Noida",
-    coordinates: [77.45, 28.53],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-  {
-    name: "Delhi",
-    coordinates: [77.1, 28.7],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
-  },
-  {
-    name: "Bhopal",
-    coordinates: [77.4126, 23.2599],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-  },
-  {
-    name: "Kolkata",
-    coordinates: [88.3639, 22.5726],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-  },
-  {
-    name: "Bangalore",
-    coordinates: [77.5946, 12.9716],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-  },
-  {
-    name: "Mumbai",
-    coordinates: [72.8777, 19.076],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
-  },
-  {
-    name: "Kochi",
-    coordinates: [76.2673, 9.9312],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
-  },
-  {
-    name: "Vuyyuru",
-    coordinates: [80.8444, 16.3618],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-  {
-    name: "Chandigarh",
-    coordinates: [76.65, 30.85],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
-  },
-  {
-    name: "Thane",
-    coordinates: [72.9781, 19.2183],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-  {
-    name: "Pune",
-    coordinates: [73.8567, 18.5204],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-
-  {
-    name: "Ahmedabad",
-    coordinates: [72.5714, 23.0225],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-  },
-  {
-    name: "Bhavnagar",
-    coordinates: [72.1519, 21.7645],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-  },
-];
-
-const upcomingMapMarkers: MapMarker[] = [
-  {
-    name: "Chennai",
-    coordinates: [80.2707, 13.0827],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-  {
-    name: "Zirakpur",
-    coordinates: [76.95, 30.5],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-  {
-    name: "Kozhikode",
-    coordinates: [75.7804, 11.2588],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
-  },
-  {
-    name: "Coimbatore",
-    coordinates: [76.9558, 11.0168],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-
-  {
-    name: "Saharsa",
-    coordinates: [86.595, 25.8838],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-
-  {
-    name: "Hyderabad",
-    coordinates: [78.4867, 17.385],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-  },
-  {
-    name: "Nashik",
-    coordinates: [73.7898, 19.9975],
-    labelOffset: { x: 12, y: -8 },
-    anchor: "start",
-  },
-  {
-    name: "Lohit",
-    coordinates: [96.162, 27.913],
-    labelOffset: { x: -12, y: 4 },
-    anchor: "end",
-  },
-  {
-    name: "Gurgaon",
-    coordinates: [77.0266, 28.4595],
-    labelOffset: { x: 12, y: 14 },
-    anchor: "start",
-  },
-
-];
-
 const sections = [
   { id: "hero", color: "white" },
   { id: "brands", color: "teal-950" },
-  { id: "features", color: "white" },
-  { id: "comparison", color: "teal-950" },
-  { id: "benefits", color: "white" },
-  { id: "faq", color: "teal-950" },
   { id: "our-presence", color: "white" },
+  { id: "deployments", color: "teal-950" },
+  { id: "on-ground", color: "white" },
+  { id: "features", color: "teal-950" },
+  { id: "benefits", color: "white" },
+  { id: "comparison", color: "teal-950" },
+  { id: "faq", color: "white" },
   { id: "contact", color: "teal-950" },
   { id: "cta", color: "white" },
-];
-
-const customer_behaviour_data = [
-  {
-    icon: robotIcon,
-    title: "Innovative Technology",
-    description:
-      "Adapting state-of-the-art technology that helps in providing realistic results",
-  },
-  {
-    icon: customerConfidenceIcon,
-    title: "Customer Confidence",
-    description:
-      "Reducing customer hesitance to try premium services and increasing business potential",
-  },
-  {
-    icon: barIcon,
-    title: "Smart Personalization",
-    description:
-      "Leveraging data-driven inventory management to recommend products tailored to individual customer attributes",
-  },
-  {
-    icon: consultationIcon,
-    title: "Expanding Services",
-    description:
-      "Engaging in additional services such as product sales, online consultations, and targeted advertisements from the insights gained",
-  },
 ];
 
 type GifData = {
@@ -344,81 +161,6 @@ export default function Home() {
   const [reason, setReason] = useState("");
   const [phone_number, setPhone_number] = useState("");
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
-
-  const geoUrl =
-    "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@8d907bc/topojson/india.json";
-
-  // Markers for Indian states (coordinates: [longitude, latitude])
-  const markers = [
-    {
-      markerOffset: 15,
-      name: "Jammu and Kashmir",
-      coordinates: [74.7974, 34.0837],
-    },
-    {
-      markerOffset: 15,
-      name: "Himachal Pradesh",
-      coordinates: [77.1734, 31.1048],
-    },
-    { markerOffset: 15, name: "Punjab", coordinates: [75.3412, 31.1471] },
-    { markerOffset: 15, name: "Uttarakhand", coordinates: [79.0193, 30.0668] },
-    { markerOffset: 15, name: "Haryana", coordinates: [76.0856, 29.0588] },
-    { markerOffset: 15, name: "Rajasthan", coordinates: [73.0479, 26.8467] },
-    {
-      markerOffset: 15,
-      name: "Uttar Pradesh",
-      coordinates: [80.9462, 26.8467],
-    },
-    { markerOffset: 15, name: "Bihar", coordinates: [85.1376, 25.5941] },
-    { markerOffset: 15, name: "Sikkim", coordinates: [88.5122, 27.533] },
-    {
-      markerOffset: 15,
-      name: "Arunachal Pradesh",
-      coordinates: [93.6167, 27.1004],
-    },
-    { markerOffset: 15, name: "Nagaland", coordinates: [94.5624, 25.6751] },
-    { markerOffset: 15, name: "Manipur", coordinates: [93.9063, 24.6637] },
-    { markerOffset: 15, name: "Mizoram", coordinates: [92.9376, 23.1645] },
-    { markerOffset: 15, name: "Tripura", coordinates: [91.9882, 23.9408] },
-    { markerOffset: 15, name: "Meghalaya", coordinates: [91.3662, 25.467] },
-    { markerOffset: 15, name: "Assam", coordinates: [91.7539, 26.2006] },
-    { markerOffset: 15, name: "West Bengal", coordinates: [88.3639, 22.5726] },
-    { markerOffset: 15, name: "Jharkhand", coordinates: [85.2799, 23.6102] },
-    { markerOffset: 15, name: "Odisha", coordinates: [85.8245, 20.2961] },
-    { markerOffset: 15, name: "Chhattisgarh", coordinates: [81.8661, 21.2514] },
-    {
-      markerOffset: 15,
-      name: "Madhya Pradesh",
-      coordinates: [77.4126, 23.2599],
-    },
-    { markerOffset: 15, name: "Gujarat", coordinates: [72.5714, 23.0225] },
-    { markerOffset: 15, name: "Maharashtra", coordinates: [72.8777, 19.076] },
-    { markerOffset: 15, name: "Goa", coordinates: [74.124, 15.2993] },
-    { markerOffset: 15, name: "Karnataka", coordinates: [77.5946, 12.9716] },
-    {
-      markerOffset: 15,
-      name: "Andhra Pradesh",
-      coordinates: [78.4867, 17.385],
-    },
-    { markerOffset: 15, name: "Telangana", coordinates: [78.4867, 17.385] },
-    { markerOffset: 15, name: "Tamil Nadu", coordinates: [80.2707, 13.0827] },
-    { markerOffset: 15, name: "Kerala", coordinates: [76.2711, 9.9312] },
-    { markerOffset: 15, name: "Delhi", coordinates: [77.209, 28.6139] },
-    { markerOffset: 15, name: "Puducherry", coordinates: [79.8083, 11.9416] },
-    {
-      markerOffset: 15,
-      name: "Andaman and Nicobar Islands",
-      coordinates: [92.8898, 11.7401],
-    },
-    { markerOffset: 15, name: "Lakshadweep", coordinates: [72.6147, 10.5667] },
-    {
-      markerOffset: 15,
-      name: "Dadra and Nagar Haveli and Daman and Diu",
-      coordinates: [73.0169, 20.1809],
-    },
-    { markerOffset: 15, name: "Ladakh", coordinates: [77.577, 34.1526] },
-    { markerOffset: 15, name: "Chandigarh", coordinates: [76.7794, 30.7333] },
-  ];
 
   const gifs: GifData[] = [
     {
@@ -667,26 +409,112 @@ export default function Home() {
         </section>
       </div>
 
+      <PresenceMapSection />
+
+      <DeploymentsSection />
+
       <div
-        id="features"
-        className="section-1 overflow-hidden 2 w-full flex justify-center items-center bg-black flex-col min-h-screen relative  px-4 md:px-20"
+        id="on-ground"
+        className="w-full flex justify-center items-center bg-black relative overflow-hidden px-4 md:px-20"
       >
         <DarkGradientCircles overflowHidden={true} isStraight={false} />
+
+        <div className="max-w-[1400px] w-full py-20 md:py-28 z-[100]">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
+            <div>
+              <span className="text-[#00A5A5] font-medium tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">
+                On the Ground
+              </span>
+              <Typography variant="h1" className="text-white">
+                Building Try My Style,
+                <br />
+                One Salon at a Time.
+              </Typography>
+              <Typography
+                variant="content"
+                className="text-gray-400 max-w-[640px]"
+              >
+                We travel across India to meet salon &amp; brand owners in
+                person, understanding their floors, their customers, and
+                building the partnerships behind every mirror we install.
+              </Typography>
+            </div>
+
+            <a
+              href="/on-the-ground"
+              className="shrink-0 bg-white border-2 border-teal-950 text-teal-950 px-8 py-3 rounded-xl font-medium hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105 whitespace-nowrap"
+            >
+              View all visits
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {partnerVisits.slice(0, 4).map((visit) => (
+              <article
+                key={visit.id}
+                className="group flex flex-col bg-gradient-to-br from-[#001A1A] to-[#003333] rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-black">
+                  <Image
+                    src={visit.image}
+                    alt={`${visit.heading} — ${visit.location}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="flex flex-col flex-1 p-5 md:p-6">
+                  <Typography
+                    variant="h4"
+                    as="h3"
+                    className="text-white mb-1.5 group-hover:text-teal-400 transition-colors"
+                  >
+                    {visit.heading}
+                  </Typography>
+                  <Typography
+                    variant="content"
+                    className="text-gray-400 !mt-0 text-sm md:text-base mb-4"
+                  >
+                    {visit.subheading}
+                  </Typography>
+                  <div className="mt-auto flex flex-col gap-2 pt-3 border-t border-white/10">
+                    <div className="flex items-center gap-2 text-gray-400 text-sm">
+                      <MapPin size={14} className="text-[#00A5A5] shrink-0" />
+                      <span>{visit.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-400 text-sm">
+                      <Calendar size={14} className="text-[#00A5A5] shrink-0" />
+                      <span>{visit.date}</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="features"
+        className="section-1 overflow-hidden 2 w-full flex justify-center items-center bg-white flex-col min-h-screen relative  px-4 md:px-20"
+      >
+        <div className="absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]" />
+        <div className="absolute bottom-[-120px] right-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]" />
 
         {/* Rest of your existing hero content with improved styling */}
         <div className="w-[90%] md:max-w-[1400px] w-full mt-20 mb-20 z-[1000]">
           <div className="w-full">
             <div className="mb-20">
-              <Typography variant="subheading" className="text-gray-400">
+              <Typography variant="subheading" className="text-gray-500">
                 SMARTER SALONS
               </Typography>
-              <Typography variant="h1" className="text-white">
+              <Typography variant="h1" className="text-teal-950">
                 Style Made Simple.
               </Typography>
 
               <Typography
                 variant="content"
-                className="text-gray-400 max-w-[600px]"
+                className="text-gray-600 max-w-[600px]"
               >
                 Transform the way you explore and perfect your look. With
                 intuitive features designed to make styling effortless.
@@ -723,7 +551,7 @@ export default function Home() {
               ))}
             </div>
 
-            <HorizontalCarousel className="md:hidden" color="white">
+            <HorizontalCarousel className="md:hidden" color="teal-950">
               {gifs.map((gif, index) => (
                 <div
                   key={index}
@@ -753,6 +581,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <CustomerBehaviourSection />
 
       <div
         id="comparison"
@@ -1030,131 +860,21 @@ export default function Home() {
       </div>
 
       <div
-        id="benefits"
-        className="section-2 w-full flex justify-center items-center bg-black p-4 md:p-20 min-h-[100vh] relative overflow-hidden "
+        id="faq"
+        className="section-4 w-full flex justify-center items-center bg-black p-4 md:p-36 min-h-[50vh] relative overflow-hidden"
       >
         <DarkGradientCircles overflowHidden={true} isStraight={false} />
-        {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
-        {/* <div className="absolute bottom-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-green-500/10 rounded-full blur-[100px] bg-teal-950"></div> */}
-        <section className="w-[90%] md:max-w-[1400px] w-full z-[1000] flex flex-col items-center justify-center">
-          <Typography
-            variant="h1"
-            className="text-white text-center mb-20 pt-5"
-          >
-            Changing Customer Behavior
-          </Typography>
-          <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-[1000px]">
-            {/* Innovative Technology Card */}
-            {customer_behaviour_data.map((item) => (
-              <>
-                <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-12 rounded-lg hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1] ">
-                  <div className="text-[#00A5A5] mb-2">
-                    <Image
-                      src={item.icon}
-                      alt="Innovative Technology"
-                      width={50}
-                      height={50}
-                      className="h-[50px]"
-                    />
-                  </div>
-                  <Typography
-                    variant="subheading"
-                    className="text-white mb-2 text-sm"
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    variant="content"
-                    className="text-[#6c9797] leading-relaxed text-xs"
-                  >
-                    {item.description}.
-                  </Typography>
-                </div>
-              </>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 md:hidden">
-            {customer_behaviour_data.map((item) => (
-              <>
-                <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-4 rounded-lg hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1] ">
-                  <div className="text-[#00A5A5] mb-2">
-                    <Image
-                      src={item.icon}
-                      alt="Innovative Technology"
-                      width={40}
-                      height={40}
-                      className="h-[40px]"
-                    />
-                  </div>
-                  <Typography
-                    variant="subheading"
-                    className="text-white mb-1 text-sm"
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    variant="content"
-                    className="text-[#6c9797] leading-relaxed text-xs"
-                  >
-                    {item.description}.
-                  </Typography>
-                </div>
-              </>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <HorizontalCarousel className="h-[600px] hidden">
-              {/* Innovative Technology Card */}
-              {customer_behaviour_data.map((item) => (
-                <>
-                  <div className="bg-gradient-to-br from-[#001A1A] to-[#003333] p-14 hover:from-[#002626] hover:to-[#004040] transition-all duration-300 z-[1]">
-                    <div className="text-[#00A5A5] mb-4">
-                      <Image
-                        src={item.icon}
-                        alt="Innovative Technology"
-                        width={80}
-                        height={80}
-                        className="h-[80px]"
-                      />
-                    </div>
-                    <Typography
-                      variant="subheading"
-                      className="text-white mb-4"
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="content"
-                      className="text-[#4D7C7C] leading-relaxed"
-                    >
-                      {item.description}
-                    </Typography>
-                  </div>
-                </>
-              ))}
-              {/* Add other cards here */}
-            </HorizontalCarousel>
-          </div>
-        </section>
-      </div>
-
-      <div
-        id="faq"
-        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-36 min-h-[50vh] relative "
-      >
         <section className="md:max-w-[1400px] w-full z-[1000]">
           <div className="mb-16 flex flex-col md:flex-row md:gap-[250px]">
             <div className="heading flex-1">
               <Typography
                 variant="subheading"
-                className="text-gray-500 text-xl md:text-3xl uppercase font-semibold"
+                className="text-white text-xl md:text-3xl uppercase font-semibold"
               >
                 FAQ
               </Typography>
 
-              <Typography variant="h1" className="text-teal-950 mt-2 mb-12">
+              <Typography variant="h1" className="text-white mt-2 mb-12">
                 Frequently
                 <br />
                 asked
@@ -1167,13 +887,13 @@ export default function Home() {
               {Object.entries(faqData).map(([key, data]) => (
                 <div key={key} className="w-full">
                   <button
-                    className="w-full bg-white hover:bg-gray-200 p-3 shadow-2xl rounded-lg flex justify-between items-center group transition-all duration-300"
+                    className="w-full bg-gradient-to-br from-[#001A1A] to-[#003333] hover:from-[#002626] hover:to-[#004040] border border-white/10 hover:border-white/20 p-3 shadow-lg shadow-black/20 rounded-lg flex justify-between items-center group transition-all duration-300"
                     onClick={() => handleFaqClick(key)}
                   >
-                    <div className="w-full h-full text-teal-950 hover:text-white flex justify-between">
+                    <div className="w-full h-full text-white flex justify-between items-center">
                       <Typography
                         variant="content"
-                        className="text-left font-semibold"
+                        className="text-left font-semibold text-white"
                       >
                         {data.Question}
                       </Typography>
@@ -1181,7 +901,7 @@ export default function Home() {
                       <div className="w-[10px]"></div>
 
                       <span
-                        className={`text-2xl transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""
+                        className={`text-2xl text-white transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""
                           }`}
                       >
                         +
@@ -1194,7 +914,7 @@ export default function Home() {
                       : "max-h-0 opacity-0"
                       }`}
                   >
-                    <div className="p-5 text-white bg-teal-950 rounded-b-lg">
+                    <div className="p-5 text-white bg-teal-950 border border-white/10 rounded-b-lg">
                       <Typography
                         variant="content"
                         className="text-left text-white"
@@ -1208,171 +928,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </div>
-
-      <div
-        id="our-presence"
-        className="section-4 w-full bg-gradient-to-b from-teal-950 to-black  md:min-h-screen relative flex flex-col items-center justify-start md:justify-center overflow-hidden py-10 md:py-0"
-      >
-        {/* Background decorative elements */}
-        <div className="absolute top-10 left-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-teal-500/10 rounded-full blur-[80px] md:blur-[120px]"></div>
-        <div className="absolute bottom-10 right-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-cyan-500/10 rounded-full blur-[80px] md:blur-[120px]"></div>
-
-        {/* Section Header */}
-        <div className="text-center mb-4 md:mb-8 z-10 px-4 pt-6 md:pt-10">
-          <Typography
-            variant="subheading"
-            className="text-teal-400 uppercase tracking-widest mb-1 md:mb-2"
-          >
-            Our Presence
-          </Typography>
-          <Typography variant="h1" className="text-white">
-            Across India
-          </Typography>
-          <Typography
-            variant="content"
-            className="text-gray-400 max-w-xl mx-auto text-sm md:text-base"
-          >
-            Empowering salons and beauty businesses nationwide with our
-            innovative Smart Mirror technology
-          </Typography>
-        </div>
-
-        {/* Map Container */}
-        <div className="w-full max-w-[1000px] h-[400px] md:h-[700px] lg:h-[900px] relative z-10 px-2 md:px-0">
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{
-              scale: 1200,
-              center: [82.8, 22],
-            }}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <Geographies geography={indiaGeoJson}>
-              {({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill="#1a3a3a"
-                    stroke="#0d4d4d"
-                    strokeWidth={0.5}
-                    style={{
-                      default: { outline: "none" },
-                      hover: {
-                        fill: "#2a5a5a",
-                        outline: "none",
-                        cursor: "pointer",
-                      },
-                      pressed: { outline: "none" },
-                    }}
-                  />
-                ))
-              }
-            </Geographies>
-
-            {/* Operational markers (white) */}
-            {presenceMapMarkers.map(({ name, coordinates, labelOffset, anchor }) => (
-              <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
-                <circle
-                  r={8}
-                  fill="none"
-                  stroke="#ffffff"
-                  strokeWidth={1.5}
-                  opacity={0.5}
-                  className="animate-ping"
-                />
-                <circle
-                  r={4}
-                  fill="#ffffff"
-                  stroke="#e5e5e5"
-                  strokeWidth={1.5}
-                  style={{
-                    filter: "drop-shadow(0 0 6px #ffffff)",
-                  }}
-                />
-                <text
-                  textAnchor={anchor}
-                  x={labelOffset.x}
-                  y={labelOffset.y}
-                  style={{
-                    fontFamily: "system-ui",
-                    fill: "#ffffff",
-                    fontWeight: "600",
-                    textShadow: "0 2px 4px rgba(0,0,0,0.8)",
-                  }}
-                >
-                  {name}
-                </text>
-              </Marker>
-            ))}
-
-            {/* Upcoming / expansion markers */}
-            {upcomingMapMarkers.map(({ name, coordinates, labelOffset, anchor }) => (
-              <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
-                <circle
-                  r={8}
-                  fill="none"
-                  stroke="#EAB308"
-                  strokeWidth={1.5}
-                  opacity={0.5}
-                  className="animate-ping"
-                />
-                <circle
-                  r={4}
-                  fill="#FACC15"
-                  stroke="#ffffff"
-                  strokeWidth={1.5}
-                  style={{
-                    filter: "drop-shadow(0 0 6px #FACC15)",
-                  }}
-                />
-                <text
-                  textAnchor={anchor}
-                  x={labelOffset.x}
-                  y={labelOffset.y}
-                  style={{
-                    fontFamily: "system-ui",
-                    fill: "#FDE047",
-                    fontWeight: "600",
-                    textShadow: "0 2px 4px rgba(0,0,0,0.8)",
-                  }}
-                >
-                  {name}
-                </text>
-              </Marker>
-            ))}
-          </ComposableMap>
-        </div>
-
-        {/* Map Legend */}
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-6 md:mt-8 mb-8 md:mb-10 z-10 px-4">
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-4 w-4 items-center justify-center">
-              <span className="absolute h-4 w-4 rounded-full border border-white/60" />
-              <span
-                className="h-2.5 w-2.5 rounded-full bg-white border border-white"
-                style={{ boxShadow: "0 0 6px #ffffff" }}
-              />
-            </span>
-            <span className="text-white text-sm md:text-base font-medium">Operational</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-4 w-4 items-center justify-center">
-              <span className="absolute h-4 w-4 rounded-full border border-[#EAB308]/60" />
-              <span
-                className="h-2.5 w-2.5 rounded-full bg-[#FACC15] border border-white"
-                style={{ boxShadow: "0 0 6px #FACC15" }}
-              />
-            </span>
-            <span className="text-[#FDE047] text-sm md:text-base font-medium">
-              Coming Soon (in 30 days)
-            </span>
-          </div>
-        </div>
       </div>
 
       <div

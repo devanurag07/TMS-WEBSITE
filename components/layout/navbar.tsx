@@ -60,6 +60,13 @@ export const Navbar = () => {
                                 About us
                                 <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
                             </a>
+                            <a
+                                href="/on-the-ground"
+                                className="text-white/80 hover:text-white transition-colors relative group"
+                            >
+                                On the Ground
+                                <span className="absolute inset-x-0 bottom-[-4px] h-[2px] bg-[#00A5A5] transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+                            </a>
                             <div className="relative group">
                                 <button
                                     className="text-white/80 hover:text-white transition-colors relative group flex items-center gap-1"
@@ -159,6 +166,7 @@ export const Navbar = () => {
 
                         <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:hidden absolute top-full left-0 right-0 mt-2 flex-col space-y-4 bg-teal-950 rounded-2xl border border-white/20 p-4`}>
                             <a href="/aboutus" className="text-white/80 hover:text-white transition-colors">About us</a>
+                            <a href="/on-the-ground" className="text-white/80 hover:text-white transition-colors">On the Ground</a>
                             <div className="space-y-2">
                                 <button
                                     onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
