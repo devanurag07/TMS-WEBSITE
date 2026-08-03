@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image";
 import partner1 from "@/assets/partners/1.jpeg";
 import partner2 from "@/assets/partners/2.jpeg";
 import partner3 from "@/assets/partners/3.jpeg";
-import partner4 from "@/assets/partners/4.jpeg";
+import partner4 from "@/assets/partners/4.png";
 import partner5 from "@/assets/partners/5.jpeg";
 import partner6 from "@/assets/partners/6.png";
 import partner7 from "@/assets/partners/7.jpeg";
@@ -78,9 +78,9 @@ export const partnerVisits: PartnerVisit[] = [
   {
     id: 8,
     heading: "Florian Hurel Hair Couture & Spa",
-    subheading: "w/ Founder",
+    subheading: "w/ Team",
     location: "Mumbai",
     date: "July 31, 2026",
     image: partner8,
   },
-];
+].reverse();

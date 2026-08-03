@@ -20,7 +20,7 @@ import DeploymentsSection from "@/components/DeploymentsSection";
 import CustomerBehaviourSection from "@/components/CustomerBehaviourSection";
 import MirrorImage from "@/assets/mirror_homepage.png";
 import { partnerVisits } from "@/data/partner-visits";
-import { MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar, ChevronDown } from "lucide-react";
 
 // Client logos - International
 import logoMaletti from "@/assets/clients-logos/international/MALETTI.png";
@@ -149,6 +149,108 @@ type GifData = {
   alt: string;
   text: string;
 };
+
+const VISITS_PREVIEW_COUNT = 4;
+
+function OnGroundVisitsSection() {
+  const [expanded, setExpanded] = useState(false);
+  const visibleVisits = expanded
+    ? partnerVisits
+    : partnerVisits.slice(0, VISITS_PREVIEW_COUNT);
+  const remaining = partnerVisits.length - VISITS_PREVIEW_COUNT;
+
+  return (
+    <div
+      id="on-ground"
+      className="w-full flex justify-center items-center bg-black relative overflow-hidden px-4 md:px-20"
+    >
+      <DarkGradientCircles overflowHidden={true} isStraight={false} />
+
+      <div className="max-w-[1400px] w-full py-20 md:py-28 z-[100]">
+        <div className="mb-12 md:mb-16">
+          <span className="text-[#00A5A5] font-medium tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">
+            On the Ground
+          </span>
+          <Typography variant="h1" className="text-white">
+            Building Try My Style,
+            <br />
+            One Salon at a Time.
+          </Typography>
+          <Typography
+            variant="content"
+            className="text-gray-400 max-w-[640px]"
+          >
+            We travel across India to meet salon &amp; brand owners in
+            person, understanding their floors, their customers, and
+            building the partnerships behind every mirror we install.
+          </Typography>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {visibleVisits.map((visit) => (
+            <article
+              key={visit.id}
+              className="group flex flex-col bg-gradient-to-br from-[#001A1A] to-[#003333] rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden bg-black">
+                <Image
+                  src={visit.image}
+                  alt={`${visit.heading} — ${visit.location}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+              <div className="flex flex-col flex-1 p-5 md:p-6">
+                <Typography
+                  variant="h4"
+                  as="h3"
+                  className="text-white mb-1.5 group-hover:text-teal-400 transition-colors"
+                >
+                  {visit.heading}
+                </Typography>
+                <Typography
+                  variant="content"
+                  className="text-gray-400 !mt-0 text-sm md:text-base mb-4"
+                >
+                  {visit.subheading}
+                </Typography>
+                <div className="mt-auto flex flex-col gap-2 pt-3 border-t border-white/10">
+                  <div className="flex items-center gap-2 text-gray-400 text-sm">
+                    <MapPin size={14} className="text-[#00A5A5] shrink-0" />
+                    <span>{visit.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-400 text-sm">
+                    <Calendar size={14} className="text-[#00A5A5] shrink-0" />
+                    <span>{visit.date}</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {remaining > 0 && (
+          <div className="flex justify-center mt-10 md:mt-12">
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full border-2 border-white/30 text-white font-medium text-sm md:text-base bg-white/5 backdrop-blur-sm hover:bg-white hover:text-teal-950 hover:border-white transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-xl hover:scale-[1.02]"
+            >
+              <span>
+                {expanded ? "Show less" : `Show more`}
+              </span>
+              <ChevronDown
+                size={18}
+                className={`transition-transform duration-300 ${expanded ? "rotate-180" : "group-hover:translate-y-0.5"}`}
+              />
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
@@ -413,86 +515,7 @@ export default function Home() {
 
       <DeploymentsSection />
 
-      <div
-        id="on-ground"
-        className="w-full flex justify-center items-center bg-black relative overflow-hidden px-4 md:px-20"
-      >
-        <DarkGradientCircles overflowHidden={true} isStraight={false} />
-
-        <div className="max-w-[1400px] w-full py-20 md:py-28 z-[100]">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
-            <div>
-              <span className="text-[#00A5A5] font-medium tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">
-                On the Ground
-              </span>
-              <Typography variant="h1" className="text-white">
-                Building Try My Style,
-                <br />
-                One Salon at a Time.
-              </Typography>
-              <Typography
-                variant="content"
-                className="text-gray-400 max-w-[640px]"
-              >
-                We travel across India to meet salon &amp; brand owners in
-                person, understanding their floors, their customers, and
-                building the partnerships behind every mirror we install.
-              </Typography>
-            </div>
-
-            <a
-              href="/on-the-ground"
-              className="shrink-0 bg-white border-2 border-teal-950 text-teal-950 px-8 py-3 rounded-xl font-medium hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-lg shadow-[#00A5A5]/20 hover:shadow-[#00A5A5]/40 hover:scale-105 whitespace-nowrap"
-            >
-              View all visits
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {partnerVisits.slice(0, 4).map((visit) => (
-              <article
-                key={visit.id}
-                className="group flex flex-col bg-gradient-to-br from-[#001A1A] to-[#003333] rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-black">
-                  <Image
-                    src={visit.image}
-                    alt={`${visit.heading} — ${visit.location}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                </div>
-                <div className="flex flex-col flex-1 p-5 md:p-6">
-                  <Typography
-                    variant="h4"
-                    as="h3"
-                    className="text-white mb-1.5 group-hover:text-teal-400 transition-colors"
-                  >
-                    {visit.heading}
-                  </Typography>
-                  <Typography
-                    variant="content"
-                    className="text-gray-400 !mt-0 text-sm md:text-base mb-4"
-                  >
-                    {visit.subheading}
-                  </Typography>
-                  <div className="mt-auto flex flex-col gap-2 pt-3 border-t border-white/10">
-                    <div className="flex items-center gap-2 text-gray-400 text-sm">
-                      <MapPin size={14} className="text-[#00A5A5] shrink-0" />
-                      <span>{visit.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-400 text-sm">
-                      <Calendar size={14} className="text-[#00A5A5] shrink-0" />
-                      <span>{visit.date}</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
+      <OnGroundVisitsSection />
 
       <div
         id="features"

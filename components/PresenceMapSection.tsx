@@ -37,6 +37,8 @@ const upcomingMapMarkers: MapMarker[] = [
   { name: "Nashik", coordinates: [73.7898, 19.9975], labelOffset: { x: 12, y: -8 }, anchor: "start" },
   { name: "Lohit", coordinates: [96.162, 27.913], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Gurgaon", coordinates: [77.0266, 28.4595], labelOffset: { x: 12, y: 14 }, anchor: "start" },
+  { name: "Kollam", coordinates: [76.6141, 8.8932], labelOffset: { x: -12, y: 4 }, anchor: "end" },
+  { name: "Tirunelveli", coordinates: [77.6900, 8.7139], labelOffset: { x: 12, y: 4 }, anchor: "start" },
 ];
 
 const PresenceMapSection = () => {

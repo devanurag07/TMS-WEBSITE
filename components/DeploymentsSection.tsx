@@ -1,4 +1,8 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
+import { useState, type ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
 import { Typography } from "@/components/typography/typography";
 
 import pilot1 from "@/assets/pilot-deployments/1.jpg";
@@ -21,6 +25,8 @@ import luca_piattelli from "@/assets/current-operations/luca-piattelli.jpeg";
 import andham_salon from "@/assets/current-operations/ANDHAM-SALON.jpeg";
 import qatarSalon from "@/assets/current-operations/qatar.jpeg";
 import puneSalon from "@/assets/current-operations/pune.jpeg";
+
+const PREVIEW_COUNT = 5;
 
 type DeploymentItem = {
   id: number;
@@ -69,6 +75,61 @@ const domesticOperations: DeploymentItem[] = [
   { id: 31, image: ops12, name: "Rajul’s Belleza", location: "Nashik", isUpcoming: true },
 ];
 
+function ExpandButton({
+  expanded,
+  remaining,
+  onClick,
+}: {
+  expanded: boolean;
+  remaining: number;
+  onClick: () => void;
+}) {
+  if (remaining <= 0 && !expanded) return null;
+
+  return (
+    <div className="flex justify-center mt-8">
+      <button
+        type="button"
+        onClick={onClick}
+        className="group inline-flex items-center gap-2.5 px-7 py-3 rounded-full border-2 border-teal-950 text-teal-950 font-medium text-sm md:text-base bg-white hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02]"
+      >
+        <span>
+          {expanded ? "Show less" : `Show more`}
+        </span>
+        <ChevronDown
+          size={18}
+          className={`transition-transform duration-300 ${expanded ? "rotate-180" : "group-hover:translate-y-0.5"}`}
+        />
+      </button>
+    </div>
+  );
+}
+
+function ExpandableGrid({
+  items,
+  renderItem,
+}: {
+  items: DeploymentItem[];
+  renderItem: (item: DeploymentItem) => ReactNode;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? items : items.slice(0, PREVIEW_COUNT);
+  const remaining = items.length - PREVIEW_COUNT;
+
+  return (
+    <>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-6">
+        {visible.map((item) => renderItem(item))}
+      </div>
+      <ExpandButton
+        expanded={expanded}
+        remaining={remaining}
+        onClick={() => setExpanded((v) => !v)}
+      />
+    </>
+  );
+}
+
 const DeploymentsSection = () => {
   return (
     <div
@@ -94,22 +155,24 @@ const DeploymentsSection = () => {
             <Typography className="text-teal-800 mb-6" variant="content">
               International
             </Typography>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-6">
-              {internationalOperations.map((item) => (
+            <ExpandableGrid
+              items={internationalOperations}
+              renderItem={(item) => (
                 <OperationCard key={item.id} item={item} featured={item.featured} />
-              ))}
-            </div>
+              )}
+            />
           </div>
 
           <div>
             <Typography className="text-teal-800 mb-6" variant="content">
               Domestic
             </Typography>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-6">
-              {domesticOperations.map((item) => (
+            <ExpandableGrid
+              items={domesticOperations}
+              renderItem={(item) => (
                 <OperationCard key={item.id} item={item} />
-              ))}
-            </div>
+              )}
+            />
           </div>
         </div>
 
@@ -119,8 +182,9 @@ const DeploymentsSection = () => {
               Pilot Deployments
             </Typography>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-6">
-            {pilotDeployments.map((item) => (
+          <ExpandableGrid
+            items={pilotDeployments}
+            renderItem={(item) => (
               <div
                 key={item.id}
                 className="rounded-2xl overflow-hidden group relative"
@@ -144,8 +208,8 @@ const DeploymentsSection = () => {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            )}
+          />
         </div>
       </div>
     </div>
