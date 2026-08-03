@@ -69,7 +69,7 @@ const Footer = ({ openCalendly }: FooterProps) => {
         <div className="w-[90%] mx-auto md:max-w-[1200px] flex justify-between gap-10 flex-col md:flex-row">
           {/* Logo and Description Column */}
           <div className="md:max-w-[400px]">
-            <Image src={TryMyStyleLogo} alt="Try My Style Logo" width={200} height={100} />
+            <Image src={TryMyStyleLogo} alt="" width={200} height={100} />
             <p className="text-gray-400 mb-6 mt-4">
               Revolutionizing experiences with virtual try-on technology, seamlessly blending consultations, services, and aftercare across industries.            </p>
             <div className="flex gap-4 mb-6">
@@ -136,14 +136,7 @@ const Footer = ({ openCalendly }: FooterProps) => {
                     About Us
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/#on-ground"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    On the Ground
-                  </a>
-                </li>
+
                 <li>
                   <a
                     href="/#faq"
