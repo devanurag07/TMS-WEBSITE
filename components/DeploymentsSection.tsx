@@ -25,6 +25,9 @@ import luca_piattelli from "@/assets/current-operations/luca-piattelli.jpeg";
 import andham_salon from "@/assets/current-operations/ANDHAM-SALON.jpeg";
 import qatarSalon from "@/assets/current-operations/qatar.jpeg";
 import puneSalon from "@/assets/current-operations/pune.jpeg";
+import hipsterSalon from "@/assets/current-operations/hipster.jpeg";
+import shivanjaliSalon from "@/assets/current-operations/shivanjali.jpeg";
+import lanovaSalon from "@/assets/current-operations/lanova.jpeg";
 
 const PREVIEW_COUNT = 5;
 
@@ -64,10 +67,10 @@ const domesticOperations: DeploymentItem[] = [
   { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi, Kerala" },
   { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
   { id: 20, image: puneSalon, name: "The Little Hair Salon", location: "Viman Nagar, Pune" },
-  { id: 12, image: ops12, name: "La Nova Salon", location: "Ahmedabad, Gujarat", isUpcoming: true },
-  { id: 14, image: ops12, name: "Hipster Salon", location: "Thane, Maharashtra", isUpcoming: true },
+  { id: 12, image: lanovaSalon, name: "La Nova Salon", location: "Ahmedabad, Gujarat",  },
+  { id: 14, image: hipsterSalon, name: "Hipster Salon", location: "Thane, Maharashtra",  },
+  { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat",  },
   { id: 15, image: ops12, name: "Play Salon", location: "Indiranagar, Bengaluru, Karnataka", isUpcoming: true },
-  { id: 18, image: ops12, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
   { id: 22, image: ops12, name: "Artist Salon", location: "Zirakpur", isUpcoming: true },
   { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
