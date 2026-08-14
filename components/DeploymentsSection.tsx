@@ -28,6 +28,7 @@ import puneSalon from "@/assets/current-operations/pune.jpeg";
 import hipsterSalon from "@/assets/current-operations/hipster.jpeg";
 import shivanjaliSalon from "@/assets/current-operations/shivanjali.jpeg";
 import lanovaSalon from "@/assets/current-operations/lanova.jpeg";
+import artistSalon from "@/assets/current-operations/artist-salon.jpeg";
 
 const PREVIEW_COUNT = 5;
 
@@ -70,9 +71,9 @@ const domesticOperations: DeploymentItem[] = [
   { id: 12, image: lanovaSalon, name: "La Nova Salon", location: "Ahmedabad, Gujarat",  },
   { id: 14, image: hipsterSalon, name: "Hipster Salon", location: "Thane, Maharashtra",  },
   { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat",  },
+  { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur"},
   { id: 15, image: ops12, name: "Play Salon", location: "Indiranagar, Bengaluru, Karnataka", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
-  { id: 22, image: ops12, name: "Artist Salon", location: "Zirakpur", isUpcoming: true },
   { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
   { id: 30, image: ops12, name: "Artist Salon", location: "Gurgaon", isUpcoming: true },
   { id: 31, image: ops12, name: "Rajul’s Belleza", location: "Nashik", isUpcoming: true },

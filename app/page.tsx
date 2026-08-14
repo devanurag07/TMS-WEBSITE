@@ -41,6 +41,7 @@ import logoPlaySalon from "@/assets/clients-logos/salon-chains-india/PLAY SALON.
 import logoTheArtistSalon from "@/assets/clients-logos/salon-chains-india/THE ARTIST SALON.png";
 import logoPortfolioSalon from "@/assets/clients-logos/salon-chains-india/PORTFOLIO SALON.jpeg";
 import logoMarcSalon from "@/assets/clients-logos/standalone-salons-india/marc.png";
+import logoJawedHabib from "@/assets/clients-logos/salon-chains-india/JAWED-HABIB.png";
 
 // Client logos - Partners
 import logoMarc from "@/assets/clients-logos/partners/marc.png";
@@ -62,6 +63,7 @@ import logoRajuls from "@/assets/clients-logos/standalone-salons-india/RAJULS.jp
 import logoOrum from "@/assets/clients-logos/salon-chains-india/orum.png";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
+import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
 
 const ScrollSpyDot = ({
   active,
@@ -100,6 +102,7 @@ const salonChainsIndiaBrands: BrandLogo[] = [
   { name: "Play Salon", logo: logoPlaySalon },
   { name: "The Artist Salon", logo: logoTheArtistSalon },
   { name: "Portfolio Salon", logo: logoPortfolioSalon },
+  { name: "Jawed Habib", logo: logoJawedHabib },
 ];
 
 const partnerBrands: BrandLogo[] = [
@@ -134,6 +137,7 @@ const sections = [
   { id: "hero", color: "white" },
   { id: "brands", color: "teal-950" },
   { id: "our-presence", color: "white" },
+  { id: "global-presence", color: "teal-950" },
   { id: "deployments", color: "teal-950" },
   { id: "on-ground", color: "white" },
   { id: "features", color: "teal-950" },
@@ -513,9 +517,14 @@ export default function Home() {
 
       <PresenceMapSection />
 
-      <DeploymentsSection />
+      <WorldPresenceMapSection />
 
       <OnGroundVisitsSection />
+      <DeploymentsSection />
+
+      <CustomerBehaviourSection />
+
+
 
       <div
         id="features"
@@ -604,9 +613,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <CustomerBehaviourSection />
-
       <div
         id="comparison"
         className="section-3 w-full flex justify-center items-center bg-white min-h-screen relative overflow-hidden md:px-0 z-[150]"
