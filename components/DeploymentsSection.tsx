@@ -29,8 +29,9 @@ import hipsterSalon from "@/assets/current-operations/hipster.jpeg";
 import shivanjaliSalon from "@/assets/current-operations/shivanjali.jpeg";
 import lanovaSalon from "@/assets/current-operations/lanova.jpeg";
 import artistSalon from "@/assets/current-operations/artist-salon.jpeg";
+import artistSalonGurgaon from "@/assets/current-operations/artist-salon-1.jpeg";
 
-const PREVIEW_COUNT = 5;
+const PREVIEW_COUNT = 8;
 
 type DeploymentItem = {
   id: number;
@@ -68,15 +69,19 @@ const domesticOperations: DeploymentItem[] = [
   { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi, Kerala" },
   { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
   { id: 20, image: puneSalon, name: "The Little Hair Salon", location: "Viman Nagar, Pune" },
-  { id: 12, image: lanovaSalon, name: "La Nova Salon", location: "Ahmedabad, Gujarat",  },
-  { id: 14, image: hipsterSalon, name: "Hipster Salon", location: "Thane, Maharashtra",  },
-  { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat",  },
-  { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur"},
-  { id: 15, image: ops12, name: "Play Salon", location: "Indiranagar, Bengaluru, Karnataka", isUpcoming: true },
+  { id: 12, image: lanovaSalon, name: "La Nova Salon", location: "Ahmedabad, Gujarat", },
+  { id: 14, image: hipsterSalon, name: "Hipster Salon", location: "Thane, Maharashtra", },
+  { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", },
+  { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur" },
+  { id: 30, image: artistSalonGurgaon, name: "Artist Salon", location: "Gurgaon", },
+  { id: 15, image: ops12, name: "Play Salon", location: "Bengaluru, Karnataka", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
   { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
-  { id: 30, image: ops12, name: "Artist Salon", location: "Gurgaon", isUpcoming: true },
   { id: 31, image: ops12, name: "Rajul’s Belleza", location: "Nashik", isUpcoming: true },
+  { id: 31, image: ops12, name: "Aira Salon", location: "Mangalore, Karnataka", isUpcoming: true },
+  { id: 31, image: ops12, name: "TrimX Studios", location: "Kharagpur, West Bengal", isUpcoming: true },
+  { id: 31, image: ops12, name: "SVA Studios", location: "Hyderabad, Telangana", isUpcoming: true },
+
 ];
 
 function ExpandButton({
@@ -122,7 +127,7 @@ function ExpandableGrid({
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-8 gap-6">
         {visible.map((item) => renderItem(item))}
       </div>
       <ExpandButton
@@ -189,30 +194,9 @@ const DeploymentsSection = () => {
           <ExpandableGrid
             items={pilotDeployments}
             renderItem={(item) => (
-              <div
-                key={item.id}
-                className="rounded-2xl overflow-hidden group relative"
-              >
-                <div className="relative w-full h-[300px]">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-[#008080]/40" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <p className="text-white font-semibold text-base leading-tight">
-                      {item.name}
-                    </p>
-                    <p className="text-white text-sm mt-1 leading-snug">
-                      {item.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <OperationCard key={item.id} item={item} />
             )}
+
           />
         </div>
       </div>
@@ -231,7 +215,7 @@ function OperationCard({
     <div
       className={`rounded-2xl overflow-hidden border shadow-lg group relative ${featured ? "col-span-2" : ""}`}
     >
-      <div className="relative w-full h-[300px]">
+      <div className="relative w-full h-[200px]">
         <Image
           src={item.image}
           alt={item.name}
@@ -239,21 +223,21 @@ function OperationCard({
           className="object-cover h-[300px] transition-transform duration-500 group-hover:scale-105"
         />
         {item.isUpcoming && (
-          <>
-            <div className="absolute inset-0 bg-yellow-300/20" />
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <span className="bg-yellow-300 text-yellow-900 px-6 py-3 rounded-full font-bold text-lg shadow-xl border-2 border-yellow-400 drop-shadow-lg animate-pulse flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <rect x="5" y="2" width="14" height="18" rx="3" />
-                  <path d="M9 21h6" strokeLinecap="round" />
-                  <path d="M12 6v6" strokeLinecap="round" />
-                  <circle cx="12" cy="15" r="1" fill="currentColor" />
-                </svg>
-                Coming Soon
-              </span>
-            </div>
-          </>
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <span className="bg-yellow-200/90 text-yellow-800 px-2 py-0.5 rounded text-[13px] font-semibold border border-yellow-300 shadow-sm flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <rect x="5" y="2" width="14" height="18" rx="3" />
+                <path d="M9 21h6" strokeLinecap="round" />
+                <path d="M12 6v6" strokeLinecap="round" />
+                <circle cx="12" cy="15" r="1" fill="currentColor" />
+              </svg>
+              Coming Soon
+            </span>
+          </div>
         )}
+
+
+
         {!item.isUpcoming && <div className="absolute inset-0 bg-[#008080]/40" />}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-4">

@@ -2,9 +2,14 @@
 
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { Typography } from "@/components/typography/typography";
+import indiaGeoJson from "@/assets/geojson/in.json";
 
 const WORLD_GEOGRAPHY =
   "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+const LAND_FILL = "#d7ecec";
+const LAND_STROKE = "#9fcbcb";
+const LAND_HOVER = "#c5e0e0";
 
 type MapMarker = {
   name: string;
@@ -33,15 +38,15 @@ const operationalCountryMarkers: MapMarker[] = [
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
-];
-
-const upcomingCountryMarkers: MapMarker[] = [
   {
     name: "Kuwait",
     coordinates: [47.4818, 29.3117],
     labelOffset: { x: 12, y: -8 },
     anchor: "start",
   },
+];
+
+const upcomingCountryMarkers: MapMarker[] = [
   {
     name: "Greece",
     coordinates: [21.8243, 39.0742],
@@ -92,29 +97,57 @@ const WorldPresenceMapSection = () => {
         >
           <Geographies geography={WORLD_GEOGRAPHY}>
             {({ geographies }) =>
-              geographies.map((geo) => {
-                const countryName = geo.properties.name as string;
-                const highlighted = HIGHLIGHTED_COUNTRIES.has(countryName);
+              geographies
+                .filter((geo) => {
+                  const name = String(geo.properties.name ?? "");
+                  return name !== "India";
+                })
+                .map((geo) => {
+                  const countryName = geo.properties.name as string;
+                  const highlighted = HIGHLIGHTED_COUNTRIES.has(countryName);
 
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={highlighted ? "#0f766e" : "#d7ecec"}
-                    stroke={highlighted ? "#115e59" : "#9fcbcb"}
-                    strokeWidth={0.5}
-                    style={{
-                      default: { outline: "none" },
-                      hover: {
-                        fill: highlighted ? "#0d9488" : "#c5e0e0",
-                        outline: "none",
-                        cursor: "pointer",
-                      },
-                      pressed: { outline: "none" },
-                    }}
-                  />
-                );
-              })
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={highlighted ? "#0f766e" : LAND_FILL}
+                      stroke={highlighted ? "#115e59" : LAND_STROKE}
+                      strokeWidth={0.5}
+                      style={{
+                        default: { outline: "none" },
+                        hover: {
+                          fill: highlighted ? "#0d9488" : LAND_HOVER,
+                          outline: "none",
+                          cursor: "pointer",
+                        },
+                        pressed: { outline: "none" },
+                      }}
+                    />
+                  );
+                })
+            }
+          </Geographies>
+
+          <Geographies geography={indiaGeoJson}>
+            {({ geographies }) =>
+              geographies.map((geo) => (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  fill={LAND_FILL}
+                  stroke={LAND_STROKE}
+                  strokeWidth={0.35}
+                  style={{
+                    default: { outline: "none" },
+                    hover: {
+                      fill: LAND_HOVER,
+                      outline: "none",
+                      cursor: "pointer",
+                    },
+                    pressed: { outline: "none" },
+                  }}
+                />
+              ))
             }
           </Geographies>
 

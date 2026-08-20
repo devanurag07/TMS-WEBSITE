@@ -61,6 +61,8 @@ import logoLaNova from "@/assets/clients-logos/standalone-salons-india/LA NOVA.p
 import logoAureSalon from "@/assets/clients-logos/standalone-salons-india/AURE SALON.png";
 import logoRajuls from "@/assets/clients-logos/standalone-salons-india/RAJULS.jpeg";
 import logoOrum from "@/assets/clients-logos/salon-chains-india/orum.png";
+import logoAire from "@/assets/clients-logos/standalone-salons-india/AIRA-SALON.jpeg";
+import logoTrimX from '@/assets/clients-logos/standalone-salons-india/TRIMX-STUDIOS.jpeg';
 
 import PresenceMapSection from "@/components/PresenceMapSection";
 import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
@@ -124,6 +126,8 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Aure Salon", logo: logoAureSalon },
   { name: "Rajuls", logo: logoRajuls },
   { name: "ORUM", logo: logoOrum },
+  { name: "TrimX Studios", logo: logoTrimX },
+  { name: "Aira Unisex", logo: logoAire }
 ];
 
 const brandCategories = [

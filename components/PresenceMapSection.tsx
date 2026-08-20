@@ -27,19 +27,22 @@ const presenceMapMarkers: MapMarker[] = [
   { name: "Bhavnagar", coordinates: [72.1519, 21.7645], labelOffset: { x: 0, y: -12 }, anchor: "middle" },
   { name: "Zirakpur", coordinates: [76.95, 30.5], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Gurgaon", coordinates: [77.0266, 28.4595], labelOffset: { x: 12, y: 14 }, anchor: "start" },
+  { name: "Chennai", coordinates: [80.2707, 13.0827], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Coimbatore", coordinates: [76.9558, 11.0168], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Hyderabad", coordinates: [78.4867, 17.385], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Nashik", coordinates: [73.7898, 19.9975], labelOffset: { x: 12, y: -8 }, anchor: "start" },
+
 ];
 
 const upcomingMapMarkers: MapMarker[] = [
-  { name: "Chennai", coordinates: [80.2707, 13.0827], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Kozhikode", coordinates: [75.7804, 11.2588], labelOffset: { x: -12, y: 4 }, anchor: "end" },
-  { name: "Coimbatore", coordinates: [76.9558, 11.0168], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Saharsa", coordinates: [86.595, 25.8838], labelOffset: { x: 12, y: 4 }, anchor: "start" },
-  { name: "Hyderabad", coordinates: [78.4867, 17.385], labelOffset: { x: 12, y: 4 }, anchor: "start" },
-  { name: "Nashik", coordinates: [73.7898, 19.9975], labelOffset: { x: 12, y: -8 }, anchor: "start" },
   { name: "Lohit", coordinates: [96.162, 27.913], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Kollam", coordinates: [76.6141, 8.8932], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Tirunelveli", coordinates: [77.6900, 8.7139], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Bhubaneswar", coordinates: [85.8245, 20.2961], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Mangalore", coordinates: [74.8560, 12.9141], labelOffset: { x: -12, y: 4 }, anchor: "end" },
+  { name: "Kharagpur", coordinates: [87.3237, 22.3460], labelOffset: { x: 12, y: 16 }, anchor: "start" },
 ];
 
 const PresenceMapSection = () => {
