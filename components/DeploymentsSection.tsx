@@ -30,6 +30,7 @@ import shivanjaliSalon from "@/assets/current-operations/shivanjali.jpeg";
 import lanovaSalon from "@/assets/current-operations/lanova.jpeg";
 import artistSalon from "@/assets/current-operations/artist-salon.jpeg";
 import artistSalonGurgaon from "@/assets/current-operations/artist-salon-1.jpeg";
+import rajulsNashik from "@/assets/current-operations/rajuls-nashik.jpeg";
 
 const PREVIEW_COUNT = 8;
 
@@ -74,6 +75,7 @@ const domesticOperations: DeploymentItem[] = [
   { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", },
   { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur" },
   { id: 30, image: artistSalonGurgaon, name: "Artist Salon", location: "Gurgaon", },
+  { id: 34, image: rajulsNashik, name: "Rajuls Belleza, Nashik", location: "Nashik", },
   { id: 15, image: ops12, name: "Play Salon", location: "Bengaluru, Karnataka", isUpcoming: true },
   { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
   { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
@@ -81,6 +83,9 @@ const domesticOperations: DeploymentItem[] = [
   { id: 31, image: ops12, name: "Aira Salon", location: "Mangalore, Karnataka", isUpcoming: true },
   { id: 31, image: ops12, name: "TrimX Studios", location: "Kharagpur, West Bengal", isUpcoming: true },
   { id: 31, image: ops12, name: "SVA Studios", location: "Hyderabad, Telangana", isUpcoming: true },
+  { id: 33, image: ops12, name: "Amiro Salon", location: "Surat, Gujarat", isUpcoming: true },
+  { id: 34, image: ops12, name: "Hoor Salon", location: "Pathankot, Punjab", isUpcoming: true },
+  { id: 35, image: ops12, name: "Dusk Salon", location: "Jaipur, Rajasthan", isUpcoming: true },
 
 ];
 

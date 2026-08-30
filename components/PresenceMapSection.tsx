@@ -43,6 +43,10 @@ const upcomingMapMarkers: MapMarker[] = [
   { name: "Bhubaneswar", coordinates: [85.8245, 20.2961], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Mangalore", coordinates: [74.8560, 12.9141], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Kharagpur", coordinates: [87.3237, 22.3460], labelOffset: { x: 12, y: 16 }, anchor: "start" },
+  { name: "Surat", coordinates: [72.8311, 21.1702], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Sambhajinagar", coordinates: [75.3433, 19.8762], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Jaipur", coordinates: [75.7873, 26.9124], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Pathankot", coordinates: [75.6499, 32.2643], labelOffset: { x: 12, y: 4 }, anchor: "start" },
 ];
 
 const PresenceMapSection = () => {

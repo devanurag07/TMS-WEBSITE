@@ -43,6 +43,7 @@ import logoPortfolioSalon from "@/assets/clients-logos/salon-chains-india/PORTFO
 import logoMarcSalon from "@/assets/clients-logos/standalone-salons-india/marc.png";
 import logoJawedHabib from "@/assets/clients-logos/salon-chains-india/JAWED-HABIB.png";
 
+
 // Client logos - Partners
 import logoMarc from "@/assets/clients-logos/partners/marc.png";
 import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
@@ -63,6 +64,9 @@ import logoRajuls from "@/assets/clients-logos/standalone-salons-india/RAJULS.jp
 import logoOrum from "@/assets/clients-logos/salon-chains-india/orum.png";
 import logoAire from "@/assets/clients-logos/standalone-salons-india/AIRA-SALON.jpeg";
 import logoTrimX from '@/assets/clients-logos/standalone-salons-india/TRIMX-STUDIOS.jpeg';
+import logoAmiroSalon from "@/assets/clients-logos/standalone-salons-india/AMIRO-SALON.jpeg";
+import logoDuskSalon from "@/assets/clients-logos/standalone-salons-india/DUSK-SALON.jpeg";
+import logoHoorSalon from "@/assets/clients-logos/standalone-salons-india/HOOR-SALON.jpeg";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
 import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
@@ -127,7 +131,11 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Rajuls", logo: logoRajuls },
   { name: "ORUM", logo: logoOrum },
   { name: "TrimX Studios", logo: logoTrimX },
-  { name: "Aira Unisex", logo: logoAire }
+  { name: "Aira Unisex", logo: logoAire },
+  { name: "Amiro Salon", logo: logoAmiroSalon },
+  { name: "Hoor Salon", logo: logoHoorSalon },
+  { name: "Dusk Salon", logo: logoDuskSalon },
+
 ];
 
 const brandCategories = [
