@@ -524,13 +524,13 @@ export default function Home() {
                 </Typography>
                 <div className="h-px flex-1 bg-teal-950/10" />
               </div>
-              <div className="grid grid-cols- md:flex md:flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-14">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:flex md:flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-14">
                 {category.brands.map((brand) => (
                   <div
                     key={brand.name}
                     className="flex flex-col items-center gap-3 group"
                   >
-                    <div className="w-full max-w-[100px] sm:max-w-[120px] md:max-w-none md:w-[160px] h-[56px] sm:h-[70px] md:h-[90px] relative flex items-center justify-center mx-auto">
+                    <div className="w-[100px] sm:w-[120px] md:w-[160px] h-[56px] sm:h-[70px] md:h-[90px] relative flex items-center justify-center mx-auto shrink-0">
                       <Image
                         src={brand.logo}
                         alt={brand.name}
