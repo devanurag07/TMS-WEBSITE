@@ -8,6 +8,8 @@ import partner5 from "@/assets/partners/5.jpeg";
 import partner6 from "@/assets/partners/6.png";
 import partner7 from "@/assets/partners/7.jpeg";
 import partner8 from "@/assets/partners/8.png";
+import naturalsCeoMeeting from "@/assets/partners/naturals-ceo-meeting.jpeg";
+import naturalsFounder from "@/assets/partners/naturals-founder.jpeg";
 
 export type PartnerVisit = {
   id: number;
@@ -82,5 +84,21 @@ export const partnerVisits: PartnerVisit[] = [
     location: "Mumbai",
     date: "July 31, 2026",
     image: partner8,
+  },
+  {
+    id: 9,
+    heading: "Naturals Salons & Spa",
+    subheading: "w/ Sanjeev Dhiman (CEO Emerging Markets & CMO)",
+    location: "Pune",
+    date: "August 24, 2026",
+    image: naturalsCeoMeeting,
+  },
+  {
+    id: 10,
+    heading: "Naturals Salons & Spa",
+    subheading: "w/ C K Kumaravel (Co-Founder & CMD Naturals)",
+    location: "Chennai",
+    date: "August 24, 2026",
+    image: naturalsFounder,
   },
 ].reverse();

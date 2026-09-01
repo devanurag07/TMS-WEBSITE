@@ -31,8 +31,19 @@ import lanovaSalon from "@/assets/current-operations/lanova.jpeg";
 import artistSalon from "@/assets/current-operations/artist-salon.jpeg";
 import artistSalonGurgaon from "@/assets/current-operations/artist-salon-1.jpeg";
 import rajulsNashik from "@/assets/current-operations/rajuls-nashik.jpeg";
+import playSalon from "@/assets/current-operations/PLAY-SALON.jpeg";
+import natTirunelveli from "@/assets/current-operations/NAT-TIRUNELVELI.jpeg";
+import natCoimbatore from "@/assets/current-operations/NAT-COIMBATORE.jpeg";
+import natKozhikode from "@/assets/current-operations/NAT-KOZHIKODE.jpeg";
+import natPune from "@/assets/current-operations/NAT-PUNE.jpeg";
+import natBangalore from "@/assets/current-operations/NAT-BANGLORE.jpeg";
+import bespokeSalon from "@/assets/current-operations/BESPOKE.jpeg";
+import natChennai from "@/assets/current-operations/NAT-CHENNAI.jpeg";
+import mirrarSalon from "@/assets/current-operations/RANIWALA JEWELLERY.jpeg";
+import marcSalon from "@/assets/current-operations/MARC-SALON.jpeg";
+import orumSalon from "@/assets/current-operations/ORUM.jpeg";
 
-const PREVIEW_COUNT = 8;
+const PREVIEW_COUNT = 7;
 
 type DeploymentItem = {
   id: number;
@@ -43,79 +54,131 @@ type DeploymentItem = {
   featured?: boolean;
 };
 
+type DeploymentRegion = {
+  title: string;
+  states: string[];
+  items: DeploymentItem[];
+};
+
+function sortDeployments(items: DeploymentItem[]): DeploymentItem[] {
+  const operational = items.filter((item) => !item.isUpcoming);
+  const upcoming = items.filter((item) => item.isUpcoming);
+  return [...operational, ...upcoming];
+}
+
+function formatRegionHeading(title: string, states: string[]) {
+  return `${title} — (${states.join(", ")})`;
+}
+
 const pilotDeployments: DeploymentItem[] = [
-  { id: 1, image: pilot1, name: "Eternal Salon", location: "Pimpri Chinchwad, Pune, Maharashtra" },
-  { id: 2, image: pilot2, name: "Page 3 Luxury Salon", location: "Film Nagar, Hyderabad, Telangana" },
-  { id: 3, image: pilot3, name: "Page 3 Luxury Salon", location: "Jubilee Hills, Hyderabad, Telangana" },
-  { id: 4, image: pilot4, name: "LOOKS Privé", location: "Malcha Marg, Chanakyapuri, Delhi" },
-  { id: 5, image: pilot5, name: "LOOKS Salon", location: "Ambience Mall, Vasant Kunj, Delhi" },
+  { id: 1, image: pilot1, name: "Eternal Salon", location: "Pune" },
+  { id: 2, image: pilot2, name: "Page 3 Luxury Salon", location: "Hyderabad" },
+  { id: 3, image: pilot3, name: "Page 3 Luxury Salon", location: "Hyderabad" },
+  { id: 4, image: pilot4, name: "LOOKS Privé", location: "Delhi" },
+  { id: 5, image: pilot5, name: "LOOKS Salon", location: "Delhi" },
 ];
 
 const internationalOperations: DeploymentItem[] = [
-  { id: 11, image: ops11, name: "Maletti S.P.A.", location: "Fellegara, Scandiano, Reggio Emilia, Italy", featured: true },
-  { id: 14, image: qatarSalon, name: "Diva Lounge Spa", location: "Doha, Qatar", featured: false },
+  { id: 11, image: ops11, name: "Maletti S.P.A.", location: "Reggio Emilia", featured: true },
+  { id: 14, image: qatarSalon, name: "Diva Lounge Spa", location: "Doha", featured: false },
   { id: 28, image: ops12, name: "Francis Beauty", location: "Kuwait", isUpcoming: true },
-  { id: 32, image: ops12, name: "Kteis Hair IKE", location: "Thessaloniki, Greece", isUpcoming: true },
+  { id: 32, image: ops12, name: "Kteis Hair IKE", location: "Thessaloniki", isUpcoming: true },
 ];
 
-const domesticOperations: DeploymentItem[] = [
-  { id: 10, image: ops10, name: "Diona Artisan Salon", location: "Sector 18, Noida, Uttar Pradesh" },
-  { id: 7, image: ops7, name: "CLNZ Salon", location: "Mahipalpur, New Delhi" },
-  { id: 9, image: ops9, name: "OQ Derm", location: "Kolkata, West Bengal" },
-  { id: 8, image: ops8, name: "Cut & Style Salon", location: "RT Nagar, Bengaluru, Karnataka" },
-  { id: 13, image: ops13, name: "Luca Piattelli", location: "Safdarjung Enclave, New Delhi" },
-  { id: 6, image: ops6, name: "RC Studios", location: "Bairagarh, Bhopal, Madhya Pradesh" },
-  { id: 21, image: luca_piattelli, name: "Luca Piattelli", location: "Bandra West, Mumbai" },
-  { id: 23, image: andham_salon, name: "Andham Salon", location: "Vuyyuru, Andhra Pradesh" },
-  { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi, Kerala" },
-  { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
-  { id: 20, image: puneSalon, name: "The Little Hair Salon", location: "Viman Nagar, Pune" },
-  { id: 12, image: lanovaSalon, name: "La Nova Salon", location: "Ahmedabad, Gujarat", },
-  { id: 14, image: hipsterSalon, name: "Hipster Salon", location: "Thane, Maharashtra", },
-  { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar, Gujarat", },
-  { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur" },
-  { id: 30, image: artistSalonGurgaon, name: "Artist Salon", location: "Gurgaon", },
-  { id: 34, image: rajulsNashik, name: "Rajuls Belleza, Nashik", location: "Nashik", },
-  { id: 15, image: ops12, name: "Play Salon", location: "Bengaluru, Karnataka", isUpcoming: true },
-  { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga, Bihar", isUpcoming: true },
-  { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
-  { id: 31, image: ops12, name: "Rajul’s Belleza", location: "Nashik", isUpcoming: true },
-  { id: 31, image: ops12, name: "Aira Salon", location: "Mangalore, Karnataka", isUpcoming: true },
-  { id: 31, image: ops12, name: "TrimX Studios", location: "Kharagpur, West Bengal", isUpcoming: true },
-  { id: 31, image: ops12, name: "SVA Studios", location: "Hyderabad, Telangana", isUpcoming: true },
-  { id: 33, image: ops12, name: "Amiro Salon", location: "Surat, Gujarat", isUpcoming: true },
-  { id: 34, image: ops12, name: "Hoor Salon", location: "Pathankot, Punjab", isUpcoming: true },
-  { id: 35, image: ops12, name: "Dusk Salon", location: "Jaipur, Rajasthan", isUpcoming: true },
-
+const domesticRegions: DeploymentRegion[] = [
+  {
+    title: "North",
+    states: ["Delhi", "Uttar Pradesh", "Chandigarh", "Punjab", "Haryana", "Rajasthan", "Jammu & Kashmir"],
+    items: [
+      { id: 10, image: ops10, name: "Diona Artisan Salon", location: "Noida" },
+      { id: 7, image: ops7, name: "CLNZ Salon", location: "New Delhi" },
+      { id: 13, image: ops13, name: "Luca Piattelli", location: "New Delhi" },
+      { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
+      { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur" },
+      { id: 30, image: artistSalonGurgaon, name: "Artist Salon", location: "Gurgaon" },
+      { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
+      { id: 34, image: ops12, name: "Hoor Salon", location: "Pathankot", isUpcoming: true },
+      { id: 35, image: ops12, name: "Dusk Salon", location: "Jaipur", isUpcoming: true },
+      { id: 39, image: ops12, name: "Nexa Bella", location: "Pulwama", isUpcoming: true },
+    ],
+  },
+  {
+    title: "South",
+    states: ["Karnataka", "Andhra Pradesh", "Kerala", "Tamil Nadu", "Telangana"],
+    items: [
+      { id: 8, image: ops8, name: "Cut & Style Salon", location: "Bengaluru" },
+      { id: 23, image: andham_salon, name: "Andham Salon", location: "Vuyyuru" },
+      { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi" },
+      { id: 41, image: natTirunelveli, name: "Naturals NXT", location: "Tirunelveli" },
+      { id: 42, image: natChennai, name: "Naturals Signature", location: "Chennai" },
+      { id: 43, image: natKozhikode, name: "PAGE 3", location: "Kozhikode" },
+      { id: 45, image: natCoimbatore, name: "Naturals Signature", location: "Coimbatore" },
+      { id: 46, image: natBangalore, name: "Naturals Signature", location: "Bengaluru" },
+      { id: 49, image: bespokeSalon, name: "BE-SPOKE", location: "Chennai" },
+      { id: 15, image: playSalon, name: "Play Salon", location: "Bengaluru" },
+      { id: 52, image: orumSalon, name: "ORUM", location: "Hyderabad" },
+      { id: 31, image: ops12, name: "Aira Salon", location: "Mangalore", isUpcoming: true },
+      { id: 47, image: ops12, name: "PAGE 3", location: "Kochi", isUpcoming: true },
+      { id: 44, image: ops12, name: "Naturals NXT", location: "Kollam", isUpcoming: true },
+      { id: 40, image: ops12, name: "Blowout Salon", location: "Bengaluru", isUpcoming: true },
+    ],
+  },
+  {
+    title: "Center-West",
+    states: ["Madhya Pradesh", "Maharashtra", "Gujarat"],
+    items: [
+      { id: 6, image: ops6, name: "RC Studios", location: "Bhopal" },
+      { id: 21, image: luca_piattelli, name: "Luca Piattelli", location: "Mumbai" },
+      { id: 20, image: puneSalon, name: "The Little Hair Salon", location: "Pune" },
+      { id: 12, image: lanovaSalon, name: "La Nova Salon", location: "Ahmedabad" },
+      { id: 14, image: hipsterSalon, name: "Hipster Salon", location: "Thane" },
+      { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar" },
+      { id: 34, image: rajulsNashik, name: "Rajuls Belleza", location: "Nashik" },
+      { id: 48, image: natPune, name: "Naturals NXT", location: "Pune" },
+      { id: 33, image: ops12, name: "Amiro Salon", location: "Surat", isUpcoming: true },
+      { id: 36, image: ops12, name: "Delnaaz", location: "Sambhajinagar", isUpcoming: true },
+      { id: 37, image: ops12, name: "Delnaaz", location: "Navi Mumbai", isUpcoming: true },
+    ],
+  },
+  {
+    title: "East",
+    states: ["West Bengal", "Bihar", "Odisha"],
+    items: [
+      { id: 9, image: ops9, name: "OQ Derm", location: "Kolkata" },
+      { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga", isUpcoming: true },
+      { id: 53, image: ops12, name: "TrimX Studios", location: "Kharagpur", isUpcoming: true },
+      { id: 38, image: ops12, name: "Jawed Habib", location: "Bhubaneshwar", isUpcoming: true },
+    ],
+  },
 ];
 
-function ExpandButton({
+const partnerOperations: DeploymentItem[] = [
+  { id: 50, image: mirrarSalon, name: "Raniwala Jewellery", location: "Gurgaon" },
+  { id: 55, image: ops12, name: "Hair Originals", location: "Gurgaon", isUpcoming: true },
+  { id: 51, image: marcSalon, name: "MARC", location: "Kochi" },
+];
+
+function ShowMoreCard({
   expanded,
-  remaining,
   onClick,
 }: {
   expanded: boolean;
-  remaining: number;
   onClick: () => void;
 }) {
-  if (remaining <= 0 && !expanded) return null;
-
   return (
-    <div className="flex justify-center mt-8">
-      <button
-        type="button"
-        onClick={onClick}
-        className="group inline-flex items-center gap-2.5 px-7 py-3 rounded-full border-2 border-teal-950 text-teal-950 font-medium text-sm md:text-base bg-white hover:bg-teal-950 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02]"
-      >
-        <span>
-          {expanded ? "Show less" : `Show more`}
-        </span>
-        <ChevronDown
-          size={18}
-          className={`transition-transform duration-300 ${expanded ? "rotate-180" : "group-hover:translate-y-0.5"}`}
-        />
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      className="rounded-2xl overflow-hidden border-2 border-dashed border-teal-950/25 shadow-lg group relative min-h-[200px] h-full w-full flex flex-col items-center justify-center gap-3 bg-teal-50/60 hover:bg-teal-950 hover:border-teal-950 transition-all duration-300 hover:scale-[1.02]"
+    >
+      <span className="text-teal-950 group-hover:text-white font-semibold text-sm md:text-base">
+        {expanded ? "Show less" : "Show more"}
+      </span>
+      <ChevronDown
+        size={22}
+        className={`text-teal-950 group-hover:text-white transition-transform duration-300 ${expanded ? "rotate-180" : "group-hover:translate-y-0.5"}`}
+      />
+    </button>
   );
 }
 
@@ -127,20 +190,20 @@ function ExpandableGrid({
   renderItem: (item: DeploymentItem) => ReactNode;
 }) {
   const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? items : items.slice(0, PREVIEW_COUNT);
-  const remaining = items.length - PREVIEW_COUNT;
+  const sortedItems = sortDeployments(items);
+  const hasMore = sortedItems.length > PREVIEW_COUNT;
+  const visible = expanded ? sortedItems : sortedItems.slice(0, PREVIEW_COUNT);
 
   return (
-    <>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-8 gap-6">
-        {visible.map((item) => renderItem(item))}
-      </div>
-      <ExpandButton
-        expanded={expanded}
-        remaining={remaining}
-        onClick={() => setExpanded((v) => !v)}
-      />
-    </>
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-8 gap-6">
+      {visible.map((item) => renderItem(item))}
+      {hasMore && (
+        <ShowMoreCard
+          expanded={expanded}
+          onClick={() => setExpanded((v) => !v)}
+        />
+      )}
+    </div>
   );
 }
 
@@ -167,7 +230,7 @@ const DeploymentsSection = () => {
 
           <div className="mb-12">
             <Typography className="text-teal-800 mb-6" variant="content">
-              International
+              {formatRegionHeading("International", ["Italy", "Qatar", "Kuwait", "Greece"])}
             </Typography>
             <ExpandableGrid
               items={internationalOperations}
@@ -177,14 +240,36 @@ const DeploymentsSection = () => {
             />
           </div>
 
-          <div>
+          <div className="space-y-12">
+            {domesticRegions.map((region) => (
+              <div key={region.title}>
+                <Typography className="text-teal-800 mb-6" variant="content">
+                  {formatRegionHeading(region.title, region.states)}
+                </Typography>
+                <ExpandableGrid
+                  items={region.items}
+                  renderItem={(item) => (
+                    <OperationCard
+                      key={`${item.id}-${item.name}-${item.location}`}
+                      item={item}
+                    />
+                  )}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12">
             <Typography className="text-teal-800 mb-6" variant="content">
-              Domestic
+              Partners
             </Typography>
             <ExpandableGrid
-              items={domesticOperations}
+              items={partnerOperations}
               renderItem={(item) => (
-                <OperationCard key={item.id} item={item} />
+                <OperationCard
+                  key={`${item.id}-${item.name}-${item.location}`}
+                  item={item}
+                />
               )}
             />
           </div>

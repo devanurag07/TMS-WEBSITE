@@ -33,7 +33,7 @@ import logoFlorianHurel from "@/assets/clients-logos/salon-chains-india/FLORIAN 
 import logoCutAndStyle from "@/assets/clients-logos/salon-chains-india/CUT & STYLE SALON.png";
 import logoLooks from "@/assets/clients-logos/salon-chains-india/LOOKS SALON.png";
 import logoPage3 from "@/assets/clients-logos/salon-chains-india/PAGE 3 SALON.png";
-import logoNaturals from "@/assets/clients-logos/salon-chains-india/NATURALS.png";
+import logoNaturals from "@/assets/clients-logos/salon-chains-india/NATURALS.jpeg";
 import logoNaturalsSignature from "@/assets/clients-logos/salon-chains-india/NATURALS SIGNATURE.png";
 import logoLucaPiattelli from "@/assets/clients-logos/salon-chains-india/LUCA PIATTELLI.png";
 import logoHairMasters from "@/assets/clients-logos/salon-chains-india/HAIR MASTERS.jpg";
@@ -42,11 +42,12 @@ import logoTheArtistSalon from "@/assets/clients-logos/salon-chains-india/THE AR
 import logoPortfolioSalon from "@/assets/clients-logos/salon-chains-india/PORTFOLIO SALON.jpeg";
 import logoMarcSalon from "@/assets/clients-logos/standalone-salons-india/marc.png";
 import logoJawedHabib from "@/assets/clients-logos/salon-chains-india/JAWED-HABIB.png";
-
+import logoDelnaazSalon from "@/assets/clients-logos/standalone-salons-india/DELNAAZ.png";
 
 // Client logos - Partners
 import logoMarc from "@/assets/clients-logos/partners/marc.png";
 import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
+import logoHairOriginals from "@/assets/clients-logos/partners/HAIR-ORIGINALS.jpeg";
 
 // Client logos - Standalone Salons India
 import logoClnz from "@/assets/clients-logos/standalone-salons-india/CLNZ.png";
@@ -67,6 +68,11 @@ import logoTrimX from '@/assets/clients-logos/standalone-salons-india/TRIMX-STUD
 import logoAmiroSalon from "@/assets/clients-logos/standalone-salons-india/AMIRO-SALON.jpeg";
 import logoDuskSalon from "@/assets/clients-logos/standalone-salons-india/DUSK-SALON.jpeg";
 import logoHoorSalon from "@/assets/clients-logos/standalone-salons-india/HOOR-SALON.jpeg";
+import logoBeSpoke from "@/assets/clients-logos/standalone-salons-india/BESPOKE.png";
+
+
+import logoBlowout from "@/assets/clients-logos/standalone-salons-india/BLOWOUT.png";
+import logoNexaBella from "@/assets/clients-logos/standalone-salons-india/NEXA-BELLA.png";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
 import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
@@ -78,11 +84,16 @@ const ScrollSpyDot = ({
 }: {
   active: boolean;
   onClick: () => void;
-  color: string;
+  color: "white" | "teal-950";
 }) => (
   <button
     onClick={onClick}
-    className={`w-0 h-0 - md:w-3 md:h-3 rounded-full transition-all duration-300 z-[9999] ${active ? `bg-${color} scale-125` : `bg-gray-400 hover:bg-${color}-400`
+    aria-label="Scroll to section"
+    className={`hidden md:block w-3 h-3 rounded-full transition-all duration-300 z-[9999] ${active
+      ? color === "white"
+        ? "bg-white scale-125 shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+        : "bg-teal-950 scale-125 shadow-[0_0_8px_rgba(15,118,110,0.5)]"
+      : "bg-gray-400 hover:scale-110"
       }`}
   />
 );
@@ -90,74 +101,81 @@ const ScrollSpyDot = ({
 type BrandLogo = { name: string; logo: typeof logoMaletti };
 
 const internationalBrands: BrandLogo[] = [
-  { name: "Maletti", logo: logoMaletti },
   { name: "Diva Lounge", logo: logoDivaLounge },
   { name: "Francis Beauty", logo: logoFrancisBeauty },
   { name: "KTEIS", logo: logoKteis },
+  { name: "Maletti", logo: logoMaletti },
 ];
 
 const salonChainsIndiaBrands: BrandLogo[] = [
-  { name: "Florian Hurel", logo: logoFlorianHurel },
   { name: "Cut & Style", logo: logoCutAndStyle },
-  { name: "LOOKS", logo: logoLooks },
-  { name: "Page 3", logo: logoPage3 },
-  { name: "Naturals", logo: logoNaturals },
-  { name: "Naturals Signature", logo: logoNaturalsSignature },
-  { name: "Luca Piattelli", logo: logoLucaPiattelli },
+  { name: "Florian Hurel", logo: logoFlorianHurel },
   { name: "Hair Masters", logo: logoHairMasters },
-  { name: "Play Salon", logo: logoPlaySalon },
-  { name: "The Artist Salon", logo: logoTheArtistSalon },
-  { name: "Portfolio Salon", logo: logoPortfolioSalon },
   { name: "Jawed Habib", logo: logoJawedHabib },
+  { name: "LOOKS", logo: logoLooks },
+  { name: "Naturals Next", logo: logoNaturals },
+  { name: "Naturals Signature", logo: logoNaturalsSignature },
+  { name: "Page 3", logo: logoPage3 },
 ];
 
 const partnerBrands: BrandLogo[] = [
+  { name: "HAIR ORIGINALS", logo: logoHairOriginals },
   { name: "MARC", logo: logoMarc },
   { name: "MIRRAR", logo: logoMirrar },
 ];
 
 const standaloneSalonsIndiaBrands: BrandLogo[] = [
+  { name: "Aira Unisex", logo: logoAire },
+  { name: "Aksh Glam Studio", logo: logoAkshGlamStudio },
+  { name: "Amiro Salon", logo: logoAmiroSalon },
+  { name: "Andham Salon", logo: logoAndhamSalon },
+  { name: "Aure Salon", logo: logoAureSalon },
+  { name: "Be Spoke", logo: logoBeSpoke },
+  { name: "Blowout", logo: logoBlowout },
   { name: "CLNZ", logo: logoClnz },
   { name: "Diona", logo: logoDiona },
-  { name: "OQ Derm", logo: logoOqDerm },
-  { name: "RC Studios", logo: logoRcStudios },
+  { name: "Dusk Salon", logo: logoDuskSalon },
   { name: "Hipster Salon", logo: logoHipster },
+  { name: "Hoor Salon", logo: logoHoorSalon },
+  { name: "La Nova", logo: logoLaNova },
+  { name: "NexaBella", logo: logoNexaBella },
+  { name: "OQ Derm", logo: logoOqDerm },
+  { name: "ORUM", logo: logoOrum },
+  { name: "Rajuls", logo: logoRajuls },
+  { name: "RC Studios", logo: logoRcStudios },
   { name: "Shivanjali Wellness", logo: logoShivanjali },
   { name: "The Little Hair Salon", logo: logoTheLittleHairSalon },
-  { name: "Andham Salon", logo: logoAndhamSalon },
-  { name: "Aksh Glam Studio", logo: logoAkshGlamStudio },
-  { name: "La Nova", logo: logoLaNova },
-  { name: "Aure Salon", logo: logoAureSalon },
-  { name: "Rajuls", logo: logoRajuls },
-  { name: "ORUM", logo: logoOrum },
   { name: "TrimX Studios", logo: logoTrimX },
-  { name: "Aira Unisex", logo: logoAire },
-  { name: "Amiro Salon", logo: logoAmiroSalon },
-  { name: "Hoor Salon", logo: logoHoorSalon },
-  { name: "Dusk Salon", logo: logoDuskSalon },
-
 ];
 
+const multiLocationSalonsBrands: BrandLogo[] = [
+  { name: "Delnaaz Salon", logo: logoDelnaazSalon },
+  { name: "Luca Piattelli", logo: logoLucaPiattelli },
+  { name: "Play Salon", logo: logoPlaySalon },
+  { name: "Portfolio Salon", logo: logoPortfolioSalon },
+  { name: "The Artist Salon", logo: logoTheArtistSalon },
+];
 const brandCategories = [
-  { title: "International", brands: internationalBrands },
-  { title: "Salon Chains · India", brands: salonChainsIndiaBrands },
-  { title: "Partners", brands: partnerBrands },
+  { title: "International Salons", brands: internationalBrands },
+  { title: "Salon Chains", brands: salonChainsIndiaBrands },
+  { title: "Multi-Location Salons", brands: multiLocationSalonsBrands },
   { title: "Standalone Salons · India", brands: standaloneSalonsIndiaBrands },
+  { title: "Partners", brands: partnerBrands },
 ];
 
 const sections = [
-  { id: "hero", color: "white" },
-  { id: "brands", color: "teal-950" },
-  { id: "our-presence", color: "white" },
-  { id: "global-presence", color: "teal-950" },
-  { id: "deployments", color: "teal-950" },
-  { id: "on-ground", color: "white" },
-  { id: "features", color: "teal-950" },
-  { id: "benefits", color: "white" },
-  { id: "comparison", color: "teal-950" },
-  { id: "faq", color: "white" },
-  { id: "contact", color: "teal-950" },
-  { id: "cta", color: "white" },
+  { id: "hero", color: "white" as const },
+  { id: "brands", color: "teal-950" as const },
+  { id: "our-presence", color: "white" as const },
+  { id: "global-presence", color: "teal-950" as const },
+  { id: "on-ground", color: "white" as const },
+  { id: "deployments", color: "teal-950" as const },
+  { id: "benefits", color: "white" as const },
+  { id: "features", color: "teal-950" as const },
+  { id: "comparison", color: "teal-950" as const },
+  { id: "faq", color: "white" as const },
+  { id: "contact", color: "teal-950" as const },
+  { id: "cta", color: "white" as const },
 ];
 
 type GifData = {
@@ -357,15 +375,17 @@ export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]) {
+          setActiveSection(visible[0].target.id);
+        }
       },
       {
-        threshold: [0.2],
-        rootMargin: "-10% 0px -10% 0px",
+        threshold: [0.15, 0.35, 0.55],
+        rootMargin: "-15% 0px -15% 0px",
       }
     );
 
@@ -504,7 +524,7 @@ export default function Home() {
                 </Typography>
                 <div className="h-px flex-1 bg-teal-950/10" />
               </div>
-              <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-14">
+              <div className="grid grid-cols- md:flex md:flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-14">
                 {category.brands.map((brand) => (
                   <div
                     key={brand.name}
