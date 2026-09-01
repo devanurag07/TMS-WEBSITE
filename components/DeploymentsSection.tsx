@@ -42,7 +42,7 @@ import natChennai from "@/assets/current-operations/NAT-CHENNAI.jpeg";
 import mirrarSalon from "@/assets/current-operations/RANIWALA JEWELLERY.jpeg";
 import marcSalon from "@/assets/current-operations/MARC-SALON.jpeg";
 import orumSalon from "@/assets/current-operations/ORUM.jpeg";
-
+//comment
 const PREVIEW_COUNT = 7;
 
 type DeploymentItem = {
