@@ -19,6 +19,7 @@ const presenceMapMarkers: MapMarker[] = [
   { name: "Bangalore", coordinates: [77.5946, 12.9716], labelOffset: { x: 0, y: -12 }, anchor: "middle" },
   { name: "Mumbai", coordinates: [72.8777, 19.076], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Kochi", coordinates: [76.2673, 9.9312], labelOffset: { x: -12, y: 4 }, anchor: "end" },
+  { name: "Chalakudy", coordinates: [76.3320, 10.3119], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Vuyyuru", coordinates: [80.8444, 16.3618], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Chandigarh", coordinates: [76.65, 30.85], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Thane", coordinates: [72.9781, 19.2183], labelOffset: { x: 12, y: 4 }, anchor: "start" },
@@ -34,20 +35,18 @@ const presenceMapMarkers: MapMarker[] = [
   { name: "Kozhikode", coordinates: [75.7804, 11.2588], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Kollam", coordinates: [76.6141, 8.8932], labelOffset: { x: -12, y: 4 }, anchor: "end" },
   { name: "Tirunelveli", coordinates: [77.6900, 8.7139], labelOffset: { x: 12, y: 4 }, anchor: "start" },
-
+  { name: "Jaipur", coordinates: [75.7873, 26.9124], labelOffset: { x: 12, y: 4 }, anchor: "start" },
+  { name: "Lohit", coordinates: [96.162, 27.913], labelOffset: { x: -12, y: 4 }, anchor: "end" },
+  { name: "Kharagpur", coordinates: [87.3237, 22.3460], labelOffset: { x: 12, y: 16 }, anchor: "start" },
+  { name: "Bhubaneswar", coordinates: [85.8245, 20.2961], labelOffset: { x: 12, y: 4 }, anchor: "start" },
 ];
 
 const upcomingMapMarkers: MapMarker[] = [
   { name: "Saharsa", coordinates: [86.595, 25.8838], labelOffset: { x: 12, y: 4 }, anchor: "start" },
-  { name: "Lohit", coordinates: [96.162, 27.913], labelOffset: { x: -12, y: 4 }, anchor: "end" },
-  { name: "Bhubaneswar", coordinates: [85.8245, 20.2961], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Mangalore", coordinates: [74.8560, 12.9141], labelOffset: { x: -12, y: 4 }, anchor: "end" },
-  { name: "Kharagpur", coordinates: [87.3237, 22.3460], labelOffset: { x: 12, y: 16 }, anchor: "start" },
   { name: "Surat", coordinates: [72.8311, 21.1702], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Sambhajinagar", coordinates: [75.3433, 19.8762], labelOffset: { x: 12, y: 4 }, anchor: "start" },
-  { name: "Jaipur", coordinates: [75.7873, 26.9124], labelOffset: { x: 12, y: 4 }, anchor: "start" },
   { name: "Pathankot", coordinates: [75.6499, 32.2643], labelOffset: { x: 12, y: 4 }, anchor: "start" },
-  { name: "Pulwama", coordinates: [74.8991, 33.8710], labelOffset: { x: -12, y: 4 }, anchor: "end" },
 ];
 
 const PresenceMapSection = () => {

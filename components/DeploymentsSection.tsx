@@ -45,6 +45,7 @@ import orumSalon from "@/assets/current-operations/ORUM.jpeg";
 import jawedHabibSalon from "@/assets/current-operations/jawed_habib.jpeg";
 import portfolioMalviyaNagar from "@/assets/current-operations/portfolio_malviya_nagar.jpeg";
 import portfolioPanchsheelEnclave from "@/assets/current-operations/portfolio_panchsheel_enclave.jpeg";
+import portfolioSafdarjungEnclave from "@/assets/current-operations/portfolio_safdarjung_enclave.jpeg";
 import lushangAesthetics from "@/assets/current-operations/lushang_ashetics_lohit.jpeg";
 import blowoutSalon from "@/assets/current-operations/blowout_salon_banglore.jpeg";
 //comment 
@@ -103,6 +104,7 @@ const domesticRegions: DeploymentRegion[] = [
       { id: 30, image: artistSalonGurgaon, name: "Artist Salon", location: "Gurgaon" },
       { id: 29, image: portfolioMalviyaNagar, name: "Portfolio Salon", location: "Malviya Nagar" },
       { id: 54, image: portfolioPanchsheelEnclave, name: "Portfolio Salon", location: "Panchsheel Enclave" },
+      { id: 57, image: portfolioSafdarjungEnclave, name: "Portfolio Salon", location: "Safdarjung Enclave" },
       { id: 34, image: ops12, name: "Hoor Salon", location: "Pathankot", isUpcoming: true },
       { id: 35, image: ops12, name: "Dusk Salon", location: "Jaipur", isUpcoming: true },
       { id: 39, image: ops12, name: "Nexa Bella", location: "Pulwama", isUpcoming: true },
@@ -161,7 +163,6 @@ const domesticRegions: DeploymentRegion[] = [
 
 const partnerOperations: DeploymentItem[] = [
   { id: 50, image: mirrarSalon, name: "Raniwala Jewellery", location: "Gurgaon" },
-  { id: 55, image: ops12, name: "Hair Originals", location: "Gurgaon", isUpcoming: true },
   { id: 51, image: marcSalon, name: "MARC", location: "Kochi" },
 ];
 

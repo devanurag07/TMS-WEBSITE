@@ -46,7 +46,6 @@ import logoDelnaazSalon from "@/assets/clients-logos/standalone-salons-india/DEL
 // Client logos - Partners
 import logoMarc from "@/assets/clients-logos/partners/marc.jpeg";
 import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
-import logoHairOriginals from "@/assets/clients-logos/partners/HAIR-ORIGINALS.jpeg";
 
 // Client logos - Standalone Salons India
 import logoClnz from "@/assets/clients-logos/standalone-salons-india/CLNZ.png";
@@ -71,8 +70,8 @@ import logoBeSpoke from "@/assets/clients-logos/standalone-salons-india/BESPOKE.
 
 
 import logoBlowout from "@/assets/clients-logos/standalone-salons-india/BLOWOUT.png";
-import logoNexaBella from "@/assets/clients-logos/standalone-salons-india/NEXA-BELLA.png";
-import logoDcube from "@/assets/current-operations/dcube.png";
+
+import logoDcube from "@/assets/clients-logos/standalone-salons-india/dcube.png";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
 import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
@@ -119,7 +118,6 @@ const salonChainsIndiaBrands: BrandLogo[] = [
 ];
 
 const partnerBrands: BrandLogo[] = [
-  { name: "HAIR ORIGINALS", logo: logoHairOriginals },
   { name: "MARC", logo: logoMarc },
   { name: "MIRRAR", logo: logoMirrar },
 ];
@@ -139,7 +137,6 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Hipster Salon", logo: logoHipster },
   { name: "Hoor Salon", logo: logoHoorSalon },
   { name: "La Nova", logo: logoLaNova },
-  { name: "NexaBella", logo: logoNexaBella },
   { name: "OQ Derm", logo: logoOqDerm },
   { name: "ORUM", logo: logoOrum },
   { name: "Rajuls", logo: logoRajuls },
