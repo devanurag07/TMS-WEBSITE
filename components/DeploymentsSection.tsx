@@ -42,6 +42,11 @@ import natChennai from "@/assets/current-operations/NAT-CHENNAI.jpeg";
 import mirrarSalon from "@/assets/current-operations/RANIWALA JEWELLERY.jpeg";
 import marcSalon from "@/assets/current-operations/MARC-SALON.jpeg";
 import orumSalon from "@/assets/current-operations/ORUM.jpeg";
+import jawedHabibSalon from "@/assets/current-operations/jawed_habib.jpeg";
+import portfolioMalviyaNagar from "@/assets/current-operations/portfolio_malviya_nagar.jpeg";
+import portfolioPanchsheelEnclave from "@/assets/current-operations/portfolio_panchsheel_enclave.jpeg";
+import lushangAesthetics from "@/assets/current-operations/lushang_ashetics_lohit.jpeg";
+import blowoutSalon from "@/assets/current-operations/blowout_salon_banglore.jpeg";
 //comment 
 const PREVIEW_COUNT = 7;
 
@@ -96,7 +101,8 @@ const domesticRegions: DeploymentRegion[] = [
       { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
       { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur" },
       { id: 30, image: artistSalonGurgaon, name: "Artist Salon", location: "Gurgaon" },
-      { id: 29, image: ops12, name: "Portfolio Salon", location: "New Delhi", isUpcoming: true },
+      { id: 29, image: portfolioMalviyaNagar, name: "Portfolio Salon", location: "Malviya Nagar" },
+      { id: 54, image: portfolioPanchsheelEnclave, name: "Portfolio Salon", location: "Panchsheel Enclave" },
       { id: 34, image: ops12, name: "Hoor Salon", location: "Pathankot", isUpcoming: true },
       { id: 35, image: ops12, name: "Dusk Salon", location: "Jaipur", isUpcoming: true },
       { id: 39, image: ops12, name: "Nexa Bella", location: "Pulwama", isUpcoming: true },
@@ -117,10 +123,10 @@ const domesticRegions: DeploymentRegion[] = [
       { id: 49, image: bespokeSalon, name: "BE-SPOKE", location: "Chennai" },
       { id: 15, image: playSalon, name: "Play Salon", location: "Bengaluru" },
       { id: 52, image: orumSalon, name: "ORUM", location: "Hyderabad" },
+      { id: 40, image: blowoutSalon, name: "Blowout Salon", location: "Bengaluru" },
       { id: 31, image: ops12, name: "Aira Salon", location: "Mangalore", isUpcoming: true },
       { id: 47, image: ops12, name: "PAGE 3", location: "Kochi", isUpcoming: true },
       { id: 44, image: ops12, name: "Naturals NXT", location: "Kollam", isUpcoming: true },
-      { id: 40, image: ops12, name: "Blowout Salon", location: "Bengaluru", isUpcoming: true },
     ],
   },
   {
@@ -142,12 +148,13 @@ const domesticRegions: DeploymentRegion[] = [
   },
   {
     title: "East",
-    states: ["West Bengal", "Bihar", "Odisha"],
+    states: ["West Bengal", "Bihar", "Odisha", "Arunachal Pradesh"],
     items: [
       { id: 9, image: ops9, name: "OQ Derm", location: "Kolkata" },
+      { id: 38, image: jawedHabibSalon, name: "Jawed Habib", location: "Bhubaneswar" },
+      { id: 56, image: lushangAesthetics, name: "Lushang Aesthetics", location: "Lohit" },
       { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga", isUpcoming: true },
       { id: 53, image: ops12, name: "TrimX Studios", location: "Kharagpur", isUpcoming: true },
-      { id: 38, image: ops12, name: "Jawed Habib", location: "Bhubaneshwar", isUpcoming: true },
     ],
   },
 ];

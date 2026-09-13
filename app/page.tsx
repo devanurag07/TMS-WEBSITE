@@ -40,12 +40,11 @@ import logoHairMasters from "@/assets/clients-logos/salon-chains-india/HAIR MAST
 import logoPlaySalon from "@/assets/clients-logos/salon-chains-india/PLAY SALON.png";
 import logoTheArtistSalon from "@/assets/clients-logos/salon-chains-india/THE ARTIST SALON.png";
 import logoPortfolioSalon from "@/assets/clients-logos/salon-chains-india/PORTFOLIO SALON.jpeg";
-import logoMarcSalon from "@/assets/clients-logos/standalone-salons-india/marc.png";
 import logoJawedHabib from "@/assets/clients-logos/salon-chains-india/JAWED-HABIB.png";
 import logoDelnaazSalon from "@/assets/clients-logos/standalone-salons-india/DELNAAZ.png";
 
 // Client logos - Partners
-import logoMarc from "@/assets/clients-logos/partners/marc.png";
+import logoMarc from "@/assets/clients-logos/partners/marc.jpeg";
 import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
 import logoHairOriginals from "@/assets/clients-logos/partners/HAIR-ORIGINALS.jpeg";
 
@@ -73,6 +72,7 @@ import logoBeSpoke from "@/assets/clients-logos/standalone-salons-india/BESPOKE.
 
 import logoBlowout from "@/assets/clients-logos/standalone-salons-india/BLOWOUT.png";
 import logoNexaBella from "@/assets/clients-logos/standalone-salons-india/NEXA-BELLA.png";
+import logoDcube from "@/assets/current-operations/dcube.png";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
 import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
@@ -133,6 +133,7 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Be Spoke", logo: logoBeSpoke },
   { name: "Blowout", logo: logoBlowout },
   { name: "CLNZ", logo: logoClnz },
+  { name: "DCUBE", logo: logoDcube },
   { name: "Diona", logo: logoDiona },
   { name: "Dusk Salon", logo: logoDuskSalon },
   { name: "Hipster Salon", logo: logoHipster },
