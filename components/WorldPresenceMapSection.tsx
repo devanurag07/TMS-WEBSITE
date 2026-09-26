@@ -1,6 +1,11 @@
 "use client";
 
-import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+} from "react-simple-maps";
 import { Typography } from "@/components/typography/typography";
 import indiaGeoJson from "@/assets/geojson/in.json";
 
@@ -18,12 +23,8 @@ type MapMarker = {
   anchor: "start" | "middle" | "end";
 };
 
-const HIGHLIGHTED_COUNTRIES = new Set([
-  "Italy",
-  "Qatar",
-  "Kuwait",
-  "Greece",
-]);
+const HIGHLIGHTED_COUNTRIES = new Set(["Italy", "Qatar", "Kuwait", "Greece"]);
+const UPCOMING_COUNTRIES = new Set(["Kenya"]);
 
 const operationalCountryMarkers: MapMarker[] = [
   {
@@ -44,12 +45,18 @@ const operationalCountryMarkers: MapMarker[] = [
     labelOffset: { x: 12, y: -8 },
     anchor: "start",
   },
+  {
+    name: "Greece",
+    coordinates: [21.8243, 39.0742],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+  },
 ];
 
 const upcomingCountryMarkers: MapMarker[] = [
   {
-    name: "Greece",
-    coordinates: [21.8243, 39.0742],
+    name: "Kenya",
+    coordinates: [37.9062, 0.0236],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
@@ -105,18 +112,19 @@ const WorldPresenceMapSection = () => {
                 .map((geo) => {
                   const countryName = geo.properties.name as string;
                   const highlighted = HIGHLIGHTED_COUNTRIES.has(countryName);
+                  const upcoming = UPCOMING_COUNTRIES.has(countryName);
 
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill={highlighted ? "#0f766e" : LAND_FILL}
-                      stroke={highlighted ? "#115e59" : LAND_STROKE}
+                      fill={highlighted ? "#0f766e" : upcoming ? "#FDE68A" : LAND_FILL}
+                      stroke={highlighted ? "#115e59" : upcoming ? "#F59E0B" : LAND_STROKE}
                       strokeWidth={0.5}
                       style={{
                         default: { outline: "none" },
                         hover: {
-                          fill: highlighted ? "#0d9488" : LAND_HOVER,
+                          fill: highlighted ? "#0d9488" : upcoming ? "#FCD34D" : LAND_HOVER,
                           outline: "none",
                           cursor: "pointer",
                         },
@@ -185,7 +193,7 @@ const WorldPresenceMapSection = () => {
                   {name}
                 </text>
               </Marker>
-            )
+            ),
           )}
 
           {upcomingCountryMarkers.map(
@@ -222,7 +230,7 @@ const WorldPresenceMapSection = () => {
                   {name}
                 </text>
               </Marker>
-            )
+            ),
           )}
         </ComposableMap>
       </div>

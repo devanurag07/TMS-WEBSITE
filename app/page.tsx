@@ -46,6 +46,7 @@ import logoDelnaazSalon from "@/assets/clients-logos/standalone-salons-india/DEL
 // Client logos - Partners
 import logoMarc from "@/assets/clients-logos/partners/marc.jpeg";
 import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
+import logoMaWa from "@/assets/clients-logos/partners/MA-WA.png";
 
 // Client logos - Standalone Salons India
 import logoClnz from "@/assets/clients-logos/standalone-salons-india/CLNZ.png";
@@ -62,13 +63,15 @@ import logoAureSalon from "@/assets/clients-logos/standalone-salons-india/AURE S
 import logoRajuls from "@/assets/clients-logos/standalone-salons-india/RAJULS.jpeg";
 import logoOrum from "@/assets/clients-logos/salon-chains-india/orum.png";
 import logoAire from "@/assets/clients-logos/standalone-salons-india/AIRA-SALON.jpeg";
-import logoTrimX from '@/assets/clients-logos/standalone-salons-india/TRIMX-STUDIOS.jpeg';
+import logoTrimX from "@/assets/clients-logos/standalone-salons-india/TRIMX-STUDIOS.jpeg";
 import logoAmiroSalon from "@/assets/clients-logos/standalone-salons-india/AMIRO-SALON.jpeg";
 import logoDuskSalon from "@/assets/clients-logos/standalone-salons-india/DUSK-SALON.jpeg";
 import logoHoorSalon from "@/assets/clients-logos/standalone-salons-india/HOOR-SALON.jpeg";
 import logoBeSpoke from "@/assets/clients-logos/standalone-salons-india/BESPOKE.png";
 
-
+import logoFawn from "@/assets/clients-logos/standalone-salons-india/FAWN.jpeg";
+import logoSvsdm from "@/assets/clients-logos/standalone-salons-india/SVSDM.png";
+import logoWings from "@/assets/clients-logos/standalone-salons-india/WINGS.jpeg";
 import logoBlowout from "@/assets/clients-logos/standalone-salons-india/BLOWOUT.png";
 
 import logoDcube from "@/assets/clients-logos/standalone-salons-india/dcube.png";
@@ -88,12 +91,13 @@ const ScrollSpyDot = ({
   <button
     onClick={onClick}
     aria-label="Scroll to section"
-    className={`hidden md:block w-3 h-3 rounded-full transition-all duration-300 z-[9999] ${active
-      ? color === "white"
-        ? "bg-white scale-125 shadow-[0_0_8px_rgba(255,255,255,0.8)]"
-        : "bg-teal-950 scale-125 shadow-[0_0_8px_rgba(15,118,110,0.5)]"
-      : "bg-gray-400 hover:scale-110"
-      }`}
+    className={`hidden md:block w-3 h-3 rounded-full transition-all duration-300 z-[9999] ${
+      active
+        ? color === "white"
+          ? "bg-white scale-125 shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+          : "bg-teal-950 scale-125 shadow-[0_0_8px_rgba(15,118,110,0.5)]"
+        : "bg-gray-400 hover:scale-110"
+    }`}
   />
 );
 
@@ -118,8 +122,9 @@ const salonChainsIndiaBrands: BrandLogo[] = [
 ];
 
 const partnerBrands: BrandLogo[] = [
-  { name: "MARC", logo: logoMarc },
+  { name: "LiveInPro", logo: logoMarc },
   { name: "MIRRAR", logo: logoMirrar },
+  { name: "MAWA", logo: logoMaWa },
 ];
 
 const standaloneSalonsIndiaBrands: BrandLogo[] = [
@@ -134,6 +139,7 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "DCUBE", logo: logoDcube },
   { name: "Diona", logo: logoDiona },
   { name: "Dusk Salon", logo: logoDuskSalon },
+  { name: "Fawn", logo: logoFawn },
   { name: "Hipster Salon", logo: logoHipster },
   { name: "Hoor Salon", logo: logoHoorSalon },
   { name: "La Nova", logo: logoLaNova },
@@ -142,8 +148,10 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Rajuls", logo: logoRajuls },
   { name: "RC Studios", logo: logoRcStudios },
   { name: "Shivanjali Wellness", logo: logoShivanjali },
+  { name: "SVSDM", logo: logoSvsdm },
   { name: "The Little Hair Salon", logo: logoTheLittleHairSalon },
   { name: "TrimX Studios", logo: logoTrimX },
+  { name: "Wings", logo: logoWings },
 ];
 
 const multiLocationSalonsBrands: BrandLogo[] = [
@@ -208,13 +216,10 @@ function OnGroundVisitsSection() {
             <br />
             One Salon at a Time.
           </Typography>
-          <Typography
-            variant="content"
-            className="text-gray-400 max-w-[640px]"
-          >
-            We travel across India to meet salon &amp; brand owners in
-            person, understanding their floors, their customers, and
-            building the partnerships behind every mirror we install.
+          <Typography variant="content" className="text-gray-400 max-w-[640px]">
+            We travel across India to meet salon &amp; brand owners in person,
+            understanding their floors, their customers, and building the
+            partnerships behind every mirror we install.
           </Typography>
         </div>
 
@@ -269,9 +274,7 @@ function OnGroundVisitsSection() {
               onClick={() => setExpanded((v) => !v)}
               className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full border-2 border-white/30 text-white font-medium text-sm md:text-base bg-white/5 backdrop-blur-sm hover:bg-white hover:text-teal-950 hover:border-white transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-xl hover:scale-[1.02]"
             >
-              <span>
-                {expanded ? "Show less" : `Show more`}
-              </span>
+              <span>{expanded ? "Show less" : `Show more`}</span>
               <ChevronDown
                 size={18}
                 className={`transition-transform duration-300 ${expanded ? "rotate-180" : "group-hover:translate-y-0.5"}`}
@@ -318,7 +321,7 @@ export default function Home() {
     name: string,
     email: string,
     message: string,
-    reason: string
+    reason: string,
   ) => {
     if (!email || !name || !message || !reason) {
       alert("Please fill all the fields");
@@ -384,7 +387,7 @@ export default function Home() {
       {
         threshold: [0.15, 0.35, 0.55],
         rootMargin: "-15% 0px -15% 0px",
-      }
+      },
     );
 
     sections.forEach((section) => {
@@ -541,7 +544,6 @@ export default function Home() {
               </div>
             </div>
           ))}
-
         </section>
       </div>
 
@@ -553,8 +555,6 @@ export default function Home() {
       <DeploymentsSection />
 
       <CustomerBehaviourSection />
-
-
 
       <div
         id="features"
@@ -588,8 +588,9 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`relative z-[1] transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-40"
-                    }`}
+                  className={`relative z-[1] transition-opacity duration-500 ${
+                    index === activeGifIndex ? "opacity-100" : "opacity-40"
+                  }`}
                 >
                   <video
                     src={gif.url}
@@ -597,14 +598,16 @@ export default function Home() {
                     loop
                     muted
                     playsInline
-                    className={`${index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"
-                      } h-full rounded-3xl shadow-lg object-cover`}
+                    className={`${
+                      index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"
+                    } h-full rounded-3xl shadow-lg object-cover`}
                   />
 
                   <Typography
                     variant="subheading"
-                    className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeGifIndex ? "opacity-100" : "opacity-0"
-                      }`}
+                    className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${
+                      index === activeGifIndex ? "opacity-100" : "opacity-0"
+                    }`}
                   >
                     {gif.text}
                   </Typography>
@@ -617,8 +620,9 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-center transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-100"
-                    }`}
+                  className={`flex items-center justify-center transition-opacity duration-500 ${
+                    index === activeGifIndex ? "opacity-100" : "opacity-100"
+                  }`}
                 >
                   <div className="relative">
                     <video
@@ -960,18 +964,20 @@ export default function Home() {
                       <div className="w-[10px]"></div>
 
                       <span
-                        className={`text-2xl text-white transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""
-                          }`}
+                        className={`text-2xl text-white transition-transform duration-300 ${
+                          activeFaq === key ? "rotate-45 !text-red-500" : ""
+                        }`}
                       >
                         +
                       </span>
                     </div>
                   </button>
                   <div
-                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${activeFaq === key
-                      ? "max-h-[500px] opacity-100"
-                      : "max-h-0 opacity-0"
-                      }`}
+                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${
+                      activeFaq === key
+                        ? "max-h-[500px] opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
                   >
                     <div className="p-5 text-white bg-teal-950 border border-white/10 rounded-b-lg">
                       <Typography
@@ -1141,7 +1147,8 @@ export default function Home() {
               Thank You!
             </h3>
             <p className="text-gray-600 text-lg mb-8">
-              We have received your message. Our team will connect with you soon!
+              We have received your message. Our team will connect with you
+              soon!
             </p>
             <button
               onClick={() => setShowSuccessDialog(false)}

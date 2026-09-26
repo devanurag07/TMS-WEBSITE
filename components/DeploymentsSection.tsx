@@ -47,8 +47,11 @@ import portfolioMalviyaNagar from "@/assets/current-operations/portfolio_malviya
 import portfolioPanchsheelEnclave from "@/assets/current-operations/portfolio_panchsheel_enclave.jpeg";
 import portfolioSafdarjungEnclave from "@/assets/current-operations/portfolio_safdarjung_enclave.jpeg";
 import lushangAesthetics from "@/assets/current-operations/lushang_ashetics_lohit.jpeg";
-import blowoutSalon from "@/assets/current-operations/blowout_salon_banglore.jpeg";
-//comment 
+import blowoutSalon from "@/assets/current-operations/blowout-salon.png";
+import kteisGreece from "@/assets/current-operations/KTEIS-GREECE.jpeg";
+import dcubeSalon from "@/assets/current-operations/DCUBE-SALON.jpeg";
+import trimXSalon from "@/assets/current-operations/TrimX.jpeg";
+//comment
 const PREVIEW_COUNT = 7;
 
 type DeploymentItem = {
@@ -85,50 +88,231 @@ const pilotDeployments: DeploymentItem[] = [
 ];
 
 const internationalOperations: DeploymentItem[] = [
-  { id: 11, image: ops11, name: "Maletti S.P.A.", location: "Reggio Emilia", featured: true },
-  { id: 14, image: qatarSalon, name: "Diva Lounge Spa", location: "Doha", featured: false },
-  { id: 28, image: ops12, name: "Francis Beauty", location: "Kuwait", isUpcoming: true },
-  { id: 32, image: ops12, name: "Kteis Hair IKE", location: "Thessaloniki", isUpcoming: true },
+  {
+    id: 11,
+    image: ops11,
+    name: "Maletti S.P.A.",
+    location: "Reggio Emilia",
+    featured: true,
+  },
+  {
+    id: 14,
+    image: qatarSalon,
+    name: "Diva Lounge Spa",
+    location: "Doha",
+    featured: false,
+  },
+  {
+    id: 28,
+    image: ops12,
+    name: "Francis Beauty",
+    location: "Kuwait",
+    isUpcoming: true,
+  },
+  {
+    id: 32,
+    image: kteisGreece,
+    name: "Kteis Hair IKE",
+    location: "Thessaloniki",
+  },
+  {
+    id: 65,
+    image: ops12,
+    name: "Coming Soon",
+    location: "Kenya",
+    isUpcoming: true,
+  },
 ];
 
 const domesticRegions: DeploymentRegion[] = [
   {
     title: "North",
-    states: ["Delhi", "Uttar Pradesh", "Chandigarh", "Punjab", "Haryana", "Rajasthan", "Jammu & Kashmir"],
+    states: [
+      "Delhi",
+      "Uttar Pradesh",
+      "Chandigarh",
+      "Punjab",
+      "Haryana",
+      "Rajasthan",
+      "Jammu & Kashmir",
+    ],
     items: [
       { id: 10, image: ops10, name: "Diona Artisan Salon", location: "Noida" },
       { id: 7, image: ops7, name: "CLNZ Salon", location: "New Delhi" },
       { id: 13, image: ops13, name: "Luca Piattelli", location: "New Delhi" },
-      { id: 17, image: hairMasterSalon, name: "Hair Masters Salon", location: "Chandigarh" },
-      { id: 22, image: artistSalon, name: "Artist Salon", location: "Zirakpur" },
-      { id: 30, image: artistSalonGurgaon, name: "Artist Salon", location: "Gurgaon" },
-      { id: 29, image: portfolioMalviyaNagar, name: "Portfolio Salon", location: "Malviya Nagar" },
-      { id: 54, image: portfolioPanchsheelEnclave, name: "Portfolio Salon", location: "Panchsheel Enclave" },
-      { id: 57, image: portfolioSafdarjungEnclave, name: "Portfolio Salon", location: "Safdarjung Enclave" },
-      { id: 34, image: ops12, name: "Hoor Salon", location: "Pathankot", isUpcoming: true },
-      { id: 35, image: ops12, name: "Dusk Salon", location: "Jaipur", isUpcoming: true },
-      { id: 39, image: ops12, name: "Nexa Bella", location: "Pulwama", isUpcoming: true },
+      {
+        id: 17,
+        image: hairMasterSalon,
+        name: "Hair Masters Salon",
+        location: "Chandigarh",
+      },
+      {
+        id: 22,
+        image: artistSalon,
+        name: "Artist Salon",
+        location: "Zirakpur",
+      },
+      {
+        id: 30,
+        image: artistSalonGurgaon,
+        name: "Artist Salon",
+        location: "Gurgaon",
+      },
+      {
+        id: 29,
+        image: portfolioMalviyaNagar,
+        name: "Portfolio Salon",
+        location: "Malviya Nagar",
+      },
+      {
+        id: 54,
+        image: portfolioPanchsheelEnclave,
+        name: "Portfolio Salon",
+        location: "Panchsheel Enclave",
+      },
+      {
+        id: 57,
+        image: portfolioSafdarjungEnclave,
+        name: "Portfolio Salon",
+        location: "Safdarjung Enclave",
+      },
+      {
+        id: 34,
+        image: ops12,
+        name: "Hoor Salon",
+        location: "Pathankot",
+        isUpcoming: true,
+      },
+      {
+        id: 35,
+        image: ops12,
+        name: "Dusk Salon",
+        location: "Jaipur",
+        isUpcoming: true,
+      },
     ],
   },
   {
     title: "South",
-    states: ["Karnataka", "Andhra Pradesh", "Kerala", "Tamil Nadu", "Telangana"],
+    states: [
+      "Karnataka",
+      "Andhra Pradesh",
+      "Kerala",
+      "Tamil Nadu",
+      "Telangana",
+    ],
     items: [
       { id: 8, image: ops8, name: "Cut & Style Salon", location: "Bengaluru" },
-      { id: 23, image: andham_salon, name: "Andham Salon", location: "Vuyyuru" },
+      {
+        id: 23,
+        image: andham_salon,
+        name: "Andham Salon",
+        location: "Vuyyuru",
+      },
       { id: 24, image: aure_salon, name: "Aure Salon", location: "Kochi" },
-      { id: 41, image: natTirunelveli, name: "Naturals NXT", location: "Tirunelveli" },
-      { id: 42, image: natChennai, name: "Naturals Signature", location: "Chennai" },
+      {
+        id: 41,
+        image: natTirunelveli,
+        name: "Naturals NXT",
+        location: "Tirunelveli",
+      },
+      {
+        id: 49,
+        image: dcubeSalon,
+        name: "DCUBE Salon",
+        location: "Chalakudy",
+      },
+      {
+        id: 42,
+        image: natChennai,
+        name: "Naturals Signature",
+        location: "Chennai",
+      },
       { id: 43, image: natKozhikode, name: "PAGE 3", location: "Kozhikode" },
-      { id: 45, image: natCoimbatore, name: "Naturals Signature", location: "Coimbatore" },
-      { id: 46, image: natBangalore, name: "Naturals Signature", location: "Bengaluru" },
+      {
+        id: 45,
+        image: natCoimbatore,
+        name: "Naturals Signature",
+        location: "Coimbatore",
+      },
+      {
+        id: 46,
+        image: natBangalore,
+        name: "Naturals Signature",
+        location: "Bengaluru",
+      },
       { id: 49, image: bespokeSalon, name: "BE-SPOKE", location: "Chennai" },
       { id: 15, image: playSalon, name: "Play Salon", location: "Bengaluru" },
       { id: 52, image: orumSalon, name: "ORUM", location: "Hyderabad" },
-      { id: 40, image: blowoutSalon, name: "Blowout Salon", location: "Bengaluru" },
-      { id: 31, image: ops12, name: "Aira Salon", location: "Mangalore", isUpcoming: true },
-      { id: 47, image: ops12, name: "PAGE 3", location: "Kochi", isUpcoming: true },
-      { id: 44, image: ops12, name: "Naturals NXT", location: "Kollam", isUpcoming: true },
+      {
+        id: 40,
+        image: blowoutSalon,
+        name: "Blowout Salon",
+        location: "Bengaluru",
+      },
+      {
+        id: 31,
+        image: ops12,
+        name: "Aira Salon",
+        location: "Mangalore",
+        isUpcoming: true,
+      },
+      {
+        id: 47,
+        image: ops12,
+        name: "PAGE 3",
+        location: "Kochi",
+        isUpcoming: true,
+      },
+      {
+        id: 44,
+        image: ops12,
+        name: "Naturals NXT",
+        location: "Kollam",
+        isUpcoming: true,
+      },
+      {
+        id: 61,
+        image: ops12,
+        name: "Naturals",
+        location: "Kollam",
+        isUpcoming: true,
+      },
+      {
+        id: 58,
+        image: ops12,
+        name: "Naturals",
+        location: "Kayamkulam",
+        isUpcoming: true,
+      },
+      {
+        id: 59,
+        image: ops12,
+        name: "Naturals",
+        location: "Bengaluru",
+        isUpcoming: true,
+      },
+      {
+        id: 60,
+        image: ops12,
+        name: "Naturals",
+        location: "Chalakudy",
+        isUpcoming: true,
+      },
+      {
+        id: 62,
+        image: ops12,
+        name: "Wings Styling Centre",
+        location: "Kozikode",
+        isUpcoming: true,
+      },
+      {
+        id: 63,
+        image: ops12,
+        name: "SVSDM Studios",
+        location: "Vijayawada",
+        isUpcoming: true,
+      },
     ],
   },
   {
@@ -136,16 +320,66 @@ const domesticRegions: DeploymentRegion[] = [
     states: ["Madhya Pradesh", "Maharashtra", "Gujarat"],
     items: [
       { id: 6, image: ops6, name: "RC Studios", location: "Bhopal" },
-      { id: 21, image: luca_piattelli, name: "Luca Piattelli", location: "Mumbai" },
-      { id: 20, image: puneSalon, name: "The Little Hair Salon", location: "Pune" },
-      { id: 12, image: lanovaSalon, name: "La Nova Salon", location: "Ahmedabad" },
+      {
+        id: 21,
+        image: luca_piattelli,
+        name: "Luca Piattelli",
+        location: "Mumbai",
+      },
+      {
+        id: 20,
+        image: puneSalon,
+        name: "The Little Hair Salon",
+        location: "Pune",
+      },
+      {
+        id: 12,
+        image: lanovaSalon,
+        name: "La Nova Salon",
+        location: "Ahmedabad",
+      },
       { id: 14, image: hipsterSalon, name: "Hipster Salon", location: "Thane" },
-      { id: 18, image: shivanjaliSalon, name: "Shivanjali Wellness", location: "Bhavnagar" },
-      { id: 34, image: rajulsNashik, name: "Rajuls Belleza", location: "Nashik" },
+      {
+        id: 18,
+        image: shivanjaliSalon,
+        name: "Shivanjali Wellness",
+        location: "Bhavnagar",
+      },
+      {
+        id: 34,
+        image: rajulsNashik,
+        name: "Rajuls Belleza",
+        location: "Nashik",
+      },
       { id: 48, image: natPune, name: "Naturals NXT", location: "Pune" },
-      { id: 33, image: ops12, name: "Amiro Salon", location: "Surat", isUpcoming: true },
-      { id: 36, image: ops12, name: "Delnaaz", location: "Sambhajinagar", isUpcoming: true },
-      { id: 37, image: ops12, name: "Delnaaz", location: "Navi Mumbai", isUpcoming: true },
+      {
+        id: 33,
+        image: ops12,
+        name: "Amiro Salon",
+        location: "Surat",
+        isUpcoming: true,
+      },
+      {
+        id: 36,
+        image: ops12,
+        name: "Delnaaz",
+        location: "Sambhajinagar",
+        isUpcoming: true,
+      },
+      {
+        id: 37,
+        image: ops12,
+        name: "Delnaaz",
+        location: "Navi Mumbai",
+        isUpcoming: true,
+      },
+      {
+        id: 64,
+        image: ops12,
+        name: "FAWN Freelance Salon",
+        location: "Jabalpur",
+        isUpcoming: true,
+      },
     ],
   },
   {
@@ -153,16 +387,42 @@ const domesticRegions: DeploymentRegion[] = [
     states: ["West Bengal", "Bihar", "Odisha", "Arunachal Pradesh"],
     items: [
       { id: 9, image: ops9, name: "OQ Derm", location: "Kolkata" },
-      { id: 38, image: jawedHabibSalon, name: "Jawed Habib", location: "Bhubaneswar" },
-      { id: 56, image: lushangAesthetics, name: "Lushang Aesthetics", location: "Lohit" },
-      { id: 19, image: ops12, name: "Aks Salon", location: "Darbhanga", isUpcoming: true },
-      { id: 53, image: ops12, name: "TrimX Studios", location: "Kharagpur", isUpcoming: true },
+      {
+        id: 38,
+        image: jawedHabibSalon,
+        name: "Jawed Habib",
+        location: "Bhubaneswar",
+      },
+      {
+        id: 56,
+        image: lushangAesthetics,
+        name: "Lushang Aesthetics",
+        location: "Lohit",
+      },
+      {
+        id: 19,
+        image: ops12,
+        name: "Aks Salon",
+        location: "Darbhanga",
+        isUpcoming: true,
+      },
+      {
+        id: 53,
+        image: trimXSalon,
+        name: "TrimX Studios",
+        location: "Kharagpur",
+      },
     ],
   },
 ];
 
 const partnerOperations: DeploymentItem[] = [
-  { id: 50, image: mirrarSalon, name: "Raniwala Jewellery", location: "Gurgaon" },
+  {
+    id: 50,
+    image: mirrarSalon,
+    name: "Raniwala Jewellery",
+    location: "Gurgaon",
+  },
   { id: 51, image: marcSalon, name: "MARC", location: "Kochi" },
 ];
 
@@ -238,12 +498,22 @@ const DeploymentsSection = () => {
 
           <div className="mb-12">
             <Typography className="text-teal-800 mb-6" variant="content">
-              {formatRegionHeading("International", ["Italy", "Qatar", "Kuwait", "Greece"])}
+              {formatRegionHeading("International", [
+                "Italy",
+                "Qatar",
+                "Kuwait",
+                "Greece",
+                "Kenya",
+              ])}
             </Typography>
             <ExpandableGrid
               items={internationalOperations}
               renderItem={(item) => (
-                <OperationCard key={item.id} item={item} featured={item.featured} />
+                <OperationCard
+                  key={item.id}
+                  item={item}
+                  featured={item.featured}
+                />
               )}
             />
           </div>
@@ -291,10 +561,7 @@ const DeploymentsSection = () => {
           </div>
           <ExpandableGrid
             items={pilotDeployments}
-            renderItem={(item) => (
-              <OperationCard key={item.id} item={item} />
-            )}
-
+            renderItem={(item) => <OperationCard key={item.id} item={item} />}
           />
         </div>
       </div>
@@ -323,7 +590,14 @@ function OperationCard({
         {item.isUpcoming && (
           <div className="absolute inset-0 flex items-center justify-center z-10">
             <span className="bg-yellow-200/90 text-yellow-800 px-2 py-0.5 rounded text-[13px] font-semibold border border-yellow-300 shadow-sm flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-3 h-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
                 <rect x="5" y="2" width="14" height="18" rx="3" />
                 <path d="M9 21h6" strokeLinecap="round" />
                 <path d="M12 6v6" strokeLinecap="round" />
@@ -334,9 +608,9 @@ function OperationCard({
           </div>
         )}
 
-
-
-        {!item.isUpcoming && <div className="absolute inset-0 bg-[#008080]/40" />}
+        {!item.isUpcoming && (
+          <div className="absolute inset-0 bg-[#008080]/40" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <p className="text-white font-semibold text-base leading-tight">
