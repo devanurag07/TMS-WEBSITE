@@ -47,7 +47,7 @@ import portfolioMalviyaNagar from "@/assets/current-operations/portfolio_malviya
 import portfolioPanchsheelEnclave from "@/assets/current-operations/portfolio_panchsheel_enclave.jpeg";
 import portfolioSafdarjungEnclave from "@/assets/current-operations/portfolio_safdarjung_enclave.jpeg";
 import lushangAesthetics from "@/assets/current-operations/lushang_ashetics_lohit.jpeg";
-import blowoutSalon from "@/assets/current-operations/blowout-salon.png";
+import blowoutSalon from "@/assets/current-operations/blowout_salon_banglore.jpeg";
 import kteisGreece from "@/assets/current-operations/KTEIS-GREECE.jpeg";
 import dcubeSalon from "@/assets/current-operations/DCUBE-SALON.jpeg";
 import trimXSalon from "@/assets/current-operations/TrimX.jpeg";
