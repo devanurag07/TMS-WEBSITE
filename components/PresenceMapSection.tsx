@@ -32,7 +32,7 @@ const operationalMarkers: MapMarker[] = [
     coordinates: [77.1, 28.7],
     labelOffset: { x: -12, y: 4 },
     anchor: "end",
-    count: 5,
+    count: 7,
   },
   {
     name: "Bhopal",
@@ -224,6 +224,13 @@ const operationalMarkers: MapMarker[] = [
     anchor: "start",
     count: 1,
   },
+  {
+    name: "Kozhikode",
+    coordinates: [75.7804, 11.2588],
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+    count: 2,
+  },
 ];
 
 const upcomingMarkers: MapMarker[] = [
@@ -237,13 +244,6 @@ const upcomingMarkers: MapMarker[] = [
   {
     name: "Pathankot",
     coordinates: [75.6499, 32.2643],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-    count: 1,
-  },
-  {
-    name: "Vadakara",
-    coordinates: [75.489, 11.595],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
     count: 1,
@@ -278,7 +278,6 @@ const overviewLabelCities = new Set([
   "Bhopal",
   "Bhubaneswar",
   "Jaipur",
-  "Kozhikode",
   "Lohit",
 ]);
 
@@ -352,7 +351,6 @@ const zoneConfigs: {
       "Chennai",
       "Coimbatore",
       "Kozhikode",
-      "Vadakara",
       "Chalakudy",
       "Kochi",
       "Kollam",
@@ -400,7 +398,7 @@ const PresenceMapSection = () => {
           variant="subheading"
           className="text-teal-400 uppercase tracking-widest mb-1 md:mb-2"
         >
-          Our Presence
+          60+ Salons
         </Typography>
         <Typography variant="h1" className="text-white">
           Across India
@@ -478,8 +476,8 @@ const PresenceMapSection = () => {
                   key={geo.rsmKey}
                   geography={geo}
                   fill="#1a3a3a"
-                  stroke="#2a7a7a"
-                  strokeWidth={1}
+                  stroke="rgba(90, 188, 188, 0.3)"
+                  strokeWidth={0.5}
                   style={{
                     default: { outline: "none" },
                     hover: {
