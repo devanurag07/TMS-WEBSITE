@@ -51,6 +51,8 @@ import blowoutSalon from "@/assets/current-operations/blowout_salon_banglore.jpe
 import kteisGreece from "@/assets/current-operations/KTEIS-GREECE.jpeg";
 import dcubeSalon from "@/assets/current-operations/DCUBE-SALON.jpeg";
 import trimXSalon from "@/assets/current-operations/TrimX.jpeg";
+import francisBeautyKuwait from "@/assets/current-operations/francis-beauty-kuwait.jpg";
+import duskSalonJaipur from "@/assets/current-operations/dusk-salon-jaipur.jpg";
 //comment
 const PREVIEW_COUNT = 7;
 
@@ -104,10 +106,9 @@ const internationalOperations: DeploymentItem[] = [
   },
   {
     id: 28,
-    image: ops12,
+    image: francisBeautyKuwait,
     name: "Francis Beauty",
     location: "Kuwait",
-    isUpcoming: true,
   },
   {
     id: 32,
@@ -185,10 +186,9 @@ const domesticRegions: DeploymentRegion[] = [
       },
       {
         id: 35,
-        image: ops12,
+        image: duskSalonJaipur,
         name: "Dusk Salon",
         location: "Jaipur",
-        isUpcoming: true,
       },
     ],
   },
