@@ -136,6 +136,14 @@ const Footer = ({ openCalendly }: FooterProps) => {
                     About Us
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/wall"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    The Try My Style Wall
+                  </a>
+                </li>
 
                 <li>
                   <a
