@@ -53,6 +53,9 @@ import dcubeSalon from "@/assets/current-operations/DCUBE-SALON.jpeg";
 import trimXSalon from "@/assets/current-operations/TrimX.jpeg";
 import francisBeautyKuwait from "@/assets/current-operations/francis-beauty-kuwait.jpg";
 import duskSalonJaipur from "@/assets/current-operations/dusk-salon-jaipur.jpg";
+import makeupChemistryVijayawada from "@/assets/current-operations/makeup-chemistry-vijayawada.jpeg";
+import delnaazNaviMumbai from "@/assets/current-operations/delnaaz-navi-mumbai.jpeg";
+import svsdmSalonVijayawada from "@/assets/current-operations/svsdm-salon-vijayawada.jpeg";
 //comment
 const PREVIEW_COUNT = 7;
 
@@ -178,13 +181,6 @@ const domesticRegions: DeploymentRegion[] = [
         location: "Safdarjung Enclave",
       },
       {
-        id: 34,
-        image: ops12,
-        name: "Hoor Salon",
-        location: "Pathankot",
-        isUpcoming: true,
-      },
-      {
         id: 35,
         image: duskSalonJaipur,
         name: "Dusk Salon",
@@ -251,6 +247,12 @@ const domesticRegions: DeploymentRegion[] = [
         location: "Bengaluru",
       },
       {
+        id: 66,
+        image: makeupChemistryVijayawada,
+        name: "Makeup Chemistry",
+        location: "Vijayawada",
+      },
+      {
         id: 31,
         image: ops12,
         name: "Aira Salon",
@@ -307,11 +309,17 @@ const domesticRegions: DeploymentRegion[] = [
         isUpcoming: true,
       },
       {
-        id: 63,
+        id: 68,
         image: ops12,
+        name: "J Salon",
+        location: "Ananthapur",
+        isUpcoming: true,
+      },
+      {
+        id: 63,
+        image: svsdmSalonVijayawada,
         name: "SVSDM Studios",
         location: "Vijayawada",
-        isUpcoming: true,
       },
     ],
   },
@@ -368,16 +376,22 @@ const domesticRegions: DeploymentRegion[] = [
       },
       {
         id: 37,
-        image: ops12,
+        image: delnaazNaviMumbai,
         name: "Delnaaz",
         location: "Navi Mumbai",
-        isUpcoming: true,
       },
       {
         id: 64,
         image: ops12,
         name: "FAWN Freelance Salon",
         location: "Jabalpur",
+        isUpcoming: true,
+      },
+      {
+        id: 67,
+        image: ops12,
+        name: "Salon 24 Prive",
+        location: "Nadiad",
         isUpcoming: true,
       },
     ],

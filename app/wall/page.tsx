@@ -17,7 +17,6 @@ import lucaPiattelli from "@/assets/wall/luca-piattelli.jpeg";
 import rcStudios from "@/assets/wall/rc-studios.jpeg";
 import duskSalon from "@/assets/wall/dusk-salon.jpeg";
 import dcubeSalon from "@/assets/wall/dcube.jpeg";
-import makeupChemistry from "@/assets/wall/makeup-chemistry.jpeg";
 
 type WallItem = {
   image: StaticImageData;
@@ -70,16 +69,15 @@ const wallItems: WallItem[] = [
     image: duskSalon,
     name: "Dusk Salon",
     location: "Jaipur",
+    description:
+      "A compact, mobile setup that fits naturally into the retail environment. Positioned alongside the product display, it brings consultation closer to the client's purchase journey.",
   },
   {
     image: dcubeSalon,
     name: "DCUBE Salon",
     location: "Chalakudy",
-  },
-  {
-    image: makeupChemistry,
-    name: "Makeup Chemistry",
-    location: "Vijayawada",
+    description:
+      "A bold, colour-led space where technology blends naturally into the salon's design. The setup turns a functional station into a more immersive client experience.",
   },
 ];
 

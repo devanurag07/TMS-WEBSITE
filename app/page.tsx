@@ -27,6 +27,7 @@ import logoMaletti from "@/assets/clients-logos/international/MALETTI.png";
 import logoDivaLounge from "@/assets/clients-logos/international/DIVA LOUNGE.png";
 import logoFrancisBeauty from "@/assets/clients-logos/international/FRANCIS SALON.jpeg";
 import logoKteis from "@/assets/clients-logos/international/kteis-logo.png";
+import logoTej from "@/assets/clients-logos/international/TEJ WHITE.png";
 
 // Client logos - Salon Chains India
 import logoFlorianHurel from "@/assets/clients-logos/salon-chains-india/FLORIAN HUREL SALON.png";
@@ -47,6 +48,7 @@ import logoDelnaazSalon from "@/assets/clients-logos/standalone-salons-india/DEL
 import logoMarc from "@/assets/clients-logos/partners/marc.jpeg";
 import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
 import logoMaWa from "@/assets/clients-logos/partners/MA-WA.png";
+import logoMakeupChemistry from "@/assets/clients-logos/partners/makeup-chemistry-logo.png";
 
 // Client logos - Standalone Salons India
 import logoClnz from "@/assets/clients-logos/standalone-salons-india/CLNZ.png";
@@ -75,6 +77,7 @@ import logoWings from "@/assets/clients-logos/standalone-salons-india/WINGS.jpeg
 import logoBlowout from "@/assets/clients-logos/standalone-salons-india/BLOWOUT.png";
 
 import logoDcube from "@/assets/clients-logos/standalone-salons-india/dcube.png";
+import logoJSalon from "@/assets/clients-logos/standalone-salons-india/j-salon-unisex.jpeg";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
 import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
@@ -108,6 +111,7 @@ const internationalBrands: BrandLogo[] = [
   { name: "Francis Beauty", logo: logoFrancisBeauty },
   { name: "KTEIS", logo: logoKteis },
   { name: "Maletti", logo: logoMaletti },
+  { name: "TJ's Beauty Café", logo: logoTej },
 ];
 
 const salonChainsIndiaBrands: BrandLogo[] = [
@@ -125,6 +129,7 @@ const partnerBrands: BrandLogo[] = [
   { name: "LiveInPro", logo: logoMarc },
   { name: "MIRRAR", logo: logoMirrar },
   { name: "MAWA", logo: logoMaWa },
+  { name: "Makeup Chemistry", logo: logoMakeupChemistry },
 ];
 
 const standaloneSalonsIndiaBrands: BrandLogo[] = [
@@ -142,9 +147,11 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Fawn", logo: logoFawn },
   { name: "Hipster Salon", logo: logoHipster },
   { name: "Hoor Salon", logo: logoHoorSalon },
+  { name: "J Salon Unisex", logo: logoJSalon },
   { name: "La Nova", logo: logoLaNova },
   { name: "OQ Derm", logo: logoOqDerm },
   { name: "ORUM", logo: logoOrum },
+  { name: "Play Salon", logo: logoPlaySalon },
   { name: "Rajuls", logo: logoRajuls },
   { name: "RC Studios", logo: logoRcStudios },
   { name: "Shivanjali Wellness", logo: logoShivanjali },
@@ -157,7 +164,6 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
 const multiLocationSalonsBrands: BrandLogo[] = [
   { name: "Delnaaz Salon", logo: logoDelnaazSalon },
   { name: "Luca Piattelli", logo: logoLucaPiattelli },
-  { name: "Play Salon", logo: logoPlaySalon },
   { name: "Portfolio Salon", logo: logoPortfolioSalon },
   { name: "The Artist Salon", logo: logoTheArtistSalon },
 ];
