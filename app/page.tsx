@@ -68,7 +68,6 @@ import logoAire from "@/assets/clients-logos/standalone-salons-india/AIRA-SALON.
 import logoTrimX from "@/assets/clients-logos/standalone-salons-india/TRIMX-STUDIOS.jpeg";
 import logoAmiroSalon from "@/assets/clients-logos/standalone-salons-india/AMIRO-SALON.jpeg";
 import logoDuskSalon from "@/assets/clients-logos/standalone-salons-india/DUSK-SALON.jpeg";
-import logoHoorSalon from "@/assets/clients-logos/standalone-salons-india/HOOR-SALON.jpeg";
 import logoBeSpoke from "@/assets/clients-logos/standalone-salons-india/BESPOKE.png";
 
 import logoFawn from "@/assets/clients-logos/standalone-salons-india/FAWN.jpeg";
@@ -146,7 +145,6 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Dusk Salon", logo: logoDuskSalon },
   { name: "Fawn", logo: logoFawn },
   { name: "Hipster Salon", logo: logoHipster },
-  { name: "Hoor Salon", logo: logoHoorSalon },
   { name: "J Salon Unisex", logo: logoJSalon },
   { name: "La Nova", logo: logoLaNova },
   { name: "OQ Derm", logo: logoOqDerm },
