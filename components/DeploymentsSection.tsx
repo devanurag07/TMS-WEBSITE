@@ -139,6 +139,7 @@ const domesticRegions: DeploymentRegion[] = [
       "Haryana",
       "Rajasthan",
       "Jammu & Kashmir",
+      "Uttarakhand",
     ],
     items: [
       { id: 10, image: ops10, name: "Diona Artisan Salon", location: "Noida" },
@@ -185,6 +186,13 @@ const domesticRegions: DeploymentRegion[] = [
         image: duskSalonJaipur,
         name: "Dusk Salon",
         location: "Jaipur",
+      },
+      {
+        id: 69,
+        image: ops12,
+        name: "Head Zone Salon",
+        location: "Haridwar",
+        isUpcoming: true,
       },
     ],
   },

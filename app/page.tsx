@@ -77,6 +77,8 @@ import logoBlowout from "@/assets/clients-logos/standalone-salons-india/BLOWOUT.
 
 import logoDcube from "@/assets/clients-logos/standalone-salons-india/dcube.png";
 import logoJSalon from "@/assets/clients-logos/standalone-salons-india/j-salon-unisex.jpeg";
+import logoHeadzone from "@/assets/clients-logos/standalone-salons-india/headzone.jpeg";
+import logoSalon24 from "@/assets/clients-logos/standalone-salons-india/salon24.jpeg";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
 import WorldPresenceMapSection from "@/components/WorldPresenceMapSection";
@@ -144,6 +146,7 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Diona", logo: logoDiona },
   { name: "Dusk Salon", logo: logoDuskSalon },
   { name: "Fawn", logo: logoFawn },
+  { name: "Head Zone Salon", logo: logoHeadzone },
   { name: "Hipster Salon", logo: logoHipster },
   { name: "J Salon Unisex", logo: logoJSalon },
   { name: "La Nova", logo: logoLaNova },
@@ -152,6 +155,7 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Play Salon", logo: logoPlaySalon },
   { name: "Rajuls", logo: logoRajuls },
   { name: "RC Studios", logo: logoRcStudios },
+  { name: "Salon 24 Prive", logo: logoSalon24 },
   { name: "Shivanjali Wellness", logo: logoShivanjali },
   { name: "SVSDM", logo: logoSvsdm },
   { name: "The Little Hair Salon", logo: logoTheLittleHairSalon },

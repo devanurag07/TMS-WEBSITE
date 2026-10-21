@@ -249,6 +249,13 @@ const operationalMarkers: MapMarker[] = [
 
 const upcomingMarkers: MapMarker[] = [
   {
+    name: "Haridwar",
+    coordinates: [78.1642, 29.9457],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+    count: 1,
+  },
+  {
     name: "Saharsa",
     coordinates: [86.595, 25.8838],
     labelOffset: { x: 12, y: 4 },
@@ -323,6 +330,7 @@ const zoneConfigs: {
       "Chandigarh",
       "Zirakpur",
       "Jaipur",
+      "Haridwar",
     ],
   },
   {
