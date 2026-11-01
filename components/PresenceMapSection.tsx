@@ -60,7 +60,7 @@ const operationalMarkers: MapMarker[] = [
     coordinates: [72.8777, 19.076],
     labelOffset: { x: -12, y: 4 },
     anchor: "end",
-    count: 3,
+    count: 4,
   },
   {
     name: "Kochi",
@@ -107,9 +107,9 @@ const operationalMarkers: MapMarker[] = [
   {
     name: "Ahmedabad",
     coordinates: [72.5714, 23.0225],
-    labelOffset: { x: 0, y: -12 },
-    anchor: "middle",
-    count: 1,
+    labelOffset: { x: -12, y: 4 },
+    anchor: "end",
+    count: 2,
   },
   {
     name: "Bhavnagar",
@@ -245,23 +245,6 @@ const operationalMarkers: MapMarker[] = [
     anchor: "end",
     count: 2,
   },
-];
-
-const upcomingMarkers: MapMarker[] = [
-  {
-    name: "Haridwar",
-    coordinates: [78.1642, 29.9457],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-    count: 1,
-  },
-  {
-    name: "Saharsa",
-    coordinates: [86.595, 25.8838],
-    labelOffset: { x: 12, y: 4 },
-    anchor: "start",
-    count: 1,
-  },
   {
     name: "Jabalpur",
     coordinates: [79.9864, 23.1815],
@@ -277,8 +260,25 @@ const upcomingMarkers: MapMarker[] = [
     count: 1,
   },
   {
-    name: "Ananthapur",
-    coordinates: [77.6006, 14.6819],
+    name: "Haridwar",
+    coordinates: [78.1642, 29.9457],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+    count: 1,
+  },
+];
+
+const upcomingMarkers: MapMarker[] = [
+  {
+    name: "Pathankot",
+    coordinates: [75.6421, 32.2643],
+    labelOffset: { x: 12, y: 4 },
+    anchor: "start",
+    count: 1,
+  },
+  {
+    name: "Saharsa",
+    coordinates: [86.595, 25.8838],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
     count: 1,
@@ -331,6 +331,7 @@ const zoneConfigs: {
       "Zirakpur",
       "Jaipur",
       "Haridwar",
+      "Pathankot",
     ],
   },
   {
@@ -368,7 +369,6 @@ const zoneConfigs: {
       "Hyderabad",
       "Vuyyuru",
       "Vijayawada",
-      "Ananthapur",
       "Bangalore",
       "Mangalore",
       "Chennai",

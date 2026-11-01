@@ -35,7 +35,6 @@ import playSalon from "@/assets/current-operations/PLAY-SALON.jpeg";
 import natTirunelveli from "@/assets/current-operations/NAT-TIRUNELVELI.jpeg";
 import natCoimbatore from "@/assets/current-operations/NAT-COIMBATORE.jpeg";
 import natKozhikode from "@/assets/current-operations/NAT-KOZHIKODE.jpeg";
-import natPune from "@/assets/current-operations/NAT-PUNE.jpeg";
 import natBangalore from "@/assets/current-operations/NAT-BANGLORE.jpeg";
 import bespokeSalon from "@/assets/current-operations/BESPOKE.jpeg";
 import natChennai from "@/assets/current-operations/NAT-CHENNAI.jpeg";
@@ -56,6 +55,8 @@ import duskSalonJaipur from "@/assets/current-operations/dusk-salon-jaipur.jpg";
 import makeupChemistryVijayawada from "@/assets/current-operations/makeup-chemistry-vijayawada.jpeg";
 import delnaazNaviMumbai from "@/assets/current-operations/delnaaz-navi-mumbai.jpeg";
 import svsdmSalonVijayawada from "@/assets/current-operations/svsdm-salon-vijayawada.jpeg";
+import naturalsAundhPune from "@/assets/current-operations/naturals-aundh-pune.jpeg";
+import fawnSalonJabalpur from "@/assets/current-operations/fawn-salon-jabalpur.jpeg";
 //comment
 const PREVIEW_COUNT = 7;
 
@@ -367,7 +368,12 @@ const domesticRegions: DeploymentRegion[] = [
         name: "Rajuls Belleza",
         location: "Nashik",
       },
-      { id: 48, image: natPune, name: "Naturals NXT", location: "Pune" },
+      {
+        id: 70,
+        image: naturalsAundhPune,
+        name: "Naturals",
+        location: "Aundh, Pune",
+      },
       {
         id: 33,
         image: ops12,
@@ -390,10 +396,9 @@ const domesticRegions: DeploymentRegion[] = [
       },
       {
         id: 64,
-        image: ops12,
+        image: fawnSalonJabalpur,
         name: "FAWN Freelance Salon",
         location: "Jabalpur",
-        isUpcoming: true,
       },
       {
         id: 67,

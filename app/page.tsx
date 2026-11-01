@@ -47,7 +47,7 @@ import logoDelnaazSalon from "@/assets/clients-logos/standalone-salons-india/DEL
 // Client logos - Partners
 import logoMarc from "@/assets/clients-logos/partners/marc.jpeg";
 import logoMirrar from "@/assets/clients-logos/partners/mirrar.png";
-import logoMaWa from "@/assets/clients-logos/partners/MA-WA.png";
+import logoSigmaDisplay from "@/assets/clients-logos/partners/SIGMA-DISPLAY.png";
 import logoMakeupChemistry from "@/assets/clients-logos/partners/makeup-chemistry-logo.png";
 
 // Client logos - Standalone Salons India
@@ -129,7 +129,7 @@ const salonChainsIndiaBrands: BrandLogo[] = [
 const partnerBrands: BrandLogo[] = [
   { name: "LiveInPro", logo: logoMarc },
   { name: "MIRRAR", logo: logoMirrar },
-  { name: "MAWA", logo: logoMaWa },
+  { name: "Sigma Display", logo: logoSigmaDisplay },
   { name: "Makeup Chemistry", logo: logoMakeupChemistry },
 ];
 
