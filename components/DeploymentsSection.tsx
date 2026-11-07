@@ -275,13 +275,6 @@ const domesticRegions: DeploymentRegion[] = [
         isUpcoming: true,
       },
       {
-        id: 59,
-        image: ops12,
-        name: "Naturals",
-        location: "Bengaluru",
-        isUpcoming: true,
-      },
-      {
         id: 60,
         image: ops12,
         name: "Naturals",
