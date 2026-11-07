@@ -57,6 +57,12 @@ import delnaazNaviMumbai from "@/assets/current-operations/delnaaz-navi-mumbai.j
 import svsdmSalonVijayawada from "@/assets/current-operations/svsdm-salon-vijayawada.jpeg";
 import naturalsAundhPune from "@/assets/current-operations/naturals-aundh-pune.jpeg";
 import fawnSalonJabalpur from "@/assets/current-operations/fawn-salon-jabalpur.jpeg";
+import airaSalonMangalore from "@/assets/current-operations/aira-salon-mangalore.jpeg";
+import amiroSalonSurat from "@/assets/current-operations/amiro-salon-surat.jpeg";
+import sigmaDisplayPune from "@/assets/current-operations/sigma-display-pune.jpeg";
+import naturalsNxtKollam from "@/assets/current-operations/naturals-nxt-kollam.jpeg";
+import tejBeautyCafeKenya from "@/assets/current-operations/tej-beauty-cafe-kenya.jpeg";
+import naturalsNxtBtmLayout from "@/assets/current-operations/naturals-nxt-btm-layout.jpeg";
 //comment
 const PREVIEW_COUNT = 7;
 
@@ -122,10 +128,9 @@ const internationalOperations: DeploymentItem[] = [
   },
   {
     id: 65,
-    image: ops12,
-    name: "Coming Soon",
+    image: tejBeautyCafeKenya,
+    name: "Tej Beauty Café",
     location: "Kenya",
-    isUpcoming: true,
   },
 ];
 
@@ -256,37 +261,10 @@ const domesticRegions: DeploymentRegion[] = [
         location: "Bengaluru",
       },
       {
-        id: 66,
-        image: makeupChemistryVijayawada,
-        name: "Makeup Chemistry",
-        location: "Vijayawada",
-      },
-      {
-        id: 31,
-        image: ops12,
-        name: "Aira Salon",
-        location: "Mangalore",
-        isUpcoming: true,
-      },
-      {
         id: 47,
         image: ops12,
         name: "PAGE 3",
         location: "Kochi",
-        isUpcoming: true,
-      },
-      {
-        id: 44,
-        image: ops12,
-        name: "Naturals NXT",
-        location: "Kollam",
-        isUpcoming: true,
-      },
-      {
-        id: 61,
-        image: ops12,
-        name: "Naturals",
-        location: "Kollam",
         isUpcoming: true,
       },
       {
@@ -329,6 +307,31 @@ const domesticRegions: DeploymentRegion[] = [
         image: svsdmSalonVijayawada,
         name: "SVSDM Studios",
         location: "Vijayawada",
+      },
+      {
+        id: 71,
+        image: airaSalonMangalore,
+        name: "Aira Salon",
+        location: "Mangalore",
+      },
+      {
+        id: 74,
+        image: naturalsNxtKollam,
+        name: "Naturals NXT",
+        location: "Kollam",
+      },
+      {
+        id: 75,
+        image: naturalsNxtBtmLayout,
+        name: "Naturals NXT",
+        location: "BTM Layout, Bengaluru",
+      },
+      {
+        id: 76,
+        image: ops12,
+        name: "Naturals NXT",
+        location: "Tambaram, Chennai",
+        isUpcoming: true,
       },
     ],
   },
@@ -375,13 +378,6 @@ const domesticRegions: DeploymentRegion[] = [
         location: "Aundh, Pune",
       },
       {
-        id: 33,
-        image: ops12,
-        name: "Amiro Salon",
-        location: "Surat",
-        isUpcoming: true,
-      },
-      {
         id: 36,
         image: ops12,
         name: "Delnaaz",
@@ -406,6 +402,12 @@ const domesticRegions: DeploymentRegion[] = [
         name: "Salon 24 Prive",
         location: "Nadiad",
         isUpcoming: true,
+      },
+      {
+        id: 72,
+        image: amiroSalonSurat,
+        name: "Amiro Salon",
+        location: "Surat",
       },
     ],
   },
@@ -451,6 +453,18 @@ const partnerOperations: DeploymentItem[] = [
     location: "Gurgaon",
   },
   { id: 51, image: marcSalon, name: "MARC", location: "Kochi" },
+  {
+    id: 73,
+    image: sigmaDisplayPune,
+    name: "Sigma Display",
+    location: "Pune",
+  },
+  {
+    id: 66,
+    image: makeupChemistryVijayawada,
+    name: "Makeup Chemistry",
+    location: "Vijayawada",
+  },
 ];
 
 function ShowMoreCard({

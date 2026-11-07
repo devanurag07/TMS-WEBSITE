@@ -16,6 +16,7 @@ import Footer from "@/components/layout/footer";
 import { HorizontalCarousel } from "@/components/HorizontalCarousel";
 import { useCalendly } from "@/lib/features/calendly/context/CalendlyContext";
 import DarkGradientCircles from "@/components/DarkGradientCircles";
+import { Marquee } from "@/components/ui/marquee";
 import DeploymentsSection from "@/components/DeploymentsSection";
 import CustomerBehaviourSection from "@/components/CustomerBehaviourSection";
 import MirrorImage from "@/assets/mirror_homepage.png";
@@ -78,6 +79,7 @@ import logoBlowout from "@/assets/clients-logos/standalone-salons-india/BLOWOUT.
 import logoDcube from "@/assets/clients-logos/standalone-salons-india/dcube.png";
 import logoJSalon from "@/assets/clients-logos/standalone-salons-india/j-salon-unisex.jpeg";
 import logoHeadzone from "@/assets/clients-logos/standalone-salons-india/headzone.jpeg";
+import logoLsSalonAcademy from "@/assets/clients-logos/standalone-salons-india/LS-SALON-ACADEMY.png";
 import logoSalon24 from "@/assets/clients-logos/standalone-salons-india/salon24.jpeg";
 
 import PresenceMapSection from "@/components/PresenceMapSection";
@@ -95,13 +97,12 @@ const ScrollSpyDot = ({
   <button
     onClick={onClick}
     aria-label="Scroll to section"
-    className={`hidden md:block w-3 h-3 rounded-full transition-all duration-300 z-[9999] ${
-      active
-        ? color === "white"
-          ? "bg-white scale-125 shadow-[0_0_8px_rgba(255,255,255,0.8)]"
-          : "bg-teal-950 scale-125 shadow-[0_0_8px_rgba(15,118,110,0.5)]"
-        : "bg-gray-400 hover:scale-110"
-    }`}
+    className={`hidden md:block w-3 h-3 rounded-full transition-all duration-300 z-[9999] ${active
+      ? color === "white"
+        ? "bg-white scale-125 shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+        : "bg-teal-950 scale-125 shadow-[0_0_8px_rgba(15,118,110,0.5)]"
+      : "bg-gray-400 hover:scale-110"
+      }`}
   />
 );
 
@@ -150,6 +151,7 @@ const standaloneSalonsIndiaBrands: BrandLogo[] = [
   { name: "Hipster Salon", logo: logoHipster },
   { name: "J Salon Unisex", logo: logoJSalon },
   { name: "La Nova", logo: logoLaNova },
+  { name: "LS Salon Academy", logo: logoLsSalonAcademy },
   { name: "OQ Derm", logo: logoOqDerm },
   { name: "ORUM", logo: logoOrum },
   { name: "Play Salon", logo: logoPlaySalon },
@@ -169,6 +171,16 @@ const multiLocationSalonsBrands: BrandLogo[] = [
   { name: "Portfolio Salon", logo: logoPortfolioSalon },
   { name: "The Artist Salon", logo: logoTheArtistSalon },
 ];
+function BrandLogoTile({ brand }: { brand: BrandLogo }) {
+  return (
+    <div className="flex flex-col items-center gap-3 group">
+      <div className="w-[100px] sm:w-[120px] md:w-[160px] h-[56px] sm:h-[70px] md:h-[90px] relative flex items-center justify-center mx-auto shrink-0">
+        <Image src={brand.logo} alt={brand.name} fill className="object-contain" />
+      </div>
+    </div>
+  );
+}
+
 const brandCategories = [
   { title: "International Salons", brands: internationalBrands },
   { title: "Salon Chains", brands: salonChainsIndiaBrands },
@@ -295,6 +307,16 @@ function OnGroundVisitsSection() {
   );
 }
 
+const HEARD_ABOUT_OPTIONS = [
+  "Social Media (Instagram, Facebook, X)",
+  "Website",
+  "LinkedIn",
+  "Youtube",
+  "Estetica",
+  "Referral",
+  "ChatGPT",
+];
+
 export default function Home() {
   const [activeSection, setActiveSection] = useState(sections[0].id);
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
@@ -305,7 +327,41 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [reason, setReason] = useState("");
   const [phone_number, setPhone_number] = useState("");
+  const [heardFrom, setHeardFrom] = useState<string>("");
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateContactForm = () => {
+    const e: Record<string, string> = {};
+    if (!name.trim()) e.name = "Please enter your name";
+    else if (name.trim().length < 2) e.name = "Name must be at least 2 characters";
+    if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim()))
+      e.email = "Please enter a valid email address";
+    if (!phone_number.trim()) e.phone_number = "Please enter your phone number";
+    else if (!/^\+?[0-9\s-]{7,15}$/.test(phone_number.trim()))
+      e.phone_number = "Please enter a valid phone number";
+    if (!reason.trim()) e.reason = "Please tell us why you're contacting us";
+    if (!message.trim()) e.message = "Please enter a message";
+    else if (message.trim().length < 10) e.message = "Message must be at least 10 characters";
+    if (!heardFrom) e.heardFrom = "Please select how you heard about us";
+    return e;
+  };
+
+  const clearError = (field: string) =>
+    setErrors((prev) => {
+      if (!prev[field]) return prev;
+      const { [field]: _, ...rest } = prev;
+      return rest;
+    });
+
+  const inputClass = (field: string) =>
+    `w-full text-3xl bg-transparent border-b-2 ${errors[field] ? "border-red-500 focus:border-red-500" : "border-gray-300 focus:border-[#00A5A5]"} p-3 text-black placeholder-transparent focus:outline-none peer transition-all duration-300`;
+
+  const FieldError = ({ field }: { field: string }) =>
+    errors[field] ? (
+      <p role="alert" className="mt-1 text-sm text-red-600">{errors[field]}</p>
+    ) : null;
 
   const gifs: GifData[] = [
     {
@@ -331,11 +387,12 @@ export default function Home() {
     message: string,
     reason: string,
   ) => {
-    if (!email || !name || !message || !reason) {
-      alert("Please fill all the fields");
-      return;
-    }
+    const validationErrors = validateContactForm();
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) return;
 
+    setIsSubmitting(true);
+    try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -349,6 +406,7 @@ export default function Home() {
         phone_number,
         message,
         reason,
+        heard_about_us: heardFrom,
       }),
     });
 
@@ -361,8 +419,15 @@ export default function Home() {
       setMessage("");
       setReason("");
       setPhone_number("");
+      setHeardFrom("");
+      setErrors({});
     } else {
-      alert("Failed to send email");
+      setErrors({ form: "Failed to send your message. Please try again." });
+    }
+    } catch {
+      setErrors({ form: "Network error. Please check your connection and try again." });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -533,23 +598,32 @@ export default function Home() {
                 </Typography>
                 <div className="h-px flex-1 bg-teal-950/10" />
               </div>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:flex md:flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-14">
-                {category.brands.map((brand) => (
-                  <div
-                    key={brand.name}
-                    className="flex flex-col items-center gap-3 group"
-                  >
-                    <div className="w-[100px] sm:w-[120px] md:w-[160px] h-[56px] sm:h-[70px] md:h-[90px] relative flex items-center justify-center mx-auto shrink-0">
-                      <Image
-                        src={brand.logo}
-                        alt={brand.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {category.brands === standaloneSalonsIndiaBrands ? (
+                <div className="relative flex flex-col gap-4 md:gap-6 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                  {[
+                    category.brands.slice(0, Math.ceil(category.brands.length / 2)),
+                    category.brands.slice(Math.ceil(category.brands.length / 2)),
+                  ].map((row, rowIndex) => (
+                    <Marquee
+                      key={rowIndex}
+                      reverse={rowIndex === 1}
+                      pauseOnHover
+                      repeat={2}
+                      className="p-0 [--duration:45s] [--gap:1rem] sm:[--gap:1.5rem] md:[--gap:3.5rem]"
+                    >
+                      {row.map((brand) => (
+                        <BrandLogoTile key={brand.name} brand={brand} />
+                      ))}
+                    </Marquee>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:flex md:flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-14">
+                  {category.brands.map((brand) => (
+                    <BrandLogoTile key={brand.name} brand={brand} />
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </section>
@@ -562,29 +636,28 @@ export default function Home() {
       <OnGroundVisitsSection />
       <DeploymentsSection />
 
-      <CustomerBehaviourSection />
 
       <div
         id="features"
-        className="section-1 overflow-hidden 2 w-full flex justify-center items-center bg-white flex-col min-h-screen relative  px-4 md:px-20"
+        className="section-1 overflow-hidden 2 w-full flex justify-center items-center bg-black flex-col min-h-screen relative  px-4 md:px-20"
       >
-        <div className="absolute top-[-120px] left-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]" />
-        <div className="absolute bottom-[-120px] right-[-150px] w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] z-[0]" />
+
+        <DarkGradientCircles overflowHidden={false} />
 
         {/* Rest of your existing hero content with improved styling */}
         <div className="w-[90%] md:max-w-[1400px] w-full mt-20 mb-20 z-[1000]">
           <div className="w-full">
             <div className="mb-20">
-              <Typography variant="subheading" className="text-gray-500">
+              <Typography variant="subheading" className="text-white">
                 SMARTER SALONS
               </Typography>
-              <Typography variant="h1" className="text-teal-950">
+              <Typography variant="h1" className="text-white">
                 Style Made Simple.
               </Typography>
 
               <Typography
                 variant="content"
-                className="text-gray-600 max-w-[600px]"
+                className="text-white max-w-[600px]"
               >
                 Transform the way you explore and perfect your look. With
                 intuitive features designed to make styling effortless.
@@ -596,9 +669,8 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`relative z-[1] transition-opacity duration-500 ${
-                    index === activeGifIndex ? "opacity-100" : "opacity-40"
-                  }`}
+                  className={`relative z-[1] transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-40"
+                    }`}
                 >
                   <video
                     src={gif.url}
@@ -606,16 +678,14 @@ export default function Home() {
                     loop
                     muted
                     playsInline
-                    className={`${
-                      index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"
-                    } h-full rounded-3xl shadow-lg object-cover`}
+                    className={`${index === activeGifIndex ? "w-[24rem]" : "w-[18rem]"
+                      } h-full rounded-3xl shadow-lg object-cover`}
                   />
 
                   <Typography
                     variant="subheading"
-                    className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${
-                      index === activeGifIndex ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`word absolute bottom-5 left-1/2 -translate-x-1/2 text-white w-full text-center text-2xl font-semibold ${index === activeGifIndex ? "opacity-100" : "opacity-0"
+                      }`}
                   >
                     {gif.text}
                   </Typography>
@@ -628,9 +698,8 @@ export default function Home() {
               {gifs.map((gif, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-center transition-opacity duration-500 ${
-                    index === activeGifIndex ? "opacity-100" : "opacity-100"
-                  }`}
+                  className={`flex items-center justify-center transition-opacity duration-500 ${index === activeGifIndex ? "opacity-100" : "opacity-100"
+                    }`}
                 >
                   <div className="relative">
                     <video
@@ -655,297 +724,22 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div
-        id="comparison"
-        className="section-3 w-full flex justify-center items-center bg-white min-h-screen relative overflow-hidden md:px-0 z-[150]"
-      >
-        {/* create two circles of radial gradient and put them in the top left and bottom right */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
-        <div className="absolute bottom-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] bg-green-100"></div>
-
-        {/* Before vs After Section */}
-        <section className="w-[90%] md:max-w-[1400px]  md:p-20 z-[1000]">
-          {/* <div className="heading">
-            <Typography variant="subheading" className="text-gray-500 text-3xl uppercase font-semibold">  Before vs After</Typography>
-          </div> */}
-          {/* Row-based Comparison Layout */}
-          <div className="space-y-2 md:space-y-8">
-            {/* Row 1: Customer Experience */}
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
-              <div className="text-right p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="h1"
-                  className="text-teal-950 text-2xl font-bold"
-                >
-                  Before
-                </Typography>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <Typography
-                  variant="h1"
-                  className="!mt-2 text-teal-950 text-2xl"
-                >
-                  VS
-                </Typography>
-              </div>
-
-              <div className="p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="h1"
-                  className="text-teal-950 text-2xl font-bold"
-                >
-                  After
-                </Typography>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 md:grid-cols-3 md:gap-4 items-center">
-              <div className="text-right p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  Losing potential revenue on the premium services due to
-                  <span className="text-red-500 font-semibold">
-                    {" "}
-                    customer hesitation
-                  </span>
-                </Typography>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <div className="rounded-full w-[35px] h-[35px] md:h-[70px] md:w-[70px]  bg-teal-950 flex items-center justify-center">
-                  <Image
-                    src={Vector4Icon}
-                    alt="Customer Experience"
-                    width={42}
-                    height={42}
-                    className="h-[20px] md:h-[42px]"
-                  />
-                </div>
-                <Typography
-                  variant="content"
-                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
-                >
-                  Customer Experience
-                </Typography>
-              </div>
-
-              <div className="p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  Increased customer spending by
-                  <span className="text-teal-950 font-semibold">
-                    {" "}
-                    eliminating hesitation
-                  </span>{" "}
-                  through try-on
-                </Typography>
-              </div>
-            </div>
-
-            {/* Row 2: Data Utilization */}
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
-              <div className="text-right p-2 md:p-6 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  <span className="text-red-500 font-semibold">
-                    No data & insights
-                  </span>{" "}
-                  for hair & skin on the visiting customers
-                </Typography>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <div className="rounded-full w-[35px] h-[35px] md:h-[70px] md:w-[70px] bg-teal-950 flex items-center justify-center">
-                  <Image
-                    src={dataGraphIcon}
-                    alt="Data Utilization"
-                    width={42}
-                    height={42}
-                    className="h-[20px] md:h-[42px]"
-                  />
-                </div>
-                <Typography
-                  variant="content"
-                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
-                >
-                  Data Utilization
-                </Typography>
-              </div>
-
-              <div className="p-2 md:p-6 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  Leveraging data gained to provide
-                  <span className="text-teal-950 font-semibold">
-                    {" "}
-                    personalized recommendations
-                  </span>{" "}
-                  & feedback
-                </Typography>
-              </div>
-            </div>
-
-            {/* Row 3: Brand Visibility */}
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
-              <div className="text-right p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  Losing out on social media
-                  <span className="text-red-500 font-semibold">
-                    {" "}
-                    presence
-                  </span>{" "}
-                  and engagement
-                </Typography>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <div className="rounded-full w-[35px] h-[35px] md:h-[70px] md:w-[70px] bg-teal-950 flex items-center justify-center">
-                  <Image
-                    src={Vector1Icon}
-                    alt="Brand Visibility"
-                    width={20}
-                    height={20}
-                    className="h-[20px] md:h-[42px]"
-                  />
-                </div>
-                <Typography
-                  variant="content"
-                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
-                >
-                  Brand Visibility
-                </Typography>
-              </div>
-
-              <div className="p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  <span className="text-teal-950 font-semibold">
-                    Gaining social media presence
-                  </span>{" "}
-                  and word-of-mouth marketing
-                </Typography>
-              </div>
-            </div>
-
-            {/* Row 4: Business Growth */}
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
-              <div className="text-right p-2 md:p-6 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  <span className="text-red-500 font-semibold">Low</span>{" "}
-                  Average ticket size
-                </Typography>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <div className="rounded-full w-[35px] h-[35px] md:h-[70px] md:w-[70px] bg-teal-950 flex items-center justify-center">
-                  <Image
-                    src={Vector2Icon}
-                    alt="Business Growth"
-                    width={20}
-                    height={20}
-                    className="h-[20px] md:h-[42px]"
-                  />
-                </div>
-                <Typography
-                  variant="content"
-                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
-                >
-                  Business Growth
-                </Typography>
-              </div>
-
-              <div className="p-2 md:p-6 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  <span className="text-teal-950 font-semibold">Increased</span>{" "}
-                  Average ticket size and footfall
-                </Typography>
-              </div>
-            </div>
-
-            {/* Row 5: Market Position */}
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 items-center">
-              <div className="text-right p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  <span className="text-red-500 font-semibold">
-                    No major differentiator
-                  </span>{" "}
-                  from competition
-                </Typography>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <div className="rounded-full w-[35px] h-[35px] md:h-[70px] md:w-[70px] bg-teal-950 flex items-center justify-center">
-                  <Image
-                    src={Vector3Icon}
-                    alt="Market Position"
-                    width={20}
-                    height={20}
-                    className="h-[20px] md:h-[42px]"
-                  />
-                </div>
-                <Typography
-                  variant="content"
-                  className="!mt-2 text-teal-950 text-sm md:text-xl text-center"
-                >
-                  Market Position
-                </Typography>
-              </div>
-
-              <div className="p-2 md:p-6 bg-teal-50/50 rounded-lg">
-                <Typography
-                  variant="content"
-                  className="text-gray-600 text-sm md:text-xl"
-                >
-                  Transformation into a{" "}
-                  <span className="text-teal-950 font-semibold">
-                    technology-first salon
-                  </span>
-                </Typography>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
 
       <div
         id="faq"
-        className="section-4 w-full flex justify-center items-center bg-black p-4 md:p-36 min-h-[50vh] relative overflow-hidden"
+        className="section-4 w-full flex justify-center items-center bg-white p-4 md:p-36 min-h-[50vh] relative overflow-hidden border-b-2"
       >
-        <DarkGradientCircles overflowHidden={true} isStraight={false} />
         <section className="md:max-w-[1400px] w-full z-[1000]">
           <div className="mb-16 flex flex-col md:flex-row md:gap-[250px]">
             <div className="heading flex-1">
               <Typography
                 variant="subheading"
-                className="text-white text-xl md:text-3xl uppercase font-semibold"
+                className="text-primary text-xl md:text-3xl uppercase font-semibold"
               >
                 FAQ
               </Typography>
 
-              <Typography variant="h1" className="text-white mt-2 mb-12">
+              <Typography variant="h1" className="text-primary mt-2 mb-12">
                 Frequently
                 <br />
                 asked
@@ -972,20 +766,18 @@ export default function Home() {
                       <div className="w-[10px]"></div>
 
                       <span
-                        className={`text-2xl text-white transition-transform duration-300 ${
-                          activeFaq === key ? "rotate-45 !text-red-500" : ""
-                        }`}
+                        className={`text-2xl text-white transition-transform duration-300 ${activeFaq === key ? "rotate-45 !text-red-500" : ""
+                          }`}
                       >
                         +
                       </span>
                     </div>
                   </button>
                   <div
-                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${
-                      activeFaq === key
-                        ? "max-h-[500px] opacity-100"
-                        : "max-h-0 opacity-0"
-                    }`}
+                    className={`overflow-hidden transition-all rounded-md mt-2 shadow-2xl duration-300 ${activeFaq === key
+                      ? "max-h-[500px] opacity-100"
+                      : "max-h-0 opacity-0"
+                      }`}
                   >
                     <div className="p-5 text-white bg-teal-950 border border-white/10 rounded-b-lg">
                       <Typography
@@ -1036,75 +828,121 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder=" "
-                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    className={inputClass("name")}
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => { setName(e.target.value); clearError("name"); }}
+                    aria-invalid={!!errors.name}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Name
                   </label>
+                  <FieldError field="name" />
                 </div>
 
                 <div className="relative">
                   <input
                     type="email"
                     placeholder=" "
-                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    className={inputClass("email")}
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => { setEmail(e.target.value); clearError("email"); }}
+                    aria-invalid={!!errors.email}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Email Address
                   </label>
+                  <FieldError field="email" />
                 </div>
 
                 <div className="relative">
                   <input
-                    type="number"
+                    type="tel"
                     placeholder=" "
-                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    className={inputClass("phone_number")}
                     value={phone_number}
-                    onChange={(e) => setPhone_number(e.target.value)}
+                    onChange={(e) => { setPhone_number(e.target.value); clearError("phone_number"); }}
+                    aria-invalid={!!errors.phone_number}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Phone Number
                   </label>
+                  <FieldError field="phone_number" />
                 </div>
                 <div className="relative">
                   <input
                     type="text"
                     placeholder=" "
-                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300"
+                    className={inputClass("reason")}
                     value={reason}
-                    onChange={(e) => setReason(e.target.value)}
+                    onChange={(e) => { setReason(e.target.value); clearError("reason"); }}
+                    aria-invalid={!!errors.reason}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Reason for contacting
                   </label>
+                  <FieldError field="reason" />
                 </div>
 
                 <div className="relative">
                   <textarea
                     placeholder=" "
                     rows={4}
-                    className="w-full text-3xl bg-transparent border-b-2 border-gray-300 p-3 text-black placeholder-transparent focus:outline-none focus:border-[#00A5A5] peer transition-all duration-300 resize-none"
+                    className={`${inputClass("message")} resize-none`}
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e) => { setMessage(e.target.value); clearError("message"); }}
+                    aria-invalid={!!errors.message}
                   />
                   <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                     Message
                   </label>
+                  <FieldError field="message" />
                 </div>
+
+                <fieldset className="space-y-4">
+                  <legend className="text-teal-950 text-xl md:text-2xl font-semibold mb-4">
+                    How did you hear about us? <span className="text-red-600">*</span>
+                  </legend>
+                  <select
+                    className={`p-4 m-0 border-2 rounded-md ${errors.heardFrom ? "border-red-500" : "border-transparent"}`}
+                    value={heardFrom}
+                    required
+                    aria-invalid={!!errors.heardFrom}
+                    onChange={(e) => {
+                      setHeardFrom(e.target.value);
+                      clearError("heardFrom");
+                    }}
+                  >
+                    <option value="" disabled>
+                      Select an option
+                    </option>
+                    {HEARD_ABOUT_OPTIONS.map((option) => (
+                      <option
+                        key={option}
+                        value={option}
+                        className="flex items-center gap-4 text-lg md:text-xl text-gray-800 cursor-pointer"
+                      >
+                        {option}
+                      </option>
+                    ))}
+
+                  </select>
+                  <FieldError field="heardFrom" />
+                </fieldset>
+
+                {errors.form && (
+                  <p role="alert" className="text-sm text-red-600">{errors.form}</p>
+                )}
 
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   onClick={(e) => {
                     e.preventDefault();
                     sendContactUsEmail(name, email, message, reason);
                   }}
-                  className="bg-teal-950 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-[#008585] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  className="bg-teal-950 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-[#008585] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <span className="text-lg font-medium">Submit</span>
+                  <span className="text-lg font-medium">{isSubmitting ? "Sending..." : "Submit"}</span>
                   <svg
                     width="24"
                     height="24"

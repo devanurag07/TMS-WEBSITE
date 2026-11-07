@@ -137,7 +137,7 @@ const operationalMarkers: MapMarker[] = [
     coordinates: [80.2707, 13.0827],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
-    count: 3,
+    count: 4,
   },
   {
     name: "Coimbatore",

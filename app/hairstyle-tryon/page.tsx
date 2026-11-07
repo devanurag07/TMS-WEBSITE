@@ -88,7 +88,7 @@ const store_benefits = [
     icon: increaseRevenueIcon,
     title: "Increased revenue",
     description:
-      "Go from alow average ticket size to Increased ROI with additional monthly profits with TryMyStyle’s smart mirror.",
+      "Go from a low average ticket size to Increased ROI with additional monthly profits with TryMyStyle’s smart mirror.",
   },
   {
     id: 6,
@@ -242,13 +242,13 @@ export default function SmartMirror() {
             <div className="hero-image flex-1 items-centers justify-center flex ">
               <div className="rounded-full border border-dashed p-4 z-[100]">
 
-              <Image
-                src={HairstyleTryonImage}
-                width={400}
-                height={400}
-                alt=""
-                className="w-[300px] md:w-[500px] h-full  z-[200] rounded-full"
-              />
+                <Image
+                  src={HairstyleTryonImage}
+                  width={400}
+                  height={400}
+                  alt=""
+                  className="w-[300px] md:w-[500px] h-full  z-[200] rounded-full"
+                />
 
               </div>
             </div>
@@ -337,24 +337,24 @@ export default function SmartMirror() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-10 mt-4  md:mt-20 md:grid max-w-[1300px] ">
             {store_benefits.slice(0, 6).map((item) => (
               <div key={item.id} className="md:p-10 p-5 w-full rounded-3xl bg-white relative border shadow-lg">
-                  <div className="flex flex-row md:flex-row items-center justify-start gap-4">
-                    <div className="icon">
-                      <Image src={item.icon} alt="Icon" width={60} height={60} className="text-teal-950 h-10 w-10 md:h-14 md:w-14" />
-                    </div>
-                    <Typography
-                      className="benefit-card-title poppins font-medium text-teal-950 text-start"
-                      variant={"subheading"}
-                    >
-                      {item.title}
-                    </Typography>
+                <div className="flex flex-row md:flex-row items-center justify-start gap-4">
+                  <div className="icon">
+                    <Image src={item.icon} alt="Icon" width={60} height={60} className="text-teal-950 h-10 w-10 md:h-14 md:w-14" />
                   </div>
-
                   <Typography
-                    className="description poppins !mt-2 text-teal-900"
-                    variant={"content"}
+                    className="benefit-card-title poppins font-medium text-teal-950 text-start"
+                    variant={"subheading"}
                   >
-                    {item.description}
+                    {item.title}
                   </Typography>
+                </div>
+
+                <Typography
+                  className="description poppins !mt-2 text-teal-900"
+                  variant={"content"}
+                >
+                  {item.description}
+                </Typography>
               </div>
             ))}
           </div>

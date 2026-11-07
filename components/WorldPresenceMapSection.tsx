@@ -23,8 +23,8 @@ type MapMarker = {
   anchor: "start" | "middle" | "end";
 };
 
-const HIGHLIGHTED_COUNTRIES = new Set(["Italy", "Qatar", "Kuwait", "Greece"]);
-const UPCOMING_COUNTRIES = new Set(["Kenya"]);
+const HIGHLIGHTED_COUNTRIES = new Set(["Italy", "Qatar", "Kuwait", "Greece", "Kenya"]);
+const UPCOMING_COUNTRIES = new Set<string>([]);
 
 const operationalCountryMarkers: MapMarker[] = [
   {
@@ -51,15 +51,15 @@ const operationalCountryMarkers: MapMarker[] = [
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
-];
-
-const upcomingCountryMarkers: MapMarker[] = [
   {
     name: "Kenya",
     coordinates: [37.9062, 0.0236],
     labelOffset: { x: 12, y: 4 },
     anchor: "start",
   },
+];
+
+const upcomingCountryMarkers: MapMarker[] = [
 ];
 
 const WorldPresenceMapSection = () => {

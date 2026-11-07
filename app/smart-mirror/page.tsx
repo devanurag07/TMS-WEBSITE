@@ -142,7 +142,7 @@ const store_benefits = [
     icon: increaseRevenueIcon,
     title: "Increased revenue",
     description:
-      "Go from alow average ticket size to Increased ROI with additional monthly profits with TryMyStyle’s smart mirror.",
+      "Go from a low average ticket size to Increased ROI with additional monthly profits with TryMyStyle’s smart mirror.",
   },
   {
     id: 6,
